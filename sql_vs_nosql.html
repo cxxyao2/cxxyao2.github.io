@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Database</title>
+  <link rel="stylesheet" type="text/css" href="table.css" />
+</head>
+<body>
+  <div class="container"> 
+  <table>
+    <tr>
+      <th>RDBMS</th>
+      <th>NoSql</th>
+      <th>Comments</th>
+    </tr>
+    <tr>
+      <td>Structured Data</td>
+      <td>
+        <ul>
+          <li>
+            key-value pairs, documents, graphic data...
+          </li>
+          <li>
+            Unstructure/demo-structure data, in unpredictable(flexible) format.
+          </li>
+        </ul>
+       </td>
+      <td></td>
+    </tr>
+    <tr class="alt">
+      <td>SQL</td>
+      <td>Not only SQL</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Data & Relation Stored in Tables & Schema</td>
+      <td>No predefined schema</td>
+      <td></td>
+    </tr>
+    <tr class="alt">
+      <td>Consistency,ACID</td>
+      <td>Eventual consistency</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Transaction</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="alt">
+      <td>CA: Mysql,Sql Server,Oracle</td>
+      <td>
+       <ul>
+         <li>CP: MongoDB,HBase,Redis... </li>
+         <li>AP: CouchDB,Cassandra...</li>
+       </ul>
+       
+      </td>
+      <td>
+        <article>
+          <h3>CAP theorem:</h3>
+          <p>For distributed computing system, it is impossible to satisfy 3
+            requirements at the same time:
+          <ul>
+            <li><strong>C</strong>onsistency</li>
+            <li><strong>A</strong>vailability</li>
+            <li><strong>P</strong>artition tolerance</li>
+          </ul>
+          </p>
+        </article>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Scalable.Efficient.Available.</td>
+      <td></td>
+    </tr>
+  </table>
+  </div>
+
+  <div class="container">
+    <table>
+      <tr>
+        <td style="font:1.1em bold;text-align: center;padding: 5px; background-color: rgba(68, 50, 183, 0.6);
+  color: white;">
+          ACID Principles
+        </td>
+      </tr>
+      <tr>
+        <td>
+        <UL>
+          <li><strong>Atomicity:</strong> an indivisible and irreducible series of database operations such that
+            either all occur, or nothing occurs. eg. 1) withdraw $10 from A account 2) save $10 to B account.
+            1), 2) all are committed or rollback.
+          </li>
+          <li><strong>Consistency:</strong>Data written to DB must be valid according to all defined rules,including
+            constraints, trigger, cascades, and other combinations thereof2. </li>
+          <li><strong>Isolation: </strong>parallel transactions are isolated.
+            B transaction cannot see the dirty data(not committed) of A transaction </li>
+          <li><strong>Durability:</strong> data persistance after server is shutdown</li>
+        </UL>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+</body>
+</html>

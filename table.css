@@ -1,0 +1,59 @@
+html,
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: lightgrey;
+  color: #202122;
+  overflow-y: scroll;
+  margin: 0;
+}
+
+.container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+table {
+  width: 70%;
+}
+
+caption {
+  caption-side: top;
+  font-size: 1.1em;
+  background-color: rgba(68, 50, 183, 0.6);
+  color: white;
+  padding: 5px;
+}
+
+th {
+  font-size: 1.1em;
+  background-color: rgba(68, 50, 183, 0.6);
+  color: white;
+  padding: 5px;
+  text-align: center;
+}
+
+tr {
+  font-size: 1em;
+  padding: 5px;
+  text-align: left;
+  color: #000000;
+  background-color: white;
+}
+
+tr.alt {
+  background-color: rgba(68, 50, 183, 0.25);
+}
+
+li {
+  padding: 10px;
+}
