@@ -14,7 +14,7 @@
     }
 
     body {
-      background-color: white;
+      background-color:lightgrey;
       color: #202122;
       overflow-y: scroll;
       margin:0;
@@ -23,18 +23,21 @@
     .container {
       margin-top: 60px;
       padding-top: 20px;
-      display: -webkit-flex;
       display: flex;
+      flex-wrap:wrap;
+      align-content:flex-start;
       width: 100%;
-      height: 300px;
       justify-content: space-around;
+      align-items: center;
+      
 
     }
     .card {
-      display: block;
       border-radius: 10px;
       width: 30%;
       height: 200px;
+      margin: 10px;
+      background-color: white;
       box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
       transition: 0.3s;
     }
@@ -42,17 +45,18 @@
       box-shadow: 0 8px 20px 0 rgba(68,50,183,0.2);
     }
 
+ 
     .navbar {
       position: fixed;
       overflow: hidden;
       top: 0;
       width: 100%;
       height: 60px;
-      left: 0;
-      right:0;
+    padding: 10px;
+      background-color: white;
       box-shadow: 0 5px 2px 0 rgba(68,50,183,0.25);
       display:flex;
-      justify-content:flex-start;
+      justify-content:space-between;
       align-items: center;
     }
 
@@ -65,42 +69,32 @@
       
     }
 
-    .link-left {
-      display:flex;
-      justify-content:space-evenly;
-      width: 40%;
-      float: left;
-    }
+  
 
-     .link-right {
-       display:flex;
-      justify-content: space-between;
-       width: 40%;
-      float: right;
-    }
+   
   </style>
 </head>
 <body>
   <div class="navbar">
-    <div class="link-left">
+   
       <a  href="#home">Home</a>
       <a  href="#search">Search</a>
-    </div>
-    <div class="link-right">
+    
+    
       <a href="#contact">Contact</a>
       <a href="#about">About</a>
-    </div>
+  
    
   
 </div>
 
 <div class="container">
   <div class="card">
-    <ul>Frontend
-      <li>Angular 6</li>
-      <li>React Native</li>
-      <li>React</li>
-    </ul>
+      <ul>Frontend
+        <li>Angular 6</li>
+        <li>React Native</li>
+        <li>React</li>
+      </ul>
   </div>
 
   <div class="card">
@@ -117,10 +111,18 @@
       <li>Google Cloud</li>
       <li>Heroku</li>
     </ul>
-</div>
+  </div>
  
+  <div class="card">
+    <ul>Others
+      <li>Algorithm</li>
+      <li>Python</li>
+      <li>PWA</li>
+    </ul>
+  </div>
+
 </div>
-<div>Others: PWA...</div>
+
   <footer>
     @2020 XIXI
   </footer>
