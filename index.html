@@ -1,35 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <Title> Full Stack Developer </Title>
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My project</title>
+  <style>
+    html,body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: white;
+      color: #202122;
+      overflow-y: scroll;
+      margin:0;
+    }
+
+    .container {
+      margin-top: 60px;
+      padding-top: 20px;
+      display: -webkit-flex;
+      display: flex;
+      width: 100%;
+      height: 300px;
+      justify-content: space-around;
+
+    }
+    .card {
+      display: block;
+      border-radius: 10px;
+      width: 30%;
+      height: 200px;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+    }
+    .card:hover {
+      box-shadow: 0 8px 20px 0 rgba(68,50,183,0.2);
+    }
+
+    .navbar {
+      position: fixed;
+      overflow: hidden;
+      top: 0;
+      width: 100%;
+      height: 60px;
+      left: 0;
+      right:0;
+      box-shadow: 0 5px 2px 0 rgba(68,50,183,0.25);
+      display:flex;
+      justify-content:flex-start;
+      align-items: center;
+    }
+
+    .navbar a {
+      display: block;
+      text-align: center;
+      color: #202122;
+      text-decoration: none;
+      font-size: 17px;
+      
+    }
+
+    .link-left {
+      display:flex;
+      justify-content:space-evenly;
+      width: 40%;
+      float: left;
+    }
+
+     .link-right {
+       display:flex;
+      justify-content: space-between;
+       width: 40%;
+      float: right;
+    }
+  </style>
+</head>
 <body>
-  <ul> 
-    <il> --Frontend-- </il>
-    <il>Angular 6</il>
-    <il>React Native</il>
-    <il>React </il>
-  </ul>
-  <br>
-  <ul>
-     <il> --Database Sql vs NoSql -- </il>
-    <il> Mysql </il>
-    <il> Mongodb </il>
-    <il> Firebase </il>
-  </ul>
-  <br>
-  <ul> 
-     <il> --Deployment -- </il>
-    <il> AWS </il>
-    <il> Google </il>
-    <il> Others: PWA... </il>
-  </ul>
+  <div class="navbar">
+    <div class="link-left">
+      <a  href="#home">Home</a>
+      <a  href="#search">Search</a>
+    </div>
+    <div class="link-right">
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+    </div>
+   
   
-  <br>
+</div>
+
+<div class="container">
+  <div class="card">
+    <ul>Frontend
+      <li>Angular 6</li>
+      <li>React Native</li>
+      <li>React</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <ul>Database
+      <li>MongoDB</li>
+      <li>Mysql</li>
+      <li>Firebase</li>
+    </ul>
+  </div>
+    
+  <div class="card">
+    <ul>Deployment
+      <li>AWS</li>
+      <li>Google Cloud</li>
+      <li>Heroku</li>
+    </ul>
+</div>
+ 
+</div>
+<div>Others: PWA...</div>
   <footer>
-    @2000 XIXI
+    @2020 XIXI
   </footer>
 </body>
 </html>
