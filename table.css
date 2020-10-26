@@ -10,7 +10,7 @@ body {
 body {
   background-color: lightgrey;
   color: #202122;
-  overflow-y: scroll;
+  overflow: scroll;
   margin: 0;
 }
 
