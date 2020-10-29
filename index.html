@@ -3,230 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-  <title>Full Stack Developer</title>
-  <style>
-    html,body {
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      background-color:lightgrey;
-      color: #202122;
-      overflow-y: scroll;
-      margin:0;
-    }
-
-    .container {
-      margin-top: 60px;
-      padding-top: 10px;
-      display: flex;
-      flex-wrap:wrap;
-      align-content:flex-start;
-      width: 100%;
-      justify-content: space-around;
-      align-items: center;
-
-    }
-    .card {
-      border-radius: 10px;
-      width: 30%;
-      height: 200px;
-      margin: 10px;
-      background-color: white;
-      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
-      transition: 0.3s;
-    }
-    .card:hover {
-      box-shadow: 0 8px 20px 0 rgba(68,50,183,0.4);
-    }
-
-    @media screen and (max-width: 600px) {
-      .card {
-        width: 45%;
-      }
-    }
- 
-    .navbar {
-      position: fixed;
-      overflow: hidden;
-      top: 0;
-      width: 100%;
-      height: 50px;
-      padding: 0px;
-      background-color: white;
-      box-shadow: 0 5px 2px 0 rgba(68,50,183,0.6);
-      display:flex;
-      justify-content:start;
-      align-items: center;
-    }
-
-    .navbar a {
-      padding: 5px;
-      display: block;
-      text-align: left;
-      color: #202122;
-      text-decoration: none;
-      font-size: 17px;
-      width: 150px;
-      margin-left: 20px;
-      
-    }
-    a {
-      text-decoration: none;
-    }
-
-    a:hover,a:active {
-      font-weight: bold;
-      color: rgb(68,50,183);
-      background-color: rgb(240, 222, 222);
-    }
-
-    #sideBar {
-      position: relative;
-      display:flex;
-      visibility: visible;
-      justify-content:start;
-      align-items: center;
-      margin: 0;
-      padding: 0;
-      border: 0;
-      flex: auto;
-   
-    }
-
-    #searchBar {
-      position: relative;
-      display: block;
-      text-align: left;
-      margin-left: 50px;
-      border-radius: 10px;
-      border: 2px solid lightgrey;
-      padding: 5px;
-      width: 320px;
-    }
-
-  footer {
-    bottom: 0;
-    background-color:white;
-    box-shadow: 0 -4px 8px 0 rgba(0,0,0,0.5);
-    left: 0;
-    padding: 20px;
-    position: fixed;
-    text-align: center;
-    width: 100%;
-  }
-
-  .fa-bars {
-    font-size: 2rem;
-  }
-
-
-  #popBars {
-    border: none;
-    background: none;
-    display: none;
-  }
-
-
-
-/*viewpoint if <800px, sidebar */
-  @media screen and (max-width: 800px)  {
-      #sideBar {
-      position: fixed;
-      width: 180px;
-      height: 80%;
-      z-index:1;
-      top:55px;
-      left: 0;
-      overflow-x: hidden;
-      padding-top:20px;
-      display:flex;
-      visibility: hidden;
-      flex-direction: column;
-      justify-content:start;
-      align-items: baseline;
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 0 8px 0 rgba(0,0,0,0.5);
-      }
-
-      #sideBar a {
-        margin-top: 20px;
-      }
-
-      #popBars {
-        display:block;
-      }
-   
-    }
-  
-
-  </style>
-
-  <script>
-     window.onresize = function () {
-      if (window.innerWidth > 800) {
-        const sideBar = document.getElementById("sideBar");
-        sideBar.style.visibility = "visible";
-      };
-     }
-   
-      function showClearIcon() {
-        const searchBtn = document.getElementById("searchKey");
-        if(!searchBtn) { 
-          return ;
-        }
-         
-        const clearIcon = document.getElementById("clearIcon");
-        if (!clearIcon) { 
-          return ;
-        }
-
-     
-        if(searchBtn.value.trim().length >= 1){
-           clearIcon.style.visibility="visible";
-        } else {
-           clearIcon.style.visibility="hidden";
-        } 
-
-      }
-
-
-      function clearSearchBar() {
-        const searchBtn = document.getElementById("searchKey");
-        const clearIcon = document.getElementById("clearIcon");
-        if (searchBtn) {
-          searchBtn.value="";
-        }
-        if (clearIcon) {
-          clearIcon.style.visibility = "hidden";
-        }
-      }
-
-      function toggleSideBar() {
-        const sideBar = document.getElementById("sideBar");
-        let hidden= (sideBar.style.visibility === "hidden");
-        if (hidden) {
-          sideBar.style.visibility = "visible";
-        }  else {
-           sideBar.style.visibility = "hidden";
-        }
-      }
-  
-  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="homepage1.css" />
+  <script src="homepage1.js"></script>
+  <title>Full Stack Developer Notes</title>
 </head>
 <body>
   <header class="navbar">
     <button id="popBars" href="#bars"><i class="fa fa-bars fa-fw" onclick="toggleSideBar()"></i></button>
     <div id="sideBar">
-    
       <a href="#home"><i class="fa fa-home fa-fw"></i>Home</a>
       <a href="#contact"><i class="fa fa-book fa-fw"></i>Archives</a>
       <a href="#Journaux"><i class="fa fa-calendar fa-fw"></i>Journaux</a>
@@ -275,7 +60,11 @@
     </div>
 
     <div class="card">
-      <ul>Journal intime
+      <img src="./tree1.jpg" alt="a tree"  style="padding:5px;float:left;width:100px;height:100px;border-radius: 50%;
+       position: relative;
+      top:50%;
+     transform: translateY(-50%);" />
+      <ul style="float:right;width:50%;position:relative;top:20px;">Journal intime
         <li><a href="journal.html">25 Oct,2020</a></li>
         <li>...</li>
       </ul>
