@@ -171,6 +171,12 @@
   </style>
 
   <script>
+     window.onresize = function () {
+      if (window.innerWidth > 800) {
+        const sideBar = document.getElementById("sideBar");
+        sideBar.style.visibility = "visible";
+      };
+     }
    
       function showClearIcon() {
         const searchBtn = document.getElementById("searchKey");
