@@ -39,9 +39,23 @@ body {
 }
 
 .searchInput {
-  font-size:1em;position:absolute;top:5px;border:none;outline:none;width:70%}
+  font-size: 1em;
+  position: absolute;
+  top: 5px;
+  border: none;
+  outline: none;
+  width: fit-content;
+  background-image: url(./assets/search.png);
+  background-size: 15px 15px;
+
+  background-repeat: no-repeat;
+  background-position: left;
+  background-origin: content-box;
+  text-indent: 30px;
+}
 .searchInput:focus {
-width: 80%;
+  background-image: none;
+  text-indent: 0px;
 }
 
 @media screen and (max-width: 600px) {
@@ -88,7 +102,7 @@ a:active {
 #sideBar {
   position: relative;
   display: flex;
-  visibility: visible;
+
   justify-content: start;
   align-items: center;
   margin: 0;
@@ -130,8 +144,18 @@ footer {
   display: none;
 }
 
-/*viewpoint if <800px, sidebar */
-@media screen and (max-width: 800px) {
+@media screen and (min-width: 769px) {
+  .navbar {
+    visibility: visible;
+  }
+
+  #sideBar {
+    visibility: visible;
+  }
+}
+
+/*viewpoint if <768px, sidebar */
+@media screen and (max-width: 768px) {
   #sideBar {
     position: fixed;
     width: 180px;

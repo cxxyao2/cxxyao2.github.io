@@ -1,86 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="homepage1.css" />
-  <script src="homepage1.js"></script>
-  <title>Fulltack Developer Blog</title>
-</head>
-<body>
-  <header class="navbar">
-    <button id="popBars" href="#bars"><i class="fa fa-bars fa-fw" onclick="toggleSideBar()"></i></button>
-    <div id="sideBar">
-      <a href="#home"><i class="fa fa-home fa-fw"></i>Home</a>
-      <a href="#contact"><i class="fa fa-book fa-fw"></i>Archives</a>
-      <a href="#Journaux"><i class="fa fa-calendar fa-fw"></i>Journaux</a>
-    </div>
-    <div id="searchBar">
-      <input type="input" size=5  id="searchKey" placeholder="input something..." class="searchInput"
-      onkeydown="showClearIcon()"
-      />
-      &nbsp;<i id="clearIcon" class="fa fa-times" style="visibility:hidden;cursor: pointer; position:absolute;top:5px;right:30px;color:purple;"  onclick="clearSearchBar()"></i>&nbsp;
-     <i class="fa fa-search" style="position:absolute;top:5px;right:5px;color:purple;cursor: pointer; "></i>
-    </div>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="homepage1.css" />
 
-  <main class="container">
-    <div class="card">
-        <ul>Frontend
+    <title>Fulltack Developer Blog</title>
+  </head>
+  <body>
+    <header class="navbar">
+      <button id="popBars" href="#bars">
+        <i class="fa fa-bars fa-fw" onclick="toggleSideBar()"></i>
+      </button>
+      <div id="sideBar">
+        <a href="#home"><i class="fa fa-home fa-fw"></i>Home</a>
+        <a href="#contact"><i class="fa fa-book fa-fw"></i>Archives</a>
+        <a href="#Journaux"><i class="fa fa-calendar fa-fw"></i>Journaux</a>
+      </div>
+
+      <div id="searchBar">
+        <input
+          type="text"
+          size="20"
+          id="searchKey"
+          placeholder="input something..."
+          class="searchInput"
+          onkeyup="showClearIcon()"
+        />
+
+        &nbsp;<i
+          id="clearIcon"
+          class="fa fa-times"
+          style="
+            visibility: hidden;
+            cursor: pointer;
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            color: purple;
+          "
+          onclick="clearSearchBar()"
+        ></i
+        >&nbsp;
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="card">
+        <ul>
+          Frontend
           <li>Angular 6</li>
           <li>React Native</li>
           <li>React</li>
         </ul>
-    </div>
+      </div>
 
-    <div class="card">
-      <ul>Database
-        <li>MongoDB</li>
-        <li>Mysql</li>
-        <li>Firebase</li>
-        <li><a href="sql_vs_nosql.html">Sql vs NoSql</a></li>
-      </ul>
-    </div>
-      
-    <div class="card">
-      <ul>Deployment
-        <li>AWS</li>
-        <li>Google Cloud</li>
-        <li>Heroku</li>
-      </ul>
-    </div>
-  
-    <div class="card">
-      <ul>Others
-        <li>Algorithm</li>
-        <li>Python</li>
-        <li>PWA</li>
-      </ul>
-    </div>
-    
-     <div class="card">
-      <ul>endpoint
-        <li><a href="platform.html">Platform</a></li>
-       
-      </ul>
-    </div>
+      <div class="card">
+        <ul>
+          Database
+          <li>MongoDB</li>
+          <li>Mysql</li>
+          <li>Firebase</li>
+          <li><a href="sql_vs_nosql.html">Sql vs NoSql</a></li>
+        </ul>
+      </div>
 
-    <div class="card">
-      <img src="./tree1.jpg" alt="a tree"  style="padding:5px;float:left;width:100px;height:100px;border-radius: 50%;
-       position: relative;
-      top:50%;
-     transform: translateY(-50%);" />
-      <ul style="float:right;width:50%;position:relative;top:20px;">Journal intime
-        <li><a href="journal.html">25 Oct,2020</a></li>
-        <li>...</li>
-      </ul>
-    </div>
+      <div class="card">
+        <ul>
+          Deployment
+          <li>AWS</li>
+          <li>Google Cloud</li>
+          <li>Heroku</li>
+        </ul>
+      </div>
 
-  </main>
+      <div class="card">
+        <ul>
+          Others
+          <li>Algorithm</li>
+          <li>Python</li>
+          <li>PWA</li>
+        </ul>
+      </div>
 
-  <footer>
-    @2020 XIXI
-  </footer>
-</body>
+      <div class="card">
+        <ul>
+          endpoint
+          <li><a href="platform.html">Platform</a></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <img
+          src="./asserts/tree1.jpg"
+          alt="a tree"
+          style="
+            padding: 5px;
+            float: left;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+          "
+        />
+        <ul style="float: right; width: 50%; position: relative; top: 20px">
+          Journal intime
+          <li><a href="journal.html">25 Oct,2020</a></li>
+          <li>...</li>
+        </ul>
+      </div>
+    </main>
+
+    <footer>@2020 XIXI</footer>
+    <script src="homepage1.js"></script>
+  </body>
 </html>
