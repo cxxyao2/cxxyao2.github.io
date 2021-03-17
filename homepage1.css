@@ -39,9 +39,9 @@ body {
 }
 
 .searchInput {
-  font-size:1em;position:absolute;top:5px;border:none;outline:none;}
+  font-size:1em;position:absolute;top:5px;border:none;outline:none;width:70%}
 .searchInput:focus {
-size: 10;
+width: 80%;
 }
 
 @media screen and (max-width: 600px) {
