@@ -56,11 +56,12 @@ body {
 .searchInput:focus {
   background-image: none;
   text-indent: 0px;
+  width: 200px !important;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   .card {
-    width: 45%;
+    width: 80%;
   }
 }
 
