@@ -38,6 +38,12 @@ body {
   box-shadow: 0 8px 20px 0 rgba(68, 50, 183, 0.4);
 }
 
+.searchInput {
+  font-size:1em;position:absolute;top:5px;border:none;outline:none;}
+.searchInput:focus {
+size: 10;
+}
+
 @media screen and (max-width: 600px) {
   .card {
     width: 45%;
