@@ -57,6 +57,28 @@
           write a server.js , replace ng-front with your real project name in
           package.json (name...version...)
           <pre>
+            // get environment variables dynamically and create environment.ts file
+            const fs = require("fs");
+            const targetPath = "./src/environments/environment.ts";
+            const envConfigFile = `export const environment = {
+              apiBaseUrl: '${process.env.API_BASE_URL}',
+              apiUrl: '${process.env.API_URL}',
+              appName: '${process.env.APP_NAME}',
+              awsPubKey: '${process.env.AWSKEY}',
+              nodeEnv: '${process.env.NODE_ENV}',
+              production: '${process.env.PRODUCTION}'
+            };
+            `;
+            fs.writeFile(targetPath, envConfigFile, function (err) {
+              if (err) {
+                throw console.error(err);
+              } else {
+                console.log(
+                  `Angular environment.ts file generated correctly at ${targetPath} \n`
+                );
+              }
+            });
+
           const express = require("express");
           const app = express();
           app.use(express.static(__dirname + "/dist/ng-front")); // serve our static files
