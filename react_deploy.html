@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Angular 10</title>
+    <style>
+      h1,
+      h2,
+      footer {
+        text-align: center;
+      }
+      .card {
+        border-radius: 10px;
+        width: 80%;
+        min-width: 240px;
+        height: 100%;
+        margin: 10px auto;
+        background-color: white;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+        transition: 0.3s;
+        overflow: hidden;
+      }
+      .card:hover {
+        box-shadow: 0 8px 20px 0 rgba(68, 50, 183, 0.4);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>How to Deploy Your React 17 App to Heroku</h1>
+
+    <div class="card">
+      <h2>Heroku</h2>
+      <div>
+        We need 4 steps for deploy your react on heroku. Your local machine, at
+        the root folder of your project, terminal
+      </div>
+      <ul>
+        <li>
+          google keywords: heroku buildpack for create-react-app, find a
+          necessary package located in https://github.com/mars/...,copy the link
+        </li>
+        <li>heroku login</li>
+        <li>heroku create --buildpack https://github.com/mars/...</li>
+        <li>git push heroku main</li>
+        <li>
+          Others commands:
+          <ul>
+            <li>npx create-react-app newProjectName</li>
+            <li>heroku open</li>
+            <li>heroku logs</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <footer>
+      Deployment is more easy than expected, thanking to many contributors.
+    </footer>
+  </body>
+</html>
