@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Angular 10</title>
+    <style>
+      h1,
+      h2,
+      footer {
+        text-align: center;
+      }
+      .card {
+        border-radius: 10px;
+        width: 80%;
+        min-width: 240px;
+        height: 100%;
+        margin: 10px auto;
+        background-color: white;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+        transition: 0.3s;
+        overflow: hidden;
+      }
+      .card:hover {
+        box-shadow: 0 8px 20px 0 rgba(68, 50, 183, 0.4);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>How to Add charts for Your Angular 10 App</h1>
+    <div class="card">
+      <div style="margin: 10px">
+        For most Angular 10 developers, we need install 3 packages:
+        <pre>
+        npm i  resize-observer-polyfill --save
+        npm i  echarts --save
+        npm i  ngx-echarts --save
+        </pre>
+        <p>
+          Visit the website of author, you can find many examples. Ngx-echarts
+          is a erfect package for creating chart in angular
+        </p>
+      </div>
+      <div style="margin: 10px">
+        <img
+          src="assets/angular-charts.png"
+          alt="angular chats"
+          aria-label="chart in angular"
+          style="width: 100%; max-width: 300px; object-fit: cover"
+        />
+      </div>
+    </div>
+  </body>
+</html>
