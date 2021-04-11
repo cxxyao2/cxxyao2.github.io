@@ -45,6 +45,14 @@
         <li>heroku create --buildpack https://github.com/mars/...</li>
         <li>git push heroku main</li>
         <li>
+          config environment variables:
+          <pre>$heroku config:set API_URL=https://xxx.xxx.xxx.xxx:5000/api</pre>
+          <pre>
+            Read the varaible in react:
+            const apiUrl = process.env.API_URL;
+          </pre>
+        </li>
+        <li>
           Others commands:
           <ul>
             <li>npx create-react-app newProjectName</li>
