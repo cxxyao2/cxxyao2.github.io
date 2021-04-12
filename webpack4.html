@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>webpack4</title>
+    <style>
+      h1,
+      h2,
+      footer {
+        text-align: center;
+      }
+      .card {
+        border-radius: 10px;
+        width: 80%;
+        min-width: 240px;
+        height: 100%;
+        margin: 10px auto;
+        background-color: white;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+        transition: 0.3s;
+        overflow: hidden;
+      }
+      .card:hover {
+        box-shadow: 0 8px 20px 0 rgba(68, 50, 183, 0.4);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Attention: the version of the third-parti libraries and webpack4</h1>
+    <div class="card">
+      <h2>webpack.config.js</h2>
+      <pre>
+      const { resolve } = require('path');
+      const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+      module.exports = {
+      entry: './src/index.js',
+      output: {
+      filename: 'build.js',
+      path: resolve(__dirname, 'build'),
+      },
+      module: {
+      rules: [
+      {
+      test: /\.css$/,
+      use: ['style-loader', 'css-loader'],
+      },
+      {
+      test: /\.less$/,
+      use: ['style-loader', 'css-loader', 'less-loader'],
+      },
+      {
+      test: /\.(jpg|png|gif)$/,
+      loader: 'url-loader',
+      options: {
+        limit: 8 * 1024,
+        esModule: false,
+      },
+      },
+      {
+      test: /\.html$/,
+      loader: 'html-loader',
+      },
+      ],
+      },
+      plugins: [
+      new HtmlWebpackPlugin({
+      template: './src/index.html',
+      }),
+      ],
+      mode: 'development',
+      };
+
+      </pre>
+    </div>
+    <div class="card">
+      <h2>package.json</h2>
+      <pre>
+      {
+      "name": "webpack4",
+      "version": "1.0.0",
+      "description": "webpack4",
+      "main": "index.js",
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "author": "",
+      "license": "ISC",
+      "devDependencies": {
+        "css-loader": "^4.0.0",
+        "html-loader": "^1.0.0",
+        "html-webpack-plugin": "^4.5.2",
+        "less": "^4.1.1",
+        "less-loader": "^6.0.0",
+        "style-loader": "^1.0.2",
+        "webpack": "^4.41.6",
+        "webpack-cli": "^3.3.11"
+      },
+      "dependencies": {
+        "file-loader": "^5.1.0",
+        "url-loader": "^4.0.0"
+      }
+      }
+
+    </pre
+      >
+    </div>
+  </body>
+</html>
