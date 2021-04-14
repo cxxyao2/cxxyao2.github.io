@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>webpack4</title>
+    <style>
+      h1,
+      h2,
+      footer {
+        text-align: center;
+      }
+      .card {
+        border-radius: 10px;
+        width: 80%;
+        min-width: 240px;
+        height: 100%;
+        margin: 10px auto;
+        background-color: white;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+        transition: 0.3s;
+        overflow: hidden;
+      }
+      .card:hover {
+        box-shadow: 0 8px 20px 0 rgba(68, 50, 183, 0.4);
+      }
+      .error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Errors and Solutions</h1>
+    <div class="card">
+      <ul>
+        <span class="error"
+          >Error 1: eslint error: Parsing error: Unexpected token &#40;</span
+        >
+        <li>
+          Context: code splitting, dynamic import in .js file:
+          <pre>
+ import('math.js').then((data)=>{...}).catch(error=>{...});
+          </pre>
+        </li>
+      </ul>
+      <ul>
+        Solution 1:
+        <li>npm i babel-loader -D</li>
+        <li>
+          add .eslintrc.json under root directory where webpack.config.js
+          exists. .eslintrc.json file contains:
+          <pre>
+ { "parser": "babel-eslint" }
+        </pre
+          >
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
