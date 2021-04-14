@@ -40,7 +40,7 @@
         <li>
           Context: code splitting, dynamic import in .js file:
           <pre>
- import('math.js').then((data)=>{...}).catch(error=>{...});
+import(/* webpackChunkName: 'class3' */ './class3').then((data)=>{...}).catch(error=>{...});
           </pre>
         </li>
       </ul>
@@ -54,6 +54,12 @@
  { "parser": "babel-eslint" }
         </pre
           >
+        </li>
+        <li>
+          <img
+            alt="dynamic import result"
+            src="assets/webpack4_dynamic_error.png"
+          />
         </li>
       </ul>
     </div>
