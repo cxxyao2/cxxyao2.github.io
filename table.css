@@ -24,6 +24,9 @@ body {
 
 table {
   width: 70%;
+  vertical-align: center;
+  text-overflow: ellipsis;
+  padding: 2px;
 }
 
 caption {

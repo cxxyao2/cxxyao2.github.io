@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React</title>
+    <style>
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      footer {
+        text-align: center;
+      }
+      .card {
+        border-radius: 10px;
+        width: 80%;
+        min-width: 240px;
+        height: 100%;
+        margin: 10px auto;
+        background-color: white;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+        transition: 0.3s;
+        overflow-y: auto;
+      }
+      .card:hover {
+        box-shadow: 0 8px 20px 0 rgba(68, 50, 183, 0.4);
+      }
+      .error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h2>dynamic import</h2>
+      <xmp>
+      Before: import Login from "Pages/Login.js";
+
+      After: const module = await import('/module/myModule.js');</xmp>
+    </div>
+    <div class="card">
+      <h2>lazy load</h2>
+      <xmp
+>
+        Before: import Login from "Pages/Login.js";
+
+        After: import React,{lazy}
+        from 'react'; const Login = lazy(() => import("module/Login"));
+     </xmp
+      >
+    </div>
+    <div class="card">
+      <h2>lazy load+ suspend</h2>
+      <h3>suspend the rendering of a component until it has loaded</h3>
+      <xmp>
+        Before: import Login from "Pages/Login.js"; 
+        After: import React,{lazy, Suspense} from 'react'; 
+
+        const Service = lazy(() => import("module/Service")); 
+        const Hero = lazy(() => import("module/Hero")); 
+        
+        const Home = () => { return (
+        <div>
+          <Suspense fallback={<div>Page is loading...</div>}>
+            <section>
+              <Service />
+              <Hero />
+            </section>
+          </Suspense>
+        </div>
+        ); }
+         </xmp>
+    </div>
+    <div class="card">
+      <h2>react-router</h2>
+      <h3>react-router-dom supports route-level code splitting</h3>
+      <xmp>
+        import { BrowserRouter as Router, Route, Switch } from
+        'react-router-dom'; 
+        const Home = lazy(() => import('./routes/Home'));
+        const Shop = lazy(() => import('./routes/Shop')); 
+        
+        const App = () => {
+        return (
+        <Router>
+          <Suspense fallback={<div>Page is Loading...</div>}>
+            <Switch>
+              <Route exact path="/" component="{Shop}" />
+              <Route path="/shop" component="{Shop}" />
+            </Switch>
+          </Suspense>
+        </Router>
+        ) };
+      </xmp>
+    </div>
+  </body>
+</html>
