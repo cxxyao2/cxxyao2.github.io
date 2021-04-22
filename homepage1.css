@@ -157,6 +157,13 @@ footer {
   text-align: center;
   width: 100%;
 }
+
+footer .image {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
 .extend {
   width: 100px;
 }
