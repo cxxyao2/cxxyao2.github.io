@@ -32,77 +32,217 @@
     <div class="card">
       <h2>webpack.config.js</h2>
       <pre>
-      const { resolve } = require('path');
-      const HtmlWebpackPlugin = require('html-webpack-plugin');
+     const { resolve } = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 
-      module.exports = {
-      entry: './src/index.js',
-      output: {
-      filename: 'build.js',
-      path: resolve(__dirname, 'build'),
-      },
-      module: {
-      rules: [
+/* PWA: offline时访问技术 */
+
+// 定义nodejs 环境变量,决定使用browserlist的哪个环境
+process.env.NODE_ENV = 'production';
+
+// 复用loader
+const commonCssLoader = [
+  MiniCssExtractPlugin.loader,
+  'css-loader',
+  {
+    // 还需要在package.json中定义browserslist
+    loader: 'postcss-loader',
+    options: {
+      ident: 'postcss',
+      plugins: () => [require('postcss-preset-env')()],
+    },
+  },
+];
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    filename: 'js/[name].[contenthash:10].js',
+    path: resolve(__dirname, 'build'),
+  },
+  module: {
+    rules: [
       {
-      test: /\.css$/,
-      use: ['style-loader', 'css-loader'],
+        test: /\.js$/,
+        exclude: /node_modules/,
+        enforce: 'pre',
+        loader: 'eslint-loader',
+        options: {
+          fix: true,
+        },
       },
       {
-      test: /\.less$/,
-      use: ['style-loader', 'css-loader', 'less-loader'],
+        oneOf: [
+          {
+            test: /\.css$/,
+            use: [...commonCssLoader],
+          },
+          {
+            test: /\.less$/,
+            use: [...commonCssLoader, 'less-loader'],
+          },
+          {
+            test: /\.js$/,
+            exclude: /node_modules/,
+            use: [
+              {
+                loader: 'thread-loader',
+                options: {
+                  workers: 2,
+                },
+              },
+              {
+                loader: 'babel-loader',
+                options: {
+                  presets: [
+                    [
+                      '@babel/preset-env',
+                      {
+                        useBuiltIns: 'usage',
+                        corejs: { version: 3 },
+                        targets: {
+                          chrome: '60',
+                          firefox: '50',
+                        },
+                      },
+                    ],
+                  ],
+                },
+              },
+            ],
+          },
+          {
+            test: /\.(jpg|png|gif)/,
+            loader: 'url-loader',
+            options: {
+              limit: 8 * 1024,
+              name: '[hash:10].[ext]',
+              outputPath: 'imgs',
+              esModule: false,
+            },
+          },
+          {
+            test: /\.html$/,
+            loader: 'html-loader',
+          },
+          {
+            exclude: /\.(js|css|less|html|jpg|png|gif)/,
+            loader: 'file-loader',
+            options: {
+              outputPath: 'media',
+            },
+          },
+        ],
       },
-      {
-      test: /\.(jpg|png|gif)$/,
-      loader: 'url-loader',
-      options: {
-        limit: 8 * 1024,
-        esModule: false,
-      },
-      },
-      {
-      test: /\.html$/,
-      loader: 'html-loader',
-      },
-      ],
-      },
-      plugins: [
-      new HtmlWebpackPlugin({
+    ],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
       template: './src/index.html',
-      }),
-      ],
-      mode: 'development',
-      };
+      minify: {
+        collapseWhitespace: true,
+        removeComments: true,
+      },
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'css/built.[contenthash:10].css',
+    }),
+    new OptimizeCssAssetsWebpackPlugin(),
+    new WorkboxWebpackPlugin.GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true,
+    }),
+  ],
+  mode: 'production',
+  devServer: {
+    contentBase: resolve(__dirname, 'build'),
+    compress: true,
+    port: 3000,
+    open: true,
+    hot: true,
+  },
+  devtool: 'source-map',
+
+  externals: {
+    // ignore --npm package name
+    jquery: 'jQuery',
+  },
+};
 
       </pre>
     </div>
     <div class="card">
       <h2>package.json</h2>
       <pre>
-      {
-      "name": "webpack4",
-      "version": "1.0.0",
-      "description": "webpack4",
-      "main": "index.js",
-      "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-      },
-      "author": "",
-      "license": "ISC",
-      "devDependencies": {
-        "css-loader": "^4.0.0",
-        "html-loader": "^1.0.0",
-        "html-webpack-plugin": "^4.5.2",
-        "less": "^4.1.1",
-        "less-loader": "^6.0.0",
-        "style-loader": "^1.0.2",
-        "webpack": "^4.41.6",
-        "webpack-cli": "^3.3.11"
-      },
-      "dependencies": {
-        "file-loader": "^5.1.0",
-        "url-loader": "^4.0.0"
-      }
-      }
+     {
+  "name": "webpack4",
+  "version": "1.0.0",
+  "description": "webpack4",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.13.15",
+    "@babel/preset-env": "^7.13.15",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^4.0.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-loader": "^3.0.4",
+    "eslint-plugin-import": "^2.22.1",
+    "express": "^4.17.1",
+    "html-loader": "^1.0.0",
+    "html-webpack-plugin": "^4.5.2",
+    "less": "^4.1.1",
+    "less-loader": "^6.0.0",
+    "mini-css-extract-plugin": "^1.0.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "postcss": "^7.0.35",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "style-loader": "^1.0.2",
+    "thread-loader": "^3.0.3",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.3.11",
+    "workbox-webpack-plugin": "^6.1.5"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "babel-eslint": "^10.1.0",
+    "core-js": "^3.6.5",
+    "file-loader": "^5.1.0",
+    "url-loader": "^4.0.0",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "browserslist": {
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ],
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "airbnb-base",
+    "env": {
+      "browser": true
+    }
+  },
+  "sideEffects": [
+    "*.css",
+    "*.less"
+  ]
+}
 
     </pre
       >
