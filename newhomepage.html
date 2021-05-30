@@ -14,11 +14,12 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" href="/assets/images/favicon.ico" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <link rel="icon" href="/assets/images/favicon.ico" />
+
     <link rel="stylesheet" href="assets/css/normalize.css" />
     <link rel="stylesheet" href="assets/css/newhomepage.css" />
   </head>
@@ -113,13 +114,24 @@
             </ul>
             <pre>
           <code>
-            /// <reference lib="webworker" />
-            import { compressImage } from "./jimp.utils";
-
-            addEventListener("message", async ({ data }: { data: string }) => {
-              var compressedBase64 = await compressImage(data);
-              postMessage(compressedBase64);
-            });
+/// <reference lib="webworker" />
+import { compressImage } from "./jimp.utils";
+addEventListener("message", async ({ data }: { data: string }) => {
+  var compressedBase64 = await compressImage(data);
+  postMessage(compressedBase64);
+});
+/// <reference lib="webworker" />
+import { compressImage } from "./jimp.utils";
+addEventListener("message", async ({ data }: { data: string }) => {
+  var compressedBase64 = await compressImage(data);
+  postMessage(compressedBase64);
+});
+/// <reference lib="webworker" />
+import { compressImage } from "./jimp.utils";
+addEventListener("message", async ({ data }: { data: string }) => {
+  var compressedBase64 = await compressImage(data);
+  postMessage(compressedBase64);
+});
           </code>
         </pre>
             <ol>
@@ -130,10 +142,27 @@
           </section>
         </article>
         <section class="read-more">
-          <div class="previous-article">previous article</div>
-          <div class="next-article">next article</div>
+          <div class="read-more_item">
+            <span class="read-more-item-dim">previous article</span>
+            <h4>How to deploy i18n function</h4>
+          </div>
+          <div class="read-more_item">
+            <span class="read-more-item-dim">next article</span>
+            <h4>How to deploy i18n function</h4>
+          </div>
         </section>
-        <footer>2021</footer>
+        <section class="footer">
+          <footer>
+            <span class="footer__copyright"
+              >2021-5-31 Jennifer. All rights reserved.</span
+            >
+          </footer>
+          <footer>
+            <span class="footer__copyright"
+              >Contact Email: Jenniferyao1996@qq.com</span
+            >
+          </footer>
+        </section>
       </div>
     </main>
     <script src="main.js"></script>
