@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage</title>
+    <meta
+      name="description"
+      content="Angular, React, Webpack, Typescript, Javascript, Databases..."
+    />
+    <meta name="author" content="Jennifer" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="/assets/images/favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/normalize.css" />
+    <link rel="stylesheet" href="assets/css/newhomepage.css" />
+  </head>
+  <body>
+    <nav class="nav collapsible">
+      <span>navigation </span>
+      <span class="nav_toggler">home</span>
+      <ul class="nav_list collapsible_content">
+        <li class="nav_item"><a href="#">Hosting</a></li>
+        <li class="nav_item"><a href="#">VPS</a></li>
+        <li class="nav_item"><a href="#">Domain</a></li>
+        <li class="nav_item"><a href="#">Pricing</a></li>
+      </ul>
+    </nav>
+
+    <aside class="sidebar">
+      <div class="sidebar_cover"></div>
+      <div class="sidebar_main">
+        <a href="#">
+          <img class="sidebar_logo" alt="Jennifer" src="assets/tree1.jpg" />
+        </a>
+        <h3>Jennifer</h3>
+        <span>Full Stack Developer</span>
+        <hr />
+        <p class="sidebar_description">
+          I am passionate about front-end frameworks and databases.
+        </p>
+        <hr class="sidebar_divider" />
+        <p style="display: grid; gap: 5px">
+          <span class="tag"
+            ><img
+              src="assets/angular-icon.svg"
+              class="sidebar_icon"
+            />&nbsp;Angular</span
+          >
+          <span class="tag"
+            ><img
+              src="assets/react.svg"
+              class="sidebar_icon"
+            />&nbsp;React</span
+          >
+          <br />
+          <span class="tag"
+            ><img
+              src="assets/webpack_logo.svg"
+              class="sidebar_icon"
+            />&nbsp;Webpack</span
+          >
+          <span class="tag"
+            ><img
+              src="assets/mysql.png"
+              class="sidebar_icon"
+            />&nbsp;Databases</span
+          >
+        </p>
+        <hr class="sidebar_divider" />
+        <div>
+          <ul class="navigation" role="navigation-social">
+            <li class="navigation_item">
+              <a href="https://github.com/cxxyao2" target="_blank"
+                ><i class="fa fa-github icon-bigger"></i
+              ></a>
+            </li>
+            <li class="navigation_item">
+              <a href="https://twitter.com/jenniferyao1996" target="_blank"
+                ><i class="fa fa-twitter icon-bigger"></i
+              ></a>
+            </li>
+            <li class="navigation_item">
+              <a href="mailto:jenniferyao1996@qq.com" target="_blank"
+                ><i class="fa fa-envelope icon-bigger"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+    <main class="content_wrapper">
+      <div class="content">
+        <article class="post">
+          <header>
+            <span class="post_timer">2020-5-29 Angular</span>
+            <h2 class="post_header">Deploy Angular to Firebase</h2>
+          </header>
+          <section class="post_body">
+            <p>prepare the environment</p>
+            <p>install vscode extentions</p>
+            <ul>
+              <li>vscode extension</li>
+              <li>angular code snippets</li>
+              <li>react code snippets</li>
+            </ul>
+            <pre>
+          <code>
+            /// <reference lib="webworker" />
+            import { compressImage } from "./jimp.utils";
+
+            addEventListener("message", async ({ data }: { data: string }) => {
+              var compressedBase64 = await compressImage(data);
+              postMessage(compressedBase64);
+            });
+          </code>
+        </pre>
+            <ol>
+              <li>debug</li>
+              <li>build</li>
+              <li>deploy</li>
+            </ol>
+          </section>
+        </article>
+        <section class="read-more">
+          <div class="previous-article">previous article</div>
+          <div class="next-article">next article</div>
+        </section>
+        <footer>2021</footer>
+      </div>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>

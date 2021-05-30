@@ -149,11 +149,11 @@ a:active {
 
 footer {
   bottom: 0;
+  left: 0;
   background-color: white;
   box-shadow: 0 -4px 8px 0 rgba(0, 0, 0, 0.5);
-  left: 0;
+  position:fixed;
   padding: 20px;
-  position: fixed;
   text-align: center;
   width: 100%;
 }
