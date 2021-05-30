@@ -133,6 +133,10 @@
                 <p>
                   Configure app-routing.module.ts as normal.&nbsp;
                   <img src="assets/ngi18/routing1.png" alt="routing image" />
+                  Configure navigation bar.For navigating between components, configuration like 1. For changing to  different locale, e.g. 
+                  from /en/index.html to /fr/index.html, configure like 2.
+                  <img src="assets/ngi18/routing2.png" alt="routing image" />
+                  <img src="assets/ngi18/routing3.jpeg" alt="routing image" />
                 </p>
               </li>
               <li>
@@ -178,8 +182,7 @@
                   />
                 </p>
                 <p>
-                  Generate app versions for each local.&nbsp;Set "localize" to
-                  true will cause an error when using
+                 Set "localize" to true will cause an error when using
                   <code>ng serve</code>&nbsp; if more than one locale is
                   defined. Setting the options to a specific locale, such as
                   "localize": ["fr"]. &nbsp;
@@ -188,14 +191,15 @@
                     alt="locale configuration"
                   />
                 </p>
+                <p> Specify build configuration for each locale.&nbsp;
+                  <img src="assets/ngi18/json3.png" alt="build configuration"
+                  />
+                </p>
                 <p>
                   Apply specific build options for just one locale.
                   <br /><code>ng serve --configuration=fr</code> <br />
                   or <br /><code>ng build --configuration=production,fr</code
-                  ><img
-                    src="assets/ngi18/json3.png"
-                    alt="locale configuration"
-                  />
+                  >
                 </p>
               </li>
               <li>
@@ -207,7 +211,7 @@
                 </p>
               </li>
               <li>
-                <p>Configure firebase.json. This step needs some trick.
+                <p>Configure firebase.json. This step needs some trick. We configure hosting -> rewrites -> source and destination  for every locale.
                 <div class="alert is-important">Configure firebase.json correctly is very important!! If skip this step, refresh url will cause a 404 error. For more details, please refer to  <a
             href="https://firebase.google.com/docs/hosting/full-config#rewrites"
             >firebase manuel</a
@@ -225,7 +229,7 @@ firebase deploy </pre>
             </ol>
             <p>
               Now, we could admire the result with a cup of coffer<i class="fa fa-coffee icon-bigger"></i>. <a href="https://angulari18a.web.app/fr/home">Here!</a>
-              Deployment is more easy than expected, non?
+              Deployment is more easy than you think, non?
               <img   src="assets/ngi18/i181.png" alt="firebase screenshot" />
               <img   src="assets/ngi18/i182.png" alt="firebase screenshot" />
               <img   src="assets/ngi18/i183.png" alt="firebase screenshot" />

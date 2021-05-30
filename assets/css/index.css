@@ -32,7 +32,7 @@ html {
 body {
   font-family: Inter, Arial, Helvetica, sans-serif;
   color: white;
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   text-align: justify;
 }
 
@@ -43,15 +43,15 @@ h3 {
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 4rem;
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 3.2rem;
 }
 
 h3 {
-  font-size: 1.8rem;
+  font-size: 2.4rem;
   font-weight: 500;
 }
 
@@ -75,11 +75,11 @@ code {
   }
 
   h2 {
-    font-size: 3rem;
+    font-size: 3.2rem;
   }
 
   h3 {
-    font-size: 2rem;
+    font-size: 2.4rem;
   }
   h1,
   h2,
@@ -107,14 +107,12 @@ section {
 }
 
 p {
-  margin: 1.2em 0;
-  line-height: 2em;
+  margin: 1.5rem 0;
+  line-height: 3rem;
   font-weight: 400;
-  font-size: 0.9em;
 }
 
 p a {
-  text-decoration: underline;
   color: var(--color-primary);
 }
 
@@ -256,7 +254,7 @@ p a {
 .sidebar .navigation .navigation_item {
   display: inline-block;
   margin: 5px 1px 0 0;
-  line-height: 1.3rem;
+  line-height: 2.5rem;
 }
 
 .sidebar .navigation_item a {
@@ -269,7 +267,7 @@ p a {
   color: white;
 }
 .icon-bigger {
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
 .nav {
@@ -341,7 +339,7 @@ pre {
   border: 1px solid var(--color-border);
   border-radius: 3px;
   font-size: 0.9em;
-  line-height: 1.5em;
+  line-height: 2.5em;
   overflow: auto;
 }
 
@@ -392,7 +390,7 @@ pre {
 }
 
 #backToTop i {
-  font-size: 1.2em;
+  font-size: 1.5rem;
   top: 50%;
   transform: translateY(60%);
 }
@@ -408,8 +406,8 @@ pre {
   padding: 1rem;
   border-left: 0.5rem solid var(--color-primary);
   background-color: rgba(25, 118, 210, 0.05);
-  font-size: 1.2rem;
-  line-height: 1.8rem;
+  font-size: 1.5rem;
+  line-height: 2.5rem;
 }
 
 .alert.is-important {
@@ -417,6 +415,6 @@ pre {
   padding: 1rem;
   border-left: 8px solid var(--background-accent);
   background-color: rgba(255, 152, 0, 0.05);
-  font-size: 1.2rem;
-  line-height: 1.8rem;
+  font-size: 1.5rem;
+  line-height: 2.5rem;
 }
