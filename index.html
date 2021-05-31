@@ -240,6 +240,45 @@ firebase deploy </pre>
           <a href="https://github.com/cxxyao2/ngi18" 
             >routed localized angular</a
           ></p>
+          <p><strong>Extension:&nbsp;</strong>
+          If the client need to see only the data in preferred language, we should 
+          <ol>
+            <li> on client side ( angular app)  add an interceptor and set response header "accept-language"
+              <pre>
+@Injectable()
+export class LanguageInterceptor implements HttpInterceptor {
+  currentLocale: string;
+
+  constructor(@Inject(LOCALE_ID) public locale: string) {
+    this.currentLocale = this.locale.split('-', 1)[0];
+  }
+
+  intercept(
+    req: HttpRequest<any>,
+    next: HttpHandler
+  ): Observable<HttpEvent<any>> {
+    console.log('locale', this.currentLocale);
+    // Clone the request to add the new header
+    const clonedRequest = req.clone({
+      headers: req.headers.set('accept-language', this.currentLocale),
+    });
+    // Pass the cloned request instead of the original request to the next handle
+    return next.handle(clonedRequest);
+  }
+}</pre>
+            </li>
+            <li>on server side (e.g. node.js + express) get the client locale information and filter the data
+              <pre>const express = require("express");
+const router = express.Router();
+
+router.get("/", async (req, res) => {
+  clientLanguage =  req.headers["accept-language"];
+  data.filter(item => item.language === clientLanguage);
+  res.send(data);
+});</pre>
+            </li>
+          </ol>
+          </p>
           </section>
         </article>
         <section class="read-more">

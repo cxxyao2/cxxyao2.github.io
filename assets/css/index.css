@@ -339,7 +339,7 @@ pre {
   border: 1px solid var(--color-border);
   border-radius: 3px;
   font-size: 0.9em;
-  line-height: 2.5em;
+  line-height: 1.6em;
   overflow: auto;
 }
 
