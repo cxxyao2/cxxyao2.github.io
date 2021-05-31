@@ -293,13 +293,13 @@ p a {
 
   .content_wrapper {
     position: relative;
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
   }
 }
 
 .content {
-  margin: 0 10%;
+  margin: 0 5%;
   padding: 40px 0;
   max-width: 850px;
 }
@@ -349,6 +349,8 @@ pre {
   margin-bottom: 1em;
   padding-top: 1em;
   border-top: 1px solid #dddddd;
+  display: flex;
+  justify-content: space-between;
 }
 
 .read-more_item {
@@ -373,6 +375,7 @@ pre {
 
 .footer__copyright {
   display: block;
+  white-space: pre-wrap;
   margin-bottom: 0.7em;
 }
 
