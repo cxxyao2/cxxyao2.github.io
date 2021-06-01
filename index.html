@@ -156,7 +156,7 @@
               <li>
                 <p>
                   Extract the source language file messages.xls.&nbsp;I changed
-                  the source language file location to translation.&nbsp;<br />
+                  the source language file location to translate.&nbsp;<br />
                   <code>ng extract-i18n --output-path src/translate</code>
                 </p>
               </li>
@@ -213,9 +213,9 @@
               <li>
                 <p>Configure firebase.json. This step needs some trick. We configure hosting -> rewrites -> source and destination  for every locale.
                 <div class="alert is-important">Configure firebase.json correctly is very important!! If skip this step, refresh url will cause a 404 error. For more details, please refer to  <a
-            href="https://firebase.google.com/docs/hosting/full-config#rewrites"
-            >firebase manuel</a
-          ></div>
+                  href="https://firebase.google.com/docs/hosting/full-config#rewrites"
+                  >firebase manuel</a>
+                </div>
                 <img src="assets/ngi18/build2.png" alt="server href" />
                 <img src="assets/ngi18/build3.png" alt="firebase json" />
               </p></li>
@@ -241,7 +241,7 @@ firebase deploy </pre>
             >routed localized angular</a
           ></p>
           <p><strong>Extension:&nbsp;</strong>
-          If the client need to see only the data in preferred language, we should 
+          If the client need to see only the data in preferred language, we can</p>
           <ol>
             <li> on client-side ( angular app)  add an interceptor and in it set request header "accept-language" as current locale
               <pre>
@@ -278,7 +278,7 @@ router.get("/", async (req, res) => {
 });</pre>
             </li>
           </ol>
-          </p>
+          
           </section>
         </article>
         <section class="read-more">
