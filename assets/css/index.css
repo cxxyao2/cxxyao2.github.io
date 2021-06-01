@@ -19,12 +19,12 @@
 *::after,
 *::before {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 ul,
 ol {
+  margin: 0;
+  padding-left: 1rem;
   list-style-position: inside;
 }
 
@@ -236,6 +236,10 @@ p a {
   color: white;
 }
 
+.sidebar p {
+  text-align: center;
+}
+
 .sidebar_cover {
   position: absolute;
   top: 0;
@@ -356,7 +360,6 @@ p a {
 .post_category {
   font-size: 1.1rem;
   color: var(--color-body);
-  padding: 0;
 }
 
 .post_category .date::after {
@@ -427,6 +430,7 @@ pre {
   display: block;
   white-space: pre-wrap;
   margin-bottom: 0.7em;
+  text-align: center;
 }
 
 /* buttons */
