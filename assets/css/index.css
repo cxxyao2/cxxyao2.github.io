@@ -11,6 +11,7 @@
   --border-radius: 30px;
   --background-primary: #e8f2fb;
   --background-accent: rgba(255, 152, 0, 0.05);
+  --color-font: rgb(41, 41, 41);
 }
 
 *,
@@ -31,7 +32,7 @@ html {
 
 body {
   font-family: Inter, Arial, Helvetica, sans-serif;
-  color: white;
+  color: var(--color-font);
   font-size: 1.6rem;
   text-align: justify;
 }
@@ -44,14 +45,17 @@ h3 {
 
 h1 {
   font-size: 4rem;
+  line-height: 6rem;
 }
 
 h2 {
   font-size: 3.2rem;
+  line-height: 4.8rem;
 }
 
 h3 {
   font-size: 2.4rem;
+  line-height: 3.6rem;
   font-weight: 500;
 }
 
@@ -189,6 +193,7 @@ p a {
   max-width: 700px;
   background-image: url('../sea.jpg');
   display: table;
+  color: white;
 }
 
 .sidebar_cover {
