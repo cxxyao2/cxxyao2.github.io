@@ -134,16 +134,10 @@
                   <img src="assets/ngi18/routing2.png" alt="routing image" />
                   <img src="assets/ngi18/routing3.jpeg" alt="routing image" />
               </li>
-              <li>
-                
-                  Add the localize package.&nbsp;<code
+              <li>Add the localize package.&nbsp;<code
                     >ng add @angular/localize</code
-                  >
-                
-              </li>
-              <li>
-                
-                  Mark the static text messages in your component templates for
+                  ></li>
+              <li>Mark the static text messages in your component templates for
                   translation using the i18n attribute, e.g.
                   <code>&lt;h1 i18n&gt;Welcome&lt;/h1 i18n&gt;</code>
                 
@@ -153,18 +147,14 @@
                   the source language file location to translate.&nbsp;<br />
                   <code>ng extract-i18n --output-path src/translate</code>
               </li>
-              <li>
-                
-                  Create a translation file for each language by copy and rename
+              <li>Create a translation file for each language by copy and rename
                   the source file. I created copies for the languages French and
                   German. Translate each translation file.&nbsp;( I skip the
                   details about translation.)
                   <img src="assets/ngi18/translate1.png" alt="language files" />
                 
               </li>
-              <li>
-                
-                  Define locales in the build configuration.&nbsp;Configure
+              <li>Define locales in the build configuration.&nbsp;Configure
                   angular.json.<br /><strong>sourceLocale:</strong> The locale
                   you use within the app source code (en-US by
                   default).&nbsp;<strong>locales: </strong>A map of locale
@@ -173,8 +163,6 @@
                     src="assets/ngi18/json1.png"
                     alt="locale configuration"
                   />
-                
-                
                  Set "localize" to true will cause an error when using
                   <code>ng serve</code>&nbsp; if more than one locale is
                   defined. Setting the options to a specific locale, such as
