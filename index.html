@@ -123,54 +123,52 @@
             </p>
             <ol>
               <li>
-                <p>
+                
                   Create a project with routing.&nbsp;
                   <code>ng new ngi18n --routing</code>
                   <br />ngi18n is my project name.
-                </p>
+                
               </li>
               <li>
-                <p>
+                
                   Configure app-routing.module.ts as normal.&nbsp;
                   <img src="assets/ngi18/routing1.png" alt="routing image" />
                   Configure navigation bar.For navigating between components, configuration like 1. For changing to  different locale, e.g. 
                   from /en/index.html to /fr/index.html, configure like 2.
                   <img src="assets/ngi18/routing2.png" alt="routing image" />
                   <img src="assets/ngi18/routing3.jpeg" alt="routing image" />
-                </p>
+                
               </li>
               <li>
-                <p>
+                
                   Add the localize package.&nbsp;<code
                     >ng add @angular/localize</code
                   >
-                </p>
+                
               </li>
               <li>
-                <p>
+                
                   Mark the static text messages in your component templates for
                   translation using the i18n attribute, e.g.
                   <code>&lt;h1 i18n&gt;Welcome&lt;/h1 i18n&gt;</code>
                 </p>
               </li>
               <li>
-                <p>
                   Extract the source language file messages.xls.&nbsp;I changed
                   the source language file location to translate.&nbsp;<br />
                   <code>ng extract-i18n --output-path src/translate</code>
-                </p>
               </li>
               <li>
-                <p>
+                
                   Create a translation file for each language by copy and rename
                   the source file. I created copies for the languages French and
                   German. Translate each translation file.&nbsp;( I skip the
                   details about translation.)
                   <img src="assets/ngi18/translate1.png" alt="language files" />
-                </p>
+                
               </li>
               <li>
-                <p>
+                
                   Define locales in the build configuration.&nbsp;Configure
                   angular.json.<br /><strong>sourceLocale:</strong> The locale
                   you use within the app source code (en-US by
@@ -180,8 +178,8 @@
                     src="assets/ngi18/json1.png"
                     alt="locale configuration"
                   />
-                </p>
-                <p>
+                
+                
                  Set "localize" to true will cause an error when using
                   <code>ng serve</code>&nbsp; if more than one locale is
                   defined. Setting the options to a specific locale, such as
@@ -190,44 +188,44 @@
                     src="assets/ngi18/json2.png"
                     alt="locale configuration"
                   />
-                </p>
-                <p> Specify build configuration for each locale.&nbsp;
+                
+                 Specify build configuration for each locale.&nbsp;
                   <img src="assets/ngi18/json3.png" alt="build configuration"
                   />
-                </p>
-                <p>
+                
+                
                   Apply specific build options for just one locale.
                   <br /><code>ng serve --configuration=fr</code> <br />
                   or <br /><code>ng build --configuration=production,fr</code
                   >
-                </p>
+                
               </li>
               <li>
-                <p>
+                
                   Pass this configuration to the ng serve or ng build commands.
                   Generate app versions for all locales.<br />
                   <code>ng build --prod --localize </code>
                   <img src="assets/ngi18/build1.png" alt="angular.json" />
-                </p>
+                
               </li>
               <li>
-                <p>Configure firebase.json. This step needs some trick. We configure hosting -> rewrites -> source and destination  for every locale.
+              Configure firebase.json. This step needs some trick. We configure hosting -> rewrites -> source and destination  for every locale.
                 <div class="alert is-important">Configure firebase.json correctly is very important!! If skip this step, refresh url will cause a 404 error. For more details, please refer to  <a
                   href="https://firebase.google.com/docs/hosting/full-config#rewrites"
                   >firebase manuel</a>
                 </div>
                 <img src="assets/ngi18/build2.png" alt="server href" />
                 <img src="assets/ngi18/build3.png" alt="firebase json" />
-              </p></li>
-              <li><p>Deploy multiple locales to firebase server
+              </li>
+              <li>Deploy multiple locales to firebase server
                 <pre>
 npm install -g firebase-tools
 firebase login
 firebase init.  (Please answer "N" to all questions)
 firebase deploy </pre>
-              </p></li>
+              </li>
             </ol>
-            <p>
+            
               Now, we could admire the result with a cup of coffer<i class="fa fa-coffee icon-bigger"></i>. <a href="https://angulari18a.web.app/fr/home">Here!</a>
               Deployment is more easy than you think, non?
               <img   src="assets/ngi18/i181.png" alt="firebase screenshot" />
@@ -235,7 +233,7 @@ firebase deploy </pre>
               <img   src="assets/ngi18/i183.png" alt="firebase screenshot" />
               <img   src="assets/ngi18/i184.png" alt="firebase screenshot" />
               <img   src="assets/ngi18/i185.png" alt="firebase screenshot" />
-            </p>
+            
            <p><i class="fa fa-arrow-right"></i>source code at github
           <a href="https://github.com/cxxyao2/ngi18" 
             >routed localized angular</a
@@ -276,7 +274,7 @@ router.get("/", async (req, res) => {
   data.filter(item => item.language === clientLanguage);
   res.send(data);
 });</pre>
-            </li>
+           </li>
           </ol>
           
           </section>
@@ -284,11 +282,11 @@ router.get("/", async (req, res) => {
         <section class="read-more">
           <div class="read-more_item">
             <span class="read-more-item-dim">&lt;&lt;previous article</span>
-            <h4>How to deploy angular app to Heroku</h4>
+            <h3>How to deploy angular app to Heroku</h3>
           </div>
           <div class="read-more_item">
             <span class="read-more-item-dim">next article&gt;&gt;</span>
-            <h4>Webpack 4 tips</h4>
+            <h3>Webpack 4 tips</h3>
           </div>
         </section>
 
