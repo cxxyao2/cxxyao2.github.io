@@ -160,6 +160,12 @@ p a {
   color: var(--color-primary);
 }
 
+.divider {
+  width: 100%;
+  margin: 20px auto;
+  border: 1px solid var(--color-border);
+}
+
 /* navigation */
 .nav {
   position: relative;
@@ -374,8 +380,9 @@ p a {
 
 .post img {
   max-width: 100%;
-  margin: 1em auto;
-  border-radius: 3px;
+  margin: 1.5em auto;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px var(--color-body);
   text-align: center;
   display: block;
 }
