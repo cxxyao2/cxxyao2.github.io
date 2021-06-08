@@ -48,7 +48,8 @@ html {
 body {
   font-family: Inter, Arial, Helvetica, sans-serif;
   color: var(--color-font);
-  font-size: 1.6rem;
+  font-size: 1.4rem;
+  line-height: 2.2rem;
   text-align: justify;
 }
 
@@ -83,9 +84,8 @@ p {
 
 @media screen and (min-width: 1024px) {
   body {
-    font-size: 1.8rem;
-    line-height: 3.24rem;
-    font-weight: 300;
+    font-size: 1.6rem;
+    line-height: 2.8rem;
   }
 
   h1 {
