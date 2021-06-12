@@ -12,6 +12,7 @@
   --background-primary: #e8f2fb;
   --background-accent: rgba(255, 152, 0, 0.05);
   --color-font: rgb(41, 41, 41);
+  --color-white: #fff;
   --color-pagination: #7b0f19;
 }
 
@@ -241,7 +242,7 @@ p a {
   max-width: 700px;
   background-image: url('../sea.jpg');
   display: table;
-  color: white;
+  color: var(--color-white);
 }
 
 .sidebar p {
@@ -315,13 +316,13 @@ p a {
 }
 
 .sidebar .navigation_item a {
-  color: white;
+  color: var(--color-white);
   padding: 5px;
   opacity: 0.8;
 }
 
 .icon-white {
-  color: white;
+  color: var(--color-white);
 }
 .icon-bigger {
   font-size: 2rem;
@@ -447,8 +448,8 @@ pre {
   position: fixed;
   right: 20px;
   bottom: 20px;
-  width: 40px;
-  height: 40px;
+  width: 2.5em;
+  height: 2.5em;
   background-color: var(--color-secondary);
   border-radius: 100%;
   text-align: center;
@@ -456,16 +457,14 @@ pre {
 }
 
 #backToTop i {
-  font-size: 1.5rem;
+  position: absolute;
+  font-size: 1em;
+  color: var(--color-white);
   top: 50%;
-  transform: translateY(60%);
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-@media screen and (max-width: 960px) {
-  #backToTop i {
-    transform: translateY(70%);
-  }
-}
 /* alerts */
 .alert.is-helpful {
   margin: 1rem 0;
