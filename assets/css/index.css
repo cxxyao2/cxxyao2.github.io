@@ -78,7 +78,8 @@ h3 {
 p {
   font-size: 1.6rem;
   line-height: 2.4rem;
-  margin-top: 2rem;
+  margin-top: 1.5em;
+  margin-bottom: 2em;
   text-align: left;
 }
 
@@ -153,7 +154,6 @@ section {
 }
 
 p {
-  margin: 1.5rem 0;
   line-height: 3rem;
   font-weight: 300;
 }
