@@ -25,6 +25,7 @@
 ul,
 ol {
   margin: 0;
+  margin-left: 10px;
   padding-left: 1rem;
   list-style-position: inside;
 }
