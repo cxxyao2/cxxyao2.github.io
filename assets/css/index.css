@@ -87,7 +87,7 @@ p {
 
 @media screen and (min-width: 1024px) {
   body {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     line-height: 2.8rem;
   }
 
@@ -102,20 +102,20 @@ p {
   }
 
   h3 {
-    font-size: 1.8rem;
+    font-size: 7rem;
     line-height: 2.8rem;
     font-weight: bolder;
   }
 
   p {
     margin-top: 2rem;
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     line-height: 2.8rem;
     text-align: left;
   }
 
   li {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     line-height: 2.8rem;
     margin: 1.8rem 0;
   }
