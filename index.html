@@ -224,7 +224,7 @@ firebase deploy </pre>
           <p><strong>Extension:&nbsp;</strong>
           If the client need to see only the data in preferred language, we can</p>
           <ol>
-            <li> on client-side ( angular app)  add an interceptor and in it set request header "accept-language" as current locale
+            <li> on client side ( angular app)  add an interceptor and in it set request header "accept-language" as current locale
               <pre>
 @Injectable()
 export class LanguageInterceptor implements HttpInterceptor {
@@ -248,7 +248,7 @@ export class LanguageInterceptor implements HttpInterceptor {
   }
 }</pre>
             </li>
-            <li>on server-side (e.g. node.js + express) get the client locale  and filter the data by the locale
+            <li>on server side (e.g. node.js + express) get the client locale  and filter the data by the locale
               <pre>const express = require("express");
 const router = express.Router();
 
