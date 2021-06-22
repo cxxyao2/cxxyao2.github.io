@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD and Authentication</title>
+    <meta
+      name="description"
+      content="localized routed router  i18n international Angular "
+    />
+    <meta name="author" content="Jennifer" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="icon" href="/assets/images/favicon.ico" />
+    <link rel="stylesheet" href="assets/css/normalize.css" />
+    <link rel="stylesheet" href="assets/css/index.css" />
+  </head>
+  <body>
+      <!--  for not index.html -->
+    <nav class="nav collapsible">
+      <span><a href="/#angular" class="white">Jennifer - Full Stack Developer</a> </span>
+      <span class="nav_toggler" style="outline:none !important;"
+        ><i class="fa fa-list white icon-bigger"  ></i
+      ></span>
+      <ul class="nav_list collapsible_content">
+        <li>
+           <ul class="nav_social" role="nav_social">
+            <li>
+              <a href="https://github.com/cxxyao2" target="_blank"
+                ><i class="fa fa-github white icon-biggest"></i
+              ></a>
+            </li>
+            <li >
+              <a href="https://twitter.com/jenniferyao1996" target="_blank"
+                ><i class="fa fa-twitter white icon-biggest"></i
+              ></a>
+            </li>
+            <li>
+              <a href="mailto:jenniferyao1996@qq.com" target="_blank"
+                ><i class="fa fa-envelope white icon-biggest"></i
+              ></a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav_item"><a href="/#angular">Angular</a></li>
+        <li class="nav_item"><a href="/#react">React</a></li>
+        <li class="nav_item"><a href="/#webpack">Webpack</a></li>
+        <li class="nav_item"><a href="/#database">Database</a></li>
+      </ul>
+    </nav>
+
+
+
+
+       <!--  for not index.html -->
+<aside class="sidebar">
+      <div class="sidebar_cover"></div>
+      <div class="sidebar_main">
+        <a href="#">
+          <img class="sidebar_logo" alt="Jennifer" src="assets/tree1.jpg" />
+        </a>
+        <h3>Jennifer</h3>
+        <span>Full Stack Developer</span>
+        <hr />
+        <p class="sidebar_description">
+          I am passionate about front-end frameworks and databases.
+        </p>
+        <hr class="sidebar_divider" />
+        <p class="sidebar_tags">
+          <span class="sidebar_tag"
+            ><a  href="/#angular"><img
+              src="assets/angular-icon.svg"
+              class="sidebar_icon"
+            />&nbsp;Angular</a></span
+          >
+          <span class="sidebar_tag"
+            ><a  href="/#react" alt="react blogs"><img
+              src="assets/react.svg"
+              class="sidebar_icon"
+            />&nbsp;React</a></span
+          >
+          <span class="sidebar_tag"
+            ><a  href="/#webpack" ><img
+              src="assets/webpack_logo.svg"
+              class="sidebar_icon"
+            />&nbsp;Webpack</a></span
+          >
+          <span class="sidebar_tag"
+            ><a  href="/#database" ></a><img
+              src="assets/mysql.png"
+              class="sidebar_icon"
+            />&nbsp;Database</a></span
+          >
+        </p>
+        <hr class="sidebar_divider" />
+        <div>
+          <ul class="navigation" role="navigation-social">
+            <li class="navigation_item">
+              <a href="https://github.com/cxxyao2" target="_blank"
+                ><i class="fa fa-github icon-bigger"></i
+              ></a>
+            </li>
+            <li class="navigation_item">
+              <a href="https://twitter.com/jenniferyao1996" target="_blank"
+                ><i class="fa fa-twitter icon-bigger"></i
+              ></a>
+            </li>
+            <li class="navigation_item">
+              <a href="mailto:jenniferyao1996@qq.com" target="_blank"
+                ><i class="fa fa-envelope icon-bigger"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+
+    <main class="content_wrapper">
+      <div class="content">
+        <article class="post">
+          <header>
+            <span class="post_category"
+              ><label class="date">2021-5-1</label> Angular</span
+            >
+            <h2 >
+              CRUD and Authentication with Firebase
+            </h2>
+          </header>
+          <section class="post_body">
+          <P>In this post, I will introduce the CRUD operations and authentication in firebase. For serverless applications, firebase is a ideal platform.</P>
+          <h3>CRUD in Firebase</h3>
+            <div class="alert is-helpful">
+                Whether it is a nosql database or not, a so-called database should support the CRUD operations. CRUD means create,
+                read, update, delete. In my opinion, collection ≈ table, document ≈ row or record. 
+            </div>
+          <ul>
+            <li>Create an developer account on <a href="console.firebase.google.com" alt="developer firebase">firebase  developer console</a></li>
+            <li>Add a project on this website. Note the important information , e.g. apiKey. Add the information in environment file.
+              <img src="assets/firebase/add_project.png" alt="add a project in firebase" />
+              <img src="assets/firebase/apikey.png" alt="note keys" />
+            </li>
+            <li>Create a firestore database. Create collections and add documents to collections.
+              <img src="assets/firebase/cloud_firestore.png" />
+
+            </li>
+            <li>install necessary packages in angular project.
+              <pre>
+npm i @angular/fire
+npm i firebase
+              </pre>
+              <img src="assets/firebase/npm_install.png" alt="install firebase packages"/>
+            </li>
+            <li>Create a firebase service in angular.
+              <pre>
+employ.ts
+
+export default interface Employee {
+  name: string;
+  age: number;
+  address: string;
+  id?: string;
+}
+
+              </pre>
+              <pre>
+firebase.service.ts
+
+import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+
+import Employee from './employ';
+import { map, first } from 'rxjs/operators';
+
+
+@Injectable({
+  providedIn: 'root',
+})
+export class FirebaseService {
+  constructor(public fireservices: AngularFirestore) {}
+
+  create_Newemployee(record: Employee) {
+    return this.fireservices.collection('Employee').add(record);
+  }
+
+  // collection name : Employee
+  // get an employee id: snap.payload.doc.id
+  get_Allemployee() {
+    return this.fireservices
+      .collection('Employee')
+      .snapshotChanges()
+      .pipe(
+        map((snaps) =>
+          snaps.map((snap) => {
+            return {
+              id: snap.payload.doc.id,
+              ...(snap.payload.doc.data() as {}),
+            };
+          })
+        ),
+        first()
+      );
+  }
+
+  get_employee(recordId:string) {
+    return this.fireservices.doc('Employee/' + recordId);
+  }
+
+  update_employee(recordId: any, record: Employee) {
+    this.fireservices.doc('Employee/' + recordId).update(record);
+  }
+
+  delete_employee(record_id: any) {
+    this.fireservices.doc('Employee/' + record_id).delete();
+  }
+}
+
+              </pre>
+            </li>
+          </ul>
+          <hr class="divider" />
+          <h3>Authentication in Firebase</h3>
+            <div class="alert is-helpful">
+              Firebase supports almost all the popular sign-in methods, including  email-password , google, twitter, etc. It follows the same logic when using  the third-party
+              authentication. 
+            </div>
+          <ul>
+            <li>For using a third-party authentication in firebase, we should have already a developer account in the third-party platform and project
+              keys. I take twitter as an example. On <a href="https://developer.twitter.com/en/apps" alt="twitter developer">Twitter Developer Console</a>, we get apiKey, api secrete key, bearer tokens, etc.
+              <img src="assets/firebase/twitter.png" alt="twitter developer"/>
+            </li>
+            <li>Enable twitter authentication in <code>sign-in method</code> tab.
+              <img src="assets/firebase/authentication.png" alt="sign-in methods" /></li>
+              <li>Create an authentication service in angular.
+              <pre>
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/auth';
+import * as firebase from 'firebase/app';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class FirebaseAuthService {
+  constructor(private afAuth: AngularFireAuth, private router: Router) {}
+
+  // sign-in method: email + password
+  login(email: string, password: string) {
+    this.afAuth
+      .signInWithEmailAndPassword(email, password)
+      .then((value) => {
+        console.log('Nice, it worked');
+        this.router.navigateByUrl('/home');
+      })
+      .catch((err) => {
+        console.log('something went wrong: ', err);
+      });
+  }
+
+  // sign-in method: google
+  googleLogin() {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    return this.oAuthLogin(provider).then((value) => {
+      console.log('Success', value);
+      this.router.navigateByUrl('/home');
+    });
+  }
+
+  // sign-in method: twitter
+  twitterLogin(){
+  const provider = new firebase.auth.TwitterAuthProvider();
+    return this.oAuthLogin(provider).then((value) => {
+      console.log('Success', value);
+      this.router.navigateByUrl('/home');
+    });
+  }
+
+  logout() {
+    this.afAuth.signOut().then(() => {
+      this.router.navigate(['/']);
+    });
+  }
+
+  private oAuthLogin(provider: any) {
+    return this.afAuth.signInWithPopup(provider);
+  }
+}
+              </pre>
+           
+           
+            
+          </ul>
+          </section>
+        </article>
+        <section class="read-more">
+          <div class="read-more_item">
+            <span class="read-more-item-dim">&lt;&lt;previous article</span>
+            <h3><a href="angular-debug-in-vscode-chrome.html">Debug Angular in VSCode and Chrome</a></h3>
+          </div>
+          <div class="read-more_item">
+            <span class="read-more-item-dim">next article&gt;&gt;</span>
+            <h3><a href="angular_pwa.html">PWA in Angular</a></h3>
+          </div>
+        </section>
+
+        <section class="footer">
+            <span class="footer__copyright"
+              >2021-5-31 Jennifer. All rights reserved.</span
+            >
+            <span class="footer__copyright"
+              >Contact Email: Jenniferyao1996#hotmail.com</span
+            >
+        </section>
+      </div>
+      <span id="backToTop">
+        <i class="fa fa-arrow-up"></i>
+      </span>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>

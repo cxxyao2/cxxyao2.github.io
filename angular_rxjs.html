@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Debug</title>
+    <title>RxJS in Angular</title>
     <meta
       name="description"
-      content="Angular, React, Webpack, Typescript, Javascript, Databases..."
+      content="localized routed router  i18n international Angular "
     />
     <meta name="author" content="Jennifer" />
     <link
@@ -23,19 +23,41 @@
     <link rel="stylesheet" href="assets/css/index.css" />
   </head>
   <body>
+    <!--  for not index.html -->
     <nav class="nav collapsible">
-      <span class="icon-white">Full Stack Developer </span>
-      <span class="nav_toggler"
-        ><i class="fa fa-list icon-white icon-bigger"></i
+      <span><a href="/#angular" class="white">Jennifer - Full Stack Developer</a> </span>
+      <span class="nav_toggler" style="outline:none !important;"
+        ><i class="fa fa-list white icon-bigger"  ></i
       ></span>
       <ul class="nav_list collapsible_content">
-        <li class="nav_item"><a href="#">Angular</a></li>
-        <li class="nav_item"><a href="#">React</a></li>
-        <li class="nav_item"><a href="#">Webpack</a></li>
-        <li class="nav_item"><a href="#">Databases</a></li>
+        <li>
+           <ul class="nav_social" role="nav_social">
+            <li>
+              <a href="https://github.com/cxxyao2" target="_blank"
+                ><i class="fa fa-github white icon-biggest"></i
+              ></a>
+            </li>
+            <li >
+              <a href="https://twitter.com/jenniferyao1996" target="_blank"
+                ><i class="fa fa-twitter white icon-biggest"></i
+              ></a>
+            </li>
+            <li>
+              <a href="mailto:jenniferyao1996@qq.com" target="_blank"
+                ><i class="fa fa-envelope white icon-biggest"></i
+              ></a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav_item"><a href="/#angular">Angular</a></li>
+        <li class="nav_item"><a href="/#react">React</a></li>
+        <li class="nav_item"><a href="/#webpack">Webpack</a></li>
+        <li class="nav_item"><a href="/#database">Database</a></li>
       </ul>
     </nav>
 
+
+    <!--  for not index.html -->
     <aside class="sidebar">
       <div class="sidebar_cover"></div>
       <div class="sidebar_main">
@@ -51,28 +73,28 @@
         <hr class="sidebar_divider" />
         <p class="sidebar_tags">
           <span class="sidebar_tag"
-            ><img
+            ><a  href="/#angular"><img
               src="assets/angular-icon.svg"
               class="sidebar_icon"
-            />&nbsp;Angular</span
+            />&nbsp;Angular</a></span
           >
           <span class="sidebar_tag"
-            ><img
+            ><a  href="/#react" alt="react blogs"><img
               src="assets/react.svg"
               class="sidebar_icon"
-            />&nbsp;React</span
+            />&nbsp;React</a></span
           >
           <span class="sidebar_tag"
-            ><img
+            ><a  href="/#webpack" ><img
               src="assets/webpack_logo.svg"
               class="sidebar_icon"
-            />&nbsp;Webpack</span
+            />&nbsp;Webpack</a></span
           >
           <span class="sidebar_tag"
-            ><img
+            ><a  href="/#database" ></a><img
               src="assets/mysql.png"
               class="sidebar_icon"
-            />&nbsp;Databases</span
+            />&nbsp;Database</a></span
           >
         </p>
         <hr class="sidebar_divider" />
@@ -97,6 +119,9 @@
         </div>
       </div>
     </aside>
+
+
+
     <main class="content_wrapper">
       <div class="content">
         <article class="post">
@@ -104,64 +129,65 @@
             <span class="post_category"
               ><label class="date">2021-5-1</label> Angular</span
             >
-            <h2>Debug Angular in VSCode and Chrome</h2>
+            <h2 >
+             Most Commonly Used RxJS Operators
+            </h2>
           </header>
           <section class="post_body">
-            <p>
-              In this blog, I will introduce how to debug an Angular Application
-              step by step.
-            </p>
-            <ol>
-              <li>
-                Install the extension: Debugger for Chrome.
-                <img src="assets/debugger/p1.png" alt="debugger extension" />
+            <ul>
+              <li class="collapsible">
+                  Cold Observable vs Hot Observable &nbsp;<i class="fa fa-arrow-down gray icon-bigger"></i>
+                  <ul class="collapsible_content">
+                    <li>of, from</li>
+                    <li>subject, publish, connect, refCount, publicReplay</li>
+                  </ul>
               </li>
-              <li>
-                Create a launch.json file.
-                <img src="assets/debugger/p2.png" alt="launch file" />
-                <img src="assets/debugger/p3.png" alt="launch file" />
-                <img src="assets/debugger/p4.png" alt="launch file" />
+             <li class="collapsible">
+                  Four Subjects &nbsp;<i class="fa fa-arrow-down gray icon-bigger"></i>
+                  <ul class="collapsible_content">
+                    <li>Subject</li>
+                    <li>BehaviorSubject</li>
+                    <li>AsyncSubject</li>
+                    <li>ReplaySubject</li>
+                  </ul>
               </li>
-              <li>
-                Toggle breakpoint
-                <img src="assets/debugger/p6.png" alt="breakpoint" />
+               <li class="collapsible">
+                  Maps &nbsp;<i class="fa fa-arrow-down gray icon-bigger"></i>
+                  <ul class="collapsible_content">
+                    <li>map</li>
+                    <li>SwitchMap</li>
+                    <li>mapTo</li>
+                    <li>MergeMap( FlatMap )</li>
+                    <li>concatMap</li>
+                  </ul>
               </li>
-              <li>
-                Run and Debug
-                <img src="assets/debugger/p5.png" alt="debug" />
-                <img src="assets/debugger/p7.png" alt="browser" />
-              </li>
-
-              <li>
-                Application jump backs to vscode from chrome browser when it
-                encounters the breakpoints.
-                <img src="assets/debugger/p8.png" alt="browser" />
-              </li>
-            </ol>
+              <li>merge</li>
+              <li>skip, timer, interval</li>
+              <li>shareReply</li>
+              <li>debounce</li>
+              <li>fromEvent</li>
+            </ul>
+       
           </section>
         </article>
         <section class="read-more">
           <div class="read-more_item">
             <span class="read-more-item-dim">&lt;&lt;previous article</span>
-            <h3>
-              <a href="angular-deploy-github-and-heroku.html"
-                >How to deploy angular app to Heroku && Github</a
-              >
-            </h3>
+            <h3><a href="angular_crud_and_authentication_firebase.html">CRUD and Authentication in Firebase</a></h3>
           </div>
           <div class="read-more_item">
             <span class="read-more-item-dim">next article&gt;&gt;</span>
-            <h3>Webpack 4 tips</h3>
+            <h3><a href="index.html">List of Blogs</a></h3>
           </div>
         </section>
 
         <section class="footer">
-          <span class="footer__copyright"
-            >2021-5-31 Jennifer. All rights reserved.</span
-          >
-          <span class="footer__copyright"
-            >Contact Email: Jenniferyao1996#hotmail.com</span
-          >
+            <span class="footer__copyright"
+              >2021-5-31 Jennifer. All rights reserved.</span
+            >
+            <span class="footer__copyright"
+              >Contact Email: Jenniferyao1996#hotmail.com</span
+            >
         </section>
       </div>
       <span id="backToTop">

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Localized Routed Angular</title>
+    <title>Full stack Developer</title>
     <meta
       name="description"
       content="localized routed router  i18n international Angular "
@@ -24,15 +24,15 @@
   </head>
   <body>
     <nav class="nav collapsible">
-      <span class="icon-white">Full Stack Developer </span>
+      <span class="white">Full Stack Developer </span>
       <span class="nav_toggler"
-        ><i class="fa fa-list icon-white icon-bigger"></i
+        ><i class="fa fa-list white icon-bigger"></i
       ></span>
       <ul class="nav_list collapsible_content">
-        <li class="nav_item"><a href="#">Angular</a></li>
-        <li class="nav_item"><a href="#">React</a></li>
-        <li class="nav_item"><a href="#">Webpack</a></li>
-        <li class="nav_item"><a href="#">Databases</a></li>
+        <li class="nav_item"><a href="#angular">Angular</a></li>
+        <li class="nav_item"><a href="#react">React</a></li>
+        <li class="nav_item"><a href="#webpack">Webpack</a></li>
+        <li class="nav_item"><a href="#database">Database</a></li>
       </ul>
     </nav>
 
@@ -51,28 +51,28 @@
         <hr class="sidebar_divider" />
         <p class="sidebar_tags">
           <span class="sidebar_tag"
-            ><img
+            ><a  href="#angular"><img
               src="assets/angular-icon.svg"
               class="sidebar_icon"
-            />&nbsp;Angular</span
+            />&nbsp;Angular</a></span
           >
           <span class="sidebar_tag"
-            ><img
+            ><a  href="#react" alt="react blogs"><img
               src="assets/react.svg"
               class="sidebar_icon"
-            />&nbsp;React</span
+            />&nbsp;React</a></span
           >
           <span class="sidebar_tag"
-            ><img
+            ><a  href="#webpack" ><img
               src="assets/webpack_logo.svg"
               class="sidebar_icon"
-            />&nbsp;Webpack</span
+            />&nbsp;Webpack</a></span
           >
           <span class="sidebar_tag"
-            ><img
+            ><a  href="#database" ><img
               src="assets/mysql.png"
               class="sidebar_icon"
-            />&nbsp;Databases</span
+            />&nbsp;Database</a></span
           >
         </p>
         <hr class="sidebar_divider" />
@@ -97,185 +97,52 @@
         </div>
       </div>
     </aside>
+
     <main class="content_wrapper">
       <div class="content">
         <article class="post">
           <header>
             <span class="post_category"
-              ><label class="date">2021-3-29</label> Angular</span
+              ><label class="date">2021-5-1</label> Angular</span
             >
             <h2 >
-              Deploy A Routed Localized Angular to Firebase
+              List of Blogs
             </h2>
           </header>
           <section class="post_body">
-            <div class="alert is-helpful">
-              For navigation: <strong>href ≠ routeLink</strong>. Differentiate
-              the two attributes is necessary when we build a SPA(single page
-              application). Href will introduce to reload the whole page and
-              lose all the states of the page, while routeLink will introduce to
-              navigate to other components in the same page.
-            </div>
-
-            <p>
-              In this blog, I will introduce how to build and deploy a routed
-              localized angular application to firebase step by step.
-            </p>
-            <ol>
-              <li>
-                  Create a project with routing.&nbsp;
-                  <code>ng new ngi18n --routing</code>
-                  <br />ngi18n is my project name.
-              </li>
-              <li>Configure app-routing.module.ts as normal.&nbsp;
-                  <img src="assets/ngi18/routing1.png" alt="routing image" />
-                  Configure navigation bar. For navigating between components, configuration like ①. For changing to  different locale, e.g. 
-                  from /en/index.html to /fr/index.html, configure like ②.
-                  <img src="assets/ngi18/routing2.png" alt="routing image" />
-                  <img src="assets/ngi18/routing3.jpeg" alt="routing image" />
-              </li>
-              <li>Add the localize package.&nbsp;<code
-                    >ng add @angular/localize</code
-                  ></li>
-              <li>Mark the static text messages in your component templates for
-                  translation using the i18n attribute, e.g.
-                  <code>&lt;h1 i18n&gt;Welcome&lt;/h1 i18n&gt;</code>
-                
-              </li>
-              <li>
-                  Extract the source language file messages.xls.&nbsp;I changed
-                  the source language file location to translate.&nbsp;<br />
-                  <code>ng extract-i18n --output-path src/translate</code>
-              </li>
-              <li>Create a translation file for each language by copy and rename
-                  the source file. I created copies for the languages French and
-                  German. Translate each translation file.&nbsp;( I skip the
-                  details about translation.)
-                  <img src="assets/ngi18/translate1.png" alt="language files" />
-                
-              </li>
-              <li>Define locales in the build configuration.&nbsp;Configure
-                  angular.json.<br /><strong>sourceLocale:</strong> The locale
-                  you use within the app source code (en-US by
-                  default).&nbsp;<strong>locales: </strong>A map of locale
-                  identifiers to translation files
-                  <img
-                    src="assets/ngi18/json1.png"
-                    alt="locale configuration"
-                  />
-                 Set "localize" to true will cause an error when using
-                  <code>ng serve</code>&nbsp; if more than one locale is
-                  defined. Setting the options to a specific locale, such as
-                  "localize": ["fr"]. &nbsp;
-                  <img
-                    src="assets/ngi18/json2.png"
-                    alt="locale configuration"
-                  />
-                
-                 Specify build configuration for each locale.&nbsp;
-                  <img src="assets/ngi18/json3.png" alt="build configuration"
-                  />
-                
-                
-                  Apply specific build options for just one locale.
-                  <br /><code>ng serve --configuration=fr</code> <br />
-                  or <br /><code>ng build --configuration=production,fr</code
-                  >
-                
-              </li>
-              <li>
-                
-                  Pass this configuration to the ng serve or ng build commands.
-                  Generate app versions for all locales.<br />
-                  <code>ng build --prod --localize </code>
-                  <img src="assets/ngi18/build1.png" alt="angular.json" />
-                
-              </li>
-              <li>
-              Configure firebase.json. This step needs some trick. We configure hosting -> rewrites -> source and destination  for every locale.
-                <div class="alert is-important">Configure firebase.json correctly is very important!! If skip this step, refresh url will cause a 404 error. For more details, please refer to  <a
-                  href="https://firebase.google.com/docs/hosting/full-config#rewrites"
-                  >firebase manuel</a>
-                </div>
-                <img src="assets/ngi18/build2.png" alt="server href" />
-                <img src="assets/ngi18/build3.png" alt="firebase json" />
-              </li>
-              <li>Deploy multiple locales to firebase server
-                <pre>
-npm install -g firebase-tools
-firebase login
-firebase init.  (Please answer "N" to all questions)
-firebase deploy </pre>
-              </li>
-            </ol>
-            
-              Now, we could admire the result with a cup of coffer<i class="fa fa-coffee icon-bigger"></i>.&nbsp; <a href="https://angulari18a.web.app/fr/home">Here!</a>
-              Deployment is more easy than you think, non?
-              <img   src="assets/ngi18/i181.png" alt="firebase screenshot" />
-              <img   src="assets/ngi18/i182.png" alt="firebase screenshot" />
-              <img   src="assets/ngi18/i183.png" alt="firebase screenshot" />
-              <img   src="assets/ngi18/i184.png" alt="firebase screenshot" />
-              <img   src="assets/ngi18/i185.png" alt="firebase screenshot" />
-            
-           <p><i class="fa fa-arrow-right"></i>source code hosted on github
-          <a href="https://github.com/cxxyao2/ngi18" 
-            >routed localized angular</a
-          ></p>
-          <p><strong>Extension:&nbsp;</strong>
-          If the client need to see only the data in preferred language, we can</p>
-          <ol>
-            <li> on client side ( angular app)  add an interceptor and in it set request header "accept-language" as current locale
-              <pre>
-@Injectable()
-export class LanguageInterceptor implements HttpInterceptor {
-  currentLocale: string;
-
-  constructor(@Inject(LOCALE_ID) public locale: string) {
-    this.currentLocale = this.locale.split('-', 1)[0];
-  }
-
-  intercept(
-    req: HttpRequest<any>,
-    next: HttpHandler
-  ): Observable<HttpEvent<any>> {
-    console.log('locale', this.currentLocale);
-    // Clone the request to add the new header
-    const clonedRequest = req.clone({
-      headers: req.headers.set('accept-language', this.currentLocale),
-    });
-    // Pass the cloned request instead of the original request to the next handle
-    return next.handle(clonedRequest);
-  }
-}</pre>
-            </li>
-            <li>on server side (e.g. node.js + express) get the client locale  and filter the data by the locale
-              <pre>const express = require("express");
-const router = express.Router();
-
-router.get("/", async (req, res) => {
-  clientLanguage =  req.headers["accept-language"];
-  data.filter(item => item.language === clientLanguage);
-  res.send(data);
-});</pre>
-           </li>
-          </ol>
-          
+          <h3><a id="angular">Angular</a></h3>
+          <ul>
+            <li><a class="index" href="angular-localized-routed-deployment-to-firebase.html">Deploy A Routed Localized Angular to Firebase </a></li>
+            <li><a  class="index" href="angular-deploy-github-and-heroku.html">Deploy Angular to GitHub and Heroku </a></li>
+            <li><a  class="index"  href="angular-debug-in-vscode-chrome.html">Debug Angular in VSCode and Chrome </a></li>
+            <li><a  class="index" href="angular_crud_and_authentication_firebase.html">CRUD  and Authentication( Twitter, Google etc)  in  Firebase </a></li>
+            <li><a  class="index" href="angular_pwa.html">PWA(Progressive Web App) in Angular </a></li>
+              <li><a  class="index" href="angular_rxjs.html">Most commonly used RxJS operators </a></li>
+          </ul>
+          <h3 ><a id="react">React</a></h3>
+          <ul>
+            <li><a  class="index" href="#">Hooks</a></li>
+            <li><a  class="index" href="#">Dynamic import, lazy load and Suspense </a></li>
+            <li><a  class="index" href="#">Redux and React </a></li>
+          </ul>
+          <h3><a id="webpack">WebPack</a></h3>
+          <ul >
+            <li ><a href="#" class="index">Webpack.config.js and webpack server </a></li>
+            <li><a href="#" class="index">Css Scss Html </a></li>
+            <li><a href="#" class="index">Optimization </a></li>
+          </ul>
+           <h3><a id="database">Database</a></h3>
+          <ul>
+            <li><a  class="index" href="#">CRUD in MongoDB </a></li>
+            <li><a  class="index" href="#">Make a report base on multiple collections in MongoDB </a></li>
+            <li><a  class="index" href="#">MySql </a></li>
+          </ul>
           </section>
         </article>
-        <section class="read-more">
-          <div class="read-more_item">
-            <span class="read-more-item-dim">&lt;&lt;previous article</span>
-            <h3><a href="angular-deploy-github-and-heroku.html">How to deploy angular app to Heroku && Github</a></h3>
-          </div>
-          <div class="read-more_item">
-            <span class="read-more-item-dim">next article&gt;&gt;</span>
-            <h3>Webpack 4 tips</h3>
-          </div>
-        </section>
-
+      
         <section class="footer">
             <span class="footer__copyright"
-              >2021-5-31 Jennifer. All rights reserved.</span
+              >2021-6-21 Jennifer. All rights reserved.</span
             >
             <span class="footer__copyright"
               >Contact Email: Jenniferyao1996#hotmail.com</span

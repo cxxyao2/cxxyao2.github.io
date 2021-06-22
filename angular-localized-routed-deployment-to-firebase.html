@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Localized Routed Angular</title>
+    <meta
+      name="description"
+      content="localized routed router  i18n international Angular "
+    />
+    <meta name="author" content="Jennifer" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="icon" href="/assets/images/favicon.ico" />
+    <link rel="stylesheet" href="assets/css/normalize.css" />
+    <link rel="stylesheet" href="assets/css/index.css" />
+  </head>
+  <body>
+    <!--  for not index.html -->
+    <nav class="nav collapsible">
+      <span><a href="/#angular" class="white">Jennifer - Full Stack Developer</a> </span>
+      <span class="nav_toggler" style="outline:none !important;"
+        ><i class="fa fa-list white icon-bigger"  ></i
+      ></span>
+      <ul class="nav_list collapsible_content">
+        <li>
+           <ul class="nav_social" role="nav_social">
+            <li>
+              <a href="https://github.com/cxxyao2" target="_blank"
+                ><i class="fa fa-github white icon-biggest"></i
+              ></a>
+            </li>
+            <li >
+              <a href="https://twitter.com/jenniferyao1996" target="_blank"
+                ><i class="fa fa-twitter white icon-biggest"></i
+              ></a>
+            </li>
+            <li>
+              <a href="mailto:jenniferyao1996@qq.com" target="_blank"
+                ><i class="fa fa-envelope white icon-biggest"></i
+              ></a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav_item"><a href="/#angular">Angular</a></li>
+        <li class="nav_item"><a href="/#react">React</a></li>
+        <li class="nav_item"><a href="/#webpack">Webpack</a></li>
+        <li class="nav_item"><a href="/#database">Database</a></li>
+      </ul>
+    </nav>
+
+
+    <!--  for not index.html -->
+    <aside class="sidebar">
+      <div class="sidebar_cover"></div>
+      <div class="sidebar_main">
+        <a href="#">
+          <img class="sidebar_logo" alt="Jennifer" src="assets/tree1.jpg" />
+        </a>
+        <h3>Jennifer</h3>
+        <span>Full Stack Developer</span>
+        <hr />
+        <p class="sidebar_description">
+          I am passionate about front-end frameworks and databases.
+        </p>
+        <hr class="sidebar_divider" />
+        <p class="sidebar_tags">
+          <span class="sidebar_tag"
+            ><a  href="/#angular"><img
+              src="assets/angular-icon.svg"
+              class="sidebar_icon"
+            />&nbsp;Angular</a></span
+          >
+          <span class="sidebar_tag"
+            ><a  href="/#react" alt="react blogs"><img
+              src="assets/react.svg"
+              class="sidebar_icon"
+            />&nbsp;React</a></span
+          >
+          <span class="sidebar_tag"
+            ><a  href="/#webpack" ><img
+              src="assets/webpack_logo.svg"
+              class="sidebar_icon"
+            />&nbsp;Webpack</a></span
+          >
+          <span class="sidebar_tag"
+            ><a  href="/#database" ></a><img
+              src="assets/mysql.png"
+              class="sidebar_icon"
+            />&nbsp;Database</a></span
+          >
+        </p>
+        <hr class="sidebar_divider" />
+        <div>
+          <ul class="navigation" role="navigation-social">
+            <li class="navigation_item">
+              <a href="https://github.com/cxxyao2" target="_blank"
+                ><i class="fa fa-github icon-bigger"></i
+              ></a>
+            </li>
+            <li class="navigation_item">
+              <a href="https://twitter.com/jenniferyao1996" target="_blank"
+                ><i class="fa fa-twitter icon-bigger"></i
+              ></a>
+            </li>
+            <li class="navigation_item">
+              <a href="mailto:jenniferyao1996@qq.com" target="_blank"
+                ><i class="fa fa-envelope icon-bigger"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+
+    <main class="content_wrapper">
+      <div class="content">
+        <article class="post">
+          <header>
+            <span class="post_category"
+              ><label class="date">2021-3-29</label> Angular</span
+            >
+            <h2 >
+              Deploy A Routed Localized Angular to Firebase
+            </h2>
+          </header>
+          <section class="post_body">
+            <div class="alert is-helpful">
+              For navigation: <strong>href ≠ routeLink</strong>. Differentiate
+              the two attributes is necessary when we build a SPA(single page
+              application). Href will introduce to reload the whole page and
+              lose all the states of the page, while routeLink will introduce to
+              navigate to other components in the same page.
+            </div>
+
+            <p>
+              In this blog, I will introduce how to build and deploy a routed
+              localized angular application to firebase step by step.
+            </p>
+            <ol>
+              <li>
+                  Create a project with routing.&nbsp;
+                  <code>ng new ngi18n --routing</code>
+                  <br />ngi18n is my project name.
+              </li>
+              <li>Configure app-routing.module.ts as normal.&nbsp;
+                  <img src="assets/ngi18/routing1.png" alt="routing image" />
+                  Configure navigation bar. For navigating between components, configuration like ①. For changing to  different locale, e.g. 
+                  from /en/index.html to /fr/index.html, configure like ②.
+                  <img src="assets/ngi18/routing2.png" alt="routing image" />
+                  <img src="assets/ngi18/routing3.jpeg" alt="routing image" />
+              </li>
+              <li>Add the localize package.&nbsp;<code
+                    >ng add @angular/localize</code
+                  ></li>
+              <li>Mark the static text messages in your component templates for
+                  translation using the i18n attribute, e.g.
+                  <code>&lt;h1 i18n&gt;Welcome&lt;/h1 i18n&gt;</code>
+                
+              </li>
+              <li>
+                  Extract the source language file messages.xls.&nbsp;I changed
+                  the source language file location to translate.&nbsp;<br />
+                  <code>ng extract-i18n --output-path src/translate</code>
+              </li>
+              <li>Create a translation file for each language by copy and rename
+                  the source file. I created copies for the languages French and
+                  German. Translate each translation file.&nbsp;( I skip the
+                  details about translation.)
+                  <img src="assets/ngi18/translate1.png" alt="language files" />
+                
+              </li>
+              <li>Define locales in the build configuration.&nbsp;Configure
+                  angular.json.<br /><strong>sourceLocale:</strong> The locale
+                  you use within the app source code (en-US by
+                  default).&nbsp;<strong>locales: </strong>A map of locale
+                  identifiers to translation files
+                  <img
+                    src="assets/ngi18/json1.png"
+                    alt="locale configuration"
+                  />
+                 Set "localize" to true will cause an error when using
+                  <code>ng serve</code>&nbsp; if more than one locale is
+                  defined. Setting the options to a specific locale, such as
+                  "localize": ["fr"]. &nbsp;
+                  <img
+                    src="assets/ngi18/json2.png"
+                    alt="locale configuration"
+                  />
+                
+                 Specify build configuration for each locale.&nbsp;
+                  <img src="assets/ngi18/json3.png" alt="build configuration"
+                  />
+                
+                
+                  Apply specific build options for just one locale.
+                  <br /><code>ng serve --configuration=fr</code> <br />
+                  or <br /><code>ng build --configuration=production,fr</code
+                  >
+                
+              </li>
+              <li>
+                
+                  Pass this configuration to the ng serve or ng build commands.
+                  Generate app versions for all locales.<br />
+                  <code>ng build --prod --localize </code>
+                  <img src="assets/ngi18/build1.png" alt="angular.json" />
+                
+              </li>
+              <li>
+              Configure firebase.json. This step needs some trick. We configure hosting -> rewrites -> source and destination  for every locale.
+                <div class="alert is-important">Configure firebase.json correctly is very important!! If skip this step, refresh url will cause a 404 error. For more details, please refer to  <a
+                  href="https://firebase.google.com/docs/hosting/full-config#rewrites"
+                  >firebase manuel</a>
+                </div>
+                <img src="assets/ngi18/build2.png" alt="server href" />
+                <img src="assets/ngi18/build3.png" alt="firebase json" />
+              </li>
+              <li>Deploy multiple locales to firebase server
+                <pre>
+npm install -g firebase-tools
+firebase login
+firebase init.  (Please answer "N" to all questions)
+firebase deploy </pre>
+              </li>
+            </ol>
+            
+              Now, we could admire the result with a cup of coffer<i class="fa fa-coffee icon-bigger"></i>.&nbsp; <a href="https://angulari18a.web.app/fr/home">Here!</a>
+              Deployment is more easy than you think, non?
+              <img   src="assets/ngi18/i181.png" alt="firebase screenshot" />
+              <img   src="assets/ngi18/i182.png" alt="firebase screenshot" />
+              <img   src="assets/ngi18/i183.png" alt="firebase screenshot" />
+              <img   src="assets/ngi18/i184.png" alt="firebase screenshot" />
+              <img   src="assets/ngi18/i185.png" alt="firebase screenshot" />
+            
+           <p><i class="fa fa-arrow-right"></i>source code hosted on github
+          <a href="https://github.com/cxxyao2/ngi18" 
+            >routed localized angular</a
+          ></p>
+          <p><strong>Extension:&nbsp;</strong>
+          If the client need to see only the data in preferred language, we can</p>
+          <ol>
+            <li> on client side ( angular app)  add an interceptor and in it set request header "accept-language" as current locale
+              <pre>
+@Injectable()
+export class LanguageInterceptor implements HttpInterceptor {
+  currentLocale: string;
+
+  constructor(@Inject(LOCALE_ID) public locale: string) {
+    this.currentLocale = this.locale.split('-', 1)[0];
+  }
+
+  intercept(
+    req: HttpRequest<any>,
+    next: HttpHandler
+  ): Observable<HttpEvent<any>> {
+    console.log('locale', this.currentLocale);
+    // Clone the request to add the new header
+    const clonedRequest = req.clone({
+      headers: req.headers.set('accept-language', this.currentLocale),
+    });
+    // Pass the cloned request instead of the original request to the next handle
+    return next.handle(clonedRequest);
+  }
+}</pre>
+            </li>
+            <li>on server side (e.g. node.js + express) get the client locale  and filter the data by the locale
+              <pre>const express = require("express");
+const router = express.Router();
+
+router.get("/", async (req, res) => {
+  clientLanguage =  req.headers["accept-language"];
+  data.filter(item => item.language === clientLanguage);
+  res.send(data);
+});</pre>
+           </li>
+          </ol>
+          
+          </section>
+        </article>
+        <section class="read-more">
+          <div class="read-more_item">
+            <span class="read-more-item-dim">&lt;&lt;previous article</span>
+            <h3><a href="index.html">List of Blogs</a></h3>
+          </div>
+          <div class="read-more_item">
+            <span class="read-more-item-dim">next article&gt;&gt;</span>
+            <h3><a href="angular-deploy-github-and-heroku.html">How to deploy angular app to Heroku && Github</a></h3>
+         
+          </div>
+        </section>
+
+        <section class="footer">
+            <span class="footer__copyright"
+              >2021-5-31 Jennifer. All rights reserved.</span
+            >
+            <span class="footer__copyright"
+              >Contact Email: Jenniferyao1996#hotmail.com</span
+            >
+        </section>
+      </div>
+      <span id="backToTop">
+        <i class="fa fa-arrow-up"></i>
+      </span>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>

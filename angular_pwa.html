@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Deploy</title>
+    <title>PWA in Angular</title>
     <meta
       name="description"
-      content="Angular, React, Webpack, Typescript, Javascript, Databases..."
+      content="localized routed router  i18n international Angular "
     />
     <meta name="author" content="Jennifer" />
     <link
@@ -58,10 +58,8 @@
 
 
 
-
-
-       <!--  for not index.html -->
-<aside class="sidebar">
+    <!--  for not index.html -->
+    <aside class="sidebar">
       <div class="sidebar_cover"></div>
       <div class="sidebar_main">
         <a href="#">
@@ -124,126 +122,122 @@
     </aside>
 
 
+
     <main class="content_wrapper">
       <div class="content">
         <article class="post">
           <header>
             <span class="post_category"
-              ><label class="date">2021-2-1</label> Angular</span
+              ><label class="date">2021-5-1</label> Angular</span
             >
-            <h2>Deploy Angular to GitHub and Heroku</h2>
+            <h2 >
+              PWA( Progressive Web App) in Angular
+            </h2>
           </header>
           <section class="post_body">
-            <div class="alert is-helpful">
-              Before all the deployments, run <code>ng build --prod</code>
-            </div>
-            <h3>1. Deploy Angular to Github</h3>
-            <p>we need only 2 steps for deploy an angular app on Github.</p>
+          <p>Running an angular web app as a native app in mobile phone is cool! In this blog, I will introduce how to achieve this step by step. </p>
+          <ul>
+            <li>Create an angular project using angular-cli</li>
+            <li>Add a service work to this project
+              <pre>
+ng add @angular/pwa --project *project-name*</pre>
+            </li>
+            <li>Install http-server package <strong>globally</strong> for testing the PWA app in local computer
+               <pre>
+npm i -g http-serve</pre>
+            </li>
+            <li>Build PWA app
+               <pre>
+ng build --prod</pre>
+            </li>
+            <li>Test PWA app
+              <pre>
+http-server -p 8080 -c-1 dist/&lt;project-name&gt;</pre>
+            </li>
+            <li>Add <code>Add to Home Screen</code> button in template file.
+<pre>
+// app.component.html
+  
+&lt;button *ngIf="showButton" (click)="addToHomeScreen()"&gt;
+    add to home screen
+&lt;/button&gt; 
+</pre>
 
-            <ol>
-              <li><code>ng add angular-cli-ghpages</code></li>
-              <li><code
-                  >ng deploy
-                  --base-href=https://your-github-username.github.io/your-project-name-in-github/
-                </code>
-              </li>
-            </ol>
-            <p> Now, we could admire the result with a cup of coffer<i class="fa fa-coffee icon-bigger"></i>.&nbsp; 
-              <a href="https://cxxyao2.github.io/ng-demo/">Here!&nbsp;</a>
-              Deployment is more easy than you think, non? </p>
-              
-             <p><i class="fa fa-arrow-right"></i>Source hosted on github&nbsp;<a href="https://github.com/cxxyao2/ng-demo/">ng-demo</a> </p>
-            <div class="alert is-important">
-              The ending slash &nbsp;/ &nbsp; is necessary;&nbsp;Image source  path should be written correctly &nbsp; <code>&lt;img src="./assets/answer1.jpeg" /&gt;</code>
-            </div>
-            <hr class="divider" />
-            <h3>2. Deploy Angular to Heroku Cloud Platform</h3>
-            <p>on the dashboard of Heroku <ol>
-              <li>create a new app</li>
-              <li>choose Github integration</li>
-              <li>after Heroku has found the repo in git, click "connect" button</li>
-              <li>click "enable automatic deploy" button</li>
-            </ol></p>
-            <p>on your local machine, at the root folder of angular project 
-              <ol>
-                <li><code>npm i express --save</code></li>
-                <li>write a file named server.js. My project name is "ng-front". Please replace it by your own project name.&nbsp
-                   <pre>
-// get environment variables dynamically and create environment.ts file
-const fs = require("fs");
-const targetPath = "./src/environments/environment.ts";
-const envConfigFile = `export const environment = {
-  apiBaseUrl: '${process.env.API_BASE_URL}',
-  apiUrl: '${process.env.API_URL}',
-  appName: '${process.env.APP_NAME}',
-  awsPubKey: '${process.env.AWSKEY}',
-  nodeEnv: '${process.env.NODE_ENV}',
-  production: '${process.env.PRODUCTION}'
-};
-`;
-fs.writeFile(targetPath, envConfigFile, function (err) {
-  if (err) {
-    throw console.error(err);
-  } else {
-    console.log(
-      `Angular environment.ts file generated correctly at ${targetPath} \n`
-    );
+Add listener <code>window:beforeinstallprompt</code> in component.ts
+<pre>
+// app.component.ts 
+
+import { Component, HostListener } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+})
+export class AppComponent {
+  title = 'ng-pwa';
+
+  deferredPrompt: any;
+  showButton = false;
+
+  @HostListener('window:beforeinstallprompt', ['$event'])
+  onbeforeinstallprompt(e: any) {
+    console.log(e);
+    // Prevent Chrome 67 and earlier from automatically showing the prompt
+    e.preventDefault();
+    // Stash the event so it can be triggered later.
+    this.deferredPrompt = e;
+    this.showButton = true;
   }
-});
 
-const express = require("express");
-const app = express();
-app.use(express.static(__dirname + "/dist/ng-front")); // serve our static files
-
-// direct all of the requests to index.html
-app.all("/*", (req, res) => {
-  res.status(200).sendFile(__dirname + "/dist/ng-front/index.html");
-});
-app.listen(process.env.PORT || 8080);
-</pre> </li>
-                <li>modify package.json 
-                  <pre>
-"scripts": {
-  "ng": "ng",
-  "start": "node server.js",
-  "build": "ng build --prod",
-  "test": "ng test",
-  "lint": "ng lint",
-  "e2e": "ng e2e"
-},
-              </pre></li>
-                <li>in the local machine, run <code>node server.js</code>. 
-                  Enter "localhost:8000" in the  browser to verify if the configuration is ok </li>
-                  <li>until now, if there is no problem, we can push the latest code and configuration to Github.
-                    In the terminal, <code>git push origin main</code>.
-                  </li>
-              </ol>
-            </p>
-           <p> Now, we could admire the result with a cup of coffer<i class="fa fa-coffee icon-bigger"></i>.&nbsp; 
-              <a href="https://ngcrm2021.herokuapp.com/">Here!&nbsp;</a>
-              Deployment is more easy than you think, non? </p>
-            <p><i class="fa fa-arrow-right"></i>Source hosted on github&nbsp;<a href="https://github.com/cxxyao2/ng-frontend">ng-frontend</a> </p>
-           
+  addToHomeScreen() {
+    // hide our user interface that shows our A2HS button
+    this.showButton = false;
+    // show the prompt
+    this.deferredPrompt.prompt();
+    // Wait for the user to respond to the prompt
+    this.deferredPrompt.userChoice.then((choiceResult: any) => {
+      if (choiceResult.outcome === 'accepted') {
+        console.log('User accepted the A2H2 prompt');
+      } else {
+        console.log('User dismissed the A2H2  prompt');
+      }
+      this.deferredPrompt = null;
+    });
+  }
+}
+            </pre>
+            </li>
+            <li>Deploy this angular app on a cloud platform. I deployed my first PWA app on github.
+            </li>
+            <li>Visit the PWA website through the browser in the mobile phone. Add the app to the mobile screen. Attention: Not all mobiles support PWA.
+              If your PWA app icon does not show on the mobile screen, you should try to install it on another mobile.
+              <img src="assets/pwa/pwa1.png" alt="deploy pwa" />
+              <img src="assets/pwa/pwa2.png" alt="add pwa to mobile screen" />
+            </li>
+            <li>Source code is hosted on <a href="https://github.com/cxxyao2/ng-pwa" alt="source code">github</a></li>
+            
+          </ul>
           </section>
         </article>
         <section class="read-more">
           <div class="read-more_item">
             <span class="read-more-item-dim">&lt;&lt;previous article</span>
-            <h3><a href="angular-localized-routed-deployment-to-firebase.html">Debug A Routed Localized(i18n) Angular to Firebase</a></h3>
+            <h3><a href="angular_crud_and_authentication_firebase.html">CRUD and Authentication in Firebase</a></h3>
           </div>
           <div class="read-more_item">
             <span class="read-more-item-dim">next article&gt;&gt;</span>
-            <h3><a href="angular-debug-in-vscode-chrome.html">Debug Angular in VSCode and Chrome</a></h3>
-        </div>
+            <h3><a href="angular_rxjs.html">RxJS</a></h3>
+          </div>
         </section>
 
         <section class="footer">
-          <span class="footer__copyright"
-            >2021-5-31 Jennifer. All rights reserved.</span
-          >
-          <span class="footer__copyright"
-            >Contact Email: Jenniferyao1996#hotmail.com</span
-          >
+            <span class="footer__copyright"
+              >2021-5-31 Jennifer. All rights reserved.</span
+            >
+            <span class="footer__copyright"
+              >Contact Email: Jenniferyao1996#hotmail.com</span
+            >
         </section>
       </div>
       <span id="backToTop">
