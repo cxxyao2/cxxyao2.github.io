@@ -31,8 +31,9 @@ ol {
 }
 
 li {
-  margin: 0 auto 1rem;
-  line-height: 2.4rem;
+  margin: 0 auto 2rem;
+  line-height: 2.6rem;
+  text-align: left;
 }
 
 ::selection {
@@ -80,11 +81,9 @@ h3 {
 p {
   font-size: 1.6rem;
   line-height: 2.6rem;
-  margin:0 auto 2rem ;
+  margin: 0 auto 2rem;
   text-align: left;
 }
-
-
 
 code {
   padding: 0.1em 0.4em;
@@ -100,7 +99,7 @@ a {
   text-decoration: none;
 }
 a.index {
-  color: rgb(191,24,39);
+  color: rgb(191, 24, 39);
 }
 
 article,
@@ -185,12 +184,11 @@ p a {
 }
 
 .nav_social {
-  margin:0;
+  margin: 0;
   padding: 0;
-  display: flex; 
+  display: flex;
   justify-content: space-around;
 }
-
 
 .collapsible_content {
   max-height: 0;
@@ -204,12 +202,10 @@ p a {
   opacity: 1;
 }
 
-
-.post_body .collapsible-expanded  .fa {
+.post_body .collapsible-expanded .fa {
   transition: all 0.3s;
   transform: rotate(-90deg);
 }
-
 
 .sidebar {
   position: fixed;
@@ -221,7 +217,7 @@ p a {
   background-image: url('../sea.jpg');
   display: table;
   color: var(--color-white);
-  display:none;
+  display: none;
 }
 
 .sidebar p {
@@ -294,13 +290,13 @@ p a {
   line-height: 2.5rem;
 }
 
-.sidebar  a {
+.sidebar a {
   color: var(--color-white);
   padding: 5px;
   transition: all 0.3s;
 }
 
-.sidebar a:hover{
+.sidebar a:hover {
   opacity: 0.8;
 }
 
@@ -309,11 +305,10 @@ p a {
 }
 
 .icon-middle {
-  font-size:1.5rem;
-  
+  font-size: 1.5rem;
 }
-.gray{
-color: var(--color-body);
+.gray {
+  color: var(--color-body);
 }
 
 .icon-bigger {
@@ -322,8 +317,8 @@ color: var(--color-body);
 }
 
 .icon-biggest {
-  font-size:3rem;
-  transition: all .6s;
+  font-size: 3rem;
+  transition: all 0.6s;
 }
 
 .icon-biggest:hover {
@@ -339,7 +334,6 @@ color: var(--color-body);
   margin: 0 auto;
   color: var(--color-body-darker);
 }
-
 
 .content {
   margin: 0 5%;
@@ -469,7 +463,6 @@ pre {
   line-height: 1.5em;
 }
 
-
 @media screen and (min-width: 1024px) {
   body {
     font-size: 1.7rem;
@@ -493,7 +486,7 @@ pre {
   }
 
   p {
-    margin:0 auto  2rem;
+    margin: 0 auto 2rem;
     font-size: 1.7rem;
     line-height: 2.8rem;
     text-align: left;
@@ -501,8 +494,8 @@ pre {
 
   li {
     font-size: 1.7rem;
-    line-height: 2.4rem;
-    margin:  0 auto 1rem;
+    line-height: 2.8rem;
+    margin: 0 auto 2rem;
   }
 
   h1,
@@ -512,17 +505,14 @@ pre {
   }
 
   .nav {
-    display:none;
+    display: none;
   }
-
 
   .sidebar {
     display: table;
   }
 
-
-
-.content_wrapper {
+  .content_wrapper {
     width: 70%;
     margin-left: 30%;
   }
