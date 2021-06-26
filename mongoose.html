@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mongoose</title>
+    <meta
+      name="description"
+      content="most-used commands in mongoose db "
+    />
+    <meta name="author" content="Jennifer" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="icon" href="/assets/images/favicon.ico" />
+    <link rel="stylesheet" href="assets/css/normalize.css" />
+    <link rel="stylesheet" href="assets/css/index.css" />
+  </head>
+  <body>
+    <!--  for not index.html -->
+    <nav class="nav collapsible">
+      <span><a href="/#angular" class="white">Jennifer - Full Stack Developer</a> </span>
+      <span class="nav_toggler" style="outline:none !important;"
+        ><i class="fa fa-list white icon-bigger"  ></i
+      ></span>
+      <ul class="nav_list collapsible_content">
+        <li>
+           <ul class="nav_social" role="nav_social">
+            <li>
+              <a href="https://github.com/cxxyao2" target="_blank"
+                ><i class="fa fa-github white icon-biggest"></i
+              ></a>
+            </li>
+            <li >
+              <a href="https://twitter.com/jenniferyao1996" target="_blank"
+                ><i class="fa fa-twitter white icon-biggest"></i
+              ></a>
+            </li>
+            <li>
+              <a href="mailto:jenniferyao1996@qq.com" target="_blank"
+                ><i class="fa fa-envelope white icon-biggest"></i
+              ></a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav_item"><a href="/#angular">Angular</a></li>
+        <li class="nav_item"><a href="/#react">React</a></li>
+        <li class="nav_item"><a href="/#webpack">Webpack</a></li>
+        <li class="nav_item"><a href="/#database">Database</a></li>
+      </ul>
+    </nav>
+
+
+    <!--  for not index.html -->
+    <aside class="sidebar">
+      <div class="sidebar_cover"></div>
+      <div class="sidebar_main">
+        <a href="#">
+          <img class="sidebar_logo" alt="Jennifer" src="assets/tree1.jpg" />
+        </a>
+        <h3>Jennifer</h3>
+        <span>Full Stack Developer</span>
+        <hr />
+        <p class="sidebar_description">
+          I am passionate about front-end frameworks and databases.
+        </p>
+        <hr class="sidebar_divider" />
+        <p class="sidebar_tags">
+          <span class="sidebar_tag"
+            ><a  href="/#angular"><img
+              src="assets/angular-icon.svg"
+              class="sidebar_icon"
+            />&nbsp;Angular</a></span
+          >
+          <span class="sidebar_tag"
+            ><a  href="/#react" alt="react blogs"><img
+              src="assets/react.svg"
+              class="sidebar_icon"
+            />&nbsp;React</a></span
+          >
+          <span class="sidebar_tag"
+            ><a  href="/#webpack" ><img
+              src="assets/webpack_logo.svg"
+              class="sidebar_icon"
+            />&nbsp;Webpack</a></span
+          >
+          <span class="sidebar_tag"
+            ><a  href="/#database" ></a><img
+              src="assets/mysql.png"
+              class="sidebar_icon"
+            />&nbsp;Database</a></span
+          >
+        </p>
+        <hr class="sidebar_divider" />
+        <div>
+          <ul class="navigation" role="navigation-social">
+            <li class="navigation_item">
+              <a href="https://github.com/cxxyao2" target="_blank"
+                ><i class="fa fa-github icon-bigger"></i
+              ></a>
+            </li>
+            <li class="navigation_item">
+              <a href="https://twitter.com/jenniferyao1996" target="_blank"
+                ><i class="fa fa-twitter icon-bigger"></i
+              ></a>
+            </li>
+            <li class="navigation_item">
+              <a href="mailto:jenniferyao1996@qq.com" target="_blank"
+                ><i class="fa fa-envelope icon-bigger"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+
+
+
+    <main class="content_wrapper">
+      <div class="content">
+        <article class="post">
+          <header>
+            <span class="post_category"
+              ><label class="date">2021-5-1</label> Angular</span
+            >
+            <h2 >
+             Most Commonly Used  operators in Mongoose
+            </h2>
+          </header>
+          <section class="post_body">
+            <div class="alert is-helpful">
+It is common practice for full stack developers  to build a REST API using Node.js, Express, MongoDB. Mongoose is an ODM(Object
+Document Mapping) tool for Node.
+ Mongoose provides a straight-forward, schema-based solution to model your application data and make coding processes more efficient.
+
+            </div>
+            <ul>In this blog, I will list the most used  Mongoose helper functions for CRUD operations. I take  model Course as an example. 
+              <li>construct a  collection using a  schema
+                <pre>
+const mongoose = require('mongoose');
+mongoose
+  .connect('mongodb://localhost/testdb', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
+  })
+  .then(() => console.log('MongoDB is connected...'))
+  .catch((error) => console.error('Could not connect to Mongodb... ', error));
+
+const Schema = mongoose.Schema;
+
+const courseSchema = new Schema({
+  name: String,
+  author: String,
+  tags: [String],
+  date: { type: Date, default: Date.now },
+  isPublished: Boolean,
+  price: Number
+});
+
+// model Course maps to a collection named courses in MongoDB.
+const Course = mongoose.model('Course', courseSchema);
+
+// for a simple model, e.g. only one field 
+//const Dog = mongoose.model('Dog',  { name: String });
+
+// a more complicated schema: with customized validator , enum datatype, regular expression validator
+// a validator depends on other field
+// customized validator: synchronous, asynchronous
+const courseSchema = new Schema({
+  name: { 
+    type: String, 
+    required:true,
+    minlength: 5,
+    maxlength: 255,
+    match: /^[a-z]{2,}/
+  },
+  author: String,
+  category: {
+    type:String,
+    required: true,
+    enum: ['web', "mobile", "network"],
+    lowercase:true
+  },
+  tags: {
+    type: Array,
+    validate: {
+      validator: (v) => {
+        const result = v && v.length > 0;
+        if(result) return Promise.resolve(true);
+        else return Promise.resolve(false);
+        }
+      },
+      message: "A course should at least one tag."
+    },
+    tags: {
+    type: Array,
+    validate: {
+      isAsync: true,
+      validator: function(v, callback) {
+        setTimeout(() => {
+          // Do some async work
+          const result =  v && v.length > 0; // v ≠ null 
+          callback(result);
+        });
+      },
+      message: 'A course should have at lease one tag. '
+    }
+  date: { type:Date, default: Date.now },
+  isPublished: Boolean,
+  price: {
+    type: Number,
+    required: function() {
+      return this.isPublished;
+    },
+    min: 10,
+    max: 200
+  }
+});
+                </pre> 
+                <img src="assets/mongoose/create-collection.png" alt="create collection />"
+              </li>
+              <li>create/read/update/delete operations
+                <pre>
+// create 
+const course = new Course({
+    tags: ['node2','Angula2r'],
+    name: 'Node.js AugularJS2-6',
+    author: 'Jane',
+    isPublished: true,
+    price: 25
+  });
+ await course.save(); 
+ // or course.save().then(() => console.log('course saved'));
+
+// read
+// get one document by id
+async function getCourse() {
+  return await Course.findById({
+    _id: mongoose.Types.ObjectId('5f9da935ccb82368841152f2'),
+  });
+
+  // other helper functions
+  // get one document by category field
+  // return await Course.findOne({
+  // category: 'web',
+  // });
+}
+
+
+async function getCourse(pagenumber, pagesize) {
+  const courses = await Course
+    // .find({ author:'JAJA', isPublished: true})
+    // .find({ price: {$gte: 10, $lte: 20 }})
+    // .find({ price:{ $in: [10, 20, 30]} })
+    // .or([{author:'JAJA'}, {isPublished: true}])
+    // .find({})
+    .find({ name: /^Redu/ })
+    .skip((pagenumber - 1) * pagesize)
+    .limit(pagesize)
+    .sort({ date: 1 })
+    .select({ name: 1, tags: -1, date: 1})
+  // .count();
+  console.log(courses);
+}
+
+
+// delete
+const course = await Course.findByIdAndRemove(id);
+const result = await Course.deleteOne({_id: id })
+const deleteQty=Course.deleteMany({isPublished: true})
+// update
+const result = await Course.findByIdAndUpdate(id, {
+    $set:{
+      author: 'Newton2',
+      isPublished:false
+    }
+  },{new: true});
+
+const result = await Course.update({_id:id}, {
+  $set:{
+    author: 'Ada Lovelace',
+    isPublished:false
+  }
+});
+
+Course.findOneAndUpdate({price: 10}, 
+  {name:"ANNA"}, null, function(err,docs){
+  if(err) {
+    console.log(err);
+  }
+  else
+  {
+    console.log("Original Doc: ", docs);
+  }
+});
+
+
+// get 
+// and, or 
+// order by : price , descending
+// output only two fields: name  price  
+return await Course
+   .find({isPublished:true})
+    .or([{ price: {$gte: 12}},
+    { name: /.*by.*/}])   
+    .sort('-price')
+    .select('name price');
+                </pre>
+              </li>
+              <li>no foreign key? try  populate helper function 
+                <pre>
+const mongoose = require('mongoose');
+
+mongoose
+  .connect('mongodb://localhost/testdb')
+  .then(() => console.log('Connected to MongoDB...'))
+  .catch((err) => console.error('Could not connect to MongoDB...', err));
+
+const Author = mongoose.model(
+  'Author',
+  new mongoose.Schema({
+    name: String,
+    bio: String,
+    website: String,
+  })
+);
+
+const Course = mongoose.model(
+  'Course',
+  new mongoose.Schema({
+    name: String,
+    author: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Author',
+    },
+  })
+);
+
+async function createAuthor(name, bio, website) {
+  const author = new Author({
+    name,
+    bio,
+    website,
+  });
+
+  const result = await author.save();
+  console.log(result);
+}
+
+async function createCourse(name, author) {
+  const course = new Course({
+    name,
+    author,
+  });
+
+  const result = await course.save();
+  console.log(result);
+}
+
+async function listCourses() {
+  const courses = await Course.find()
+    .populate('author', 'name -_id') // only show id & name
+    .select('name author');
+  console.log(courses);
+}
+
+createAuthor('Mosh', 'My bio', 'My Website'); // _id: 5f45ab152ac7a7164dc635d0
+
+createCourse('Node Course', '5f45ab152ac7a7164dc635d0');
+
+listCourses();
+
+                </pre>
+              </li>
+              <li>use Fawn package to imitate a transaction in a relational Database
+                <pre>
+try {
+new Fawn.Task()
+.save('rentals', rental)
+.update('movies', { _id: movie._id}, {
+  $inc: { numberInStock: -1 }
+})
+.run();
+res.send(rental);
+
+}catch(ex){
+  res.status(500).send('Something failed.');
+
+}
+
+                </pre>
+              </li>
+              <li>aggregation pipeline as an array of objects 
+                <div>extract data from multiple collections to make a report</div>
+                <pre>
+// important operators
+modelName.aggregate([
+{$match:{...}},
+{$lookup:{...}},
+{$unwind:{...}},
+{$project:{...}},
+{$group:{...}},
+{$sort:{...}}
+], (err, docs) => {..});
+
+                </pre>
+                <pre>
+// real example
+const mongoose = require("mongoose");
+
+mongoose
+  .connect("mongodb://localhost/testdb", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
+  })
+  .then(() => console.log("MongoDB is connected..."))
+  .catch((error) => console.error("Could not connect to Mongodb... ", error));
+
+
+// output fields:
+
+// from customers collection
+// name 
+// region
+
+// from Itineraries collection
+// salesmanId 
+// salesmanName 
+// customerId 
+// latitude
+// longitude
+// visitDate 
+// createdDate
+// updatedDate
+
+const Itinerary = mongoose.model(
+  "Itinerary",
+  new mongoose.Schema({
+    name: String,
+    customer_id: mongoose.Schema.Types.ObjectId,
+    visitDate: {
+      type: Date,
+      default: Date.now,
+    },
+    account: {
+      type: Number,
+      default: 0,
+    },
+    location: [String],
+  })
+);
+
+async function aggregateByNameDate(salesmanName, formDate, toDate) {
+  // formDate, toDate, format: yyyyMMdd
+  const startYear = Number(formDate.slice(0, 4));
+  const startMonth = Number(formDate.slice(4, 6)) - 1; // monIndex = month -1
+  const startDay = Number(formDate.slice(6, 8));
+  const endYear = Number(toDate.slice(0, 4));
+  const endMonth = Number(toDate.slice(4, 6)) - 1;
+  const endDay = Number(toDate.slice(6, 8));
+
+  const startYYMMDD = new Date(startYear, startMonth, startDay, 0, 0, 0);
+  const endYYMMDD = new Date(endYear, endMonth, endDay, 23, 59, 59);
+
+  await Itinerary.aggregate(
+    [
+      {
+        $match: {
+          name: salesmanName,
+          visitDate: { $gte: startYYMMDD, $lte: endYYMMDD },
+        },
+      },
+      {
+        $lookup: {
+          from: "customers",
+          localField: "customer_id",
+          foreignField: "_id",
+          as: "customers",
+        },
+      },
+      {
+        $unwind: {
+          path: "$customers",
+          preserveNullAndEmptyArrays: true,
+        },
+      },
+      {
+        $project: {
+          _id: 1,
+          name: 1,
+          customer_id: 1,
+          "customers.name": 1,
+          "customers.region": 1,
+          visitDate: 1,
+          account: 1,
+        },
+      },
+      {
+        $group: {
+          _id: {
+            salesmanName: "$name",
+            customerId: "$customer_id",
+            customerName: "$customers.name",
+            customerRegin: "$customers.region",
+            month: { $month: "$visitDate" },
+            year: { $year: "$visitDate" },
+          },
+          total: { $sum: "$account" },
+          count: { $sum: 1 },
+        },
+      },
+      {
+        $sort: {
+          _id: 1,
+        },
+      },
+    ],
+    (err, docs) => {
+      if (err) {
+        console.log("err is ", err);
+        return;
+      }
+      console.log(docs);
+    }
+  );
+}
+                </pre>
+              </li>
+              <li>add a new field to an existing collection
+                <ol>
+                  <li>Add the new field to schema
+                    <pre>
+const courseSchema = new Schema({
+  name: String,
+  author: String,
+  tags: [String],
+  date: { type: Date, default: Date.now },
+  isPublished: Boolean,
+  price: Number,
+  newField: String,
+});                     
+                    </pre>
+                  </li>
+                  <li>use updateMany helper to update the documents
+                    <pre>
+return await Course.updateMany(
+    { price: { $gte: 1 } },
+    { newField: 'OK' },
+    { multi: true },
+    function (err, numberAffected) {
+      console.log(
+        'numberAffected error is',
+        numberAffected,
+        ' are affected ',
+        JSON.stringify(err)
+      );
+    }
+  );                      
+                    </pre> </li>
+                </ol> </li>
+                <li>a special MongoDB datatype : ObjectId
+                  <pre>
+const mongoose = require('mongoose');
+
+const id = new mongoose.Types.ObjectId();
+console.log(id.getTimestamp());
+console.log('1234 is a valid ObjectId ?  ', mongoose.Types.ObjectId.isValid('1234'));  // result: false
+                  </pre>
+                </li>
+              
+            </ul>
+            
+          </section>
+        </article>
+        <section class="read-more">
+          <div class="read-more_item">
+            <span class="read-more-item-dim">&lt;&lt;previous article</span>
+            <h3><a href="angular_crud_and_authentication_firebase.html">CRUD and Authentication in Firebase</a></h3>
+          </div>
+          <div class="read-more_item">
+            <span class="read-more-item-dim">next article&gt;&gt;</span>
+            <h3><a href="index.html">List of Blogs</a></h3>
+          </div>
+        </section>
+
+        <section class="footer">
+            <span class="footer__copyright"
+              >2021-5-31 Jennifer. All rights reserved.</span
+            >
+            <span class="footer__copyright"
+              >Contact Email: Jenniferyao1996#hotmail.com</span
+            >
+        </section>
+      </div>
+      <span id="backToTop">
+        <i class="fa fa-arrow-up"></i>
+      </span>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>
