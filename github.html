@@ -202,11 +202,16 @@ git add REAMDE.md
 // create or replace a branch 
 git branch -M main 
 
-// clone method 1
+// clone a remote repository : method 1
 git clone  url 
 
-// clone method 2
-git remote add name url 
+// clone  a remote repository method 2
+git remote add [repo-short-name] url 
+// e.g. git remote  add origin https://github.com/your-user-name/your-project-name.git
+
+// change up-stream repo of local project 
+git remote set-url [repo-short-name] url 
+// e.g git remote  set-url origin https://github.com/your-user-name/your-project-name.git
 
 // show remote repository list  
 git remote 
@@ -538,11 +543,18 @@ git remote prune [remote]
             <hr class="divider" />
             <h3>revert changes</h3>
             <pre>
+// use case: changes exist in worktree, not in stage              
 // restore a specified file from stage to worktree, give up the changes in worktree
 git checkout [filename] 
 
+/ use case: changes exist in worktree, not in stage 
 // restore a file to worktree from a specified commit  
 git checkout [commit-id] [file-name] 
+
+// use case: changes exist in worktree and have been added to stage 
+// we need 2 steps to revert it 
+git reset HEAD [file-name] 
+git checkout [file-name]
 
 // restore all files  into worktree from last commit. It means giving up the changes from last commit.
 git checkout . 

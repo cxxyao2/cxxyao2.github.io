@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Full stack Developer</title>
+    <title>Angular Lifecycle events</title>
     <meta
       name="description"
       content="localized routed router  i18n international Angular "
@@ -23,9 +23,12 @@
     <link rel="stylesheet" href="assets/css/index.css" />
   </head>
   <body>
+    <!--  for not index.html -->
     <nav class="nav collapsible">
-      <span class="white">Jennifer - Full Stack Developer </span>
-      <span class="nav_toggler"
+      <span
+        ><a href="/#angular" class="white">Jennifer - Full Stack Developer</a>
+      </span>
+      <span class="nav_toggler" style="outline: none !important"
         ><i class="fa fa-list white icon-bigger"></i
       ></span>
       <ul class="nav_list collapsible_content">
@@ -48,13 +51,14 @@
             </li>
           </ul>
         </li>
-        <li class="nav_item"><a href="#angular">Angular</a></li>
-        <li class="nav_item"><a href="#react">React</a></li>
-        <li class="nav_item"><a href="#webpack">WebPack</a></li>
-        <li class="nav_item"><a href="#database">Database</a></li>
+        <li class="nav_item"><a href="/#angular">Angular</a></li>
+        <li class="nav_item"><a href="/#react">React</a></li>
+        <li class="nav_item"><a href="/#webpack">Webpack</a></li>
+        <li class="nav_item"><a href="/#database">Database</a></li>
       </ul>
     </nav>
 
+    <!--  for not index.html -->
     <aside class="sidebar">
       <div class="sidebar_cover"></div>
       <div class="sidebar_main">
@@ -70,7 +74,7 @@
         <hr class="sidebar_divider" />
         <p class="sidebar_tags">
           <span class="sidebar_tag"
-            ><a href="#angular"
+            ><a href="/#angular"
               ><img
                 src="assets/angular-icon.svg"
                 class="sidebar_icon"
@@ -78,12 +82,12 @@
             ></span
           >
           <span class="sidebar_tag"
-            ><a href="#react" alt="react blogs"
+            ><a href="/#react" alt="react blogs"
               ><img src="assets/react.svg" class="sidebar_icon" />&nbsp;React</a
             ></span
           >
           <span class="sidebar_tag"
-            ><a href="#webpack"
+            ><a href="/#webpack"
               ><img
                 src="assets/webpack_logo.svg"
                 class="sidebar_icon"
@@ -91,7 +95,7 @@
             ></span
           >
           <span class="sidebar_tag"
-            ><a href="#database"
+            ><a href="/#database"
               ><img
                 src="assets/mysql.png"
                 class="sidebar_icon"
@@ -129,95 +133,46 @@
             <span class="post_category"
               ><label class="date">2021-5-1</label> Angular</span
             >
-            <h2>List of Blogs</h2>
+            <h2>Most Commonly Used RxJS Operators</h2>
           </header>
           <section class="post_body">
-            <h3><a id="angular">Angular</a></h3>
             <ul>
-              <li>
-                <a class="index" href="angular_lifecycle.html"
-                  >Review of Lifecycle hooks
-                </a>
+              <li class="collapsible">
+                Cold Observable vs Hot Observable &nbsp;<i
+                  class="fa fa-arrow-down gray icon-bigger"
+                ></i>
+                <ul class="collapsible_content">
+                  <li>of, from</li>
+                  <li>subject, publish, connect, refCount, publicReplay</li>
+                </ul>
               </li>
-              <li>
-                <a class="index" href="angular_unsubscribe.html"
-                  >When and how to unsubscribe
-                </a>
-              </li>
-              <li>
-                <a
-                  class="index"
-                  href="angular-localized-routed-deployment-to-firebase.html"
-                  >Deploy A Routed Localized Angular to Firebase
-                </a>
-              </li>
-              <li>
-                <a class="index" href="angular-deploy-github-and-heroku.html"
-                  >Deploy Angular to GitHub and Heroku
-                </a>
-              </li>
-              <li>
-                <a class="index" href="angular-debug-in-vscode-chrome.html"
-                  >Debug Angular in VSCode and Chrome
-                </a>
-              </li>
-              <li>
-                <a class="index" href="angular_pwa.html"
-                  >PWA(Progressive Web App) in Angular
-                </a>
-              </li>
-              <li>
-                <a class="index" href="angular_rxjs.html"
-                  >Most commonly used RxJS operators
-                </a>
-              </li>
-            </ul>
-            <h3><a id="react">React</a></h3>
-            <ul>
-              <li><a class="index" href="#">Hooks</a></li>
-              <li>
-                <a class="index" href="#"
-                  >Dynamic import, lazy load and Suspense
-                </a>
-              </li>
-              <li><a class="index" href="#">Redux and React </a></li>
-            </ul>
-            <h3><a id="webpack">WebPack</a></h3>
-            <ul>
-              <li>
-                <a href="#" class="index"
-                  >Webpack.config.js and webpack server
-                </a>
-              </li>
-              <li><a href="#" class="index">Css Scss Html </a></li>
-              <li><a href="#" class="index">Optimization </a></li>
-            </ul>
-            <h3><a id="database">Database</a></h3>
-            <ul>
-              <li>
-                <a
-                  class="index"
-                  href="angular_crud_and_authentication_firebase.html"
-                  >CRUD and Authentication( Twitter, Google etc) in Firebase
-                </a>
-              </li>
-              <li>
-                <a class="index" href="mongoose.html"
-                  >Mostly Used Operators in MongoDB
-                </a>
-              </li>
-              <li><a class="index" href="mysql.html">MySql </a></li>
-            </ul>
-            <h3><a id="database">Other tools</a></h3>
-            <ul>
-              <li><a href="github.html" class="index">Github </a></li>
+
+              <li>merge</li>
+              <li>skip, timer, interval</li>
+              <li>shareReply</li>
+              <li>debounce</li>
+              <li>fromEvent</li>
             </ul>
           </section>
         </article>
+        <section class="read-more">
+          <div class="read-more_item">
+            <span class="read-more-item-dim">&lt;&lt;previous article</span>
+            <h3>
+              <a href="angular_crud_and_authentication_firebase.html"
+                >CRUD and Authentication in Firebase</a
+              >
+            </h3>
+          </div>
+          <div class="read-more_item">
+            <span class="read-more-item-dim">next article&gt;&gt;</span>
+            <h3><a href="index.html">List of Blogs</a></h3>
+          </div>
+        </section>
 
         <section class="footer">
           <span class="footer__copyright"
-            >2021-6-21 Jennifer. All rights reserved.</span
+            >2021-5-31 Jennifer. All rights reserved.</span
           >
           <span class="footer__copyright"
             >Contact Email: Jenniferyao1996#hotmail.com</span
