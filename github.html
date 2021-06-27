@@ -5,10 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Github</title>
-    <meta
-      name="description"
-      content="frontend github mostly used command "
-    />
+    <meta name="description" content="frontend github mostly used command " />
     <meta name="author" content="Jennifer" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
@@ -25,19 +22,21 @@
   <body>
     <!--  for not index.html -->
     <nav class="nav collapsible">
-      <span><a href="/#angular" class="white">Jennifer - Full Stack Developer</a> </span>
-      <span class="nav_toggler" style="outline:none !important;"
-        ><i class="fa fa-list white icon-bigger"  ></i
+      <span
+        ><a href="/#angular" class="white">Jennifer - Full Stack Developer</a>
+      </span>
+      <span class="nav_toggler" style="outline: none !important"
+        ><i class="fa fa-list white icon-bigger"></i
       ></span>
       <ul class="nav_list collapsible_content">
         <li>
-           <ul class="nav_social" role="nav_social">
+          <ul class="nav_social" role="nav_social">
             <li>
               <a href="https://github.com/cxxyao2" target="_blank"
                 ><i class="fa fa-github white icon-biggest"></i
               ></a>
             </li>
-            <li >
+            <li>
               <a href="https://twitter.com/jenniferyao1996" target="_blank"
                 ><i class="fa fa-twitter white icon-biggest"></i
               ></a>
@@ -56,7 +55,6 @@
       </ul>
     </nav>
 
-
     <!--  for not index.html -->
     <aside class="sidebar">
       <div class="sidebar_cover"></div>
@@ -73,28 +71,33 @@
         <hr class="sidebar_divider" />
         <p class="sidebar_tags">
           <span class="sidebar_tag"
-            ><a  href="/#angular"><img
-              src="assets/angular-icon.svg"
-              class="sidebar_icon"
-            />&nbsp;Angular</a></span
+            ><a href="/#angular"
+              ><img
+                src="assets/angular-icon.svg"
+                class="sidebar_icon"
+              />&nbsp;Angular</a
+            ></span
           >
           <span class="sidebar_tag"
-            ><a  href="/#react" alt="react blogs"><img
-              src="assets/react.svg"
-              class="sidebar_icon"
-            />&nbsp;React</a></span
+            ><a href="/#react" alt="react blogs"
+              ><img src="assets/react.svg" class="sidebar_icon" />&nbsp;React</a
+            ></span
           >
           <span class="sidebar_tag"
-            ><a  href="/#webpack" ><img
-              src="assets/webpack_logo.svg"
-              class="sidebar_icon"
-            />&nbsp;Webpack</a></span
+            ><a href="/#webpack"
+              ><img
+                src="assets/webpack_logo.svg"
+                class="sidebar_icon"
+              />&nbsp;Webpack</a
+            ></span
           >
           <span class="sidebar_tag"
-            ><a  href="/#database" ><img
-              src="assets/mysql.png"
-              class="sidebar_icon"
-            />&nbsp;Database</a></span
+            ><a href="/#database"
+              ><img
+                src="assets/mysql.png"
+                class="sidebar_icon"
+              />&nbsp;Database</a
+            ></span
           >
         </p>
         <hr class="sidebar_divider" />
@@ -120,8 +123,6 @@
       </div>
     </aside>
 
-
-
     <main class="content_wrapper">
       <div class="content">
         <article class="post">
@@ -129,20 +130,35 @@
             <span class="post_category"
               ><label class="date">2021-5-1</label> Tools</span
             >
-            <h2 >
-             Mostly Used Commands In Github
-            </h2>
+            <h2>Mostly Used Commands In Github</h2>
           </header>
           <section class="post_body">
-            <div class="alert is-helpful"> 
-              <p><strong>Distributed version control(Github)</strong>&nbsp;&nbsp;vs&nbsp;&nbsp;<strong>centralized version control(e.g.SourceSafe)</strong>: &nbsp; Centralized version control means that the version history is stored in a central server.&nbsp;By contrast,
-                 Github is a type of version control where the complete codebase — including its full version history — is mirrored on every developer's computer.&nbsp;It's abbreviated DVCS.</p>
-              <p>In DVCS,&nbsp;files can be stored in 4 areas:&nbsp;<strong>Worktree&nbsp;-&nbsp;Index/Stage&nbsp;-&nbsp;Repository&nbsp;-&nbsp;Remote.</strong>
-              &nbsp;&nbsp;The status of a file can be:&nbsp; <strong>modified, staged, committed.</strong></p>
+            <div class="alert is-helpful">
+              <p>
+                <strong>Distributed version control(Github)</strong
+                >&nbsp;&nbsp;vs&nbsp;&nbsp;<strong
+                  >centralized version control(e.g.SourceSafe)</strong
+                >: &nbsp; Centralized version control means that the version
+                history is stored in a central server.&nbsp;By contrast, Github
+                is a type of version control where the complete codebase —
+                including its full version history — is mirrored on every
+                developer's computer.&nbsp;It's abbreviated DVCS.
+              </p>
+              <p>
+                In DVCS,&nbsp;files can be stored in 4 areas:&nbsp;<strong
+                  >Worktree&nbsp;-&nbsp;Index/Stage&nbsp;-&nbsp;Repository&nbsp;-&nbsp;Remote.</strong
+                >
+                &nbsp;&nbsp;The status of a file can be:&nbsp;
+                <strong>modified, staged, committed.</strong>
+              </p>
             </div>
-           <h3>Configuration</h3>
-           There are three levels of config: system(&nbsp;all users),&nbsp;global(&nbsp;all repositories of current user),&nbsp;local(&nbsp;the current repository)
-               <ul><li>Global Config
+            <h3>Configuration</h3>
+            There are three levels of config: system(&nbsp;all
+            users),&nbsp;global(&nbsp;all repositories of current
+            user),&nbsp;local(&nbsp;the current repository)
+            <ul>
+              <li>
+                Global Config
                 <pre>
 // show the current git config
 git config - - list 
@@ -161,17 +177,24 @@ git config - -global diff.tool vscode
 git config —global  core.autocrlf   input 
 // for windows
 git config —global  core.autocrlf   true            
-              </pre>
+              </pre
+                >
               </li>
-              <li> Local (or project specific) config
-                <p>Project configs are available for the current project and stored in .git/config in the project's directory.&nbsp;Create a project specific config, &nbsp;you have to execute this under the project's directory:&nbsp;
-                  <code>git config user.name "Your name"</code> </p>
+              <li>
+                Local (or project specific) config
+                <p>
+                  Project configs are available for the current project and
+                  stored in .git/config in the project's directory.&nbsp;Create
+                  a project specific config, &nbsp;you have to execute this
+                  under the project's directory:&nbsp;
+                  <code>git config user.name "Your name"</code>
+                </p>
               </li>
             </ul>
 
-          <hr class="divider"/>
-          <h3>create a local repository</h3>
-           <pre>
+            <hr class="divider" />
+            <h3>create a local repository</h3>
+            <pre>
 // in the current directory 
 git init 
 git add REAMDE.md 
@@ -190,10 +213,16 @@ git remote
 
 // change remote name 
 git remote rename [old-upstream-name] [new-up-stream-name]
-           </pre>
-           <h3>.gitignore</h3>
-           <div>A . gitignore file is a plain text file where each line contains a pattern for files/directories to ignore. Generally, this is placed in the root folder of the repository.&nbsp; However, you can put it in any folder in the repository and you can also have multiple . gitignore files.
-             <pre>
+           </pre
+            >
+            <h3>.gitignore</h3>
+            <div>
+              A . gitignore file is a plain text file where each line contains a
+              pattern for files/directories to ignore. Generally, this is placed
+              in the root folder of the repository.&nbsp; However, you can put
+              it in any folder in the repository and you can also have multiple
+              . gitignore files.
+              <pre>
 // patterns in .gitignore 
 logs/
 main.log
@@ -203,12 +232,13 @@ coverage/
 config/
 
 // website https://github.com/github/gitignore  includes .gitignore samples for different languages.
-             </pre>
-           </div>
+             </pre
+              >
+            </div>
 
-            <hr class="divider"/>
-          <h3>add or delete files</h3>
-          <pre>
+            <hr class="divider" />
+            <h3>add or delete files</h3>
+            <pre>
 // add files to stage area
 git add [file1] [file2]  ...  
 
@@ -231,11 +261,12 @@ git rm [file1]  [file2] ...
 
 // rename a file, add the operation to stage area 
 git mv oldname newname            
-          </pre>
+          </pre
+            >
 
-          <hr class="divider"/>
-          <h3>commit - submit the changes</h3>
-          <pre>
+            <hr class="divider" />
+            <h3>commit - submit the changes</h3>
+            <pre>
 // add the files that have  changed from last commit 
 git commit -a
 git commit -a [file1]
@@ -255,11 +286,12 @@ git commit -v
 // replace the  previous commit by the new commit 
 // if files do not change, amend only  the message 
 git commit -amend -m [message]
-          </pre>
+          </pre
+            >
 
- <hr class="divider"/>
-          <h3>show changes </h3>
-          <pre>
+            <hr class="divider" />
+            <h3>show changes</h3>
+            <pre>
 // list all fils at the staging area
 git ls-files
 
@@ -293,11 +325,12 @@ git show [commit-id]:[file-name]
 
 // show commit log of current branch, including "git reset" 
 git reflog 
-          </pre>        
+          </pre
+            >
 
-        <hr class="divider"/>
-        <h3>branch</h3>
-        <pre>
+            <hr class="divider" />
+            <h3>branch</h3>
+            <pre>
 // list all local branches
 git branch 
 
@@ -366,10 +399,11 @@ git stash clear
 
 // shorthand of git stash apply + git stash drop 
 git stash pop 
- </pre>
- <hr class="divider"/>
-         <h3>tag</h3>
-         <pre>
+ </pre
+            >
+            <hr class="divider" />
+            <h3>tag</h3>
+            <pre>
 // list all tags 
 git tag 
 
@@ -390,11 +424,12 @@ git tag -d [tag-name]
 
 // delete a remote tag 
 git push origin - - delete [remote-tag-name]
-         </pre>
+         </pre
+            >
 
-         <hr class="divider"/>
-          <h3>show history of commit</h3>
-          <pre>
+            <hr class="divider" />
+            <h3>show history of commit</h3>
+            <pre>
 git log 
 git log - - oneline
 git log - -oneline  - -all - -graph 
@@ -427,11 +462,12 @@ git log --after="yy-mm-dd"
 git blame -e [file-name] 
 // only show the first 3 lines of commit history  
 git blame -e L 1,3 [file-name]
-          </pre>
+          </pre
+            >
 
-          <hr class="divider"/>
-           <h3>synchronize local and remote repositories</h3>
-           <pre>
+            <hr class="divider" />
+            <h3>synchronize local and remote repositories</h3>
+            <pre>
 // get changes in remote repository 
 git fetch [remote-repository-name] 
 
@@ -474,11 +510,12 @@ git push [remote] - - all
 // the branch will be deleted from your local repo.
 git remote prune [remote]  
 // e.g. git remote prune origin 
-           </pre>
+           </pre
+            >
 
-            <hr class="divider"/>
-           <h3>revert changes</h3>
-           <pre>
+            <hr class="divider" />
+            <h3>revert changes</h3>
+            <pre>
 // restore a specific file from stage to workspace 
 git checkout [filename] 
 
@@ -515,8 +552,19 @@ git revert — - no-commit HEAD~3
 
 // revert multiple commits
 git revert HEAD~3..HEAD
-           </pre>
-          
+           </pre
+            >
+
+            <h3>pull request</h3>
+            <div class="alert is-helpful">
+              Pull requests help you collaborate on code with other people. You
+              forked a repo from other's repositories. After adding new features
+              to the repo, you think of merging them into the original repo.
+              Then you should create a pull request. The owner of the original
+              repo can see the pull request and decide to merge it or not.
+            </div>
+            <img src="assets//github/pull-request-1.png" alt="pull request 1" />
+            <img src="assets//github/pull-request-2.png" alt="pull request 1" />
           </section>
         </article>
         <section class="read-more">
@@ -531,12 +579,12 @@ git revert HEAD~3..HEAD
         </section>
 
         <section class="footer">
-            <span class="footer__copyright"
-              >2021-5-31 Jennifer. All rights reserved.</span
-            >
-            <span class="footer__copyright"
-              >Contact Email: Jenniferyao1996#hotmail.com</span
-            >
+          <span class="footer__copyright"
+            >2021-5-31 Jennifer. All rights reserved.</span
+          >
+          <span class="footer__copyright"
+            >Contact Email: Jenniferyao1996#hotmail.com</span
+          >
         </section>
       </div>
       <span id="backToTop">
