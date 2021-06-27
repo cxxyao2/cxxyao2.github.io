@@ -215,7 +215,6 @@ p a {
   width: 30%;
   max-width: 700px;
   background-image: url('../sea.jpg');
-  display: table;
   color: var(--color-white);
   display: none;
 }

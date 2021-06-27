@@ -91,7 +91,7 @@
             />&nbsp;Webpack</a></span
           >
           <span class="sidebar_tag"
-            ><a  href="/#database" ></a><img
+            ><a  href="/#database" ><img
               src="assets/mysql.png"
               class="sidebar_icon"
             />&nbsp;Database</a></span
@@ -127,7 +127,7 @@
         <article class="post">
           <header>
             <span class="post_category"
-              ><label class="date">2021-5-1</label> Angular</span
+              ><label class="date">2021-5-1</label> Database</span
             >
             <h2 >
              Most Commonly Used  operators in Mongoose
@@ -140,7 +140,7 @@ Document Mapping) tool for Node.
  Mongoose provides a straight-forward, schema-based solution to model your application data and make coding processes more efficient.
 
             </div>
-            <ul>In this blog, I will list the most used  Mongoose helper functions for CRUD operations. I take  model Course as an example. 
+            <ul>In this blog, I will list the most used  Mongoose helper functions for CRUD operations.&nbsp;<strong>Model Course</strong>&nbsp;will be used as an example in most topics.
               <li>construct a  collection using a  schema
                 <pre>
 const mongoose = require('mongoose');
@@ -165,10 +165,10 @@ const courseSchema = new Schema({
   price: Number
 });
 
-// model Course maps to a collection named courses in MongoDB.
+// the below code will create a collection named courses in MongoDB.
 const Course = mongoose.model('Course', courseSchema);
 
-// for a simple model, e.g. only one field 
+// for a simple model, e.g. only one field, no need to create a Schema object in advance 
 //const Dog = mongoose.model('Dog',  { name: String });
 
 // a more complicated schema: with customized validator , enum datatype, regular expression validator
@@ -225,7 +225,7 @@ const courseSchema = new Schema({
   }
 });
                 </pre> 
-                <img src="assets/mongoose/create-collection.png" alt="create collection />"
+                <img src="assets/mongoose/create-collection.png" alt="create collection /">
               </li>
               <li>create/read/update/delete operations
                 <pre>
@@ -240,8 +240,7 @@ const course = new Course({
  await course.save(); 
  // or course.save().then(() => console.log('course saved'));
 
-// read
-// get one document by id
+// read  a collection by id
 async function getCourse() {
   return await Course.findById({
     _id: mongoose.Types.ObjectId('5f9da935ccb82368841152f2'),
@@ -253,6 +252,17 @@ async function getCourse() {
   // category: 'web',
   // });
 }
+
+// read a collection
+// and, or 
+// order by : price , descending
+// output only two fields: name  price  
+return await Course
+   .find({isPublished:true})
+    .or([{ price: {$gte: 12}},
+    { name: /.*by.*/}])   
+    .sort('-price')
+    .select('name price');
 
 
 async function getCourse(pagenumber, pagesize) {
@@ -272,11 +282,12 @@ async function getCourse(pagenumber, pagesize) {
 }
 
 
-// delete
+// delete a collection
 const course = await Course.findByIdAndRemove(id);
 const result = await Course.deleteOne({_id: id })
 const deleteQty=Course.deleteMany({isPublished: true})
-// update
+
+// update a collection
 const result = await Course.findByIdAndUpdate(id, {
     $set:{
       author: 'Newton2',
@@ -302,17 +313,6 @@ Course.findOneAndUpdate({price: 10},
   }
 });
 
-
-// get 
-// and, or 
-// order by : price , descending
-// output only two fields: name  price  
-return await Course
-   .find({isPublished:true})
-    .or([{ price: {$gte: 12}},
-    { name: /.*by.*/}])   
-    .sort('-price')
-    .select('name price');
                 </pre>
               </li>
               <li>no foreign key? try  populate helper function 
@@ -380,7 +380,7 @@ listCourses();
 
                 </pre>
               </li>
-              <li>use Fawn package to imitate a transaction in a relational Database
+              <li>use Fawn package to imitate a transaction in a relational database
                 <pre>
 try {
 new Fawn.Task()
@@ -399,7 +399,7 @@ res.send(rental);
                 </pre>
               </li>
               <li>aggregation pipeline as an array of objects 
-                <div>extract data from multiple collections to make a report</div>
+                <div class="alert is-helpful">extract data from multiple collections to make a report</div>
                 <pre>
 // important operators
 modelName.aggregate([
@@ -411,7 +411,27 @@ modelName.aggregate([
 {$sort:{...}}
 ], (err, docs) => {..});
 
-                </pre>
+
+
+What does this MongoDB operator roughly correspond to in a relational database?
+$match: where 
+
+$lookup: join, foreign key
+
+$unwind: no equivalent in a relational database. It is used for flattening an array. 
+In MongoDB, the datatype of a field can by an array. 
+Using $unwind can flatten one record such as 
+{name : 'Mike', subscribed courses: ['angular', 'react','vue']}
+into three records
+{name : 'Mike', subscribed courses: ['angular']}
+{name : 'Mike', subscribed courses: ['react']}
+{name : 'Mike', subscribed courses: ['vue']}.
+It will facilitate data analyse.
+
+$project: pick out the aggregated fields, including create a new field when necessary
+
+$group, $sort are self-explanatory. I skip them.
+ </pre>       
                 <pre>
 // real example
 const mongoose = require("mongoose");
@@ -433,7 +453,7 @@ mongoose
 // name 
 // region
 
-// from Itineraries collection
+// from itineraries collection
 // salesmanId 
 // salesmanName 
 // customerId 

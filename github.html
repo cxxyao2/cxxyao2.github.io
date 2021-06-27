@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Github</title>
+    <meta
+      name="description"
+      content="frontend github mostly used command "
+    />
+    <meta name="author" content="Jennifer" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="icon" href="/assets/images/favicon.ico" />
+    <link rel="stylesheet" href="assets/css/normalize.css" />
+    <link rel="stylesheet" href="assets/css/index.css" />
+  </head>
+  <body>
+    <!--  for not index.html -->
+    <nav class="nav collapsible">
+      <span><a href="/#angular" class="white">Jennifer - Full Stack Developer</a> </span>
+      <span class="nav_toggler" style="outline:none !important;"
+        ><i class="fa fa-list white icon-bigger"  ></i
+      ></span>
+      <ul class="nav_list collapsible_content">
+        <li>
+           <ul class="nav_social" role="nav_social">
+            <li>
+              <a href="https://github.com/cxxyao2" target="_blank"
+                ><i class="fa fa-github white icon-biggest"></i
+              ></a>
+            </li>
+            <li >
+              <a href="https://twitter.com/jenniferyao1996" target="_blank"
+                ><i class="fa fa-twitter white icon-biggest"></i
+              ></a>
+            </li>
+            <li>
+              <a href="mailto:jenniferyao1996@qq.com" target="_blank"
+                ><i class="fa fa-envelope white icon-biggest"></i
+              ></a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav_item"><a href="/#angular">Angular</a></li>
+        <li class="nav_item"><a href="/#react">React</a></li>
+        <li class="nav_item"><a href="/#webpack">Webpack</a></li>
+        <li class="nav_item"><a href="/#database">Database</a></li>
+      </ul>
+    </nav>
+
+
+    <!--  for not index.html -->
+    <aside class="sidebar">
+      <div class="sidebar_cover"></div>
+      <div class="sidebar_main">
+        <a href="#">
+          <img class="sidebar_logo" alt="Jennifer" src="assets/tree1.jpg" />
+        </a>
+        <h3>Jennifer</h3>
+        <span>Full Stack Developer</span>
+        <hr />
+        <p class="sidebar_description">
+          I am passionate about front-end frameworks and databases.
+        </p>
+        <hr class="sidebar_divider" />
+        <p class="sidebar_tags">
+          <span class="sidebar_tag"
+            ><a  href="/#angular"><img
+              src="assets/angular-icon.svg"
+              class="sidebar_icon"
+            />&nbsp;Angular</a></span
+          >
+          <span class="sidebar_tag"
+            ><a  href="/#react" alt="react blogs"><img
+              src="assets/react.svg"
+              class="sidebar_icon"
+            />&nbsp;React</a></span
+          >
+          <span class="sidebar_tag"
+            ><a  href="/#webpack" ><img
+              src="assets/webpack_logo.svg"
+              class="sidebar_icon"
+            />&nbsp;Webpack</a></span
+          >
+          <span class="sidebar_tag"
+            ><a  href="/#database" ><img
+              src="assets/mysql.png"
+              class="sidebar_icon"
+            />&nbsp;Database</a></span
+          >
+        </p>
+        <hr class="sidebar_divider" />
+        <div>
+          <ul class="navigation" role="navigation-social">
+            <li class="navigation_item">
+              <a href="https://github.com/cxxyao2" target="_blank"
+                ><i class="fa fa-github icon-bigger"></i
+              ></a>
+            </li>
+            <li class="navigation_item">
+              <a href="https://twitter.com/jenniferyao1996" target="_blank"
+                ><i class="fa fa-twitter icon-bigger"></i
+              ></a>
+            </li>
+            <li class="navigation_item">
+              <a href="mailto:jenniferyao1996@qq.com" target="_blank"
+                ><i class="fa fa-envelope icon-bigger"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+
+
+
+    <main class="content_wrapper">
+      <div class="content">
+        <article class="post">
+          <header>
+            <span class="post_category"
+              ><label class="date">2021-5-1</label> Tools</span
+            >
+            <h2 >
+             Mostly Used Commands In Github
+            </h2>
+          </header>
+          <section class="post_body">
+            <div class="alert is-helpful"> 
+              <p><strong>Distributed version control(Github)</strong>&nbsp;&nbsp;vs&nbsp;&nbsp;<strong>centralized version control(e.g.SourceSafe)</strong>: &nbsp; Centralized version control means that the version history is stored in a central server.&nbsp;By contrast,
+                 Github is a type of version control where the complete codebase — including its full version history — is mirrored on every developer's computer.&nbsp;It's abbreviated DVCS.</p>
+              <p>In DVCS,&nbsp;files can be stored in 4 areas:&nbsp;<strong>Worktree&nbsp;-&nbsp;Index/Stage&nbsp;-&nbsp;Repository&nbsp;-&nbsp;Remote.</strong>
+              &nbsp;&nbsp;The status of a file can be:&nbsp; <strong>modified, staged, committed.</strong></p>
+            </div>
+           <h3>Configuration</h3>
+           There are three levels of config: system(&nbsp;all users),&nbsp;global(&nbsp;all repositories of current user),&nbsp;local(&nbsp;the current repository)
+               <ul><li>Global Config
+                <pre>
+// show the current git config
+git config - - list 
+
+// open and edit  .gitconfig   file
+git config — -global -e  
+
+git config — - global user.name “Your Name”
+git config — - global user.email "email@example.com"
+git config — -global core.editor “code   - -   wait “   // set vscode as  source editor
+git config - -global diff.tool vscode
+
+
+// The following  setup should leave you with CRLF endings in Windows checkouts, but LF endings on macOS and Linux systems and in the repository.                  
+// for macOS
+git config —global  core.autocrlf   input 
+// for windows
+git config —global  core.autocrlf   true            
+              </pre>
+              </li>
+              <li> Local (or project specific) config
+                <p>Project configs are available for the current project and stored in .git/config in the project's directory.&nbsp;Create a project specific config, &nbsp;you have to execute this under the project's directory:&nbsp;
+                  <code>git config user.name "Your name"</code> </p>
+              </li>
+            </ul>
+
+          <hr class="divider"/>
+          <h3>create a local repository</h3>
+           <pre>
+// in the current directory 
+git init 
+git add REAMDE.md 
+
+// create or replace a branch 
+git branch -M main 
+
+// clone method 1
+git clone  url 
+
+// clone method 2
+git remote add name url 
+
+// show remote repository list  
+git remote 
+
+// change remote name 
+git remote rename [old-upstream-name] [new-up-stream-name]
+           </pre>
+           <h3>.gitignore</h3>
+           <div>A . gitignore file is a plain text file where each line contains a pattern for files/directories to ignore. Generally, this is placed in the root folder of the repository.&nbsp; However, you can put it in any folder in the repository and you can also have multiple . gitignore files.
+             <pre>
+// patterns in .gitignore 
+logs/
+main.log
+*.log
+node_modules/
+coverage/
+config/
+
+// website https://github.com/github/gitignore  includes .gitignore samples for different languages.
+             </pre>
+           </div>
+
+            <hr class="divider"/>
+          <h3>add or delete files</h3>
+          <pre>
+// add files to stage area
+git add [file1] [file2]  ...  
+
+// add an folder(including sub-folder) 
+git add [folder1] 
+
+// add all files in the current directory to stage area 
+git add . 
+
+
+// If a file or folder has been tracked, add the pattern to .gitignore is not enough.
+// We should also delete them  from staging area(not from worktree)
+// -r: recursive
+git rm — - cached -r  foldername 
+git rm - - cached filename
+
+// delete a file from worktree, and add the delete operation  to stage area 
+git rm [file1]  [file2] ... 
+
+
+// rename a file, add the operation to stage area 
+git mv oldname newname            
+          </pre>
+
+          <hr class="divider"/>
+          <h3>commit - submit the changes</h3>
+          <pre>
+// add the files that have  changed from last commit 
+git commit -a
+git commit -a [file1]
+
+// submit changes from stage area to repository 
+git commit -m  [message]   
+
+// submit the specific file in stage area to repository 
+git commit file1 [file2] ... -m [message]
+
+// shorthand  git commit -a + git commit -m
+git commit -am [message]
+
+// submit and show diff 
+git commit -v  
+
+// replace the  previous commit by the new commit 
+// if files do not change, amend only  the message 
+git commit -amend -m [message]
+          </pre>
+
+ <hr class="divider"/>
+          <h3>show changes </h3>
+          <pre>
+// list all fils at the staging area
+git ls-files
+
+git status 
+
+// show the changes in worktree and staging area 
+git status -s 
+
+// show difference between staging area files and worktree file
+git diff
+
+// show difference between worktree and last commit of current branch 
+git diff HEAD 
+
+// what happened at staging area, including staged but not committed files
+git diff - - cached 
+// --staged is a synonym of --cached 
+git diff - - staged 
+
+// show difference between 2 commits
+// e.g. abbreviated commit id : 5efb3c8 
+// e.g. complete commit id: a5a4df9c77b8d7d7b0a693d113a7fb3e6eaa11c6
+git diff commit1Id  commit2Id 
+git diff HEAD~2 HEAD filename 
+
+// show changes in  a specific commit 
+git show [commit-id] 
+
+// show changes in a file of a commit  
+git show [commit-id]:[file-name] 
+
+// show commit log of current branch, including "git reset" 
+git reflog 
+          </pre>        
+
+        <hr class="divider"/>
+        <h3>branch</h3>
+        <pre>
+// list all local branches
+git branch 
+
+// list all remote branches 
+git branch -r 
+
+// list all local and remote branches 
+git branch -a 
+
+// create a branch and switch to it 
+git switch -c new-branch-name 
+// This is a convenient shortcut for:
+git branch [new-branch]
+git switch [new-branch]
+
+
+// create or replace  a branch and switch to it 
+git switch -C new-branch-name 
+// This is a convenient shortcut for:
+git branch -f  [new-branch]
+git switch [new-branch]
+
+// create a branch and track a remote branch 
+git switch -C [local-new-branch] origin/[remote-branch-name]
+
+// track a remote branch  
+git branch - - set-upstream [local-branch] [remote-branch]  
+e.g. 
+git branch - -set-upstream  new-feature origin/new-feature
+
+// a remote branch can be created by push  if not exist
+git push -u( - -up-stream) origin [local-new-branch]
+
+// merge a specific branch to current branch 
+git merge  [will-be-merged-branch]
+
+// flatten and simplify a commit history tree. put all changes from merged branch into stage area of main branch
+git merge - - squash  [will-be-merged-branch]
+
+// if a specific branch has multiple commits, it is possible to merge a specific commit 
+git cherry-pick [specific-commit-id-from-unmerged-branch]
+
+// delete a branch 
+git branch -d [branch-name]
+
+// delete a branch, even if not merged
+git branch -D [branch-name]
+
+// delete a remote branch 
+git push origin - - delete  [remote-branch-name] 
+git push -d origin [remote-branch-name] 
+// e.g. delete remote/origin/test 
+git push origin - - delete test
+
+
+// before switch to another branch, save but not commit changes 
+git stash push -m "change description"
+
+// switch back to old branch and show stash  
+git switch [branch-name] 
+git stash list 
+git stash show 1
+git stash apply 1 
+git stash drop 1 
+git stash clear 
+
+// shorthand of git stash apply + git stash drop 
+git stash pop 
+ </pre>
+ <hr class="divider"/>
+         <h3>tag</h3>
+         <pre>
+// list all tags 
+git tag 
+
+// add tag to last commit
+git tag [tag-name] 
+
+// add tag to a specific commit 
+git tag [tag-name] [commit-id] 
+
+// show tag information 
+git show [tag-name] 
+
+// push a specific tag to remote 
+git push origin [tag-name] 
+
+// delete a local tag 
+git tag -d [tag-name] 
+
+// delete a remote tag 
+git push origin - - delete [remote-tag-name]
+         </pre>
+
+         <hr class="divider"/>
+          <h3>show history of commit</h3>
+          <pre>
+git log 
+git log - - oneline
+git log - -oneline  - -all - -graph 
+
+// display added, modified, and updated location in  a specified file  
+git log - - patch 
+git log -p 
+git log - - patch [file-name]
+
+// list history in reverse chronological order
+git log - - oneline - - reverse
+
+// show detailed changes in a specific commit
+git show [commit-id]
+
+// go back one step from last commit 
+git show HEAD~1 filename 
+
+// show latest commit 
+git show HEAD 
+
+// show all files in this commit  
+git ls-tree HEAD~1 
+
+// filter the log by date
+git log --after="yy-mm-dd"  
+// e.g git log --after="2017-01-31"
+
+// find the author names of a file 
+git blame -e [file-name] 
+// only show the first 3 lines of commit history  
+git blame -e L 1,3 [file-name]
+          </pre>
+
+          <hr class="divider"/>
+           <h3>synchronize local and remote repositories</h3>
+           <pre>
+// get changes in remote repository 
+git fetch [remote-repository-name] 
+
+// show all remotes 
+git remote -v 
+// output in terminal, for example :
+// heroku	https://git.heroku.com/remote-repository-name.git (fetch)
+// origin	https://github.com/your-username-in-github/remote-repository-name2.git (fetch)
+
+// show a specific repository information 
+git remote show [remote-repository]
+// enter the following command in terminal :
+// git remote show  https://github.com/your-username-in-github/remote-repository-name2.git 
+// output in terminal :
+// * remote https://github.com/your-username-in-github/remote-repository-name2.git
+// HEAD branch: master
+
+// add a new remote repository 
+git remote add [repo-name] [url]  
+
+// remove a remote repo from local 
+git remote remove [repo-name] 
+// e.g git remote remove origin
+
+// integrate remote change into local branch 
+git pull [remote] [branch]
+
+// upload local changes to remote  
+git push [remote] [branch]  
+// e.g. git push origin master 
+
+// update remote  with local change even if there are conflicts 
+git push [remote] --force  
+
+// push all branches to remote 
+git push [remote] - - all 
+
+
+// keep local branches in sync with remote branches. If a branch has been deleted from remote repo, after executing this command,
+// the branch will be deleted from your local repo.
+git remote prune [remote]  
+// e.g. git remote prune origin 
+           </pre>
+
+            <hr class="divider"/>
+           <h3>revert changes</h3>
+           <pre>
+// restore a specific file from stage to workspace 
+git checkout [filename] 
+
+// restore a file to worktree from a specific commit  
+git checkout [commit-id] [file-name] 
+
+// restore all files  into worktree from last commit. It means giving up the changes from last commit.
+git checkout . 
+
+// reset the current HEAD to a specified state
+// reset file in stage area with content from last commit,  not reset file in worktree
+git reset [file-name] 
+
+// reset stage and worktree at the same time
+git reset - - hard  [file-name]
+
+// reset the current HEAD to a specified commit, reset stage area, not reset worktree
+git reset [commit-id] 
+git reset - - soft [commit-id] 
+git reset - - soft HEAD~1 
+
+// reset stage and worktree to a specific commit 
+git reset - -hard [commit-id] 
+
+// reset current HEAD, not change the content in stage and worktree
+git reset - - keep [commit-id]
+
+// declare and automatically execute  a new commit to undo all changes in the specified commit
+git revert [commit-id] 
+
+// declare a new revert commit but not automatically execute
+git revert - -no-commit [commit-id]
+git revert — - no-commit HEAD~3
+
+// revert multiple commits
+git revert HEAD~3..HEAD
+           </pre>
+          
+          </section>
+        </article>
+        <section class="read-more">
+          <div class="read-more_item">
+            <span class="read-more-item-dim">&lt;&lt;previous article</span>
+            <h3><a href="mysql.html">Most used command in Mysql</a></h3>
+          </div>
+          <div class="read-more_item">
+            <span class="read-more-item-dim">next article&gt;&gt;</span>
+            <h3><a href="index.html">List of Blogs</a></h3>
+          </div>
+        </section>
+
+        <section class="footer">
+            <span class="footer__copyright"
+              >2021-5-31 Jennifer. All rights reserved.</span
+            >
+            <span class="footer__copyright"
+              >Contact Email: Jenniferyao1996#hotmail.com</span
+            >
+        </section>
+      </div>
+      <span id="backToTop">
+        <i class="fa fa-arrow-up"></i>
+      </span>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>
