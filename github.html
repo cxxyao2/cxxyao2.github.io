@@ -185,7 +185,7 @@ git config —global  core.autocrlf   true
                 <p>
                   Project configs are available for the current project and
                   stored in .git/config in the project's directory.&nbsp;Create
-                  a project specific config, &nbsp;you have to execute this
+                  a project specified config, &nbsp;you have to execute this
                   under the project's directory:&nbsp;
                   <code>git config user.name "Your name"</code>
                 </p>
@@ -274,7 +274,7 @@ git commit -a [file1]
 // submit changes from stage area to repository 
 git commit -m  [message]   
 
-// submit the specific file in stage area to repository 
+// submit the specified file in stage area to repository 
 git commit file1 [file2] ... -m [message]
 
 // shorthand  git commit -a + git commit -m
@@ -316,8 +316,10 @@ git diff - - staged
 // e.g. complete commit id: a5a4df9c77b8d7d7b0a693d113a7fb3e6eaa11c6
 git diff commit1Id  commit2Id 
 git diff HEAD~2 HEAD filename 
+// show difference between 2 branches
+git diff [master-branch] [other-branch]
 
-// show changes in  a specific commit 
+// show changes in  a specified commit 
 git show [commit-id] 
 
 // show changes in a file of a commit  
@@ -341,7 +343,7 @@ git branch -r
 git branch -a 
 
 // create a branch and switch to it 
-git switch -c new-branch-name 
+git switch -c [new-branch-name] 
 // This is a convenient shortcut for:
 git branch [new-branch]
 git switch [new-branch]
@@ -364,13 +366,20 @@ git branch - -set-upstream  new-feature origin/new-feature
 // a remote branch can be created by push  if not exist
 git push -u( - -up-stream) origin [local-new-branch]
 
-// merge a specific branch to current branch 
+// merge a specified branch to current branch 
+// merge is non-destructive operation. The existing branches kept all their commit history.
 git merge  [will-be-merged-branch]
+git branch - - merged  
+git branch - - no-merged
 
 // flatten and simplify a commit history tree. put all changes from merged branch into stage area of main branch
 git merge - - squash  [will-be-merged-branch]
 
-// if a specific branch has multiple commits, it is possible to merge a specific commit 
+// git rebase moves the entire feature branch to begin at the top of another branch 
+// it simplifies but rewrites the project commit history 
+git rebase [another-branch]
+
+// if a branch has multiple commits, it is possible to pick up a specified commit 
 git cherry-pick [specific-commit-id-from-unmerged-branch]
 
 // delete a branch 
@@ -401,6 +410,19 @@ git stash clear
 git stash pop 
  </pre
             >
+            git merge
+            <img src="assets/github/merge.svg" alt="github merge" />
+            git rebase
+            <img src="assets/github/rebase.svg" alt="github rebase" />
+            <p>
+              Reference: &nbsp;
+              <a
+                href="https://www.atlassian.com/git/tutorials/merging-vs-rebasing"
+                target="_blank"
+                >https://www.atlassian.com/git/tutorials/merging-vs-rebasing</a
+              >
+            </p>
+
             <hr class="divider" />
             <h3>tag</h3>
             <pre>
@@ -410,13 +432,13 @@ git tag
 // add tag to last commit
 git tag [tag-name] 
 
-// add tag to a specific commit 
+// add tag to a specified commit 
 git tag [tag-name] [commit-id] 
 
 // show tag information 
 git show [tag-name] 
 
-// push a specific tag to remote 
+// push a specified tag to remote 
 git push origin [tag-name] 
 
 // delete a local tag 
@@ -442,7 +464,7 @@ git log - - patch [file-name]
 // list history in reverse chronological order
 git log - - oneline - - reverse
 
-// show detailed changes in a specific commit
+// show detailed changes in a specified commit
 git show [commit-id]
 
 // go back one step from last commit 
@@ -477,7 +499,7 @@ git remote -v
 // heroku	https://git.heroku.com/remote-repository-name.git (fetch)
 // origin	https://github.com/your-username-in-github/remote-repository-name2.git (fetch)
 
-// show a specific repository information 
+// show a specified repository information 
 git remote show [remote-repository]
 // enter the following command in terminal :
 // git remote show  https://github.com/your-username-in-github/remote-repository-name2.git 
@@ -516,10 +538,10 @@ git remote prune [remote]
             <hr class="divider" />
             <h3>revert changes</h3>
             <pre>
-// restore a specific file from stage to workspace 
+// restore a specified file from stage to worktree, give up the changes in worktree
 git checkout [filename] 
 
-// restore a file to worktree from a specific commit  
+// restore a file to worktree from a specified commit  
 git checkout [commit-id] [file-name] 
 
 // restore all files  into worktree from last commit. It means giving up the changes from last commit.
@@ -537,7 +559,7 @@ git reset [commit-id]
 git reset - - soft [commit-id] 
 git reset - - soft HEAD~1 
 
-// reset stage and worktree to a specific commit 
+// reset stage and worktree to a specified commit 
 git reset - -hard [commit-id] 
 
 // reset current HEAD, not change the content in stage and worktree
@@ -554,7 +576,7 @@ git revert — - no-commit HEAD~3
 git revert HEAD~3..HEAD
            </pre
             >
-
+            <hr class="divider" />
             <h3>pull request</h3>
             <div class="alert is-helpful">
               Pull requests help you collaborate on code with other people. You
