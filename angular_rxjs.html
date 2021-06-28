@@ -138,18 +138,14 @@
           <section class="post_body">
             <ul>
               <li class="collapsible">
-                Cold Observable vs Hot Observable &nbsp;<i
-                  class="fa fa-arrow-down gray icon-bigger"
-                ></i>
-                <ul class="collapsible_content">
-                  <li>of, from</li>
-                  <li>subject, publish, connect, refCount, publicReplay</li>
+                Cold Observable vs Hot Observable
+                <ul >
+                  <li>cold: &nbsp;of, from</li>
+                  <li>hot: &nbsp;subject, publish, connect, refCount, publicReplay</li>
                 </ul>
               </li>
               <li class="collapsible">
-                Four Subjects &nbsp;<i
-                  class="fa fa-arrow-down gray icon-bigger"
-                ></i>
+                Four Subjects
                 <ul >
                   <li>Subject</li>
                   <li>BehaviorSubject</li>
@@ -158,8 +154,10 @@
                 </ul>
               </li>
               <li class="collapsible">
-                Maps &nbsp;<i class="fa fa-arrow-down gray icon-bigger"></i>
-                <ul >
+                Maps &nbsp;<i
+                  class="fa fa-arrow-down gray icon-bigger"
+                ></i>
+                <ul class="collapsible_content">
                   <li>map</li>
                   <li>SwitchMap 
                     <ol>
@@ -182,7 +180,17 @@
 }                     
                     </pre>
                   </li>
-                  <li>mapTo</li>
+                  <li>mapTo
+                    <ul>
+                      <li>map everyting to a constant value</li>
+                    </ul>
+                    <pre>
+const source = interval(2000);
+const example = source.pipe(mapTo(‘Hello World’));
+const subscribe = example.subscribe(val => console.log(val)) ;
+// output: Hello World
+                    </pre>
+                  </li>
                   <li>MergeMap( FlatMap )
                     <ol>
                       <li>It is an flattening operator</li>
@@ -191,10 +199,27 @@
                     </ol>
 
                   </li>
-                  <li>concatMap: If the order of emission and subscription of inner observables is important,</li>
+                  <li>concatMap
+                    <ul>
+                      <li>use it if the order of emission and subscription of inner observables is important,</li>
+                    </ul></li>
                 </ul>
               </li>
-              <li>merge</li>
+              <li>merge
+                <ul>
+                  <li>Turn multiple observables into a single observable</li>
+                </ul>
+                <pre>
+const first = interval(2500) ;
+const second= interval(2500);
+const example = merge( 
+first.pipe( mapTo(‘first’),
+second.pipe( mapTo(‘second’)
+);
+// output:  second, first
+const subscribe = example.subscribe(example); ..                  
+                </pre>
+              </li>
               <li>skip, timer, interval</li>
               <li>shareReply</li>
               <li>debounce</li>
