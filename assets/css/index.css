@@ -156,6 +156,18 @@ p a {
   border-radius: 4px;
 }
 
+#divider_unsubscribe::after {
+  content: 'unsubscribe or not';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 5px;
+  border: 1px solid white;
+  background-color: white;
+  border-radius: 4px;
+}
+
 /* navigation */
 .nav {
   position: relative;
