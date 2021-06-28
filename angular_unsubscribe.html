@@ -5,10 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Unsubscribe in Angular</title>
-    <meta
-      name="description"
-      content="localized routed router  i18n international Angular "
-    />
+    <meta name="description" content="unsubscribe HTTP RxJS  Angular " />
     <meta name="author" content="Jennifer" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
@@ -136,8 +133,80 @@
             <h2>When and How to unsubscribe</h2>
           </header>
           <section class="post_body">
+            <p>
+              For preventing memory leaks, after the Observable completes, all
+              of the subscribers should unsubscribe an Observable and free the
+              allocated memory. Some operators won't work if the observable does
+              not complete, e.g. concatMap will wait for Observables to complete
+              before switching to the next one. Fortunately we need not
+              unsubscribe explicitly every Observable.
+            </p>
             <ul>
-              <li>coming soon...</li>
+              <li>
+                Generally speaking, we complete Observables by calling
+                <ol>
+                  <li>Observable.onComplete()</li>
+                  <li>Observable.onError()</li>
+                  <li>
+                    Subscription.unsubscribe() (subscription =
+                    observable.subscribe(...))
+                  </li>
+                </ol>
+
+                methods.
+              </li>
+              <li>
+                Execute a HTTP request by HTTPClient: need not unsubscribe
+                explicity. The return value of a HTTP request is a cold
+                Observable which emits data only once and then RxJS call
+                OnCompleted() method automatically.
+              </li>
+              <li>Use Angular AsyncPipe: need not unsubscribe explicity.</li>
+              <li>
+                some RxJS operators, e.g. take, takeUntil, takeWhite, first :
+                need not unsubscribe explicity.
+              </li>
+              <li>
+                some RXJS operators, e.g. Subject, BehaviorSubject,
+                AsyncSubject, ReplaySubject: need unsubscribe
+              </li>
+              <li>
+                Unsubscribe() method is often called in ngDestroy hook. For
+                preventing forgetting call this method before destroying the
+                component, we can add a class decorator for component.
+
+                <pre>
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription, interval, Subject } from 'rxjs';
+
+<span class="fw-600">function AutoUnsubscribe() {</span>
+  return function (obj: Function) {
+    const orig = obj.prototype.ngOnDestroy;
+    obj.prototype.ngOnDestroy = function () {
+      console.log('automatic unsubscribe component destroyed');
+      // tslint:disable-next-line: forin
+      for (const prop in this) {
+        const property = this[prop];
+        if (typeof property.unsubscribe === 'function') {
+          property.unsubscribe();
+        }
+      }
+      orig.apply();
+    };
+  };
+}               
+
+@Component({
+  selector: 'app-hwo-to-unsubscribe',
+  template: `&lt;button (click)="unsubscribe()"&gt;unsubscribe&lt;/button&gt;`,
+})
+
+<span class="fw-600">@AutoUnsubscribe()</span>
+export class AutomaticUnsubscribeComponent implements OnInit, OnDestroy {
+      ...
+}
+            </pre>
+              </li>
             </ul>
           </section>
         </article>
