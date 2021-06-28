@@ -150,7 +150,7 @@
                 Four Subjects &nbsp;<i
                   class="fa fa-arrow-down gray icon-bigger"
                 ></i>
-                <ul class="collapsible_content">
+                <ul >
                   <li>Subject</li>
                   <li>BehaviorSubject</li>
                   <li>AsyncSubject</li>
@@ -159,12 +159,39 @@
               </li>
               <li class="collapsible">
                 Maps &nbsp;<i class="fa fa-arrow-down gray icon-bigger"></i>
-                <ul class="collapsible_content">
+                <ul >
                   <li>map</li>
-                  <li>SwitchMap</li>
+                  <li>SwitchMap has 2 effects: 
+                    <ol>
+                      <li>It is a flattening operator. It maps an Observable to a new Observable and emit values. </li>
+                      <li>It can cancel in-flight network requests</li>
+                      <li>It allows only one active inner subscription</li>
+                      <li>It only map the most recent value at a time to reduce unnecessary output( and network traffic).</li>
+                    </ol>
+                    <pre>
+  // someComponent.ts
+  ngOnInit() {
+        this.validSearch$ = this.onSearchUser$
+            .pipe(
+                debounceTime(1000),
+                map(event => (<HTMLInputElement>event.target).value),
+                distinctUntilChanged(),
+                filter(input => input !== ""),
+                switchMap(data => this.rxjsSearchableInputService.searchUser(data))
+            )
+}                     
+                    </pre>
+                  </li>
                   <li>mapTo</li>
-                  <li>MergeMap( FlatMap )</li>
-                  <li>concatMap</li>
+                  <li>MergeMap( FlatMap )
+                    <ol>
+                      <li>It is an flattening operator</li>
+                      <li>If very request needs to complete, it is the correct options</li>
+                      <li>It allows multiple active inner subscriptions</li>
+                    </ol>
+
+                  </li>
+                  <li>concatMap: If the order of emission and subscription of inner observables is important,</li>
                 </ul>
               </li>
               <li>merge</li>
