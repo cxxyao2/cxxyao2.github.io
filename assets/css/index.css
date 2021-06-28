@@ -11,7 +11,8 @@
   --border-radius: 30px;
   --background-primary: #e8f2fb;
   --background-accent: rgba(255, 152, 0, 0.05);
-  --color-font: rgb(41, 41, 41);
+  --color-font: rgb(68, 68, 68);
+  --color-font-darker: rgb(51, 51, 51);
   --color-white: #fff;
   --color-pagination: #7b0f19;
 }
@@ -54,6 +55,12 @@ body {
   font-size: 1.6rem;
   line-height: 2.4rem;
   text-align: justify;
+}
+
+.fw-600 {
+  color: var(--color-font-darker);
+  font-weight: 600;
+  font-style: italic;
 }
 
 h1,

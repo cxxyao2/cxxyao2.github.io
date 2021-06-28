@@ -5,10 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mongoose</title>
-    <meta
-      name="description"
-      content="most-used commands in mongoose db "
-    />
+    <meta name="description" content="most-used commands in mongoose db " />
     <meta name="author" content="Jennifer" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
@@ -25,19 +22,21 @@
   <body>
     <!--  for not index.html -->
     <nav class="nav collapsible">
-      <span><a href="/#angular" class="white">Jennifer - Full Stack Developer</a> </span>
-      <span class="nav_toggler" style="outline:none !important;"
-        ><i class="fa fa-list white icon-bigger"  ></i
+      <span
+        ><a href="/#angular" class="white">Jennifer - Full Stack Developer</a>
+      </span>
+      <span class="nav_toggler" style="outline: none !important"
+        ><i class="fa fa-list white icon-bigger"></i
       ></span>
       <ul class="nav_list collapsible_content">
         <li>
-           <ul class="nav_social" role="nav_social">
+          <ul class="nav_social" role="nav_social">
             <li>
               <a href="https://github.com/cxxyao2" target="_blank"
                 ><i class="fa fa-github white icon-biggest"></i
               ></a>
             </li>
-            <li >
+            <li>
               <a href="https://twitter.com/jenniferyao1996" target="_blank"
                 ><i class="fa fa-twitter white icon-biggest"></i
               ></a>
@@ -56,7 +55,6 @@
       </ul>
     </nav>
 
-
     <!--  for not index.html -->
     <aside class="sidebar">
       <div class="sidebar_cover"></div>
@@ -68,33 +66,38 @@
         <span>Full Stack Developer</span>
         <hr />
         <p class="sidebar_description">
-          I am passionate about front-end frameworks and databases.
+          I am passionate about frontend frameworks and databases.
         </p>
         <hr class="sidebar_divider" />
         <p class="sidebar_tags">
           <span class="sidebar_tag"
-            ><a  href="/#angular"><img
-              src="assets/angular-icon.svg"
-              class="sidebar_icon"
-            />&nbsp;Angular</a></span
+            ><a href="/#angular"
+              ><img
+                src="assets/angular-icon.svg"
+                class="sidebar_icon"
+              />&nbsp;Angular</a
+            ></span
           >
           <span class="sidebar_tag"
-            ><a  href="/#react" alt="react blogs"><img
-              src="assets/react.svg"
-              class="sidebar_icon"
-            />&nbsp;React</a></span
+            ><a href="/#react" alt="react blogs"
+              ><img src="assets/react.svg" class="sidebar_icon" />&nbsp;React</a
+            ></span
           >
           <span class="sidebar_tag"
-            ><a  href="/#webpack" ><img
-              src="assets/webpack_logo.svg"
-              class="sidebar_icon"
-            />&nbsp;Webpack</a></span
+            ><a href="/#webpack"
+              ><img
+                src="assets/webpack_logo.svg"
+                class="sidebar_icon"
+              />&nbsp;Webpack</a
+            ></span
           >
           <span class="sidebar_tag"
-            ><a  href="/#database" ><img
-              src="assets/mysql.png"
-              class="sidebar_icon"
-            />&nbsp;Database</a></span
+            ><a href="/#database"
+              ><img
+                src="assets/mysql.png"
+                class="sidebar_icon"
+              />&nbsp;Database</a
+            ></span
           >
         </p>
         <hr class="sidebar_divider" />
@@ -120,8 +123,6 @@
       </div>
     </aside>
 
-
-
     <main class="content_wrapper">
       <div class="content">
         <article class="post">
@@ -129,19 +130,22 @@
             <span class="post_category"
               ><label class="date">2021-5-1</label> Database</span
             >
-            <h2 >
-             Most Commonly Used  operators in Mongoose
-            </h2>
+            <h2>Most Commonly Used operators in Mongoose</h2>
           </header>
           <section class="post_body">
             <div class="alert is-helpful">
-It is common practice for full stack developers  to build a REST API using Node.js, Express, MongoDB. Mongoose is an ODM(Object
-Document Mapping) tool for Node.
- Mongoose provides a straight-forward, schema-based solution to model your application data and make coding processes more efficient.
-
+              It is common practice for full stack developers to build a REST
+              API using Node.js, Express, MongoDB. Mongoose is an ODM(Object
+              Document Mapping) tool for Node. Mongoose provides a
+              straight-forward, schema-based solution to model your application
+              data and make coding processes more efficient.
             </div>
-            <ul>In this blog, I will list the most used  Mongoose helper functions for CRUD operations.&nbsp;<strong>Model Course</strong>&nbsp;will be used as an example in most topics.
-              <li>construct a  collection using a  schema
+            <ul>
+              In this blog, I will list the most used Mongoose helper functions
+              for CRUD operations.&nbsp;<strong>Model Course</strong
+              >&nbsp;will be used as an example in most topics.
+              <li>
+                construct a collection using a schema
                 <pre>
 const mongoose = require('mongoose');
 mongoose
@@ -224,10 +228,14 @@ const courseSchema = new Schema({
     max: 200
   }
 });
-                </pre> 
-                <img src="assets/mongoose/create-collection.png" alt="create collection /">
+                </pre>
+                <img
+                  src="assets/mongoose/create-collection.png"
+                  alt="create collection /"
+                />
               </li>
-              <li>create/read/update/delete operations
+              <li>
+                create/read/update/delete operations
                 <pre>
 // create 
 const course = new Course({
@@ -315,7 +323,8 @@ Course.findOneAndUpdate({price: 10},
 
                 </pre>
               </li>
-              <li>no foreign key? try  populate helper function 
+              <li>
+                no foreign key? try populate helper function
                 <pre>
 const mongoose = require('mongoose');
 
@@ -380,7 +389,9 @@ listCourses();
 
                 </pre>
               </li>
-              <li>use Fawn package to imitate a transaction in a relational database
+              <li>
+                use Fawn package to imitate a transaction in a relational
+                database
                 <pre>
 try {
 new Fawn.Task()
@@ -398,8 +409,11 @@ res.send(rental);
 
                 </pre>
               </li>
-              <li>aggregation pipeline as an array of objects 
-                <div class="alert is-helpful">extract data from multiple collections to make a report</div>
+              <li>
+                aggregation pipeline as an array of objects
+                <div class="alert is-helpful">
+                  extract data from multiple collections to make a report
+                </div>
                 <pre>
 // important operators
 modelName.aggregate([
@@ -431,7 +445,8 @@ It will facilitate data analyse.
 $project: pick out the aggregated fields, including create a new field when necessary
 
 $group, $sort are self-explanatory. I skip them.
- </pre>       
+ </pre
+                >
                 <pre>
 // real example
 const mongoose = require("mongoose");
@@ -556,9 +571,11 @@ async function aggregateByNameDate(salesmanName, formDate, toDate) {
 }
                 </pre>
               </li>
-              <li>add a new field to an existing collection
+              <li>
+                add a new field to an existing collection
                 <ol>
-                  <li>Add the new field to schema
+                  <li>
+                    Add the new field to schema
                     <pre>
 const courseSchema = new Schema({
   name: String,
@@ -571,7 +588,8 @@ const courseSchema = new Schema({
 });                     
                     </pre>
                   </li>
-                  <li>use updateMany helper to update the documents
+                  <li>
+                    use updateMany helper to update the documents
                     <pre>
 return await Course.updateMany(
     { price: { $gte: 1 } },
@@ -586,26 +604,32 @@ return await Course.updateMany(
       );
     }
   );                      
-                    </pre> </li>
-                </ol> </li>
-                <li>a special MongoDB datatype : ObjectId
-                  <pre>
+                    </pre>
+                  </li>
+                </ol>
+              </li>
+              <li>
+                a special MongoDB datatype : ObjectId
+                <pre>
 const mongoose = require('mongoose');
 
 const id = new mongoose.Types.ObjectId();
 console.log(id.getTimestamp());
 console.log('1234 is a valid ObjectId ?  ', mongoose.Types.ObjectId.isValid('1234'));  // result: false
-                  </pre>
-                </li>
-              
+                  </pre
+                >
+              </li>
             </ul>
-            
           </section>
         </article>
         <section class="read-more">
           <div class="read-more_item">
             <span class="read-more-item-dim">&lt;&lt;previous article</span>
-            <h3><a href="angular_crud_and_authentication_firebase.html">CRUD and Authentication in Firebase</a></h3>
+            <h3>
+              <a href="angular_crud_and_authentication_firebase.html"
+                >CRUD and Authentication in Firebase</a
+              >
+            </h3>
           </div>
           <div class="read-more_item">
             <span class="read-more-item-dim">next article&gt;&gt;</span>
@@ -614,12 +638,12 @@ console.log('1234 is a valid ObjectId ?  ', mongoose.Types.ObjectId.isValid('123
         </section>
 
         <section class="footer">
-            <span class="footer__copyright"
-              >2021-5-31 Jennifer. All rights reserved.</span
-            >
-            <span class="footer__copyright"
-              >Contact Email: Jenniferyao1996#hotmail.com</span
-            >
+          <span class="footer__copyright"
+            >2021-5-31 Jennifer. All rights reserved.</span
+          >
+          <span class="footer__copyright"
+            >Contact Email: Jenniferyao1996#hotmail.com</span
+          >
         </section>
       </div>
       <span id="backToTop">

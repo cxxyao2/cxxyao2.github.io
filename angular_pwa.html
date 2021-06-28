@@ -23,21 +23,23 @@
     <link rel="stylesheet" href="assets/css/index.css" />
   </head>
   <body>
-     <!--  for not index.html -->
+    <!--  for not index.html -->
     <nav class="nav collapsible">
-      <span><a href="/#angular" class="white">Jennifer - Full Stack Developer</a> </span>
-      <span class="nav_toggler" style="outline:none !important;"
-        ><i class="fa fa-list white icon-bigger"  ></i
+      <span
+        ><a href="/#angular" class="white">Jennifer - Full Stack Developer</a>
+      </span>
+      <span class="nav_toggler" style="outline: none !important"
+        ><i class="fa fa-list white icon-bigger"></i
       ></span>
       <ul class="nav_list collapsible_content">
         <li>
-           <ul class="nav_social" role="nav_social">
+          <ul class="nav_social" role="nav_social">
             <li>
               <a href="https://github.com/cxxyao2" target="_blank"
                 ><i class="fa fa-github white icon-biggest"></i
               ></a>
             </li>
-            <li >
+            <li>
               <a href="https://twitter.com/jenniferyao1996" target="_blank"
                 ><i class="fa fa-twitter white icon-biggest"></i
               ></a>
@@ -56,8 +58,6 @@
       </ul>
     </nav>
 
-
-
     <!--  for not index.html -->
     <aside class="sidebar">
       <div class="sidebar_cover"></div>
@@ -69,33 +69,38 @@
         <span>Full Stack Developer</span>
         <hr />
         <p class="sidebar_description">
-          I am passionate about front-end frameworks and databases.
+          I am passionate about frontend frameworks and databases.
         </p>
         <hr class="sidebar_divider" />
         <p class="sidebar_tags">
           <span class="sidebar_tag"
-            ><a  href="/#angular"><img
-              src="assets/angular-icon.svg"
-              class="sidebar_icon"
-            />&nbsp;Angular</a></span
+            ><a href="/#angular"
+              ><img
+                src="assets/angular-icon.svg"
+                class="sidebar_icon"
+              />&nbsp;Angular</a
+            ></span
           >
           <span class="sidebar_tag"
-            ><a  href="/#react" alt="react blogs"><img
-              src="assets/react.svg"
-              class="sidebar_icon"
-            />&nbsp;React</a></span
+            ><a href="/#react" alt="react blogs"
+              ><img src="assets/react.svg" class="sidebar_icon" />&nbsp;React</a
+            ></span
           >
           <span class="sidebar_tag"
-            ><a  href="/#webpack" ><img
-              src="assets/webpack_logo.svg"
-              class="sidebar_icon"
-            />&nbsp;Webpack</a></span
+            ><a href="/#webpack"
+              ><img
+                src="assets/webpack_logo.svg"
+                class="sidebar_icon"
+              />&nbsp;Webpack</a
+            ></span
           >
           <span class="sidebar_tag"
-            ><a  href="/#database" ><img
-              src="assets/mysql.png"
-              class="sidebar_icon"
-            />&nbsp;Database</a></span
+            ><a href="/#database"
+              ><img
+                src="assets/mysql.png"
+                class="sidebar_icon"
+              />&nbsp;Database</a
+            ></span
           >
         </p>
         <hr class="sidebar_divider" />
@@ -121,8 +126,6 @@
       </div>
     </aside>
 
-
-
     <main class="content_wrapper">
       <div class="content">
         <article class="post">
@@ -130,41 +133,47 @@
             <span class="post_category"
               ><label class="date">2021-5-1</label> Angular</span
             >
-            <h2 >
-              PWA( Progressive Web App) in Angular
-            </h2>
+            <h2>PWA( Progressive Web App) in Angular</h2>
           </header>
           <section class="post_body">
-          <p>Running an angular web app as a native app in mobile phone is cool! In this blog, I will introduce how to achieve this step by step. </p>
-          <ul>
-            <li>Create an angular project using angular-cli</li>
-            <li>Add a service work to this project
-              <pre>
-ng add @angular/pwa --project *project-name*</pre>
-            </li>
-            <li>Install http-server package <strong>globally</strong> for testing the PWA app in local computer
-               <pre>
-npm i -g http-serve</pre>
-            </li>
-            <li>Build PWA app
-               <pre>
-ng build --prod</pre>
-            </li>
-            <li>Test PWA app
-              <pre>
-http-server -p 8080 -c-1 dist/&lt;project-name&gt;</pre>
-            </li>
-            <li>Add <code>Add to Home Screen</code> button in template file.
-<pre>
+            <p>
+              Running an angular web app as a native app in mobile phone is
+              cool! In this blog, I will introduce how to achieve this step by
+              step.
+            </p>
+            <ul>
+              <li>Create an angular project using angular-cli</li>
+              <li>
+                Add a service work to this project
+                <pre>ng add @angular/pwa --project *project-name*</pre>
+              </li>
+              <li>
+                Install http-server package <strong>globally</strong> for
+                testing the PWA app in local computer
+                <pre>npm i -g http-serve</pre>
+              </li>
+              <li>
+                Build PWA app
+                <pre>ng build --prod</pre>
+              </li>
+              <li>
+                Test PWA app
+                <pre>http-server -p 8080 -c-1 dist/&lt;project-name&gt;</pre>
+              </li>
+              <li>
+                Add <code>Add to Home Screen</code> button in template file.
+                <pre>
 // app.component.html
   
 &lt;button *ngIf="showButton" (click)="addToHomeScreen()"&gt;
     add to home screen
 &lt;/button&gt; 
-</pre>
+</pre
+                >
 
-Add listener <code>window:beforeinstallprompt</code> in component.ts
-<pre>
+                Add listener <code>window:beforeinstallprompt</code> in
+                component.ts
+                <pre>
 // app.component.ts 
 
 import { Component, HostListener } from '@angular/core';
@@ -206,24 +215,38 @@ export class AppComponent {
     });
   }
 }
-            </pre>
-            </li>
-            <li>Deploy this angular app on a cloud platform. I deployed my first PWA app on github.
-            </li>
-            <li>Visit the PWA website through the browser in the mobile phone. Add the app to the mobile screen. Attention: Not all mobiles support PWA.
-              If your PWA app icon does not show on the mobile screen, you should try to install it on another mobile.
-              <img src="assets/pwa/pwa1.png" alt="deploy pwa" />
-              <img src="assets/pwa/pwa2.png" alt="add pwa to mobile screen" />
-            </li>
-            <li>Source code is hosted on github <a href="https://github.com/cxxyao2/ng-pwa" alt="source code">ng-pwa</a></li>
-            
-          </ul>
+            </pre
+                >
+              </li>
+              <li>
+                Deploy this angular app on a cloud platform. I deployed my first
+                PWA app on github.
+              </li>
+              <li>
+                Visit the PWA website through the browser in the mobile phone.
+                Add the app to the mobile screen. Attention: Not all mobiles
+                support PWA. If your PWA app icon does not show on the mobile
+                screen, you should try to install it on another mobile.
+                <img src="assets/pwa/pwa1.png" alt="deploy pwa" />
+                <img src="assets/pwa/pwa2.png" alt="add pwa to mobile screen" />
+              </li>
+              <li>
+                Source code is hosted on github
+                <a href="https://github.com/cxxyao2/ng-pwa" alt="source code"
+                  >ng-pwa</a
+                >
+              </li>
+            </ul>
           </section>
         </article>
         <section class="read-more">
           <div class="read-more_item">
             <span class="read-more-item-dim">&lt;&lt;previous article</span>
-            <h3><a href="angular_crud_and_authentication_firebase.html">CRUD and Authentication in Firebase</a></h3>
+            <h3>
+              <a href="angular_crud_and_authentication_firebase.html"
+                >CRUD and Authentication in Firebase</a
+              >
+            </h3>
           </div>
           <div class="read-more_item">
             <span class="read-more-item-dim">next article&gt;&gt;</span>
@@ -232,12 +255,12 @@ export class AppComponent {
         </section>
 
         <section class="footer">
-            <span class="footer__copyright"
-              >2021-5-31 Jennifer. All rights reserved.</span
-            >
-            <span class="footer__copyright"
-              >Contact Email: Jenniferyao1996#hotmail.com</span
-            >
+          <span class="footer__copyright"
+            >2021-5-31 Jennifer. All rights reserved.</span
+          >
+          <span class="footer__copyright"
+            >Contact Email: Jenniferyao1996#hotmail.com</span
+          >
         </section>
       </div>
       <span id="backToTop">
