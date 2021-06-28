@@ -136,9 +136,7 @@
             <h2>Review of lifecycle hooks and change detections</h2>
           </header>
           <section class="post_body">
-            <ol>
-              <li >
-                constructor (not a lifecycle hook)</i>
+                <h3>constructor (not a lifecycle hook)</h3>
                 <ul >
                   <li>
                     called before any other lifecycle hook. Use it to inject
@@ -175,8 +173,11 @@
                   </li>
                   etc.
                 </ul>
-              </li>
-
+              <div style="position:relative;">
+                <hr class="divider" id="divider_hooks"/>
+              </div>
+            
+              <ol>
               <li class="collapsible">
                 ngOnChanges &nbsp;<i
                   class="fa fa-arrow-down gray icon-bigger"
@@ -281,10 +282,7 @@ ngDoCheck() {
                 ngAfterContentChecked &nbsp;<i
                   class="fa fa-arrow-down gray icon-bigger"
                 ></i>
-                <ul class="collapsible_content">
-                  <li>aa</li>
-                  <li>bb</li>
-                </ul>
+               <ul><li>A lifecycle hook that is called after the default change detector has completed checking all content of a directive.</li></ul>
               </li>
 
               <li class="collapsible">
@@ -370,8 +368,9 @@ template: `
                 />
                 Reference: <a href="https://limeii.github.io/2019/06/angular-unidirectional-data-flow/" target="_blank">https://limeii.github.io/2019/06/angular-unidirectional-data-flow/</a>
               </li>
-              </ul> 
-              <li >change detection strategy
+              </ul> </ol>
+              <hr class="divider" id="divider_hooks"/>
+              <h3>change detection strategy</h3>
                 <div class="alert is-helpful"> Component's data change is generally caused by :
                   <hr class="divider_transparent" />
                     DOM event: click、submit、mouse down……
@@ -426,9 +425,6 @@ changeReference() {
                   </ul>
                 </li>
                 </ul>
-                
-              </li>  
-            </ol>
           </section>
         </article>
         <section class="read-more">

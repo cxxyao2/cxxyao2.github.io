@@ -50,7 +50,7 @@ html {
 }
 
 body {
-  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-family: Inter, Roboto, Helvetica, sans-serif;
   color: var(--color-font);
   font-size: 1.6rem;
   line-height: 2.4rem;
@@ -142,6 +142,18 @@ p a {
   width: 100%;
   margin: 5px auto;
   border: 1px solid transparent;
+}
+
+#divider_hooks::after {
+  content: 'hooks';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 5px;
+  border: 1px solid white;
+  background-color: white;
+  border-radius: 4px;
 }
 
 /* navigation */
