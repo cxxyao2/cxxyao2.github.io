@@ -131,6 +131,12 @@ p a {
   border: 1px solid var(--color-border);
 }
 
+.divider_transparent {
+  width: 100%;
+  margin: 5px auto;
+  border: 1px solid transparent;
+}
+
 /* navigation */
 .nav {
   position: relative;
