@@ -133,7 +133,7 @@
             <span class="post_category"
               ><label class="date">2021-5-1</label> Angular</span
             >
-            <h2>How to improve frontend performance</h2>
+            <h2>How to Improve Frontend Performance</h2>
           </header>
           <section class="post_body">
             <div class="alert is-helpful">I prefer the word "frontend performance" 
@@ -155,13 +155,14 @@
               <li>Tree-shaking</li>
               <li>Use website caching</li>
               <li>lazy loading modules </li>
-              <li>Resolve guards</li>
-              <li>preloading modules</li>
-              <li>AOT Compilation</li>
-              <li>Service Worker</li>
-              <li>Web Worker</li>
-              <li>OnPush Change Detection for a component:&nbsp;<code> changeDetection: ChangeDetectionStrategy.OnPush</code></li>
-              <li>using pure pipes</li>
+              <li class="collapsible">RxJS operators: debounce, ReplaySubject &nbsp;<i class="fa fa-arrow-down gray icon-bigger"></i>
+                <dl class="collapsible_content">
+                  <dt class="fw-600">debounce</dt>
+                  <dd>discard emitted values that take less than the specified time</dd>
+                  <dt class="fw-600">ReplaySubject, shareReplay ,etc.</dt>
+                  <dd>Replays or emits old values to new subscribers</dd>
+                </dl>
+              </li>
               <li>*ngFor + TrackBy</li>
               <li>Unsubscribe from Observables</li>
                <li class="collapsible">Optimize the size of images on your website.Offer responsive images. 
@@ -214,6 +215,13 @@
                 <span class="fw-600">Reflow</span> means re-calculating the positions and geometries of elements in  
                   the document, for the purpose of re-rendering part or all of the document.</div>
              <ul>
+              <li>preloading modules</li>
+              <li>AOT Compilation</li>
+              <li>Service Worker</li>
+              <li>Web Worker</li>
+               <li>Resolve guards</li>
+              <li>OnPush Change Detection for a component:&nbsp;<code> changeDetection: ChangeDetectionStrategy.OnPush</code></li>
+              <li>using pure pipes</li>
                <li>minimize browser reflow and repaint
                  <img src="assets/dom-cssom-render-tree.jpeg" alt="css js render-tree" />
                   <ol><span class="fw-600">The operations trigger reflow:</span>
