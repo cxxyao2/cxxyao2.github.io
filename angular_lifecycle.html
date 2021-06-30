@@ -391,20 +391,20 @@ template: `
                 </li>
                 <li>Even if <code> ChangeDetectionStrategy.OnPush</code> is set , in the following cases the component's change detection will be triggered
                   <ul>
-<li>component's @Input() refer to an object. The object reference changes, e.g.
+<li>component's @Input() refer to an object. The reference of an object changes, e.g.
   <pre>
 // template file:
 &lt;componentA [address]="user.address"&gt;&lt;/componentA&gt;
 
 // .ts file:
-// object reference changes. change detection is triggered.
+// When the reference of an object changes, change detection is triggered.
 changeReference() {
   this.user = {
     address:"Waterloo University, Canada";
   }
 }
 
-// object changes
+// object changes, not the reference of an object
 changeReference() {
   this.user.address = "Waterloo University, Canada";
 }
