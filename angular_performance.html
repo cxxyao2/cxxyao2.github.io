@@ -249,8 +249,9 @@
                <li>set the position of animations as absolute or fixed</li>
                <li>don't use CSS calculate, e.g. calc() </li>
                <li>call  window.requestAnimationFrame() for animations</li>
-               <li>replace rewriting style by CSS class for styling the elements</li>
-               <li> first,display:none; second,set properties; finally,display. neither reflow nor repaint happens. </li>
+               <li>replace style attribute with a common CSS class when styling elements</li>
+               <li> when turning an element from invisible to visible, use "display" attribute. 
+                 First,display:none; second,set attributes; finally,display it. Neither reflow nor repaint happens. </li>
              </ol>
                </li>
                <li > Eliminate render-blocking resources
