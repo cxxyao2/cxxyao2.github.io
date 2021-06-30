@@ -259,15 +259,28 @@
                  JavaScript code block all constructing and rendering,&nbsp;CSS block a part of them <ul> 
                     <li>Javascript block DOM and CSSOM constructing,&nbsp;then
                        block render-tree constructing and block download of static files, e.g. images. 
-                       We should put the script tag just before body, add "defer" or "async" attribute 
+                       We should put the script tag just before body , if not, put them in head portion with  "defer" or "async" attribute 
                       <pre>
-// a .html file 
+// a .html file
+//  async and defer attributes should put in head portion of the page. 
+//  they are useless if you put the script in the body footer.
+
+// When a page loads a script with defer,
+// the script is fetched asynchronously, and it’s executed only after the HTML parsing is done.
+
+// When a page loads a script with async,
+// The script is fetched asynchronously, and when it’s ready the HTML parsing is paused to execute the script,
+// then it’s resumed.
+
+&lt;head&gt; 
+<!-- async attribute -->
+&lt;/head&gt; 
+  &lt;script defer src="some.js"&gt;&lt;/script&gt;
+  &lt;script async src="some.js"&gt;&lt;/script&gt;
 &lt;body&gt;
   ... 
   ... 
   &lt;script src="some.js"&gt;&lt;/script&gt;
-  &lt;script defer src="some.js"&gt;&lt;/script&gt;
-  &lt;script async src="some.js"&gt;&lt;/script&gt;
 &lt;/body&gt;
       </pre> 
                     </li>
@@ -298,6 +311,7 @@
               <li>reduce network traffic</li>
               <li>reduce rendering time</li>              
             </ul>
+            Reference: <a href="https://flaviocopes.com/javascript-async-defer/#async-and-defer" alt="async defer">https://flaviocopes.com/javascript-async-defer/#async-and-defer</a>
           </section>
         </article>
         <section class="read-more">
