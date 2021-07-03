@@ -154,6 +154,10 @@
                 <span class="fw-600">modified, staged, committed.</span>
               </p>
             </div>
+            <div class="alert is-important">
+              Attention: some commands will become no longer supported after a
+              period. Please always refer to github manual.
+            </div>
             <h3>Configuration</h3>
             There are three levels of config: system(&nbsp;all
             users),&nbsp;global(&nbsp;all repositories of current
@@ -365,10 +369,10 @@ git switch [new-branch]
 // create a branch and track a remote branch 
 git switch -C [local-new-branch] origin/[remote-branch-name]
 
-// track a remote branch  
-git branch - - set-upstream [local-branch] [remote-branch]  
+// set tracking  a remote branch  
+git branch --set-upstream-to=origin/[remote-branch] [local-branch]
 e.g. 
-git branch - -set-upstream  new-feature origin/new-feature
+git branch --set-upstream-to=origin/new-feature  new-feature
 
 // a remote branch can be created by push  if not exist
 git push -u( - -up-stream) origin [local-new-branch]
