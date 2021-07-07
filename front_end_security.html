@@ -349,8 +349,8 @@ res.cookie(SESSION_ID, id,{maxAge:  900000, httpOnly:true});
                   <ul>
                     <li>Filter input on arrival.</li>
                     <li>
-                      Encode data on output,maybe need combine HTML, URL,
-                      Javascript, and CSS encoding.e.g.
+                      Encode data on output. &nbsp;Need combine HTML, URL,
+                      Javascript, and CSS coding.
                     </li>
                     <li>
                       Use appropriate response headers.You can use the
@@ -506,7 +506,7 @@ app.post('/api/transfer3', (req, res) => {
                 <pre>
 // attack example 
 // an iframe ( or an anchor) is invisible or transparent 
-&lt;iframe style="opacity:0" src="javascript:/* dangerous stuff here */">"&gt;&lt;/iframe&gt; 
+&lt;iframe style="display:none;" src="javascript:/* dangerous stuff here */">"&gt;&lt;/iframe&gt; 
 
 // preventions
 1, Frame busting. Attention: HTML5 iframe <code>sandbox</code> attribute, IE iframe <code>security</code> attribute will prevent the 
