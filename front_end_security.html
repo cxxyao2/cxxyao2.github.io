@@ -493,6 +493,10 @@ app.post('/api/transfer3', (req, res) => {
 // 4,  Samesite Cookie: Samesite = Strict
               </pre
                 >
+                <img
+                  src="assets/front_security/samesite_cookie.png"
+                  alt="samesite cookie"
+                />
               </li>
               <li>
                 Clickjacking: &nbsp;the malicious practice of manipulating a
@@ -527,6 +531,28 @@ app.use(helmet.frameguard({ action: 'SAMEORIGIN' }));
 // Note: The Content-Security-Policy HTTP header has a frame-ancestors directive 
 // which obsoletes this header for supporting browsers.
                 </pre>
+              </li>
+              <li>
+                For preventing CRSF attack,&nbsp;cookie + token is safer than
+                http-only cookie or token.
+                <div class="alert is-helpful">
+                  Angular will add the X-XSRF-TOKEN header only
+                  if the XSRF-TOKEN cookie was generated server-side with the
+                  following options: &nbsp;Path = / ,&nbsp;&nbsp;httpOnly
+                  = false
+                </div>
+                <img
+                  src="assets/front_security/cookie_token_valid.png"
+                  alt="valid user"
+                />
+                <img
+                  src="assets/front_security/cookie_token_unvalid.png"
+                  alt="invalid user"
+                />
+                <img
+                  src="assets/front_security/cookie_token_invalid_reason.png"
+                  alt="invalid reason"
+                />
               </li>
             </ul>
             <hr class="divider" />
@@ -660,6 +686,22 @@ function MyComponent() {
                   rel="noopener noreferrer"
                 >
                   https://www.whitehatsec.com/blog/the-security-angle-on-angular/</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://juejin.cn/post/6844903842635579405"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >most commons frontend attacks</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.youtube.com/watch?v=9inczw6qtpY"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >https://www.youtube.com/watch?v=9inczw6qtpY</a
                 >
               </li>
             </ol>
