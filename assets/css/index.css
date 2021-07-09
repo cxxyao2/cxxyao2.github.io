@@ -23,6 +23,24 @@
   box-sizing: border-box;
 }
 
+/** disable right-click context-menu */
+* {
+  -webkit-touch-callout: none; /*by default*/
+  -webkit-user-select: none; /*webkit browser*/
+  -khtml-user-select: none; /* old browser */
+  -moz-user-select: none; /* firefox */
+  -ms-user-select: none; /*IE*/
+  user-select: none; /* if use can select text*/
+}
+
+input,
+textarea {
+  -webkit-user-select: auto; /*webkit*/
+  margin: 0px;
+  padding: 0px;
+  outline: none;
+}
+
 ul,
 ol {
   margin-top: 1rem;
