@@ -524,16 +524,16 @@ app.use(helmet.frameguard({ action: 'SAMEORIGIN' }));
 // which obsoletes this header for supporting browsers.
                 </pre>
                 <h3>Anti ClickJacking Example</h3>
-                Method 1: Frame busting. If other html file render
-                login.html as iframe, when user enter other html url in browser,
-                the browser redirect automatically them to login.html
+                Method 1: Frame busting. If another html file loads login.html
+                as iframe, when user enter this html in browser, the browser
+                redirect automatically to login.html
                 <img
                   src="assets/front_security/clickattacking-0.png"
                   alt="frame busting"
                 />
 
-                Method 2: set http header. on server1 (http://localhost:3001) ,
-                Set X-Frame-Options as "sameorigin".
+                Method 2: Set X-Frame-Options as "sameorigin". &nbsp; On server1
+                (http://localhost:3001)
                 <hr class="divider_transparent" />
                 Login.html is located in server1.
                 <img
@@ -546,16 +546,16 @@ app.use(helmet.frameguard({ action: 'SAMEORIGIN' }));
                   src="assets/front_security/clickattacking-2.png"
                   alt="set sameorigin"
                 />
-                Because of the sameorigin policy, xframe1.html cannot render
-                login.html
+                Because of the sameorigin policy, xframe1.html cannot load
+                login.html correctly. By contrast, if xframe1.html is located in
+                the same origin, it can load login.html. So xframe1.html can
+                only load the files from the same origin as iframe element. It
+                can prevent clickjacking.When a malicious webpage try to attack
+                a same-policy-protected webpage as an iframe element, even if it
+                is transparent or invisible, click it will not cause serious
+                consequence.
                 <img
                   src="assets/front_security/clickattacking-3.png"
-                  alt="set sameorigin"
-                />
-                Without the limitation of the sameorigin policy, xframe1.html
-                can render login.html
-                <img
-                  src="assets/front_security/clickattacking-3a.png"
                   alt="set sameorigin"
                 />
               </li>
