@@ -248,14 +248,6 @@ $('#iframe1').attr('src', encodeURI('https://dangerous-website.com'));
 $('#anchor1').attr('href', encodeURI('https://dangerous-website.com'));     
                     </pre>
                   </li>
-                  <p>
-                    Source code is hosted on Github&nbsp;<a
-                      href="https://github.com/cxxyao2/frontend-attacks"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      >frontend attacks</a
-                    >
-                  </p>
                 </ol>
                 <div>
                   <h3>FAQ:&nbsp;store JWT token in cookie or localStorage?</h3>
@@ -531,6 +523,41 @@ app.use(helmet.frameguard({ action: 'SAMEORIGIN' }));
 // Note: The Content-Security-Policy HTTP header has a frame-ancestors directive 
 // which obsoletes this header for supporting browsers.
                 </pre>
+                <h3>Anti ClickJacking Example</h3>
+                Method 1: Frame busting. If other html file render
+                login.html as iframe, when user enter other html url in browser,
+                the browser redirect automatically them to login.html
+                <img
+                  src="assets/front_security/clickattacking-0.png"
+                  alt="frame busting"
+                />
+
+                Method 2: set http header. on server1 (http://localhost:3001) ,
+                Set X-Frame-Options as "sameorigin".
+                <hr class="divider_transparent" />
+                Login.html is located in server1.
+                <img
+                  src="assets/front_security/clickattacking-1.png"
+                  alt="set sameorigin"
+                />
+                On server2 (http://localhost:3002), another webpage xframe1.html
+                tries to render login.html as iframe.
+                <img
+                  src="assets/front_security/clickattacking-2.png"
+                  alt="set sameorigin"
+                />
+                Because of the sameorigin policy, xframe1.html cannot render
+                login.html
+                <img
+                  src="assets/front_security/clickattacking-3.png"
+                  alt="set sameorigin"
+                />
+                Without the limitation of the sameorigin policy, xframe1.html
+                can render login.html
+                <img
+                  src="assets/front_security/clickattacking-3a.png"
+                  alt="set sameorigin"
+                />
               </li>
               <li>
                 For preventing CRSF attack,&nbsp;cookie + token is safer than
@@ -560,6 +587,14 @@ app.use(helmet.frameguard({ action: 'SAMEORIGIN' }));
                 fixed by numerous engineers.
               </li>
             </ul>
+            <p>
+              Source code is hosted on Github&nbsp;<a
+                href="https://github.com/cxxyao2/frontend-attacks"
+                target="_blank"
+                rel="noopener noreferrer"
+                >frontend attacks</a
+              >
+            </p>
             <hr class="divider" />
             <h3>Security in Frameworks</h3>
             <ul>
