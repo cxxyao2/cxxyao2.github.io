@@ -560,7 +560,7 @@ app.use(helmet.frameguard({ action: 'SAMEORIGIN' }));
                 />
               </li>
               <li>
-                For preventing CRSF attack,&nbsp;cookie + token is safer than
+                For preventing XSRF attack,&nbsp;cookie + token is safer than
                 http-only cookie or token.
                 <div class="alert is-helpful">
                   Angular will add the X-XSRF-TOKEN header only
