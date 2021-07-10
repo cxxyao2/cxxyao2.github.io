@@ -431,7 +431,9 @@ pre {
   border-radius: 3px;
   font-size: 0.9em;
   line-height: 1.6em;
-  overflow: auto;
+  overflow-x: auto;
+  white-space: pre;
+  word-wrap: normal;
 }
 
 /* read-more section*/
