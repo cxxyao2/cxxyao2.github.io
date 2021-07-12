@@ -580,6 +580,125 @@ app.use(helmet.frameguard({ action: 'SAMEORIGIN' }));
                   src="assets/front_security/cookie_token_invalid_reason.png"
                   alt="invalid reason"
                 />
+                <p>
+                  1, Client side:&nbsp; create an interceptor for add header
+                  "X-XSRF-TOKEN"
+                </p>
+                <pre>
+// xsrftoken.interceptor.ts 
+import { Injectable } from '@angular/core';
+import {
+  HttpRequest,
+  HttpHandler,
+  HttpEvent,
+  HttpInterceptor,
+} from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { CookieService } from 'ngx-cookie-service';
+
+@Injectable()
+export class XsrftokenInterceptor implements HttpInterceptor {
+  private readonly tokenHeaderName = 'X-XSRF-TOKEN';
+  private readonly cookieName = 'XSRF-TOKEN';
+
+  constructor(public cookieService: CookieService) {}
+
+  intercept(
+    request: HttpRequest&lt;unknown&gt;,
+    next: HttpHandler
+  ): Observable&lt;HttpEvent&lt;unknown&gt;&gt; {
+    let token;
+    let reqClone;
+    token = this.cookieService.get(this.cookieName);
+    if (token !== null && !request.headers.has(this.tokenHeaderName)) {
+      reqClone = request.clone({
+        headers: request.headers.set(this.tokenHeaderName, token),
+        withCredentials: true,
+        body: request.body,
+      });
+      console.log('request is', JSON.stringify(reqClone));
+      return next.handle(reqClone);
+    }
+    return next.handle(request);
+  }
+}
+
+                </pre>
+                <pre>
+// app.module.ts
+ providers: [
+   ...
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: XsrftokenInterceptor,
+      multi: true,
+    },
+  ],
+  ...
+                </pre>
+                <p>
+                  2, Server side:&nbsp; when user log in, set cookies for
+                  response; &nbsp; when user transfers money to other, compare
+                  the cookie "XSRF-TOKEN" to header "X-XSRF-TOKEN". Execute the
+                  transaction only when the two are equal.
+                </p>
+
+                <pre>
+// log in 
+let SESSION_ID = 'connect.sid';
+let XSRF_TOKEN = 'XSRF-TOKEN';
+let session = {};
+
+
+app.post('/api/login', (req, res) => {
+  let { username, password } = req.body;
+  let user = userList.find(
+    (item) => item.username === username && item.password === password
+  );
+  if (user) {
+    // user login, cookie
+    const cardId = Math.random() + Date.now();
+    const token = cardId + ' ' + JSON.stringify(user);
+    session[cardId] = { user };
+    res.cookie(SESSION_ID, cardId);
+    res.cookie(XSRF_TOKEN, token);
+    res.json({ code: 0 }); // send JSON response
+  } else {
+    res.json({
+      code: 1,
+      error: `${username} does not exist or password mismatch`,
+    });
+  }
+});
+                  </pre
+                >
+                <pre>
+// transfer 
+app.post('/api/transfer', (req, res) => {
+  ... 
+   const token = req.header('X-XSRF-TOKEN');
+   if(!token || token !== req.cookies[XSRF_TOKEN]) {
+     return res.json({ code: 1, error: 'user not logged in or valid user .' });
+   }
+   ... 
+});                    
+                  </pre
+                >
+                The response header after login successfully (with cookies
+                information)
+                <img
+                  src="assets/front_security/cookie_token_login.png"
+                  alt="cookie + token log in"
+                />
+                The request header when transfer (X-XSRF-TOKEN = XSRF-TOKEN)
+                <img
+                  src="assets/front_security/cookie_token_transfer1.png"
+                  alt="cookie + token transfer1"
+                />
+                <img
+                  src="assets/front_security/cookie_token_transfer2.png"
+                  alt="cookie + token transfer2"
+                />
               </li>
               <li>
                 The last but important one: not forget to upgrade the
