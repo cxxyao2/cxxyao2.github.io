@@ -376,7 +376,7 @@ async function createCourse(name, author) {
 
 async function listCourses() {
   const courses = await Course.find()
-    .populate('author', 'name -_id') // only show id & name
+    .populate('author', 'name  -_id') // === {name:1, _id:0}. include author.name, not author._id 
     .select('name author');
   console.log(courses);
 }
