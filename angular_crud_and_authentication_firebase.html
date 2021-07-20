@@ -181,10 +181,35 @@ npm i firebase
                   alt="install firebase packages"
                 />
               </li>
+              <li>configure Firebase in app.module.ts 
+                <pre>
+// app.module.ts  
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth'; 
+
+import { environment } from '../environments/environment';
+
+... 
+@NgModule({
+  declarations: [ 
+  ...
+  ],
+  imports: [... 
+   AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFirestoreModule,
+    AngularFireAuthModule, 
+    ...] 
+} 
+export class AppModule {...}
+                </pre>
+              </li>
               <li>
                 Create a firebase service in angular.
                 <pre>
-employ.ts
+// employ.ts
 
 export default interface Employee {
   name: string;
@@ -196,7 +221,7 @@ export default interface Employee {
               </pre
                 >
                 <pre>
-firebase.service.ts
+// firebase.service.ts
 
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
