@@ -150,7 +150,18 @@
                   <li>Subject</li>
                   <li>BehaviorSubject</li>
                   <li>AsyncSubject</li>
-                  <li>ReplaySubject</li>
+                  <li>ReplaySubject
+                    <div class="alert is-helpful">Replays or emit old values to new subscribers</div>
+                      <pre>
+const sub = new ReplaySubject(3); // "3" means emits 3 old value to new subscribers
+sub.next(1);
+sub.next(2);
+sub.subscribe(console.log); // output => 1,2
+sub.next(3);
+sub.next(4);
+sub.subscribe(console.log); // output => 2,3,4                        
+                      </pre>
+                    </li>
                 </ul>
               </li>
               <li class="collapsible">
@@ -201,14 +212,14 @@ const subscribe = example.subscribe(val => console.log(val)) ;
                   </li>
                   <li>concatMap
                     <ul>
-                      <li>use it if the order of emission and subscription of inner observables is important,</li>
+                      <li>use it if the order of emission and subscription of inner observables is important</li>
                     </ul></li>
                 </ul>
               </li>
               <li>merge
-                <ul>
-                  <li>Turn multiple observables into a single observable</li>
-                </ul>
+                <div class="alert is-helpful">
+                  turn multiple observables into a single observable
+                </div>
                 <pre>
 const first = interval(2500) ;
 const second= interval(2500);
@@ -221,9 +232,158 @@ const subscribe = example.subscribe(example); ..
                 </pre>
               </li>
               <li>skip, timer, interval</li>
-              <li>shareReply</li>
+              <li>shareReply
+                <div>share and replay values for later subscribers</div>
+                <pre>
+const route = new Subject&lt;string&gt;();           
+const lastUrl = route.pipe(shareReplay(1));
+
+// requires initial subscription 
+const initialSubscriber = lastUrl.subscribe(console.log); 
+route.next('my path');
+
+const lastSubscriber = lastUrl.subscribe(console.log); // output => my path
+                </pre>
+              </li>
               <li>debounce</li>
               <li>fromEvent</li>
+            </ul>
+            <h3>An example about how to use RxJS operators</h3>
+            <ul>
+              <li>main features:<ol>
+                <li>every 10 seconds</li>
+                <li>get 30 new users from github server</li>
+                <li>show a notification on the screen</li>
+                <li>if user clicks "refresh" button, refresh user list ; if not, go to next cycle </li>
+              </ol></li>
+              <li>source code
+                <pre>
+// notification.service.ts
+
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable, of, timer } from 'rxjs';
+import { catchError, map, share, switchMap } from 'rxjs/operators';
+import { User } from '../rxjs-cache/user';
+import { shareReplay } from 'rxjs/operators';
+
+const CACHE_SIZE = 1;
+const REFRESH_INTERVAL = 10000; // every 10 seconds
+const API_ENDPOINT = 'https://api.github.com/users?since=';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class NotificationService {
+  private cacheUsers$?: Observable&lt;User[]&gt;;
+  private userStartId = 0;
+
+  constructor(private http: HttpClient) {}
+
+  get users() {
+    if (!this.cacheUsers$) {
+      const timer$ = timer(0, REFRESH_INTERVAL); // at 0 second, emit the first  data; at every REFRESH_INTERVAL second , emit the following data
+      this.cacheUsers$ = timer$.pipe(
+        switchMap(() => this.requestUsers()),
+        shareReplay(CACHE_SIZE)
+      );
+    }
+    return this.cacheUsers$;
+  }
+
+  private requestUsers() {
+    this.userStartId = this.userStartId + 30;
+    return this.http.get<User[]>(API_ENDPOINT + this.userStartId).pipe(
+      map((response) => response),
+      catchError((error) => {
+        console.log('something went wrong' + error);
+        return of([]);
+      })
+    );
+  }
+}
+
+                </pre> 
+              <pre>
+// notification.component.ts
+import { Component, OnInit } from '@angular/core';
+import { NotificationService } from './notification.service';
+import { merge, Observable, Subject } from 'rxjs';
+import { User } from '../rxjs-cache/user';
+import { mapTo, mergeMap, skip, take } from 'rxjs/operators';
+import { ThisReceiver } from '@angular/compiler';
+
+@Component({
+  selector: 'app-notification',
+  templateUrl: './notification.component.html',
+  styleUrls: ['./notification.component.css'],
+})
+export class NotificationComponent implements OnInit {
+  users$!: Observable&lt;User[]&gt;;
+  updateClick$ = new Subject&lt;void&gt;();
+  showNotification$?: Observable&lt;boolean&gt;;
+
+  constructor(private notService: NotificationService) {}
+
+  ngOnInit(): void {
+    const initialUsers$ = this.getUserOnce();
+    const updateUsers$ = this.updateClick$.pipe(
+      mergeMap(() => this.getUserOnce())
+    );
+    this.users$ = merge(initialUsers$, updateUsers$);
+
+    const initNotification$ = this.getNotifications();
+    const show$ = initNotification$.pipe(mapTo(true));
+    const hide$ = this.updateClick$.pipe(mapTo(false));
+    this.showNotification$ = merge(show$, hide$); // output => true,false; if click "refresh" button, execute updateClick$.next()
+  }
+
+  getUserOnce() {
+    return this.notService.users.pipe(take(1));
+  }
+
+  getNotifications() {
+    return this.notService.users.pipe(skip(1));
+  }
+}                
+              </pre>
+              <pre>
+// notification.component.html     
+
+&lt;div class="container" style="margin-top: 30px; width: 40%"&gt;
+  &lt;div class="row justify-content-md-center" *ngIf="showNotification$ | async"&gt;
+    &lt;div&gt;
+      &lt;strong&gt;Warning!&lt;/strong&gt;new user infor avaiable, please click to update
+      &lt;button
+        type="button"
+        style="margin-left: 20px"
+        class="btn btn-warning"
+        (click)="updateClick$.next()"
+      &gt;
+        Update
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="row justify-content-md-center"&gt;
+    &lt;div
+      style="margin: 10px"
+      class="card w-100"
+      *ngFor="let user of users$ | async"
+    &gt;
+      &lt;div class="card-body"&gt;
+        &lt;h5 class="card-title"&gt;User Name:{{ user.login }}&lt;/h5&gt;
+        &lt;p class="card-text"&gt;&lt;strong&gt;Github URL:&lt;/strong&gt; {{ user.url }}&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+              </pre>
+              
+              </li>
+            
+              <li>source code is hosted on github&nbsp;<a href="https://github.com/cxxyao2/rxjs/tree/master/src/app/notification" alt="RxJS notification">RxJS notification</a></li>
             </ul>
           </section>
         </article>
