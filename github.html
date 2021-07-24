@@ -510,6 +510,10 @@ git blame -e L 1,3 [file-name]
             <pre>
 // get changes in remote repository 
 git fetch [remote-repository-name] 
+// update a specific file using the file in remote repo
+git checkout [remote-repository-name] [local-path/filename]
+// example
+git checkout origin/master  README.md
 
 // show all remotes 
 git remote -v 
