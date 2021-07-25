@@ -145,15 +145,14 @@
               for CRUD operations.&nbsp;<strong>Model Course</strong
               >&nbsp;will be used as an example in most topics.
               <li>
-                construct a collection using a schema
+                define a collection using a schema
                 <pre>
 const mongoose = require('mongoose');
 mongoose
   .connect('mongodb://localhost/testdb', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify: false,
-    useCreateIndex: true,
+    ...
   })
   .then(() => console.log('MongoDB is connected...'))
   .catch((error) => console.error('Could not connect to Mongodb... ', error));
@@ -390,8 +389,7 @@ listCourses();
                 </pre>
               </li>
               <li>
-                use Fawn package to imitate a transaction in a relational
-                database
+                use Fawn package to mock a transaction in a relational database
                 <pre>
 try {
 new Fawn.Task()
@@ -410,9 +408,9 @@ res.send(rental);
                 </pre>
               </li>
               <li>
-                aggregation pipeline as an array of objects
+                aggregation pipeline
                 <div class="alert is-helpful">
-                  extract data from multiple collections to make a report
+                  extract data from multiple collections to make an array
                 </div>
                 <pre>
 // important operators
@@ -424,8 +422,6 @@ modelName.aggregate([
 {$group:{...}},
 {$sort:{...}}
 ], (err, docs) => {..});
-
-
 
 What does this MongoDB operator roughly correspond to in a relational database?
 $match: where 
