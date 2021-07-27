@@ -151,12 +151,18 @@
             <ul>
               <li>
                 Create an developer account on
-                <a href="console.firebase.google.com" alt="developer firebase"
-                  target="_blank" rel="noopener noreferrer">firebase developer console</a
+                <a
+                  href="console.firebase.google.com"
+                  alt="developer firebase"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >firebase developer console</a
                 >
               </li>
               <li>
-                Add a project on this website. Copy the config object including apiKey. Add it to environment.js and environment.prod.js located in /src/environments/ .
+                Add a project on this website. Copy the config object including
+                apiKey. Add it to environment.js and environment.prod.js located
+                in /src/environments/ .
                 <img
                   src="assets/firebase/add_project.png"
                   alt="add a project in firebase"
@@ -171,8 +177,7 @@
               <li>
                 install necessary packages in angular project.
                 <pre>
-npm i @angular/fire
-npm i firebase
+npm i @angular/fire firebase --save
               </pre
                 >
                 <img
@@ -180,7 +185,8 @@ npm i firebase
                   alt="install firebase packages"
                 />
               </li>
-              <li>configure Firebase in app.module.ts 
+              <li>
+                configure Firebase in app.module.ts
                 <pre>
 // app.module.ts  
 import { AngularFireModule } from '@angular/fire';
@@ -290,7 +296,8 @@ export class FirebaseService {
                 <a
                   href="https://developer.twitter.com/en/apps"
                   alt="twitter developer"
-                  target="_blank" rel="noopener noreferrer"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   >Twitter Developer Console</a
                 >, we get apiKey, api secrete key, bearer tokens, etc.
                 <img
@@ -371,7 +378,10 @@ export class FirebaseAuthService {
           <div class="read-more_item">
             <span class="read-more-item-dim">&lt;&lt;previous article</span>
             <h3>
-              <a href="angular-debug-in-vscode-chrome.html" target="_blank" rel="noopener noreferrer"
+              <a
+                href="angular-debug-in-vscode-chrome.html"
+                target="_blank"
+                rel="noopener noreferrer"
                 >Debug Angular in VSCode and Chrome</a
               >
             </h3>
