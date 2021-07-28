@@ -371,6 +371,29 @@ export class FirebaseAuthService {
               </pre
                 >
               </li>
+              <li>
+                Config read and write rules in firebase console
+                <img src="assets/firebase/dabase_rules.png" alt="CRUD rules" />
+                Add criteria in Angular as needed
+                <pre>
+//  Firebase.service.ts    
+ return this.fireService
+      .collection('City', (ref) => ref.where('uid', '==', user.uid))
+      .snapshotChanges()
+      .pipe(
+        map((snaps) =>
+          snaps.map((snap: any) => {
+            return {
+              id: snap.payload.doc.id,
+              ...(snap.payload.doc.data() as {}),
+            };
+          })
+        ),
+        first()
+      );
+  }             
+                </pre>
+              </li>
             </ul>
           </section>
         </article>
