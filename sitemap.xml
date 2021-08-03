@@ -7,86 +7,107 @@
 >
 
 <url>
- <loc>https://cxxyao2.github.io/mongoose.html</loc>
+ <loc>http://cxxyao2.github.io/github.html</loc>
  <priority>0.3</priority>
- <lastmod>2021-06-28</lastmod>
+ <lastmod>2021-08-03</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
- <loc>https://cxxyao2.github.io/angular-localized-routed-deployment-to-firebase.html</loc>
+ <loc>http://cxxyao2.github.io/angular_unsubscribe.html</loc>
  <priority>0.3</priority>
- <lastmod>2021-06-28</lastmod>
+ <lastmod>2021-08-03</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
- <loc>https://cxxyao2.github.io/angular_lifecycle.html</loc>
+ <loc>http://cxxyao2.github.io/angular-localized-routed-deployment-to-firebase.html</loc>
  <priority>0.3</priority>
- <lastmod>2021-06-28</lastmod>
+ <lastmod>2021-08-03</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
- <loc>https://cxxyao2.github.io/</loc>
+ <loc>http://cxxyao2.github.io/mongoose.html</loc>
  <priority>0.3</priority>
- <lastmod>2021-06-28</lastmod>
+ <lastmod>2021-08-03</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
- <loc>https://cxxyao2.github.io/angular_pwa.html</loc>
+ <loc>http://cxxyao2.github.io/angular_crud_and_authentication_firebase.html</loc>
  <priority>0.3</priority>
- <lastmod>2021-06-28</lastmod>
+ <lastmod>2021-08-03</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
- <loc>https://cxxyao2.github.io/angular_crud_and_authentication_firebase.html</loc>
+ <loc>http://cxxyao2.github.io/mysql.html</loc>
  <priority>0.3</priority>
- <lastmod>2021-06-28</lastmod>
+ <lastmod>2021-08-03</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
- <loc>https://cxxyao2.github.io/angular-deploy-github-and-heroku.html</loc>
+ <loc>http://cxxyao2.github.io</loc>
  <priority>0.3</priority>
- <lastmod>2021-06-28</lastmod>
+ <lastmod>2021-08-03</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
- <loc>https://cxxyao2.github.io/angular_rxjs.html</loc>
+ <loc>http://cxxyao2.github.io/angular_rxjs.html</loc>
  <priority>0.3</priority>
- <lastmod>2021-06-28</lastmod>
+ <lastmod>2021-08-03</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
- <loc>https://cxxyao2.github.io/github.html</loc>
+ <loc>http://cxxyao2.github.io/back_end_security.html</loc>
  <priority>0.3</priority>
- <lastmod>2021-06-28</lastmod>
+ <lastmod>2021-08-03</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
- <loc>https://cxxyao2.github.io/angular_unsubscribe.html</loc>
+ <loc>http://cxxyao2.github.io/angular-deploy-github-and-heroku.html</loc>
  <priority>0.3</priority>
- <lastmod>2021-06-28</lastmod>
+ <lastmod>2021-08-03</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
- <loc>https://cxxyao2.github.io/mysql.html</loc>
+ <loc>http://cxxyao2.github.io/angular_lifecycle.html</loc>
  <priority>0.3</priority>
- <lastmod>2021-06-28</lastmod>
+ <lastmod>2021-08-03</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
- <loc>https://cxxyao2.github.io/angular-debug-in-vscode-chrome.html</loc>
+ <loc>http://cxxyao2.github.io/front_end_security.html</loc>
  <priority>0.3</priority>
- <lastmod>2021-06-28</lastmod>
+ <lastmod>2021-08-03</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+<url>
+ <loc>http://cxxyao2.github.io/angular-debug-in-vscode-chrome.html</loc>
+ <priority>0.3</priority>
+ <lastmod>2021-08-03</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+<url>
+ <loc>http://cxxyao2.github.io/angular_pwa.html</loc>
+ <priority>0.3</priority>
+ <lastmod>2021-08-03</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+<url>
+ <loc>http://cxxyao2.github.io/angular_performance.html</loc>
+ <priority>0.3</priority>
+ <lastmod>2021-08-03</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
