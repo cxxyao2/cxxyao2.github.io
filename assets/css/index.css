@@ -35,6 +35,7 @@
 input,
 textarea {
   -webkit-user-select: auto; /*webkit*/
+  user-select: auto;
   margin: 0px;
   padding: 0px;
   outline: none;
