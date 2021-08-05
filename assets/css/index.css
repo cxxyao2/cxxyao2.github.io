@@ -50,8 +50,8 @@ ol {
 }
 
 li {
-  margin: 0 auto 2rem;
-  line-height: 2.6rem;
+  margin: 2.2rem auto;
+  line-height: 2.8rem;
   text-align: left;
 }
 
@@ -542,7 +542,7 @@ pre {
   }
 
   p {
-    margin: 0 auto 2rem;
+    margin: 2.4rem auto;
     font-size: 1.7rem;
     line-height: 2.8rem;
     text-align: left;
@@ -551,7 +551,7 @@ pre {
   li {
     font-size: 1.7rem;
     line-height: 2.8rem;
-    margin: 0 auto 2rem;
+    margin: 2.4rem auto;
   }
 
   h1,
