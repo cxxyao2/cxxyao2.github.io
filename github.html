@@ -212,7 +212,15 @@ git branch -M main
 // if error: refname refs/heads/master not found
 // You are currently in detached head state.
 // You must checkout a new branch to associate it with the current commit:
+// create a new branch if it does not exist, then checkout it 
 git checkout -b newbranch
+
+// create a new branch if it does not exist; if it exists, reset it.
+git checkout -B newbranch
+
+// create a local branch and track the remote branch with the same name 
+// we can  omit &lt;branch&gt;
+ $ git checkout -b &lt;branch&gt; --track &lt;remote&gt;/&lt;branch&gt;
 
 // clone a remote repository : method 1
 git clone  url 
