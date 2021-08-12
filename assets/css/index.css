@@ -513,7 +513,7 @@ pre {
 .alert.is-important {
   margin: 1rem auto 2rem;
   padding: 1rem;
-  border-left: 8px solid var(--color-accent);
+  border-left: 0.5rem  solid var(--color-accent);
   background-color: var(--background-accent);
   font-size: 1em;
   line-height: 1.5em;
