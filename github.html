@@ -144,11 +144,13 @@
                 including its full version history — is mirrored on every
                 developer's computer.&nbsp;It's abbreviated DVCS.
               </p>
+            </div>
+            <div class="alert is-helpful">
               <p>
                 In DVCS,&nbsp;files can be stored in 4 areas:&nbsp;<span
                   class="fw-600"
                 >
-                  Worktree&nbsp;-&nbsp;Index/Stage&nbsp;-&nbsp;Repository&nbsp;-&nbsp;Remote.</span
+                  Worktree(&nbsp;or work directory)&nbsp;-&nbsp;Index/Stage&nbsp;-&nbsp;Repository&nbsp;-&nbsp;Remote.</span
                 >
                 The status of a file can be:&nbsp;
                 <span class="fw-600">modified, staged, committed.</span>
@@ -242,11 +244,14 @@ git remote rename [old-upstream-name] [new-up-stream-name]
             >
             <h3>.gitignore</h3>
             <div>
-              A . gitignore file is a plain text file where each line contains a
-              pattern for files/directories to ignore. Generally, this is placed
-              in the root folder of the repository.&nbsp; However, you can put
-              it in any folder in the repository and you can also have multiple
-              . gitignore files.
+              <p>
+                A . gitignore file is a plain text file where each line contains
+                a pattern for files/directories to ignore. Generally, this is
+                placed in the root folder of the repository.&nbsp; However, you
+                can put it in any folder in the repository and you can also have
+                multiple . gitignore files.
+              </p>
+
               <pre>
 // patterns in .gitignore 
 logs/
