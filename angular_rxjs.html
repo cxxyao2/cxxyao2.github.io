@@ -164,11 +164,9 @@ sub.subscribe(console.log); // output => 2,3,4
                     </li>
                 </ul>
               </li>
-              <li class="collapsible">
-                Maps &nbsp;<i
-                  class="fa fa-arrow-down gray icon-bigger"
-                ></i>
-                <ul class="collapsible_content">
+              <li>
+                Maps
+                <ul >
                   <li>map</li>
                   <li>SwitchMap 
                     <ol>
@@ -191,6 +189,36 @@ sub.subscribe(console.log); // output => 2,3,4
 }                     
                     </pre>
                   </li>
+                  <li>differences between SwitchMap,mergeMap,ConcatMap,exhaustMap
+                    <ol>
+                      <li>SwitchMap
+                        <p>It  maps the most recent value  to a new Observable.</p>
+                        <p>output of the following code:&nbsp;0 0 1 2 3 4 </p>
+                      </li>
+                      <li>MergeMap( FlatMap )
+                        <p>If every request needs to complete, it is the correct options.It assure every observable to emit values and complete.<It allows multiple active inner subscriptions/p>
+                        <p>output of the following code:&nbsp;01021 03201 43120 42313 42434 </p>
+                      </li>
+                      <li>ConcatMap
+                        <p>use it if the order of emission and subscription of inner observables is important</p>
+                        <p>output of the following code:&nbsp;01234 01234 01234 01234 01234</p>
+                      </li>
+                      <li>exhaustMap
+                        <p>Map to inner observable, ignore other values until that observable completes.</p>
+                        <p>output of the following code:&nbsp;01234</p>
+                      </li>
+                      </li>
+                      <pre>
+  const sourceInterval = interval(1000);
+  const delayedInterval = sourceInterval.pipe(delay(10), take(4));
+  const exhaustSub = merge(
+    delayedInterval, of(true)
+    )
+    .pipe(PLace_Name_Of_Map_Here((_) => sourceInterval.pipe(take(5))))
+    .subscribe((val) => console.log(val));
+                      </pre>
+                    </ol>
+                  </li>
                   <li>mapTo
                     <ul>
                       <li>map everyting to a constant value</li>
@@ -202,18 +230,8 @@ const subscribe = example.subscribe(val => console.log(val)) ;
 // output: Hello World
                     </pre>
                   </li>
-                  <li>MergeMap( FlatMap )
-                    <ol>
-                      <li>It is an flattening operator</li>
-                      <li>If every request needs to complete, it is the correct options</li>
-                      <li>It allows multiple active inner subscriptions</li>
-                    </ol>
-
-                  </li>
-                  <li>concatMap
-                    <ul>
-                      <li>use it if the order of emission and subscription of inner observables is important</li>
-                    </ul></li>
+                  
+           
                 </ul>
               </li>
               <li>merge
