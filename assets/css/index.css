@@ -49,6 +49,12 @@ ol {
   list-style-position: inside;
 }
 
+ul.no-indent,
+ol.no-indent {
+  margin: 0 0 2rem 0;
+  padding: 0;
+}
+
 li {
   margin: 2.2rem auto;
   line-height: 2.8rem;
@@ -128,9 +134,14 @@ code {
 
 a {
   text-decoration: none;
+  transition: all 0.2s ease-in-out;
 }
 a.index {
-  color: rgb(191, 24, 39);
+  color: rgba(26, 35, 38, 0.8);
+}
+a:hover {
+  text-decoration: underline;
+  color: var(--color-secondary);
 }
 
 article,
