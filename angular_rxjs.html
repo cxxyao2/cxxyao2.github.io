@@ -166,15 +166,15 @@ sub.subscribe(console.log); // output => 2,3,4
               </li>
               <li>
                 Maps
-                <ul >
+                <ol>
                   <li>map</li>
                   <li>SwitchMap 
-                    <ol>
+                    <ul>
                       <li>It is a flattening operator. It maps an Observable to a new Observable and emit values. </li>
                       <li>It can cancel in-flight network requests</li>
                       <li>It allows only one active inner subscription</li>
                       <li>It only map the most recent value at a time to reduce unnecessary output( and network traffic).</li>
-                    </ol>
+                    </ul>
                     <pre>
   // someComponent.ts
   ngOnInit() {
@@ -190,7 +190,7 @@ sub.subscribe(console.log); // output => 2,3,4
                     </pre>
                   </li>
                   <li>differences between SwitchMap,mergeMap,ConcatMap,exhaustMap
-                    <ol>
+                    <ul>
                       <li>SwitchMap
                         <p>It  maps the most recent value  to a new Observable.</p>
                         <p>output of the following code:&nbsp;0 0 1 2 3 4 </p>
@@ -217,12 +217,10 @@ sub.subscribe(console.log); // output => 2,3,4
     .pipe(PLace_Name_Of_Map_Here((_) => sourceInterval.pipe(take(5))))
     .subscribe((val) => console.log(val));
                       </pre>
-                    </ol>
+                    </ul>
                   </li>
                   <li>mapTo
-                    <ul>
-                      <li>map everyting to a constant value</li>
-                    </ul>
+                   <p>map everyting to a constant value</p>
                     <pre>
 const source = interval(2000);
 const example = source.pipe(mapTo(‘Hello World’));
@@ -230,14 +228,11 @@ const subscribe = example.subscribe(val => console.log(val)) ;
 // output: Hello World
                     </pre>
                   </li>
-                  
            
-                </ul>
+                </ol>
               </li>
               <li>merge
-                <div class="alert is-helpful">
-                  turn multiple observables into a single observable
-                </div>
+                <p> turn multiple observables into a single observable</p>
                 <pre>
 const first = interval(2500) ;
 const second= interval(2500);
