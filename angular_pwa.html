@@ -183,11 +183,26 @@ import { Component, HostListener } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'ng-pwa';
 
   deferredPrompt: any;
   showButton = false;
+
+  constructor(private swUpdate: SwUpdate) {}
+
+  ngOnInit() {
+    // notify user if there is a newer version in server
+    if (this.swUpdate.isEnabled) {
+      this.swUpdate.available.subscribe(() => {
+        if (confirm('New version available. Load New Version?')) {
+          window.location.reload();
+        }
+      });
+    }
+  }
+
+
 
   @HostListener('window:beforeinstallprompt', ['$event'])
   onbeforeinstallprompt(e: any) {
@@ -217,6 +232,11 @@ export class AppComponent {
 }
             </pre
                 >
+                <p>Notify user if there is a newer version in server</p>
+                <img
+                  src="assets/pwa/version_change.png"
+                  alt="pwa version change alert"
+                />
               </li>
               <li>
                 Deploy this angular app on a cloud platform. I deployed my first
