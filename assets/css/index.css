@@ -134,14 +134,15 @@ code {
 
 a {
   text-decoration: none;
-  transition: all 0.2s ease-in-out;
 }
+
 a.index {
   color: rgba(26, 35, 38, 0.8);
+  position: relative;
 }
-a:hover {
-  text-decoration: underline;
+a.index:hover {
   color: var(--color-secondary);
+  transition: all 0.35s ease-in-out;
 }
 
 article,

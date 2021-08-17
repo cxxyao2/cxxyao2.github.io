@@ -150,7 +150,8 @@
                 In DVCS,&nbsp;files can be stored in 4 areas:&nbsp;<span
                   class="fw-600"
                 >
-                  Worktree(&nbsp;or work directory)&nbsp;-&nbsp;Index/Stage&nbsp;-&nbsp;Repository&nbsp;-&nbsp;Remote.</span
+                  Worktree(&nbsp;or work
+                  directory)&nbsp;-&nbsp;Index/Stage&nbsp;-&nbsp;Repository&nbsp;-&nbsp;Remote.</span
                 >
                 The status of a file can be:&nbsp;
                 <span class="fw-600">modified, staged, committed.</span>
@@ -257,7 +258,10 @@ git remote rename [old-upstream-name] [new-up-stream-name]
 logs/
 main.log
 *.log
-node_modules/
+
+# dependencies
+/node_modules
+
 coverage/
 config/
 
@@ -534,7 +538,7 @@ git remote -v
 // heroku	https://git.heroku.com/remote-repository-name.git (fetch)
 // origin	https://github.com/your-username-in-github/remote-repository-name2.git (fetch)
 
-// show a specified repository information 
+// show a specific repository  detailed information 
 git remote show [remote-repository]
 // enter the following command in terminal :
 // git remote show  https://github.com/your-username-in-github/remote-repository-name2.git 
@@ -555,6 +559,11 @@ git pull [remote] [branch]
 // upload local changes to remote  
 git push [remote] [branch]  
 // e.g. git push origin master 
+// push the local branch to an remote branch with a different name  in remote repo 
+git push origin [local-branch-name]:[remote-branch-name]
+
+// delete a branch in remote repo
+git push origin :[remote-branch-name]
 
 // update remote  with local change even if there are conflicts 
 git push [remote] --force  
@@ -562,6 +571,9 @@ git push [remote] --force
 // push all branches to remote 
 git push [remote] - - all 
 
+// change the remote repo's local name 
+git remote rename [old-name] [new-name]
+e.g. git remote rename origin org
 
 // keep local branches in sync with remote branches. If a branch has been deleted from remote repo, after executing this command,
 // the branch will be deleted from your local repo.
