@@ -559,8 +559,14 @@ git pull [remote] [branch]
 // upload local changes to remote  
 git push [remote] [branch]  
 // e.g. git push origin master 
+
 // push the local branch to an remote branch with a different name  in remote repo 
 git push origin [local-branch-name]:[remote-branch-name]
+
+// merge a remote branch to current local branch-name
+git fetch  
+git merge [remote-repo-local-name]/[remote-branch-name]  
+
 
 // delete a branch in remote repo
 git push origin :[remote-branch-name]
