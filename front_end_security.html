@@ -138,28 +138,24 @@
           <section class="post_body">
             In this blog, I will talk about three front-end attacks and
             preventions:&nbsp;XSS, CSRF, Clickjacking.
-            <ul>
-              <li>
-                XSS
-                <div class="alert is-helpful">
-                  Cross-site scripting (also known as XSS) is a web security
-                  vulnerability that allows an attacker to compromise the
-                  interactions that users have with a vulnerable application.
-                  <span class="fw-600"
-                    >It allows an attacker to circumvent the same origin policy,
-                    which is designed to segregate different websites from each
-                    other.</span
-                  >
-                  Cross-site scripting vulnerabilities normally allow an
-                  attacker to masquerade as a victim user, to carry out any
-                  actions that the user is able to perform, and to access any of
-                  the user's data.
-                  <hr class="divider_transparent" />
-                  <span class="fw-600">How does it work?&nbsp;</span>Cross-site
-                  scripting works by manipulating a vulnerable web site so that
-                  it returns malicious JavaScript to users.
-                </div>
-                There are three main XSS attacks:
+            <h3>XSS</h3>
+                XSS:&nbsp; Cross-site scripting (also known as XSS) is a web
+                security vulnerability that allows an attacker to compromise the
+                interactions that users have with a vulnerable application.
+                <span class="fw-600"
+                  >It allows an attacker to circumvent the same origin policy,
+                  which is designed to segregate different websites from each
+                  other.</span
+                >
+                Cross-site scripting vulnerabilities normally allow an attacker
+                to masquerade as a victim user, to carry out any actions that
+                the user is able to perform, and to access any of the user's
+                data.
+                <hr class="divider_transparent" />
+                <span class="fw-600">How does it work?&nbsp;</span>Cross-site
+                scripting works by manipulating a vulnerable web site so that it
+                returns malicious JavaScript to users. There are three main XSS
+                attacks:
                 <ol>
                   <li>
                     Reflected XSS:&nbsp;where the malicious script comes from
@@ -406,7 +402,8 @@ Content-Security-Policy-Report-Only: default-src https:; report-uri /csp-violati
                     </li>
                   </ul>
                 </div>
-              </li>
+              
+                   <h3>CSRF</h3>
               <li>
                 CSRF: &nbsp;Cross-Site Request Forgery (CSRF) is an attack that
                 forces an end user to execute unwanted actions on a web
@@ -494,6 +491,7 @@ app.post('/api/transfer3', (req, res) => {
                   alt="samesite cookie"
                 />
               </li>
+                   <h3>Clickjacking</h3>
               <li>
                 Clickjacking: &nbsp;the malicious practice of manipulating a
                 website user's activity by concealing hyperlinks beneath
@@ -709,7 +707,7 @@ app.post('/api/transfer', (req, res) => {
                 app(framework, etc) to latest versions, because bugs have been
                 fixed by numerous engineers.
               </li>
-            </ul>
+            
             <p>
               Source code is hosted on Github&nbsp;<a
                 href="https://github.com/cxxyao2/Front-end-attacks"

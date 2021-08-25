@@ -531,16 +531,16 @@ pre {
   margin: 1rem auto 2rem;
   padding: 1rem;
   border-left: 0.5rem solid var(--color-primary);
-  background-color: var(--background-primary);
+  background-color: var(--color-white);
   font-size: 1em;
   line-height: 1.5em;
 }
 
 .alert.is-important {
-  margin: 1rem auto 2rem;
+  margin: 0rem auto 1rem;
   padding: 1rem;
   border-left: 0.5rem solid var(--color-accent);
-  background-color: var(--background-accent);
+  background-color: var(--color-white);
   font-size: 1em;
   line-height: 1.5em;
 }
