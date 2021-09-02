@@ -680,7 +680,7 @@ app.post('/api/transfer', (req, res) => {
   ... 
    const token = req.header('X-XSRF-TOKEN');
    if(!token || token !== req.cookies[XSRF_TOKEN]) {
-     return res.json({ code: 1, error: 'user not logged in or valid user .' });
+     return res.json({ code: 1, error: 'user did not  log in or is not valid user .' });
    }
    ... 
 });                    
