@@ -277,6 +277,9 @@ async function getCourse(pagenumber, pagesize) {
     // .find({ author:'JAJA', isPublished: true})
     // .find({ price: {$gte: 10, $lte: 20 }})
     // .find({ price:{ $in: [10, 20, 30]} })
+
+    // use regular expression as filter , ignore lowercase or uppercase
+    // .find({userName: { $regex: userName, $options: '$i' }})  
     // .or([{author:'JAJA'}, {isPublished: true}])
     // .find({})
     .find({ name: /^Redu/ })
