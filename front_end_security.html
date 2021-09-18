@@ -139,30 +139,28 @@
             In this blog, I will talk about three front-end attacks and
             preventions:&nbsp;XSS, CSRF, Clickjacking.
             <h3>XSS</h3>
-                XSS:&nbsp; Cross-site scripting (also known as XSS) is a web
-                security vulnerability that allows an attacker to compromise the
-                interactions that users have with a vulnerable application.
-                <span class="fw-600"
-                  >It allows an attacker to circumvent the same origin policy,
-                  which is designed to segregate different websites from each
-                  other.</span
-                >
-                Cross-site scripting vulnerabilities normally allow an attacker
-                to masquerade as a victim user, to carry out any actions that
-                the user is able to perform, and to access any of the user's
-                data.
-                <hr class="divider_transparent" />
-                <span class="fw-600">How does it work?&nbsp;</span>Cross-site
-                scripting works by manipulating a vulnerable web site so that it
-                returns malicious JavaScript to users. There are three main XSS
-                attacks:
-                <ol>
-                  <li>
-                    Reflected XSS:&nbsp;where the malicious script comes from
-                    the current HTTP request, e.g.<code
-                      >https://insecure-website.com/status?message=&lt;script&gt;/*Bad+stuff+here*/&lt;/script&gt;
-                    </code>
-                    <pre>
+            XSS:&nbsp; Cross-site scripting (also known as XSS) is a web
+            security vulnerability that allows an attacker to compromise the
+            interactions that users have with a vulnerable application.
+            <span class="fw-600"
+              >It allows an attacker to circumvent the same origin policy, which
+              is designed to segregate different websites from each other.</span
+            >
+            Cross-site scripting vulnerabilities normally allow an attacker to
+            masquerade as a victim user, to carry out any actions that the user
+            is able to perform, and to access any of the user's data.
+            <hr class="divider_transparent" />
+            <span class="fw-600">How does it work?&nbsp;</span>Cross-site
+            scripting works by manipulating a vulnerable web site so that it
+            returns malicious JavaScript to users. There are three main XSS
+            attacks:
+            <ol>
+              <li>
+                Reflected XSS:&nbsp;where the malicious script comes from the
+                current HTTP request, e.g.<code
+                  >https://insecure-website.com/status?message=&lt;script&gt;/*Bad+stuff+here*/&lt;/script&gt;
+                </code>
+                <pre>
  
 // preventions 
 // server side 
@@ -170,13 +168,14 @@ app.get('/welcome', function(req, res) {
     // encode query parameters
     res.send(`${encodeURIComponent(req.query.type)}`); 
 });
-                    </pre>
-                  </li>
-                  <li>
-                    Stored XSS:&nbsp;where the malicious script comes from the
-                    website's database, e.g. get comments from database and
-                    render the comments
-                    <pre>
+                    </pre
+                >
+              </li>
+              <li>
+                Stored XSS:&nbsp;where the malicious script comes from the
+                website's database, e.g. get comments from database and render
+                the comments
+                <pre>
 // safe comment 
 &lt;p&gt;Hello, this is a safe comment&lt;/p&gt;
 
@@ -196,17 +195,17 @@ app.get('/welcome', function(req, res) {
 
 // key APIS:
 // encodeURI, encodeURIComponent, decodeURI, decodeURIComponent,etc.
-                    </pre>
-                  </li>
-                  <li>
-                    DOM-based XSS:&nbsp;where the vulnerability exists in
-                    client-side code rather than server-side code,&nbsp;e.g.
-                    &nbsp;process data from an untrusted source in an unsafe way
-                    , usually by writing directly the data to the DOM. Please
-                    try to substitute .innerText, .textContent, .setAttributes
-                    for .innerHTML, .outerHTML, .appendChild, document.write()
-                    APIs.
-                    <pre>
+                    </pre
+                >
+              </li>
+              <li>
+                DOM-based XSS:&nbsp;where the vulnerability exists in
+                client-side code rather than server-side code,&nbsp;e.g.
+                &nbsp;process data from an untrusted source in an unsafe way ,
+                usually by writing directly the data to the DOM. Please try to
+                substitute .innerText, .textContent, .setAttributes for
+                .innerHTML, .outerHTML, .appendChild, document.write() APIs.
+                <pre>
 // dangerous code 
 var search = document.getElementById('search').value; 
 var results = document.getElementById('results');
@@ -245,53 +244,52 @@ $('#security').click(function () {
 $('#image1').attr('src',encodeURI('http://dangerous-website/untrusted.jpg'));
 $('#iframe1').attr('src', encodeURI('https://dangerous-website.com'));
 $('#anchor1').attr('href', encodeURI('https://dangerous-website.com'));     
-                    </pre>
-                  </li>
-                </ol>
-                <div>
-                  <h3>FAQ:&nbsp;store JWT token in cookie or localStorage?</h3>
-                  <ul>
+                    </pre
+                >
+              </li>
+            </ol>
+            <div>
+              <h3>FAQ:&nbsp;store JWT token in cookie or localStorage?</h3>
+              <ul>
+                <li>
+                  cookie:
+                  <ol>
                     <li>
-                      cookie:
-                      <ol>
-                        <li>
-                          Profit:&nbsp;If on server side set a cookie's httponly
-                          attribute as true, it is impossible to access the
-                          token in a XSS attack.
-                          <span class="fw-600"
-                            >This does not mean the app is not vulnerable to
-                            XSS.It only means in case of a successful XSS
-                            attack, the token will not be accessible to the
-                            attacker.
-                          </span>
-                        </li>
-                        <li>
-                          Cookie is part of HTTP headers. As authentication
-                          info, it is sent automatically with requests(&nbsp;It
-                          is not the case in Angular).
-                          <span class="fw-600"
-                            >It is necessary to explicitly protect your app
-                            against CSRF</span
-                          >
-                        </li>
-                        <li>
-                          Can only be sent to their origin(not to say APIS on
-                          different domains)
-                        </li>
-                        <li>
-                          The token could probably be replaced by a plain old
-                          session id in that cookie as your app is likely not
-                          really stateless anyway(&nbsp;It is exactly what I
-                          have done in the following example.)
-                        </li>
-                        <li>
-                          If the app talks to several backends on different
-                          domain, short-lived access tokens in localStorage +
-                          long-lived refresh token in a httpOnly cookie is
-                          appropriate
-                        </li>
-                      </ol>
-                      <pre>
+                      Profit:&nbsp;If on server side set a cookie's httponly
+                      attribute as true, it is impossible to access the token in
+                      a XSS attack.
+                      <span class="fw-600"
+                        >This does not mean the app is not vulnerable to XSS.It
+                        only means in case of a successful XSS attack, the token
+                        will not be accessible to the attacker.
+                      </span>
+                    </li>
+                    <li>
+                      Cookie is part of HTTP headers. As authentication info, it
+                      is sent automatically with requests(&nbsp;It is not the
+                      case in Angular).
+                      <span class="fw-600"
+                        >It is necessary to explicitly protect your app against
+                        CSRF</span
+                      >
+                    </li>
+                    <li>
+                      Can only be sent to their origin(not to say APIS on
+                      different domains)
+                    </li>
+                    <li>
+                      The token could probably be replaced by a plain old
+                      session id in that cookie as your app is likely not really
+                      stateless anyway(&nbsp;It is exactly what I have done in
+                      the following example.)
+                    </li>
+                    <li>
+                      If the app talks to several backends on different domain,
+                      short-lived access tokens in localStorage + long-lived
+                      refresh token in a httpOnly cookie is appropriate
+                    </li>
+                  </ol>
+                  <pre>
 // server side 
 const SESSION_ID = 'connect.sid';
 let id=....;
@@ -304,63 +302,61 @@ res.cookie(SESSION_ID, id,{expires: new Date(Date.now( ) ) +  900000,httpOnly:tr
 // or 
 res.cookie(SESSION_ID, id,{maxAge:  900000, httpOnly:true});
                         </pre
-                      >
-                      <img
-                        src="assets/front_security/cookie_in_request.png"
-                        alt="cookie in request"
-                      />
-                      <img
-                        src="assets/front_security/cookie_in_browser.png"
-                        alt="cookie in browser"
-                      />
+                  >
+                  <img
+                    src="assets/front_security/cookie_in_request.png"
+                    alt="cookie in request"
+                  />
+                  <img
+                    src="assets/front_security/cookie_in_browser.png"
+                    alt="cookie in browser"
+                  />
+                </li>
+                <li>
+                  localStorage
+                  <ol>
+                    <li>
+                      Can be accessed by javascript, which includes a successful
+                      XSS attack.
                     </li>
                     <li>
-                      localStorage
-                      <ol>
-                        <li>
-                          Can be accessed by javascript, which includes a
-                          successful XSS attack.
-                        </li>
-                        <li>
-                          Because a token in localStorage is not sent
-                          automatically as a request header, no further
-                          protection is usually necessary against CSRF
-                        </li>
-                        <li>
-                          Tokens can be sent to different origins.This is the
-                          main benefit.If you only want to send the token to
-                          your single app origin, you probably don't need JWTs
-                          at all, and definitely don't want to use localStorage.
-                        </li>
-                      </ol>
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <h3>How to prevent XSS attacks</h3>
-                  <ul>
-                    <li>Filter input on arrival.</li>
-                    <li>
-                      Encode data on output. &nbsp;Need combine HTML, URL,
-                      Javascript, and CSS coding.
+                      Because a token in localStorage is not sent automatically
+                      as a request header, no further protection is usually
+                      necessary against CSRF
                     </li>
                     <li>
-                      Use appropriate response headers.You can use the
-                      Content-Type and X-Content-Type-Options to ensure browsers
-                      interpret the response in the way you intend
+                      Tokens can be sent to different origins.This is the main
+                      benefit.If you only want to send the token to your single
+                      app origin, you probably don't need JWTs at all, and
+                      definitely don't want to use localStorage.
                     </li>
-                    <li>Http-only Cookie</li>
-                    <li>
-                      CAPTCHA:&nbsp;determine whether or not user is human
-                    </li>
-                    <li>
-                      Use content Security Policy as a last line of defense.<a
-                        href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Content-Security-Policy"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >&nbsp;For more information...</a
-                      >
-                      <pre>
+                  </ol>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3>How to prevent XSS attacks</h3>
+              <ul>
+                <li>Filter input on arrival.</li>
+                <li>
+                  Encode data on output. &nbsp;Need combine HTML, URL,
+                  Javascript, and CSS coding.
+                </li>
+                <li>
+                  Use appropriate response headers.You can use the Content-Type
+                  and X-Content-Type-Options to ensure browsers interpret the
+                  response in the way you intend
+                </li>
+                <li>Http-only Cookie</li>
+                <li>CAPTCHA:&nbsp;determine whether or not user is human</li>
+                <li>
+                  Use content Security Policy as a last line of defense.<a
+                    href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Content-Security-Policy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >&nbsp;For more information...</a
+                  >
+                  <pre>
 // server side 
 // same origin
 Content-Security-Policy: default-src 'self'
@@ -375,40 +371,39 @@ Content-Security-Policy-Report-Only: default-src https:; report-uri /csp-violati
 // meta tag cannot use report
 &lt;meta http-equiv="Content-Security-Policy" content="default-src https:"&gt;
                          </pre
-                      >
-                    </li>
-                    <li>
-                      Find and test XSS vulnerabilities with web application
-                      security scanners
-                      <dl>
-                        <dt>1. Arachni</dt>
-                        <dd>
-                          a Free/Public-Source Web Application Security Scanner
-                          aimed towards helping users evaluate the security of
-                          web applications.
-                        </dd>
-                        <dt>2. Mozilla HTTP Observatory</dt>
-                        <dd>
-                          a set of tools to analyze your website and inform you
-                          if you are utilizing the many available methods to
-                          secure it.
-                        </dd>
-                        <dt>3. w3af</dt>
-                        <dd>
-                          Open Source Web Application Security Scanner. A Web
-                          Application Attack and Audit Framework.
-                        </dd>
-                      </dl>
-                    </li>
-                  </ul>
-                </div>
-              
-                   <h3>CSRF</h3>
-              <li>
-                CSRF: &nbsp;Cross-Site Request Forgery (CSRF) is an attack that
-                forces an end user to execute unwanted actions on a web
-                application in which they're currently authenticated.
-                <pre>
+                  >
+                </li>
+                <li>
+                  Find and test XSS vulnerabilities with web application
+                  security scanners
+                  <dl>
+                    <dt>1. Arachni</dt>
+                    <dd>
+                      a Free/Public-Source Web Application Security Scanner
+                      aimed towards helping users evaluate the security of web
+                      applications.
+                    </dd>
+                    <dt>2. Mozilla HTTP Observatory</dt>
+                    <dd>
+                      a set of tools to analyze your website and inform you if
+                      you are utilizing the many available methods to secure it.
+                    </dd>
+                    <dt>3. w3af</dt>
+                    <dd>
+                      Open Source Web Application Security Scanner. A Web
+                      Application Attack and Audit Framework.
+                    </dd>
+                  </dl>
+                </li>
+              </ul>
+            </div>
+
+            <h3>CSRF</h3>
+            <li>
+              CSRF: &nbsp;Cross-Site Request Forgery (CSRF) is an attack that
+              forces an end user to execute unwanted actions on a web
+              application in which they're currently authenticated.
+              <pre>
 // attack example 
 // localhost:3001 user "victim" has logged in 
 
@@ -484,20 +479,19 @@ app.post('/api/transfer3', (req, res) => {
 }
 
 // 4,  Samesite Cookie: Samesite = Strict
-              </pre
-                >
-                <img
-                  src="assets/front_security/samesite_cookie.png"
-                  alt="samesite cookie"
-                />
-              </li>
-                   <h3>Clickjacking</h3>
-              <li>
-                Clickjacking: &nbsp;the malicious practice of manipulating a
-                website user's activity by concealing hyperlinks beneath
-                legitimate clickable content, thereby causing the user to
-                perform actions of which they are unaware.
-                <pre>
+              </pre>
+              <img
+                src="assets/front_security/samesite_cookie.png"
+                alt="samesite cookie"
+              />
+            </li>
+            <h3>Clickjacking</h3>
+            <li>
+              Clickjacking: &nbsp;the malicious practice of manipulating a
+              website user's activity by concealing hyperlinks beneath
+              legitimate clickable content, thereby causing the user to perform
+              actions of which they are unaware.
+              <pre>
 // attack example 
 // an iframe ( or an anchor) is invisible or transparent 
 &lt;iframe style="display:none;" src="javascript:/* dangerous stuff here */">"&gt;&lt;/iframe&gt; 
@@ -524,69 +518,69 @@ app.use(helmet.frameguard({ action: 'SAMEORIGIN' }));
 
 // Note: The Content-Security-Policy HTTP header has a frame-ancestors directive 
 // which obsoletes this header for supporting browsers.
-                </pre>
-                <h3>Anti ClickJacking Example</h3>
-                Method 1: Frame busting. If another html file loads login.html
-                as iframe, when user enter this html in browser, the browser
-                redirect automatically to login.html
-                <img
-                  src="assets/front_security/clickattacking-0.png"
-                  alt="frame busting"
-                />
+                </pre
+              >
+              <h3>Anti ClickJacking Example</h3>
+              Method 1: Frame busting. If another html file loads login.html as
+              iframe, when user enter this html in browser, the browser redirect
+              automatically to login.html
+              <img
+                src="assets/front_security/clickattacking-0.png"
+                alt="frame busting"
+              />
 
-                Method 2: Set X-Frame-Options as "sameorigin". &nbsp; On server1
-                (http://localhost:3001)
-                <hr class="divider_transparent" />
-                Login.html is located in server1.
-                <img
-                  src="assets/front_security/clickattacking-1.png"
-                  alt="set sameorigin"
-                />
-                On server2 (http://localhost:3002), another webpage xframe1.html
-                tries to load login.html as iframe.
-                <img
-                  src="assets/front_security/clickattacking-2.png"
-                  alt="set sameorigin"
-                />
-                Because of the sameorigin policy, xframe1.html cannot load
-                login.html correctly. By contrast, if xframe1.html is located in
-                the same origin, it can load login.html. So xframe1.html can
-                only load the files from the same origin as iframe element. It
-                can prevent clickjacking.When a malicious webpage try to attack
-                a same-policy-protected webpage as an iframe element, even if it
-                is transparent or invisible, click it will not cause serious
-                consequence.
-                <img
-                  src="assets/front_security/clickattacking-3.png"
-                  alt="set sameorigin"
-                />
-              </li>
-              <li>
-                For preventing XSRF attack,&nbsp;cookie + token is safer than
-                http-only cookie or token.
-                <div class="alert is-helpful">
-                  Angular will add the X-XSRF-TOKEN header only
-                  if the XSRF-TOKEN cookie was generated server-side with the
-                  following options: &nbsp;Path = / ,&nbsp;&nbsp;httpOnly
-                  = false
-                </div>
-                <img
-                  src="assets/front_security/cookie_token_valid.png"
-                  alt="valid user"
-                />
-                <img
-                  src="assets/front_security/cookie_token_unvalid.png"
-                  alt="invalid user"
-                />
-                <img
-                  src="assets/front_security/cookie_token_invalid_reason.png"
-                  alt="invalid reason"
-                />
-                <p>
-                  1, Client side:&nbsp; create an interceptor for add header
-                  "X-XSRF-TOKEN"
-                </p>
-                <pre>
+              Method 2: Set X-Frame-Options as "sameorigin". &nbsp; On server1
+              (http://localhost:3001)
+              <hr class="divider_transparent" />
+              Login.html is located in server1.
+              <img
+                src="assets/front_security/clickattacking-1.png"
+                alt="set sameorigin"
+              />
+              On server2 (http://localhost:3002), another webpage xframe1.html
+              tries to load login.html as iframe.
+              <img
+                src="assets/front_security/clickattacking-2.png"
+                alt="set sameorigin"
+              />
+              Because of the sameorigin policy, xframe1.html cannot load
+              login.html correctly. By contrast, if xframe1.html is located in
+              the same origin, it can load login.html. So xframe1.html can only
+              load the files from the same origin as iframe element. It can
+              prevent clickjacking.When a malicious webpage try to attack a
+              same-policy-protected webpage as an iframe element, even if it is
+              transparent or invisible, click it will not cause serious
+              consequence.
+              <img
+                src="assets/front_security/clickattacking-3.png"
+                alt="set sameorigin"
+              />
+            </li>
+            <li>
+              For preventing XSRF attack,&nbsp;cookie + token is safer than
+              http-only cookie or token.
+              <div class="alert is-helpful">
+                Angular will add the X-XSRF-TOKEN header only
+                if the XSRF-TOKEN cookie was generated server-side with the
+                following options: &nbsp;Path = / ,&nbsp;&nbsp;httpOnly = false
+              </div>
+              <img
+                src="assets/front_security/cookie_token_valid.png"
+                alt="valid user"
+              />
+              <img
+                src="assets/front_security/cookie_token_unvalid.png"
+                alt="invalid user"
+              />
+              <img
+                src="assets/front_security/cookie_token_invalid_reason.png"
+                alt="invalid reason"
+              />
+              <p>
+                1, Client side:&nbsp; create an interceptor for add header
+                "X-XSRF-TOKEN"
+              </p>
+              <pre>
 // xsrftoken.interceptor.ts 
 import { Injectable } from '@angular/core';
 import {
@@ -625,8 +619,9 @@ export class XsrftokenInterceptor implements HttpInterceptor {
   }
 }
 
-                </pre>
-                <pre>
+                </pre
+              >
+              <pre>
 // app.module.ts
  providers: [
    ...
@@ -637,15 +632,16 @@ export class XsrftokenInterceptor implements HttpInterceptor {
     },
   ],
   ...
-                </pre>
-                <p>
-                  2, Server side:&nbsp; when user log in, set cookies for
-                  response; &nbsp; when user transfers money to other, compare
-                  the cookie "XSRF-TOKEN" to header "X-XSRF-TOKEN". Execute the
-                  transaction only when the two are equal.
-                </p>
+                </pre
+              >
+              <p>
+                2, Server side:&nbsp; when user log in, set cookies for
+                response; &nbsp; when user transfers money to other, compare the
+                cookie "XSRF-TOKEN" to header "X-XSRF-TOKEN". Execute the
+                transaction only when the two are equal.
+              </p>
 
-                <pre>
+              <pre>
 // log in 
 let SESSION_ID = 'connect.sid';
 let XSRF_TOKEN = 'XSRF-TOKEN';
@@ -673,8 +669,8 @@ app.post('/api/login', (req, res) => {
   }
 });
                   </pre
-                >
-                <pre>
+              >
+              <pre>
 // transfer 
 app.post('/api/transfer', (req, res) => {
   ... 
@@ -685,32 +681,32 @@ app.post('/api/transfer', (req, res) => {
    ... 
 });                    
                   </pre
-                >
-                The response header after login successfully (with cookies
-                information)
-                <img
-                  src="assets/front_security/cookie_token_login.png"
-                  alt="cookie + token log in"
-                />
-                The request header when transfer (X-XSRF-TOKEN = XSRF-TOKEN)
-                <img
-                  src="assets/front_security/cookie_token_transfer1.png"
-                  alt="cookie + token transfer1"
-                />
-                <img
-                  src="assets/front_security/cookie_token_transfer2.png"
-                  alt="cookie + token transfer2"
-                />
-              </li>
-              <li>
-                The last but important one: not forget to upgrade the
-                app(framework, etc) to latest versions, because bugs have been
-                fixed by numerous engineers.
-              </li>
-            
+              >
+              The response header after login successfully (with cookies
+              information)
+              <img
+                src="assets/front_security/cookie_token_login.png"
+                alt="cookie + token log in"
+              />
+              The request header when transfer (X-XSRF-TOKEN = XSRF-TOKEN)
+              <img
+                src="assets/front_security/cookie_token_transfer1.png"
+                alt="cookie + token transfer1"
+              />
+              <img
+                src="assets/front_security/cookie_token_transfer2.png"
+                alt="cookie + token transfer2"
+              />
+            </li>
+            <li>
+              The last but important one: not forget to upgrade the
+              app(framework, etc) to latest versions, because bugs have been
+              fixed by numerous engineers.
+            </li>
+
             <p>
               Source code is hosted on Github&nbsp;<a
-                href="https://github.com/cxxyao2/Front-end-attacks"
+                href="https://github.com/cxxyao2/frontend-attacks"
                 target="_blank"
                 rel="noopener noreferrer"
                 >Front-end attacks</a
