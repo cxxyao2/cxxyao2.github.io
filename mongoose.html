@@ -280,7 +280,9 @@ async function getCourse(pagenumber, pagesize) {
 
     // use regular expression as filter , ignore lowercase or uppercase
     // .find({userName: { $regex: userName, $options: '$i' }})  
-    // .or([{author:'JAJA'}, {isPublished: true}])
+    // find({$or:[{author:'JAJA'}, {isPublished: true}]})
+    // and + or 
+    // find({"likes": {$gt:50}, $or: [{"by": "Mike"},{"title": "mongo"}]})
     // .find({})
     .find({ name: /^Redu/ })
     .skip((pagenumber - 1) * pagesize)
