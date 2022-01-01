@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pipeline and CI/CD</title>
+    <meta name="description" content="unsubscribe HTTP RxJS  Angular " />
+    <meta name="author" content="Jennifer" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="icon" href="/assets/images/favicon.ico" />
+    <link rel="stylesheet" href="assets/css/normalize.css" />
+    <link rel="stylesheet" href="assets/css/index.css" />
+  </head>
+  <body>
+    <!--  for not index.html -->
+    <nav class="nav collapsible">
+      <span
+        ><a href="/#angular" class="white">Jennifer - Full Stack Developer</a>
+      </span>
+      <span class="nav_toggler" style="outline: none !important"
+        ><i class="fa fa-list white icon-bigger"></i
+      ></span>
+      <ul class="nav_list collapsible_content">
+        <li>
+          <ul class="nav_social" role="nav_social">
+            <li>
+              <a href="https://github.com/cxxyao2" target="_blank"
+                ><i class="fa fa-github white icon-biggest"></i
+              ></a>
+            </li>
+            <li>
+              <a href="https://twitter.com/jenniferyao1996" target="_blank"
+                ><i class="fa fa-twitter white icon-biggest"></i
+              ></a>
+            </li>
+            <li>
+              <a href="mailto:jenniferyao1996@qq.com" target="_blank"
+                ><i class="fa fa-envelope white icon-biggest"></i
+              ></a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav_item"><a href="/#angular">Angular</a></li>
+        <li class="nav_item"><a href="/#react">React</a></li>
+        <li class="nav_item"><a href="/#webpack">Webpack</a></li>
+        <li class="nav_item"><a href="/#database">Database</a></li>
+      </ul>
+    </nav>
+
+    <!--  for not index.html -->
+    <aside class="sidebar">
+      <div class="sidebar_cover"></div>
+      <div class="sidebar_main">
+        <a href="#">
+          <img class="sidebar_logo" alt="Jennifer" src="assets/tree1.jpg" />
+        </a>
+        <h3>Jennifer</h3>
+        <span>Full Stack Developer</span>
+        <hr />
+        <p class="sidebar_description">
+          I am passionate about Front-end frameworks and databases.
+        </p>
+        <hr class="sidebar_divider" />
+        <p class="sidebar_tags">
+          <span class="sidebar_tag"
+            ><a href="/#angular"
+              ><img
+                src="assets/angular-icon.svg"
+                class="sidebar_icon"
+              />&nbsp;Angular</a
+            ></span
+          >
+          <span class="sidebar_tag"
+            ><a href="/#react" alt="react blogs"
+              ><img src="assets/react.svg" class="sidebar_icon" />&nbsp;React</a
+            ></span
+          >
+          <span class="sidebar_tag"
+            ><a href="/#webpack"
+              ><img
+                src="assets/webpack_logo.svg"
+                class="sidebar_icon"
+              />&nbsp;Webpack</a
+            ></span
+          >
+          <span class="sidebar_tag"
+            ><a href="/#database"
+              ><img
+                src="assets/mysql.png"
+                class="sidebar_icon"
+              />&nbsp;Database</a
+            ></span
+          >
+        </p>
+        <hr class="sidebar_divider" />
+        <div>
+          <ul class="navigation" role="navigation-social">
+            <li class="navigation_item">
+              <a href="https://github.com/cxxyao2" target="_blank"
+                ><i class="fa fa-github icon-bigger"></i
+              ></a>
+            </li>
+            <li class="navigation_item">
+              <a href="https://twitter.com/jenniferyao1996" target="_blank"
+                ><i class="fa fa-twitter icon-bigger"></i
+              ></a>
+            </li>
+            <li class="navigation_item">
+              <a href="mailto:jenniferyao1996@qq.com" target="_blank"
+                ><i class="fa fa-envelope icon-bigger"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+
+    <main class="content_wrapper">
+      <div class="content">
+        <article class="post">
+          <header>
+            <span class="post_category"
+              ><label class="date">2022-1-1</label> Angular</span
+            >
+            <h2>Released pipeline and CI/CD in azure</h2>
+          </header>
+          <section class="post_body">
+            <p>
+              There are several ways to deploy an Angular Application to microsoft azure:
+              <ol>
+                <li>The simplest one:&nbsp; through static web app and  github actions</li>
+                <li class="text-important">through release pipeline and CI/CD( theme of this blog)</li>
+                <li>others.</li>
+              </ol>
+            </p>
+             <hr class="divider" />
+            <p>
+              The main steps of deploying an Angular application by released pipeline and CI/CD in Microsoft azure are listed as follows
+            <ol>
+              <li>Create an account in azure. Log in.This is the portal page.
+                      <img   src="assets/azure/azure1_portal.png" alt="azure portal" /> </li>
+              <li>Confirm if at least one subscription is active. Attention to the cost of subscriptions. Not all services are forever free of charge.
+                <img   src="assets/azure/azure2_subscription.png" alt="azure subscription" /> </li>
+              </li>
+              <li>Create web service based on active subscription.Please note the service URL.
+                  <img   src="assets/azure/azure3_create_service0.png" alt="azure service0" /> 
+                  <img   src="assets/azure/azure3_create_service1.png" alt="azure service1" /> 
+                  <img   src="assets/azure/azure3_create_service2.png" alt="azure service2" /> 
+                  <img   src="assets/azure/azure3_create_service3.png" alt="azure service3" /> 
+                  <img   src="assets/azure/azure3_create_service4.png" alt="azure service4" /> 
+
+              </li>
+              <li>Deploy your code now.&nbsp;Enter dev.azure.com in browser address bar and so sign into azure devops.If no organization,create one. If no project, create one.
+                 <img   src="assets/azure/azure3_devops0.png" alt="azure devops" /> 
+                  <img   src="assets/azure/azure3_devops1_organization.png" alt="azure devops" /> 
+              </li>
+              <li>Push code to azure.
+                <img   src="assets/azure/azure4_code1.png" alt="azure devops" /> 
+                Refresh the page.
+                <img   src="assets/azure/azure4_code2.png" alt="azure devops" /> 
+              </li>
+              <li>Create pipeline: There are templates but in this example, we use empty job to assign our own tasks.Task name should
+                reflect the object of task.
+                Firstly, we should install angular-cli.
+                <img src="assets/azure/azure6_npm1.png" alt="install" />
+                Secondly, we should build the app.
+                <img src="assets/azure/azure6_npm2.png" alt="install" />
+                Third task, we should set the path as 'dist'. THe path name should be right.
+                <img src="assets/azure/azure6_npm3.png" alt="install" />
+              </li>
+              <li>click 'save and queue'. Then click 'save and run' button of pop-up form on right side of screen</li>
+              <li>Task is executed one by one. The status of agent job is 'success'. 
+                <img src="assets/azure/azure6_npm4.png" alt="install" />
+              </li>
+              <li>we have pipelines but no released pipelines. Need add a released pipeline
+  <img src="assets/azure/azure7_release0.png" alt="release" />
+
+             Add an artifact.&nbsp; click "save" then "create release" 
+                  <img src="assets/azure/azure7_release1.png" alt="release" />
+                  <img src="assets/azure/azure7_release2.png" alt="release" />
+                  <img src="assets/azure/azure7_release3.png" alt="release" />
+                  <img src="assets/azure/azure7_release4.png" alt="release" />
+                  <img src="assets/azure/azure7_release5.png" alt="release" />
+                  <img src="assets/azure/azure7_release6.png" alt="release" />
+              </li>
+              <li>Change physical path if encounter the error "no permission". 
+                 <img src="assets/azure/azure7_error0.png" alt="release error" />
+                 <img src="assets/azure/azure7_error1.png" alt="release error" />
+                 <img src="assets/azure/azure7_error2.png" alt="release error" />
+                 <img src="assets/azure/azure7_error3.png" alt="release error" />
+                 <img src="assets/azure/azure7_error4.png" alt="release error" />
+              </li>
+              <li>Change a released pipeline to CI/CD. So every time new code is pushed into Azure repo, the pipeline releasing  will be triggered and executed automatically.
+                Edit an existing pipeline and check "continuous integration " box and click "save"
+                   <img src="assets/azure/azure8_cicd0a.png" alt="cicd" />
+                <img src="assets/azure/azure8_cicd0.png" alt="cicd" />   
+              <img src="assets/azure/azure8_cicd1.png" alt="cicd" />   
+    
+              click "trigger" and save.
+                 <img src="assets/azure/azure8_cicd2.png" alt="cicd" />   
+              <img src="assets/azure/azure8_cicd3.png" alt="cicd" /> 
+              </li>
+            </ol>
+            </p>
+            References:
+            <br/>
+            <a
+              href="https://www.youtube.com/watch?v=Y51q5K44EZM"
+              alt="pipeline azure"
+              target="_blank"
+              rel="noopener noreferrer"
+              > https://www.youtube.com/watch?v=Y51q5K44EZM. Create Release pipelines and deploy an Angular application with
+              CI/CD on Microsoft Azure</a
+            >
+          </section>
+        </article>
+        <section class="read-more">
+          <div class="read-more_item">
+            <span class="read-more-item-dim">&lt;&lt;previous article</span>
+            <h3>
+              <a href="angular_lifecycle.html"
+                >Review of Lifecycle hooks and change detections</a
+              >
+            </h3>
+          </div>
+          <div class="read-more_item">
+            <span class="read-more-item-dim">next article&gt;&gt;</span>
+            <h3>
+              <a href="angular_crud_and_authentication_firebase.html"
+                >CRUD and Authentication in Firebase</a
+              >
+            </h3>
+          </div>
+        </section>
+
+        <section class="footer">
+          <span class="footer__copyright"
+            >2022-1-1 Jennifer. All rights reserved.</span
+          >
+          <span class="footer__copyright"
+            >Contact Email: Jenniferyao1996#hotmail.com</span
+          >
+        </section>
+      </div>
+      <span id="backToTop">
+        <i class="fa fa-arrow-up"></i>
+      </span>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>
