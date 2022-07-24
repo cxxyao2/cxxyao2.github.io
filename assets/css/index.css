@@ -281,6 +281,7 @@ p a {
 .collapsible-expanded .collapsible_content {
   max-height: 100vh;
   opacity: 1;
+  overflow: auto;
 }
 
 .post_body .collapsible-expanded .fa {
