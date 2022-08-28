@@ -257,7 +257,8 @@ $('#anchor1').attr('href', encodeURI('https://dangerous-website.com'));
                     <li>
                       Profit:&nbsp;If on server side set a cookie's httponly
                       attribute as true, it is impossible to access the token in
-                      a XSS attack.
+                      a XSS attack. 
+                      Explanation: An HttpOnly Cookie is a tag added to a browser cookie that prevents client-side scripts from accessing data. It provides a gate that prevents the specialized cookie from being accessed by anything other than the server.
                       <span class="fw-600"
                         >This does not mean the app is not vulnerable to XSS.It
                         only means in case of a successful XSS attack, the token
