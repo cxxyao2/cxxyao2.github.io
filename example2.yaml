@@ -1,0 +1,36 @@
+microservices:
+  - user-authentication
+  - shopping-cart
+
+microservice1s:
+  - app: shopping-cart
+    port: 9000
+    versions: [1.9, 2.0, 2.1]
+
+singleLine: >
+  this is a single line.
+  that should be interpreted into single line.
+
+multipleLine: |
+  this is part of  multiple lines .
+  these are real multiple lines.
+
+# using dollar($) sign before environmental variables
+command:
+  - '/bin/sh'
+  - -ec
+  - >-
+    mysql -h 127.0.0.1 -u root -p$MYSQL_ROOT_PASSWORD -e 'SELECT 1'
+
+# use double curly brackets around the placeholder and this value gets replaced using template generator
+apiVersion: v1
+kind: Pod
+metadata:
+  name: { { .Values.service.name } }
+
+# in one yaml file, you can define multiple components  and
+# you can separate these components using three dishes like --- 
+--- 
+apiVersion: v2 
+kind: Pod 
+

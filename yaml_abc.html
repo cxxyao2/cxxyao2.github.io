@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YAML knowledge</title>
+    <meta name="description" content="security backend" />
+    <meta name="author" content="Jennifer" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="icon" href="/assets/images/favicon.ico" />
+    <link rel="stylesheet" href="assets/css/normalize.css" />
+    <link rel="stylesheet" href="assets/css/index.css" />
+  </head>
+  <body>
+    <!--  for not index.html -->
+    <nav class="nav collapsible">
+      <span
+        ><a href="/#angular" class="white">Jennifer - Full Stack Developer</a>
+      </span>
+      <span class="nav_toggler" style="outline: none !important"
+        ><i class="fa fa-list white icon-bigger"></i
+      ></span>
+      <ul class="nav_list collapsible_content">
+        <li>
+          <ul class="nav_social" role="nav_social">
+            <li>
+              <a href="https://github.com/cxxyao2" target="_blank"
+                ><i class="fa fa-github white icon-biggest"></i
+              ></a>
+            </li>
+            <li>
+              <a href="https://twitter.com/jenniferyao1996" target="_blank"
+                ><i class="fa fa-twitter white icon-biggest"></i
+              ></a>
+            </li>
+            <li>
+              <a href="mailto:jenniferyao1996@qq.com" target="_blank"
+                ><i class="fa fa-envelope white icon-biggest"></i
+              ></a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav_item"><a href="/#angular">Angular</a></li>
+        <li class="nav_item"><a href="/#react">React</a></li>
+        <li class="nav_item"><a href="/#webpack">Webpack</a></li>
+        <li class="nav_item"><a href="/#database">Database</a></li>
+      </ul>
+    </nav>
+
+    <!--  for not index.html -->
+    <aside class="sidebar">
+      <div class="sidebar_cover"></div>
+      <div class="sidebar_main">
+        <a href="#">
+          <img class="sidebar_logo" alt="Jennifer" src="assets/tree1.jpg" />
+        </a>
+        <h3>Jennifer</h3>
+        <span>Full Stack Developer</span>
+        <hr />
+        <p class="sidebar_description">
+          I am passionate about Front-end frameworks and databases.
+        </p>
+        <hr class="sidebar_divider" />
+        <p class="sidebar_tags">
+          <span class="sidebar_tag"
+            ><a href="/#angular"
+              ><img
+                src="assets/angular-icon.svg"
+                class="sidebar_icon"
+              />&nbsp;Angular</a
+            ></span
+          >
+          <span class="sidebar_tag"
+            ><a href="/#react" alt="react blogs"
+              ><img src="assets/react.svg" class="sidebar_icon" />&nbsp;React</a
+            ></span
+          >
+          <span class="sidebar_tag"
+            ><a href="/#webpack"
+              ><img
+                src="assets/webpack_logo.svg"
+                class="sidebar_icon"
+              />&nbsp;Webpack</a
+            ></span
+          >
+          <span class="sidebar_tag"
+            ><a href="/#database"
+              ><img
+                src="assets/mysql.png"
+                class="sidebar_icon"
+              />&nbsp;Database</a
+            ></span
+          >
+        </p>
+        <hr class="sidebar_divider" />
+        <div>
+          <ul class="navigation" role="navigation-social">
+            <li class="navigation_item">
+              <a href="https://github.com/cxxyao2" target="_blank"
+                ><i class="fa fa-github icon-bigger"></i
+              ></a>
+            </li>
+            <li class="navigation_item">
+              <a href="https://twitter.com/jenniferyao1996" target="_blank"
+                ><i class="fa fa-twitter icon-bigger"></i
+              ></a>
+            </li>
+            <li class="navigation_item">
+              <a href="mailto:jenniferyao1996@qq.com" target="_blank"
+                ><i class="fa fa-envelope icon-bigger"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+
+    <main class="content_wrapper">
+      <div class="content">
+        <article class="post">
+          <header>
+            <span class="post_category"
+              ><label class="date">2022-12-12</label> YAML</span
+            >
+            <h2>YAML Syntax</h2>
+          </header>
+          <section class="post_body">
+            <ol>
+              YAML is popular:
+              <li>Configuration files all written in YAML</li>
+              <li>widely used format</li>
+              <li>for different DevOps tools and applications</li>
+              <li>e.g. Docker, Kubernetes,Ansible...</li>
+            </ol>
+            <hr />
+            <ol>
+              YAML is a data serialization language, just like XML and JSON.
+              <li>
+                Serialization language means that applications written with
+                different technologies etc which have different data structures
+                can transfer data to each other using a common agreed-on
+                standard forma. YAML are not Markup language.
+              </li>
+              <li>
+                YAML advantages:
+                <ul>
+                  <li>human readable and intuitive</li>
+                  <li>
+                    Same contents written in different languages:
+                    <pre>
+ // YAML
+ microservice:
+   - app: user-authentication 
+     port: 9000 
+     version: 1.0
+
+// XML
+&lt;microservices&gt;
+  &lt;microservice&gt;
+    &lt;app&gt;user-authentication&lt;/app&gt;
+    &lt;port&gt;9000&lt;port&gt;
+    &lt;version&gt;1.0&lt;version&gt;
+  &lt;/microservice&gt;
+&lt;/microservices&gt;&lt;&gt;
+
+
+// JSON
+{
+  microservices: [
+    {
+      app: "user-authentication", 
+      port: 9000, 
+      version: '1.0'
+    }
+  ]
+}
+                      </pre
+                    >
+                  </li>
+                  <li>YAML uses line separation and indentation</li>
+                  <li>
+                    Syntax of YAML:
+                    <ul>
+                      <li>key-value pairs</li>
+                      <li>objects</li>
+                      <li>comments</li>
+                      <li>lists</li>
+                      <li>booleans</li>
+                      <li>multi line strings</li>
+                      <li>environment variables</li>
+                    </ul>
+                  </li>
+                  <li>
+                    in kubernetes configuration file, we have
+                    <pre>
+key-value pairs 
+metadata = object 
+labels = object 
+spec = object 
+containers = list of objects 
+
+microservices:
+  - user-authentication
+  - shopping-cart
+
+microservice1s:
+  - app: shopping-cart
+    port: 9000
+    versions: [1.9, 2.0, 2.1]
+
+singleLine: >
+  this is a single line.
+  that should be interpreted into single line.
+
+multipleLine: |
+  this is part of  multiple lines .
+  these are real multiple lines.
+
+# using dollar($) sign before environmental variables
+command:
+  - '/bin/sh'
+  - -ec
+  - >-
+    mysql -h 127.0.0.1 -u root -p$MYSQL_ROOT_PASSWORD -e 'SELECT 1'
+
+# use double curly brackets around the placeholder and this value gets replaced using template generator
+apiVersion: v1
+kind: Pod
+metadata:
+  name: { { .Values.service.name } }
+
+# in one yaml file, you can define multiple components  and
+# you can separate these components using three dishes like --- 
+--- 
+apiVersion: v2 
+kind: Pod 
+
+
+apiVersion: v1
+kind: Pod
+data: 
+  mosquitto.conf: |
+    log_dest stdout
+    log_type all
+    log_timestamp true
+metadata: 
+  name: nginx 
+  labels: 
+    app: nginx
+spec: 
+  containers: 
+  - name: nginx-container 
+    image: nginx 
+    ports: 
+    - containerPort: 80
+    volumeMounts: 
+    - name: nginx-vol
+      mountPath: /usr/nginx/html
+  - name: sidebar-container 
+    image: some-image/curl 
+    command: ["/bin/sh"]
+    args: ["-c", "echo Hello"]
+
+
+                      </pre
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ol>
+          </section>
+        </article>
+        <section class="read-more">
+          <div class="read-more_item">
+            <span class="read-more-item-dim">&lt;&lt;previous article</span>
+            <h3>
+              <a href="front_end_security.html">Front-end Security</a>
+            </h3>
+          </div>
+          <div class="read-more_item">
+            <span class="read-more-item-dim">next article&gt;&gt;</span>
+            <h3>
+              <a href="index.html"> Table of Contents</a>
+            </h3>
+          </div>
+        </section>
+
+        <section class="footer">
+          <span class="footer__copyright"
+            >2021-5-31 Jennifer. All rights reserved.</span
+          >
+          <span class="footer__copyright"
+            >Contact Email: Jenniferyao1996#hotmail.com</span
+          >
+        </section>
+      </div>
+      <span id="backToTop">
+        <i class="fa fa-arrow-up"></i>
+      </span>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>

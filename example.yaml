@@ -1,0 +1,22 @@
+# below is an object
+microservice:
+  app: user-authentication
+  port: 9000
+  version: 1.7
+# second comment: lists, use dash - , boolean value
+microservices: 
+  - app: user-authentication
+    port: 9000 
+    version: 1.7 
+    deployed: yes
+  - app: shopping-cart 
+    port: 9002 
+    version: 1.9
+  - app: garden 
+    port: 9003 
+    versions: 
+    - 2.1
+    - 2.2
+    - 2.3
+
+
