@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update GraphQl Cache</title>
+    <meta
+      name="description"
+      content="Rxjs GraphQL Hot Cool Observable Single Multiple broadcasting Angular "
+    />
+    <meta name="author" content="Jennifer" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="icon" href="/assets/images/favicon.ico" />
+    <link rel="stylesheet" href="assets/css/normalize.css" />
+    <link rel="stylesheet" href="assets/css/index.css" />
+  </head>
+  <body>
+    <!--  for not index.html -->
+    <nav class="nav collapsible">
+      <span
+        ><a href="/#angular" class="white">Jennifer - Full Stack Developer</a>
+      </span>
+      <span class="nav_toggler" style="outline: none !important"
+        ><i class="fa fa-list white icon-bigger"></i
+      ></span>
+      <ul class="nav_list collapsible_content">
+        <li>
+          <ul class="nav_social" role="nav_social">
+            <li>
+              <a href="https://github.com/cxxyao2" target="_blank"
+                ><i class="fa fa-github white icon-biggest"></i
+              ></a>
+            </li>
+            <li>
+              <a href="https://twitter.com/jenniferyao1996" target="_blank"
+                ><i class="fa fa-twitter white icon-biggest"></i
+              ></a>
+            </li>
+            <li>
+              <a href="mailto:jenniferyao1996@qq.com" target="_blank"
+                ><i class="fa fa-envelope white icon-biggest"></i
+              ></a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav_item"><a href="/#angular">Angular</a></li>
+        <li class="nav_item"><a href="/#react">React</a></li>
+        <li class="nav_item"><a href="/#webpack">Webpack</a></li>
+        <li class="nav_item"><a href="/#database">Database</a></li>
+      </ul>
+    </nav>
+
+    <!--  for not index.html -->
+    <aside class="sidebar">
+      <div class="sidebar_cover"></div>
+      <div class="sidebar_main">
+        <a href="#">
+          <img class="sidebar_logo" alt="Jennifer" src="assets/tree1.jpg" />
+        </a>
+        <h3>Jennifer</h3>
+        <span>Full Stack Developer</span>
+        <hr />
+        <p class="sidebar_description">
+          I am passionate about Front-end frameworks and databases.
+        </p>
+        <hr class="sidebar_divider" />
+        <p class="sidebar_tags">
+          <span class="sidebar_tag"
+            ><a href="/#angular"
+              ><img
+                src="assets/angular-icon.svg"
+                class="sidebar_icon"
+              />&nbsp;Angular</a
+            ></span
+          >
+          <span class="sidebar_tag"
+            ><a href="/#react" alt="react blogs"
+              ><img src="assets/react.svg" class="sidebar_icon" />&nbsp;React</a
+            ></span
+          >
+          <span class="sidebar_tag"
+            ><a href="/#webpack"
+              ><img
+                src="assets/webpack_logo.svg"
+                class="sidebar_icon"
+              />&nbsp;Webpack</a
+            ></span
+          >
+          <span class="sidebar_tag"
+            ><a href="/#database"
+              ><img
+                src="assets/mysql.png"
+                class="sidebar_icon"
+              />&nbsp;Database</a
+            ></span
+          >
+        </p>
+        <hr class="sidebar_divider" />
+        <div>
+          <ul class="navigation" role="navigation-social">
+            <li class="navigation_item">
+              <a href="https://github.com/cxxyao2" target="_blank"
+                ><i class="fa fa-github icon-bigger"></i
+              ></a>
+            </li>
+            <li class="navigation_item">
+              <a href="https://twitter.com/jenniferyao1996" target="_blank"
+                ><i class="fa fa-twitter icon-bigger"></i
+              ></a>
+            </li>
+            <li class="navigation_item">
+              <a href="mailto:jenniferyao1996@qq.com" target="_blank"
+                ><i class="fa fa-envelope icon-bigger"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+
+    <main class="content_wrapper">
+      <div class="content">
+        <article class="post">
+          <header>
+            <span class="post_category"
+              ><label class="date">2023-5-1</label> Angular</span
+            >
+            <h2>GraphQL: Handling Entities with and without an 'ID' Field</h2>
+          </header>
+          <section class="post_body">
+            <ul>
+<li>prerequisites: 
+Ensure that you have installed the Apollo extension for the Chrome browser. This extension will allow you to
+check for data changes in the cache.
+</li>
+              <li class="collapsible">
+              Case 1: Handle entities without 'id' field
+<a href="#" alt="no_id"
+              ><img src="assets/graphql-noid.png" class="sidebar_icon" /></a
+            >
+             
+<pre>
+
+query
+const GET_BOOKS = gql`
+query {
+  books {
+  name
+  genre
+  }
+}
+`;
+Entity name: 'books'
+An object has multiple keys, for instance, {__typename:'Book", name:'Harry Portal", genre:"Fiction"} ,
+
+update an object in local cache with keys instead of 'id' field
+
+// Update a record without 'id' field in local cache
+// for instance, the entity is "books", and the record is below:
+// __typename: "Book"
+// name: "grapes 🍇 delicious"
+// genre: "Fiction"
+// updateCachedRecordWithoutId('books',{name:'oldname'},{name:'newname',age:12})
+updateCachedRecordWithoutId<T extends Record<string, any>>(
+cacheEntity: string,
+filter: T,
+data: T
+): void {
+this.apollo.client.cache.modify({
+id: 'ROOT_QUERY',
+fields: {
+[cacheEntity]: (items = []) => {
+  const oldItems = cloneDeep(items);
+  const index = oldItems.findIndex((rec: T) =>
+  Object.keys(filter).every((key) => {
+    const k = key as keyof T;
+    return rec[k] === filter[k];
+  })
+  );
+  if (index < 0) return items;
+  const newItems = cloneDeep(items);
+  newItems[index] = { ...newItems[index], ...data };
+  return newItems;
+  },
+},
+});
+}
+Remove an object from an entity with keys instead of 'id' field
+
+/**
+* Remove a record without 'id' field from an entity in apollo cache
+* This method is used when you need to remove the cache with a custom key.
+*
+* @param cacheEntity The name of the entity in the cache.
+* @param filter The key or keys of the entity you want to update.
+* @example
+* removeCachedRecordWithoudId('workorderliness', { workOrderNo:'abcd',lineNo:10000});
+* */
+removeCachedRecordWithoudId<T>(
+  cacheEntity: string,
+  filter: Partial<T> extends object ? Partial<T> : never
+): void {
+this.apollo.client.cache.modify({
+  id: 'ROOT_QUERY',
+  fields: {
+    [cacheEntity]: (items = [], { DELETE }) => {
+    const oldItems = cloneDeep(items);
+    const newItems = oldItems.filter(
+    (rec: T) =>
+      !Object.keys(filter).every((key) => {
+      const k = key as keyof T;
+      return rec[k] === filter[k];
+    })
+  );
+  // If the record is empty, delete it.
+  // This is to prevent the cache from returning an empty array. Which causes an error when adding a f
+  if (newItems.length === 0) return DELETE;
+  return newItems;
+  },
+  },
+  });
+}
+</pre>
+ <li class="collapsible">
+<br/>
+Case 2:Handle entities with 'id' field
+<a href="#" alt="react blogs"
+              ><img src="assets/graphql-withid.png" class="sidebar_icon" /></a
+            >
+<pre>
+query
+const GET_BOOKS = gql`
+query {
+  books {
+    id
+    name
+    genre
+    }
+  }
+`;
+Entity name: 'books'
+In Apollo cache, An object has only one key, for instance, {__ref:'Book:640555"} ,
+
+/**
+* Update a single record using id in apollo cache.
+*
+* @param objectName The name of the object in the cache, which is capitalized, such as 'Book'. However, the
+* @param id The id of the object, which is unique for the entity, refering to the record in local cache, s
+* @param data The data to update the entity with.
+* @example
+* updateCachedRecordById('Book', '1233', {age: 12, name: 'New Name' });
+*
+*/
+updateCachedRecordById<T extends Record<string, any>>(
+  objectName: string,
+  id: string,
+  data: T
+): void {
+  const fields = Object.keys(data)
+  .map((field) => `${field}`)
+  .join('\n');
+  // MyObject is a random fragment name, which can be any name,but should be constant instead of a variable
+  const fragmentQuery = gql`
+  fragment MyObject on ${objectName} {
+    ${fields}
+  }
+  `;
+  this.apollo.client.writeFragment({
+  id: objectName + ':' + id,
+  fragment: fragmentQuery,
+  data: data,
+  });
+}
+/**
+* Remove a record using id from an entity in Apollo cache .
+* This method is limited to entities with an 'id' field.
+*
+* @param cacheEntity The name of the entity in the cache.
+* @param id The id of the entity.
+* @example
+* removeCachedRecordByid('equipments', '1233');
+*
+*/
+removeCachedRecordByid(cacheEntity: string, id: string): void {
+  this.apollo.client.cache.modify({
+  id: 'ROOT_QUERY',
+fields: {
+  [cacheEntity]: (items: { __ref: string }[] = [], { readField }) => {
+  const i = items.findIndex(
+    (rec: { __ref: string }) => readField('id', rec) === id
+  );
+  if (i < 0) return items;
+    const newRecords = cloneDeep(items);
+    newRecords.splice(i, 1);
+    return newRecords;
+  },
+  },
+  });
+}
+
+</pre>
+              
+                    </li>
+              
+            
+           
+            </ul>
+          </section>
+        </article>
+        <section class="read-more">
+          <div class="read-more_item">
+            <span class="read-more-item-dim">&lt;&lt;previous article</span>
+            <h3>
+              <a href="angular_crud_and_authentication_firebase.html"
+                >CRUD and Authentication in Firebase</a
+              >
+            </h3>
+          </div>
+          <div class="read-more_item">
+            <span class="read-more-item-dim">next article&gt;&gt;</span>
+            <h3><a href="angular_performance.html">Improve Angular Performance</a></h3>
+          </div>
+        </section>
+
+        <section class="footer">
+          <span class="footer__copyright"
+            >2021-5-31 Jennifer. All rights reserved.</span
+          >
+          <span class="footer__copyright"
+            >Contact Email: Jenniferyao1996#hotmail.com</span
+          >
+        </section>
+      </div>
+      <span id="backToTop">
+        <i class="fa fa-arrow-up"></i>
+      </span>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>
