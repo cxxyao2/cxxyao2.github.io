@@ -143,6 +143,9 @@ check for data changes in the cache.
 </li>
               <li class="collapsible">
               Case 1: Handle entities without 'id' field
+<a href="#" alt="react blogs"
+              ><img src="assets/graphql-noid.png" class="sidebar_icon" />&nbsp;React</a
+            >
              
 <pre>
 
@@ -157,10 +160,9 @@ query {
 `;
 Entity name: 'books'
 An object has multiple keys, for instance, {__typename:'Book", name:'Harry Portal", genre:"Fiction"} ,
-like the below screenshot, without a ref
+
 update an object in local cache with keys instead of 'id' field
-6/10/23, 11:08 AM Updating the Apollo Cache: Handling Entities with and without an 'ID' Field - Overview
-https://dev.azure.com/VerosoftDesign/TAG/_wiki/wikis/The Asset Guardian.wiki/190/Updating-the-Apollo-Cache-Handling-Entities-with-and-without-an-… 2/6
+
 // Update a record without 'id' field in local cache
 // for instance, the entity is "books", and the record is below:
 // __typename: "Book"
@@ -203,20 +205,20 @@ Remove an object from an entity with keys instead of 'id' field
 * removeCachedRecordWithoudId('workorderliness', { workOrderNo:'abcd',lineNo:10000});
 * */
 removeCachedRecordWithoudId<T>(
-cacheEntity: string,
-filter: Partial<T> extends object ? Partial<T> : never
+  cacheEntity: string,
+  filter: Partial<T> extends object ? Partial<T> : never
 ): void {
 this.apollo.client.cache.modify({
-id: 'ROOT_QUERY',
-fields: {
-  [cacheEntity]: (items = [], { DELETE }) => {
-  const oldItems = cloneDeep(items);
-  const newItems = oldItems.filter(
-  (rec: T) =>
-    !Object.keys(filter).every((key) => {
-    const k = key as keyof T;
-    return rec[k] === filter[k];
-  })
+  id: 'ROOT_QUERY',
+  fields: {
+    [cacheEntity]: (items = [], { DELETE }) => {
+    const oldItems = cloneDeep(items);
+    const newItems = oldItems.filter(
+    (rec: T) =>
+      !Object.keys(filter).every((key) => {
+      const k = key as keyof T;
+      return rec[k] === filter[k];
+    })
   );
   // If the record is empty, delete it.
   // This is to prevent the cache from returning an empty array. Which causes an error when adding a f
@@ -228,7 +230,11 @@ fields: {
 }
 </pre>
  <li class="collapsible">
+<br/>
 Case 2:Handle entities with 'id' field
+<a href="#" alt="react blogs"
+              ><img src="assets/graphql-withid.png" class="sidebar_icon" />&nbsp;React</a
+            >
 <pre>
 query
 const GET_BOOKS = gql`
