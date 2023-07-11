@@ -143,8 +143,8 @@ check for data changes in the cache.
 </li>
               <li class="collapsible">
               Case 1: Handle entities without 'id' field
-<a href="#" alt="react blogs"
-              ><img src="assets/graphql-noid.png" class="sidebar_icon" />&nbsp;React</a
+<a href="#" alt="no_id"
+              ><img src="assets/graphql-noid.png" class="sidebar_icon" /></a
             >
              
 <pre>
@@ -233,7 +233,7 @@ this.apollo.client.cache.modify({
 <br/>
 Case 2:Handle entities with 'id' field
 <a href="#" alt="react blogs"
-              ><img src="assets/graphql-withid.png" class="sidebar_icon" />&nbsp;React</a
+              ><img src="assets/graphql-withid.png" class="sidebar_icon" /></a
             >
 <pre>
 query
