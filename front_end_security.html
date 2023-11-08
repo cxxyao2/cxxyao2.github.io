@@ -1,222 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Front-end Security</title>
-    <meta
-      name="description"
-      content="security Front-end React XSS xsrf ClickJacking  Angular "
-    />
-    <meta name="author" content="Jennifer" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link rel="icon" href="/assets/images/favicon.ico" />
-    <link rel="stylesheet" href="assets/css/normalize.css" />
-    <link rel="stylesheet" href="assets/css/index.css" />
-  </head>
-  <body>
-    <!--  for not index.html -->
-    <nav class="nav collapsible">
-      <span
-        ><a href="/#angular" class="white">Jennifer - Full Stack Developer</a>
-      </span>
-      <span class="nav_toggler" style="outline: none !important"
-        ><i class="fa fa-list white icon-bigger"></i
-      ></span>
-      <ul class="nav_list collapsible_content">
-        <li>
-          <ul class="nav_social" role="nav_social">
-            <li>
-              <a href="https://github.com/cxxyao2" target="_blank"
-                ><i class="fa fa-github white icon-biggest"></i
-              ></a>
-            </li>
-            <li>
-              <a href="https://twitter.com/jenniferyao1996" target="_blank"
-                ><i class="fa fa-twitter white icon-biggest"></i
-              ></a>
-            </li>
-            <li>
-              <a href="mailto:jenniferyao1996@qq.com" target="_blank"
-                ><i class="fa fa-envelope white icon-biggest"></i
-              ></a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav_item"><a href="/#angular">Angular</a></li>
-        <li class="nav_item"><a href="/#react">React</a></li>
-        <li class="nav_item"><a href="/#webpack">Webpack</a></li>
-        <li class="nav_item"><a href="/#database">Database</a></li>
-      </ul>
-    </nav>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Front-end Security</title>
+		<meta
+			name="description"
+			content="security Front-end React XSS xsrf ClickJacking  Angular " />
+		<meta name="author" content="Jennifer" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+			rel="stylesheet" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+		<link rel="icon" href="/assets/images/favicon.ico" />
+		<link rel="stylesheet" href="assets/css/normalize.css" />
+		<link rel="stylesheet" href="assets/css/index.css" />
+	</head>
+	<body>
+		<!--  for not index.html -->
+		<nav class="nav collapsible">
+			<span
+				><a href="/#angular" class="white">Jennifer - Full Stack Developer</a>
+			</span>
+			<span class="nav_toggler" style="outline: none !important"
+				><i class="fa fa-list white icon-bigger"></i
+			></span>
+			<ul class="nav_list collapsible_content">
+				<li>
+					<ul class="nav_social" role="nav_social">
+						<li>
+							<a href="https://github.com/cxxyao2" target="_blank"
+								><i class="fa fa-github white icon-biggest"></i
+							></a>
+						</li>
+						<li>
+							<a href="https://twitter.com/jenniferyao1996" target="_blank"
+								><i class="fa fa-twitter white icon-biggest"></i
+							></a>
+						</li>
+						<li>
+							<a href="mailto:jenniferyao1996@qq.com" target="_blank"
+								><i class="fa fa-envelope white icon-biggest"></i
+							></a>
+						</li>
+					</ul>
+				</li>
+				<li class="nav_item"><a href="/#angular">Angular</a></li>
+				<li class="nav_item"><a href="/#react">React</a></li>
+				<li class="nav_item"><a href="/#webpack">Webpack</a></li>
+				<li class="nav_item"><a href="/#database">Database</a></li>
+			</ul>
+		</nav>
 
-    <!--  for not index.html -->
-    <aside class="sidebar">
-      <div class="sidebar_cover"></div>
-      <div class="sidebar_main">
-        <a href="#">
-          <img class="sidebar_logo" alt="Jennifer" src="assets/tree1.jpg" />
-        </a>
-        <h3>Jennifer</h3>
-        <span>Full Stack Developer</span>
-        <hr />
-        <p class="sidebar_description">
-          I am passionate about Front-end frameworks and databases.
-        </p>
-        <hr class="sidebar_divider" />
-        <p class="sidebar_tags">
-          <span class="sidebar_tag"
-            ><a href="/#angular"
-              ><img
-                src="assets/angular-icon.svg"
-                class="sidebar_icon"
-              />&nbsp;Angular</a
-            ></span
-          >
-          <span class="sidebar_tag"
-            ><a href="/#react" alt="react blogs"
-              ><img src="assets/react.svg" class="sidebar_icon" />&nbsp;React</a
-            ></span
-          >
-          <span class="sidebar_tag"
-            ><a href="/#webpack"
-              ><img
-                src="assets/webpack_logo.svg"
-                class="sidebar_icon"
-              />&nbsp;Webpack</a
-            ></span
-          >
-          <span class="sidebar_tag"
-            ><a href="/#database"
-              ><img
-                src="assets/mysql.png"
-                class="sidebar_icon"
-              />&nbsp;Database</a
-            ></span
-          >
-        </p>
-        <hr class="sidebar_divider" />
-        <div>
-          <ul class="navigation" role="navigation-social">
-            <li class="navigation_item">
-              <a href="https://github.com/cxxyao2" target="_blank"
-                ><i class="fa fa-github icon-bigger"></i
-              ></a>
-            </li>
-            <li class="navigation_item">
-              <a href="https://twitter.com/jenniferyao1996" target="_blank"
-                ><i class="fa fa-twitter icon-bigger"></i
-              ></a>
-            </li>
-            <li class="navigation_item">
-              <a href="mailto:jenniferyao1996@qq.com" target="_blank"
-                ><i class="fa fa-envelope icon-bigger"></i
-              ></a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </aside>
+		<!--  for not index.html -->
+		<aside class="sidebar">
+			<div class="sidebar_cover"></div>
+			<div class="sidebar_main">
+				<a href="#">
+					<img class="sidebar_logo" alt="Jennifer" src="assets/tree1.jpg" />
+				</a>
+				<h3>Jennifer</h3>
+				<span>Full Stack Developer</span>
+				<hr />
+				<p class="sidebar_description">
+					A liftlong learner. Keep learning, keep evoving in IT industry.
+				</p>
+				<hr class="sidebar_divider" />
+				<p class="sidebar_tags">
+					<span class="sidebar_tag"
+						><a href="/#angular"
+							><img
+								src="assets/angular-icon.svg"
+								class="sidebar_icon" />&nbsp;Angular</a
+						></span
+					>
+					<span class="sidebar_tag"
+						><a href="/#react" alt="react blogs"
+							><img src="assets/react.svg" class="sidebar_icon" />&nbsp;React</a
+						></span
+					>
+					<span class="sidebar_tag"
+						><a href="/#webpack"
+							><img
+								src="assets/webpack_logo.svg"
+								class="sidebar_icon" />&nbsp;Webpack</a
+						></span
+					>
+					<span class="sidebar_tag"
+						><a href="/#database"
+							><img src="assets/mysql.png" class="sidebar_icon" />Backend</a
+						></span
+					>
+				</p>
+				<hr class="sidebar_divider" />
+				<div>
+					<ul class="navigation" role="navigation-social">
+						<li class="navigation_item">
+							<a href="https://github.com/cxxyao2" target="_blank"
+								><i class="fa fa-github icon-bigger"></i
+							></a>
+						</li>
+						<li class="navigation_item">
+							<a href="https://twitter.com/jenniferyao1996" target="_blank"
+								><i class="fa fa-twitter icon-bigger"></i
+							></a>
+						</li>
+						<li class="navigation_item">
+							<a href="mailto:jenniferyao1996@qq.com" target="_blank"
+								><i class="fa fa-envelope icon-bigger"></i
+							></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</aside>
 
-    <main class="content_wrapper">
-      <div class="content">
-        <article class="post">
-          <header>
-            <span class="post_category"
-              ><label class="date">2021-5-1</label> Angular</span
-            >
-            <h2>Improve Front-end Security</h2>
-          </header>
-          <section class="post_body">
-            In this blog, I will talk about three front-end attacks and
-            preventions:&nbsp;XSS, CSRF, Clickjacking.
-            <h3>XSS</h3>
-            XSS:&nbsp; Cross-site scripting (also known as XSS) is a web
-            security vulnerability that allows an attacker to compromise the
-            interactions that users have with a vulnerable application.
-            <span class="fw-600"
-              >It allows an attacker to circumvent the same origin policy, which
-              is designed to segregate different websites from each other.</span
-            >
-            Cross-site scripting vulnerabilities normally allow an attacker to
-            masquerade as a victim user, to carry out any actions that the user
-            is able to perform, and to access any of the user's data.
-            <hr class="divider_transparent" />
-            <span class="fw-600">How does it work?&nbsp;</span>Cross-site
-            scripting works by manipulating a vulnerable web site so that it
-            returns malicious JavaScript to users. There are three main XSS
-            attacks:
-            <ol>
-              <li>
-                Reflected XSS:&nbsp;where the malicious script comes from the
-                current HTTP request, e.g.<code
-                  >https://insecure-website.com/status?message=&lt;script&gt;/*Bad+stuff+here*/&lt;/script&gt;
-                </code>
-                <pre>
- 
-// preventions 
-// server side 
+		<main class="content_wrapper">
+			<div class="content">
+				<article class="post">
+					<header>
+						<span class="post_category"
+							><label class="date">2021-5-1</label> Angular</span
+						>
+						<h2>Improve Front-end Security</h2>
+					</header>
+					<section class="post_body">
+						In this blog, I will talk about three front-end attacks and
+						preventions:&nbsp;XSS, CSRF, Clickjacking.
+						<h3>XSS</h3>
+						XSS:&nbsp; Cross-site scripting (also known as XSS) is a web
+						security vulnerability that allows an attacker to compromise the
+						interactions that users have with a vulnerable application.
+						<span class="fw-600"
+							>It allows an attacker to circumvent the same origin policy, which
+							is designed to segregate different websites from each other.</span
+						>
+						Cross-site scripting vulnerabilities normally allow an attacker to
+						masquerade as a victim user, to carry out any actions that the user
+						is able to perform, and to access any of the user's data.
+						<hr class="divider_transparent" />
+						<span class="fw-600">How does it work?&nbsp;</span>Cross-site
+						scripting works by manipulating a vulnerable web site so that it
+						returns malicious JavaScript to users. There are three main XSS
+						attacks:
+						<ol>
+							<li>
+								Reflected XSS:&nbsp;where the malicious script comes from the
+								current HTTP request, e.g.<code
+									>https://insecure-website.com/status?message=&lt;script&gt;/*Bad+stuff+here*/&lt;/script&gt;
+								</code>
+								<pre>
+
+// preventions
+// server side
 app.get('/welcome', function(req, res) {
     // encode query parameters
-    res.send(`${encodeURIComponent(req.query.type)}`); 
+    res.send(`${encodeURIComponent(req.query.type)}`);
 });
                     </pre
-                >
-              </li>
-              <li>
-                Stored XSS:&nbsp;where the malicious script comes from the
-                website's database, e.g. get comments from database and render
-                the comments
-                <pre>
-// safe comment 
+								>
+							</li>
+							<li>
+								Stored XSS:&nbsp;where the malicious script comes from the
+								website's database, e.g. get comments from database and render
+								the comments
+								<pre>
+// safe comment
 &lt;p&gt;Hello, this is a safe comment&lt;/p&gt;
 
 // if server side doesn't perform any processing of the comment entered by user
 // an attacker can send a dangerous message like the following message
 // The message is saved to server and then sent back to a browser
-&lt;p&gt;&lt;script&gt;/*dangerous stuff*/&lt;/script&gt;&lt;/p&gt;    
+&lt;p&gt;&lt;script&gt;/*dangerous stuff*/&lt;/script&gt;&lt;/p&gt;
 
-// preventions 
-// case1: data client => server 
-// client side: validate data /escape data /filter data 
-// server side: escape data /filter data /save data 
+// preventions
+// case1: data client => server
+// client side: validate data /escape data /filter data
+// server side: escape data /filter data /save data
 
-// case2: data server => client 
-// server side: escape 
-// client side: escape/filter 
+// case2: data server => client
+// server side: escape
+// client side: escape/filter
 
 // key APIS:
 // encodeURI, encodeURIComponent, decodeURI, decodeURIComponent,etc.
                     </pre
-                >
-              </li>
-              <li>
-                DOM-based XSS:&nbsp;where the vulnerability exists in
-                client-side code rather than server-side code,&nbsp;e.g.
-                &nbsp;process data from an untrusted source in an unsafe way ,
-                usually by writing directly the data to the DOM. Please try to
-                substitute .innerText, .textContent, .setAttributes for
-                .innerHTML, .outerHTML, .appendChild, document.write() APIs.
-                <pre>
-// dangerous code 
-var search = document.getElementById('search').value; 
+								>
+							</li>
+							<li>
+								DOM-based XSS:&nbsp;where the vulnerability exists in
+								client-side code rather than server-side code,&nbsp;e.g.
+								&nbsp;process data from an untrusted source in an unsafe way ,
+								usually by writing directly the data to the DOM. Please try to
+								substitute .innerText, .textContent, .setAttributes for
+								.innerHTML, .outerHTML, .appendChild, document.write() APIs.
+								<pre>
+// dangerous code
+var search = document.getElementById('search').value;
 var results = document.getElementById('results');
 results.innerHTML = 'You searched for:' + search;
 
 // without processing entered data, an attack can construct a malicious value that causes your script like that:
-You searched for: &lt;img src=1 onerror='/* bad stuff */' /&gt; 
-You searched for: &lt;a href="javascript:doSomething();"&gt; click me&lt;/a&gt; 
-You searched for: &lt;iframe style="display:none" src="...."&gt; &lt;/iframe&gt; 
+You searched for: &lt;img src=1 onerror='/* bad stuff */' /&gt;
+You searched for: &lt;a href="javascript:doSomething();"&gt; click me&lt;/a&gt;
+You searched for: &lt;iframe style="display:none" src="...."&gt; &lt;/iframe&gt;
 
-// preventions 
+// preventions
 // filter and encode/escape data
 
 // for non-url attributes
@@ -240,125 +232,126 @@ $('#security').click(function () {
         });
       });
 
-// for url of  image, iframe, anchors 
+// for url of  image, iframe, anchors
 $('#image1').attr('src',encodeURI('http://dangerous-website/untrusted.jpg'));
 $('#iframe1').attr('src', encodeURI('https://dangerous-website.com'));
-$('#anchor1').attr('href', encodeURI('https://dangerous-website.com'));     
+$('#anchor1').attr('href', encodeURI('https://dangerous-website.com'));
                     </pre
-                >
-              </li>
-            </ol>
-            <div>
-              <h3>FAQ:&nbsp;store JWT token in cookie or localStorage?</h3>
-              <ul>
-                <li>
-                  cookie:
-                  <ol>
-                    <li>
-                      Profit:&nbsp;If on server side set a cookie's httponly
-                      attribute as true, it is impossible to access the token in
-                      a XSS attack. 
-                      Explanation: An HttpOnly Cookie is a tag added to a browser cookie that prevents client-side scripts from accessing data. It provides a gate that prevents the specialized cookie from being accessed by anything other than the server.
-                      <span class="fw-600"
-                        >This does not mean the app is not vulnerable to XSS.It
-                        only means in case of a successful XSS attack, the token
-                        will not be accessible to the attacker.
-                      </span>
-                    </li>
-                    <li>
-                      Cookie is part of HTTP headers. As authentication info, it
-                      is sent automatically with requests(&nbsp;It is not the
-                      case in Angular).
-                      <span class="fw-600"
-                        >It is necessary to explicitly protect your app against
-                        CSRF</span
-                      >
-                    </li>
-                    <li>
-                      Can only be sent to their origin(not to say APIS on
-                      different domains)
-                    </li>
-                    <li>
-                      The token could probably be replaced by a plain old
-                      session id in that cookie as your app is likely not really
-                      stateless anyway(&nbsp;It is exactly what I have done in
-                      the following example.)
-                    </li>
-                    <li>
-                      If the app talks to several backends on different domain,
-                      short-lived access tokens in localStorage + long-lived
-                      refresh token in a httpOnly cookie is appropriate
-                    </li>
-                  </ol>
-                  <pre>
-// server side 
+								>
+							</li>
+						</ol>
+						<div>
+							<h3>FAQ:&nbsp;store JWT token in cookie or localStorage?</h3>
+							<ul>
+								<li>
+									cookie:
+									<ol>
+										<li>
+											Profit:&nbsp;If on server side set a cookie's httponly
+											attribute as true, it is impossible to access the token in
+											a XSS attack. Explanation: An HttpOnly Cookie is a tag
+											added to a browser cookie that prevents client-side
+											scripts from accessing data. It provides a gate that
+											prevents the specialized cookie from being accessed by
+											anything other than the server.
+											<span class="fw-600"
+												>This does not mean the app is not vulnerable to XSS.It
+												only means in case of a successful XSS attack, the token
+												will not be accessible to the attacker.
+											</span>
+										</li>
+										<li>
+											Cookie is part of HTTP headers. As authentication info, it
+											is sent automatically with requests(&nbsp;It is not the
+											case in Angular).
+											<span class="fw-600"
+												>It is necessary to explicitly protect your app against
+												CSRF</span
+											>
+										</li>
+										<li>
+											Can only be sent to their origin(not to say APIS on
+											different domains)
+										</li>
+										<li>
+											The token could probably be replaced by a plain old
+											session id in that cookie as your app is likely not really
+											stateless anyway(&nbsp;It is exactly what I have done in
+											the following example.)
+										</li>
+										<li>
+											If the app talks to several backends on different domain,
+											short-lived access tokens in localStorage + long-lived
+											refresh token in a httpOnly cookie is appropriate
+										</li>
+									</ol>
+									<pre>
+// server side
 const SESSION_ID = 'connect.sid';
 let id=....;
 
 
 // cookie is valid in 15 minutes
-// An HttpOnly Cookie is a tag added to a browser cookie 
+// An HttpOnly Cookie is a tag added to a browser cookie
 // that prevents client-side scripts from accessing data.
 res.cookie(SESSION_ID, id,{expires: new Date(Date.now( ) ) +  900000,httpOnly:true});
-// or 
+// or
 res.cookie(SESSION_ID, id,{maxAge:  900000, httpOnly:true});
                         </pre
-                  >
-                  <img
-                    src="assets/front_security/cookie_in_request.png"
-                    alt="cookie in request"
-                  />
-                  <img
-                    src="assets/front_security/cookie_in_browser.png"
-                    alt="cookie in browser"
-                  />
-                </li>
-                <li>
-                  localStorage
-                  <ol>
-                    <li>
-                      Can be accessed by javascript, which includes a successful
-                      XSS attack.
-                    </li>
-                    <li>
-                      Because a token in localStorage is not sent automatically
-                      as a request header, no further protection is usually
-                      necessary against CSRF
-                    </li>
-                    <li>
-                      Tokens can be sent to different origins.This is the main
-                      benefit.If you only want to send the token to your single
-                      app origin, you probably don't need JWTs at all, and
-                      definitely don't want to use localStorage.
-                    </li>
-                  </ol>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3>How to prevent XSS attacks</h3>
-              <ul>
-                <li>Filter input on arrival.</li>
-                <li>
-                  Encode data on output. &nbsp;Need combine HTML, URL,
-                  Javascript, and CSS coding.
-                </li>
-                <li>
-                  Use appropriate response headers.You can use the Content-Type
-                  and X-Content-Type-Options to ensure browsers interpret the
-                  response in the way you intend
-                </li>
-                <li>Http-only Cookie</li>
-                <li>CAPTCHA:&nbsp;determine whether or not user is human</li>
-                <li>
-                  Use content Security Policy as a last line of defense.<a
-                    href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Content-Security-Policy"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >&nbsp;For more information...</a
-                  >
-                  <pre>
-// server side 
+									>
+									<img
+										src="assets/front_security/cookie_in_request.png"
+										alt="cookie in request" />
+									<img
+										src="assets/front_security/cookie_in_browser.png"
+										alt="cookie in browser" />
+								</li>
+								<li>
+									localStorage
+									<ol>
+										<li>
+											Can be accessed by javascript, which includes a successful
+											XSS attack.
+										</li>
+										<li>
+											Because a token in localStorage is not sent automatically
+											as a request header, no further protection is usually
+											necessary against CSRF
+										</li>
+										<li>
+											Tokens can be sent to different origins.This is the main
+											benefit.If you only want to send the token to your single
+											app origin, you probably don't need JWTs at all, and
+											definitely don't want to use localStorage.
+										</li>
+									</ol>
+								</li>
+							</ul>
+						</div>
+						<div>
+							<h3>How to prevent XSS attacks</h3>
+							<ul>
+								<li>Filter input on arrival.</li>
+								<li>
+									Encode data on output. &nbsp;Need combine HTML, URL,
+									Javascript, and CSS coding.
+								</li>
+								<li>
+									Use appropriate response headers.You can use the Content-Type
+									and X-Content-Type-Options to ensure browsers interpret the
+									response in the way you intend
+								</li>
+								<li>Http-only Cookie</li>
+								<li>CAPTCHA:&nbsp;determine whether or not user is human</li>
+								<li>
+									Use content Security Policy as a last line of defense.<a
+										href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Content-Security-Policy"
+										target="_blank"
+										rel="noopener noreferrer"
+										>&nbsp;For more information...</a
+									>
+									<pre>
+// server side
 // same origin
 Content-Security-Policy: default-src 'self'
 // only https, no embedded object
@@ -367,48 +360,48 @@ Content-Security-Policy: default-src https: 'unsafe-eval' 'unsafe-inline'; objec
 Content-Security-Policy-Report-Only: default-src https:; report-uri /csp-violation-report-endpoint/
 
 
-// client side , in .html file . 
+// client side , in .html file .
 // meta tag
 // meta tag cannot use report
 &lt;meta http-equiv="Content-Security-Policy" content="default-src https:"&gt;
                          </pre
-                  >
-                </li>
-                <li>
-                  Find and test XSS vulnerabilities with web application
-                  security scanners
-                  <dl>
-                    <dt>1. Arachni</dt>
-                    <dd>
-                      a Free/Public-Source Web Application Security Scanner
-                      aimed towards helping users evaluate the security of web
-                      applications.
-                    </dd>
-                    <dt>2. Mozilla HTTP Observatory</dt>
-                    <dd>
-                      a set of tools to analyze your website and inform you if
-                      you are utilizing the many available methods to secure it.
-                    </dd>
-                    <dt>3. w3af</dt>
-                    <dd>
-                      Open Source Web Application Security Scanner. A Web
-                      Application Attack and Audit Framework.
-                    </dd>
-                  </dl>
-                </li>
-              </ul>
-            </div>
+									>
+								</li>
+								<li>
+									Find and test XSS vulnerabilities with web application
+									security scanners
+									<dl>
+										<dt>1. Arachni</dt>
+										<dd>
+											a Free/Public-Source Web Application Security Scanner
+											aimed towards helping users evaluate the security of web
+											applications.
+										</dd>
+										<dt>2. Mozilla HTTP Observatory</dt>
+										<dd>
+											a set of tools to analyze your website and inform you if
+											you are utilizing the many available methods to secure it.
+										</dd>
+										<dt>3. w3af</dt>
+										<dd>
+											Open Source Web Application Security Scanner. A Web
+											Application Attack and Audit Framework.
+										</dd>
+									</dl>
+								</li>
+							</ul>
+						</div>
 
-            <h3>CSRF</h3>
-            <li>
-              CSRF: &nbsp;Cross-Site Request Forgery (CSRF) is an attack that
-              forces an end user to execute unwanted actions on a web
-              application in which they're currently authenticated.
-              <pre>
-// attack example 
-// localhost:3001 user "victim" has logged in 
+						<h3>CSRF</h3>
+						<li>
+							CSRF: &nbsp;Cross-Site Request Forgery (CSRF) is an attack that
+							forces an end user to execute unwanted actions on a web
+							application in which they're currently authenticated.
+							<pre>
+// attack example
+// localhost:3001 user "victim" has logged in
 
-// localhost:3002  use the authenticated user "victim" to execute a post method 
+// localhost:3002  use the authenticated user "victim" to execute a post method
 &lt;form
   name="stealMoney"
   action="http://localhost:3001/api/transfer"
@@ -418,9 +411,9 @@ Content-Security-Policy-Report-Only: default-src https:; report-uri /csp-violati
 &lt;input type="text" name="amount" value="2000" /&gt;
 &lt;/form&gt;
 
-// preventions 
-// 1, add CAPTCHA : user need entre verification code manually for every transaction 
-// server side  
+// preventions
+// 1, add CAPTCHA : user need entre verification code manually for every transaction
+// server side
 app.get('/api/userinfo', (req, res) => {
   let info = session[req.cookies[SESSION_ID]];
 
@@ -440,7 +433,7 @@ app.get('/api/userinfo', (req, res) => {
   }
 });
 
-// when client side execute a transfer, server site get the verification code from request 
+// when client side execute a transfer, server site get the verification code from request
 app.post('/api/transfer1', (req, res) => {
   let info = session[req.cookies[SESSION_ID]];
   if (info) {
@@ -450,7 +443,7 @@ app.post('/api/transfer1', (req, res) => {
 }
 
 // 2, check the source of referrer ( not safe, referrer can be modified)
-// server side 
+// server side
 // referer: where does the request
 app.post('/api/transfer2', (req, res) => {
   let info = session[req.cookies[SESSION_ID]];
@@ -466,7 +459,7 @@ app.post('/api/transfer2', (req, res) => {
 }
 
 // 3, use Token (mainstream method)
-// server side sent an encrypted token to client side 
+// server side sent an encrypted token to client side
 // client side  saves the token and sent a request alway with this token
 
 // Verify Token before transfer
@@ -475,36 +468,35 @@ app.post('/api/transfer3', (req, res) => {
   if (info) {
     // logged in
     let { payee, amount, token } = req.body;
-    ... 
+    ...
   }
 }
 
 // 4,  Samesite Cookie: Samesite = Strict
               </pre>
-              <img
-                src="assets/front_security/samesite_cookie.png"
-                alt="samesite cookie"
-              />
-            </li>
-            <h3>Clickjacking</h3>
-            <li>
-              Clickjacking: &nbsp;the malicious practice of manipulating a
-              website user's activity by concealing hyperlinks beneath
-              legitimate clickable content, thereby causing the user to perform
-              actions of which they are unaware.
-              <pre>
-// attack example 
-// an iframe ( or an anchor) is invisible or transparent 
-&lt;iframe style="display:none;" src="javascript:/* dangerous stuff here */">"&gt;&lt;/iframe&gt; 
+							<img
+								src="assets/front_security/samesite_cookie.png"
+								alt="samesite cookie" />
+						</li>
+						<h3>Clickjacking</h3>
+						<li>
+							Clickjacking: &nbsp;the malicious practice of manipulating a
+							website user's activity by concealing hyperlinks beneath
+							legitimate clickable content, thereby causing the user to perform
+							actions of which they are unaware.
+							<pre>
+// attack example
+// an iframe ( or an anchor) is invisible or transparent
+&lt;iframe style="display:none;" src="javascript:/* dangerous stuff here */">"&gt;&lt;/iframe&gt;
 
 // preventions
-1, Frame busting. Attention: HTML5 iframe <code>sandbox</code> attribute, IE iframe <code>security</code> attribute will prevent the 
-Javascript in iframe from executing. 
+1, Frame busting. Attention: HTML5 iframe <code>sandbox</code> attribute, IE iframe <code>security</code> attribute will prevent the
+Javascript in iframe from executing.
 if ( top.location != window.location ){
     top.location = window.location
 }
 
-2, HTTP header: X-Frame-Options can be used to indicate whether or not a browser should be allowed to 
+2, HTTP header: X-Frame-Options can be used to indicate whether or not a browser should be allowed to
 render a page in a &lt;frame&gt;, &lt;iframe&gt;, &lt;embed&gt; or &lt;object&gt;.
 X-Frame-Options: deny
 X-Frame-Options: sameorigin
@@ -517,72 +509,65 @@ const helmet = require('helmet');
 const app = express();
 app.use(helmet.frameguard({ action: 'SAMEORIGIN' }));
 
-// Note: The Content-Security-Policy HTTP header has a frame-ancestors directive 
+// Note: The Content-Security-Policy HTTP header has a frame-ancestors directive
 // which obsoletes this header for supporting browsers.
                 </pre
-              >
-              <h3>Anti ClickJacking Example</h3>
-              Method 1: Frame busting. If another html file loads login.html as
-              iframe, when user enter this html in browser, the browser redirect
-              automatically to login.html
-              <img
-                src="assets/front_security/clickattacking-0.png"
-                alt="frame busting"
-              />
+							>
+							<h3>Anti ClickJacking Example</h3>
+							Method 1: Frame busting. If another html file loads login.html as
+							iframe, when user enter this html in browser, the browser redirect
+							automatically to login.html
+							<img
+								src="assets/front_security/clickattacking-0.png"
+								alt="frame busting" />
 
-              Method 2: Set X-Frame-Options as "sameorigin". &nbsp; On server1
-              (http://localhost:3001)
-              <hr class="divider_transparent" />
-              Login.html is located in server1.
-              <img
-                src="assets/front_security/clickattacking-1.png"
-                alt="set sameorigin"
-              />
-              On server2 (http://localhost:3002), another webpage xframe1.html
-              tries to load login.html as iframe.
-              <img
-                src="assets/front_security/clickattacking-2.png"
-                alt="set sameorigin"
-              />
-              Because of the sameorigin policy, xframe1.html cannot load
-              login.html correctly. By contrast, if xframe1.html is located in
-              the same origin, it can load login.html. So xframe1.html can only
-              load the files from the same origin as iframe element. It can
-              prevent clickjacking.When a malicious webpage try to attack a
-              same-policy-protected webpage as an iframe element, even if it is
-              transparent or invisible, click it will not cause serious
-              consequence.
-              <img
-                src="assets/front_security/clickattacking-3.png"
-                alt="set sameorigin"
-              />
-            </li>
-            <li>
-              For preventing XSRF attack,&nbsp;cookie + token is safer than
-              http-only cookie or token.
-              <div class="alert is-helpful">
-                Angular will add the X-XSRF-TOKEN header only
-                if the XSRF-TOKEN cookie was generated server-side with the
-                following options: &nbsp;Path = / ,&nbsp;&nbsp;httpOnly = false
-              </div>
-              <img
-                src="assets/front_security/cookie_token_valid.png"
-                alt="valid user"
-              />
-              <img
-                src="assets/front_security/cookie_token_unvalid.png"
-                alt="invalid user"
-              />
-              <img
-                src="assets/front_security/cookie_token_invalid_reason.png"
-                alt="invalid reason"
-              />
-              <p>
-                1, Client side:&nbsp; create an interceptor for add header
-                "X-XSRF-TOKEN"
-              </p>
-              <pre>
-// xsrftoken.interceptor.ts 
+							Method 2: Set X-Frame-Options as "sameorigin". &nbsp; On server1
+							(http://localhost:3001)
+							<hr class="divider_transparent" />
+							Login.html is located in server1.
+							<img
+								src="assets/front_security/clickattacking-1.png"
+								alt="set sameorigin" />
+							On server2 (http://localhost:3002), another webpage xframe1.html
+							tries to load login.html as iframe.
+							<img
+								src="assets/front_security/clickattacking-2.png"
+								alt="set sameorigin" />
+							Because of the sameorigin policy, xframe1.html cannot load
+							login.html correctly. By contrast, if xframe1.html is located in
+							the same origin, it can load login.html. So xframe1.html can only
+							load the files from the same origin as iframe element. It can
+							prevent clickjacking.When a malicious webpage try to attack a
+							same-policy-protected webpage as an iframe element, even if it is
+							transparent or invisible, click it will not cause serious
+							consequence.
+							<img
+								src="assets/front_security/clickattacking-3.png"
+								alt="set sameorigin" />
+						</li>
+						<li>
+							For preventing XSRF attack,&nbsp;cookie + token is safer than
+							http-only cookie or token.
+							<div class="alert is-helpful">
+								Angular will add the X-XSRF-TOKEN header only
+								if the XSRF-TOKEN cookie was generated server-side with the
+								following options: &nbsp;Path = / ,&nbsp;&nbsp;httpOnly = false
+							</div>
+							<img
+								src="assets/front_security/cookie_token_valid.png"
+								alt="valid user" />
+							<img
+								src="assets/front_security/cookie_token_unvalid.png"
+								alt="invalid user" />
+							<img
+								src="assets/front_security/cookie_token_invalid_reason.png"
+								alt="invalid reason" />
+							<p>
+								1, Client side:&nbsp; create an interceptor for add header
+								"X-XSRF-TOKEN"
+							</p>
+							<pre>
+// xsrftoken.interceptor.ts
 import { Injectable } from '@angular/core';
 import {
   HttpRequest,
@@ -621,8 +606,8 @@ export class XsrftokenInterceptor implements HttpInterceptor {
 }
 
                 </pre
-              >
-              <pre>
+							>
+							<pre>
 // app.module.ts
  providers: [
    ...
@@ -634,16 +619,16 @@ export class XsrftokenInterceptor implements HttpInterceptor {
   ],
   ...
                 </pre
-              >
-              <p>
-                2, Server side:&nbsp; when user log in, set cookies for
-                response; &nbsp; when user transfers money to other, compare the
-                cookie "XSRF-TOKEN" to header "X-XSRF-TOKEN". Execute the
-                transaction only when the two are equal.
-              </p>
+							>
+							<p>
+								2, Server side:&nbsp; when user log in, set cookies for
+								response; &nbsp; when user transfers money to other, compare the
+								cookie "XSRF-TOKEN" to header "X-XSRF-TOKEN". Execute the
+								transaction only when the two are equal.
+							</p>
 
-              <pre>
-// log in 
+							<pre>
+// log in
 let SESSION_ID = 'connect.sid';
 let XSRF_TOKEN = 'XSRF-TOKEN';
 let session = {};
@@ -670,66 +655,63 @@ app.post('/api/login', (req, res) => {
   }
 });
                   </pre
-              >
-              <pre>
-// transfer 
+							>
+							<pre>
+// transfer
 app.post('/api/transfer', (req, res) => {
-  ... 
+  ...
    const token = req.header('X-XSRF-TOKEN');
    if(!token || token !== req.cookies[XSRF_TOKEN]) {
      return res.json({ code: 1, error: 'user did not  log in or is not valid user .' });
    }
-   ... 
-});                    
+   ...
+});
                   </pre
-              >
-              The response header after login successfully (with cookies
-              information)
-              <img
-                src="assets/front_security/cookie_token_login.png"
-                alt="cookie + token log in"
-              />
-              The request header when transfer (X-XSRF-TOKEN = XSRF-TOKEN)
-              <img
-                src="assets/front_security/cookie_token_transfer1.png"
-                alt="cookie + token transfer1"
-              />
-              <img
-                src="assets/front_security/cookie_token_transfer2.png"
-                alt="cookie + token transfer2"
-              />
-            </li>
-            <li>
-              The last but important one: not forget to upgrade the
-              app(framework, etc) to latest versions, because bugs have been
-              fixed by numerous engineers.
-            </li>
+							>
+							The response header after login successfully (with cookies
+							information)
+							<img
+								src="assets/front_security/cookie_token_login.png"
+								alt="cookie + token log in" />
+							The request header when transfer (X-XSRF-TOKEN = XSRF-TOKEN)
+							<img
+								src="assets/front_security/cookie_token_transfer1.png"
+								alt="cookie + token transfer1" />
+							<img
+								src="assets/front_security/cookie_token_transfer2.png"
+								alt="cookie + token transfer2" />
+						</li>
+						<li>
+							The last but important one: not forget to upgrade the
+							app(framework, etc) to latest versions, because bugs have been
+							fixed by numerous engineers.
+						</li>
 
-            <p>
-              Source code is hosted on Github&nbsp;<a
-                href="https://github.com/cxxyao2/frontend-attacks"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Front-end attacks</a
-              >
-            </p>
-            <hr class="divider" />
-            <h3>Security in Frameworks</h3>
-            <ul>
-              <li>
-                Angular supplies many modules to prevent XSS or CSRF attacks,
-                including DomSanitizer, HttpClientXsrfModule, XSRFStrategy,
-                HttpClientJsonpModule, CookieXSRFStrategy, sessionStorage and
-                localStorage.
-                <ul>
-                  <li>
-                    To systematically block XSS bugs, Angular treats all values
-                    as untrusted by default. When a value is inserted into the
-                    DOM from a template binding, or interpolation, Angular
-                    sanitizes and escapes untrusted values. If a value was
-                    already sanitized outside of Angular and is considered safe,
-                    you can prevent automatic sanitization using bypass APIS
-                    <pre>
+						<p>
+							Source code is hosted on Github&nbsp;<a
+								href="https://github.com/cxxyao2/frontend-attacks"
+								target="_blank"
+								rel="noopener noreferrer"
+								>Front-end attacks</a
+							>
+						</p>
+						<hr class="divider" />
+						<h3>Security in Frameworks</h3>
+						<ul>
+							<li>
+								Angular supplies many modules to prevent XSS or CSRF attacks,
+								including DomSanitizer, HttpClientXsrfModule, XSRFStrategy,
+								HttpClientJsonpModule, CookieXSRFStrategy, sessionStorage and
+								localStorage.
+								<ul>
+									<li>
+										To systematically block XSS bugs, Angular treats all values
+										as untrusted by default. When a value is inserted into the
+										DOM from a template binding, or interpolation, Angular
+										sanitizes and escapes untrusted values. If a value was
+										already sanitized outside of Angular and is considered safe,
+										you can prevent automatic sanitization using bypass APIS
+										<pre>
 constructor(private sanitizer: DomSanitizer) {
     // javascript: URLs are dangerous if attacker controlled.
     // Angular sanitizes them in data binding, but you can
@@ -749,12 +731,12 @@ constructor(private sanitizer: DomSanitizer) {
 
 
                     </pre>
-                  </li>
-                  <li>
-                    Only make use of bypassSecurityTrust family of APIS when
-                    knowing the source of data. One common use is in the context
-                    of an Angular API.
-                    <pre>
+									</li>
+									<li>
+										Only make use of bypassSecurityTrust family of APIS when
+										knowing the source of data. One common use is in the context
+										of an Angular API.
+										<pre>
 @Pipe({ name: ‘trustHtml’ })
 export class TrustHtmlPipe implements PipeTransform {
      constructor(private sanitizer: DomSanitizer) { }
@@ -762,13 +744,13 @@ export class TrustHtmlPipe implements PipeTransform {
           return this.sanitizer.bypassSecurityTrustHtml(value);
      }
 } </pre
-                    >
-                  </li>
-                  <li>
-                    Ask yourself if dynamic component construction is really
-                    necessary.In the following example, template variable can
-                    introduce XSS attack easily.
-                    <pre>
+										>
+									</li>
+									<li>
+										Ask yourself if dynamic component construction is really
+										necessary.In the following example, template variable can
+										introduce XSS attack easily.
+										<pre>
 function compileComponent(template: string) {
      @Component({ template: template })
      class DynamicComponent implements AfterViewInit {
@@ -776,39 +758,38 @@ function compileComponent(template: string) {
      }
      return DynamicComponent;
 }</pre
-                    >
-                  </li>
-                </ul>
-              </li>
-              <li>
-                React
-                <ul>
-                  <li>
-                    According to
-                    <a
-                      href="https://reactjs.org/docs/introducing-jsx.html#jsx-prevents-injection-attacks"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      React document </a
-                    >, &nbsp;by default, React DOM escapes any values embedded
-                    in JSX before rendering them.&nbsp;Everything is converted
-                    into a string before being rendered. This helps prevent XSS
-                    attacks.
-                    <pre>
+										>
+									</li>
+								</ul>
+							</li>
+							<li>
+								React
+								<ul>
+									<li>
+										According to
+										<a
+											href="https://reactjs.org/docs/introducing-jsx.html#jsx-prevents-injection-attacks"
+											target="_blank"
+											rel="noopener noreferrer">
+											React document </a
+										>, &nbsp;by default, React DOM escapes any values embedded
+										in JSX before rendering them.&nbsp;Everything is converted
+										into a string before being rendered. This helps prevent XSS
+										attacks.
+										<pre>
 const title = response.potentiallyMaliciousInput;
 // This is safe:
-const element = &lt;h1&gt;{title}&lt;/h1&gt;;                          
+const element = &lt;h1&gt;{title}&lt;/h1&gt;;
                         </pre
-                    >
-                  </li>
-                  <li>
-                    In fact , React is not being "XSS safe". As long as
-                    developers insert user input into DOM, there will be XSS.
-                    Never directly use user input as props.
-                    <pre>
- 
-const props =   potentiallyMaliciousUserInput; 
+										>
+									</li>
+									<li>
+										In fact , React is not being "XSS safe". As long as
+										developers insert user input into DOM, there will be XSS.
+										Never directly use user input as props.
+										<pre>
+
+const props =   potentiallyMaliciousUserInput;
 // Not safe
 return &lt;Component {...props}&gt;&lt;/Component&gt;;
 
@@ -821,80 +802,79 @@ function MyComponent() {
   return &lt;div dangerouslySetInnerHTML={createMarkup()} /&gt;;
 }
                         </pre
-                    >
-                  </li>
-                </ul>
-              </li>
-            </ul>
+										>
+									</li>
+								</ul>
+							</li>
+						</ul>
 
-            <ol>
-              References:
-              <li>
-                <a
-                  href="https://stackoverflow.com/questions/62744638/react-and-storing-jwt-token-in-localstorage"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >https://stackoverflow.com/questions/62744638/react-and-storing-jwt-token-in-localstorage</a
-                >
-              </li>
-              <li>
-                <a
-                  href=" https://www.whitehatsec.com/blog/the-security-angle-on-angular/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  https://www.whitehatsec.com/blog/the-security-angle-on-angular/</a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://juejin.cn/post/6844903842635579405"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >most commons Front-end attacks</a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://www.youtube.com/watch?v=9inczw6qtpY"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >https://www.youtube.com/watch?v=9inczw6qtpY</a
-                >
-              </li>
-            </ol>
-          </section>
-        </article>
-        <section class="read-more">
-          <div class="read-more_item">
-            <span class="read-more-item-dim">&lt;&lt;previous article</span>
-            <h3>
-              <a href="angular_performance.html"
-                >Improve Front-end Performance</a
-              >
-            </h3>
-          </div>
-          <div class="read-more_item">
-            <span class="read-more-item-dim">next article&gt;&gt;</span>
-            <h3>
-              <a href="index.html">Table of Contents</a>
-            </h3>
-          </div>
-        </section>
+						<ol>
+							References:
+							<li>
+								<a
+									href="https://stackoverflow.com/questions/62744638/react-and-storing-jwt-token-in-localstorage"
+									target="_blank"
+									rel="noopener noreferrer"
+									>https://stackoverflow.com/questions/62744638/react-and-storing-jwt-token-in-localstorage</a
+								>
+							</li>
+							<li>
+								<a
+									href=" https://www.whitehatsec.com/blog/the-security-angle-on-angular/"
+									target="_blank"
+									rel="noopener noreferrer">
+									https://www.whitehatsec.com/blog/the-security-angle-on-angular/</a
+								>
+							</li>
+							<li>
+								<a
+									href="https://juejin.cn/post/6844903842635579405"
+									target="_blank"
+									rel="noopener noreferrer"
+									>most commons Front-end attacks</a
+								>
+							</li>
+							<li>
+								<a
+									href="https://www.youtube.com/watch?v=9inczw6qtpY"
+									target="_blank"
+									rel="noopener noreferrer"
+									>https://www.youtube.com/watch?v=9inczw6qtpY</a
+								>
+							</li>
+						</ol>
+					</section>
+				</article>
+				<section class="read-more">
+					<div class="read-more_item">
+						<span class="read-more-item-dim">&lt;&lt;previous article</span>
+						<h3>
+							<a href="angular_performance.html"
+								>Improve Front-end Performance</a
+							>
+						</h3>
+					</div>
+					<div class="read-more_item">
+						<span class="read-more-item-dim">next article&gt;&gt;</span>
+						<h3>
+							<a href="index.html">Table of Contents</a>
+						</h3>
+					</div>
+				</section>
 
-        <section class="footer">
-          <span class="footer__copyright"
-            >2021-5-31 Jennifer. All rights reserved.</span
-          >
-          <span class="footer__copyright"
-            >Contact Email: Jenniferyao1996#hotmail.com</span
-          >
-        </section>
-      </div>
-      <span id="backToTop">
-        <i class="fa fa-arrow-up"></i>
-      </span>
-    </main>
-    <script src="main.js"></script>
-  </body>
+				<section class="footer">
+					<span class="footer__copyright"
+						>2021-5-31 Jennifer. All rights reserved.</span
+					>
+					<span class="footer__copyright"
+						>Contact Email: Jenniferyao1996#hotmail.com</span
+					>
+				</section>
+			</div>
+			<span id="backToTop">
+				<i class="fa fa-arrow-up"></i>
+			</span>
+		</main>
+		<script src="main.js"></script>
+	</body>
 </html>

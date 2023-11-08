@@ -1,180 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PWA in Angular</title>
-    <meta
-      name="description"
-      content="angular pwa progressive web application deployment add to screen"
-    />
-    <meta name="author" content="Jennifer" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link rel="icon" href="/assets/images/favicon.ico" />
-    <link rel="stylesheet" href="assets/css/normalize.css" />
-    <link rel="stylesheet" href="assets/css/index.css" />
-  </head>
-  <body>
-    <!--  for not index.html -->
-    <nav class="nav collapsible">
-      <span
-        ><a href="/#angular" class="white">Jennifer - Full Stack Developer</a>
-      </span>
-      <span class="nav_toggler" style="outline: none !important"
-        ><i class="fa fa-list white icon-bigger"></i
-      ></span>
-      <ul class="nav_list collapsible_content">
-        <li>
-          <ul class="nav_social" role="nav_social">
-            <li>
-              <a href="https://github.com/cxxyao2" target="_blank"
-                ><i class="fa fa-github white icon-biggest"></i
-              ></a>
-            </li>
-            <li>
-              <a href="https://twitter.com/jenniferyao1996" target="_blank"
-                ><i class="fa fa-twitter white icon-biggest"></i
-              ></a>
-            </li>
-            <li>
-              <a href="mailto:jenniferyao1996@qq.com" target="_blank"
-                ><i class="fa fa-envelope white icon-biggest"></i
-              ></a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav_item"><a href="/#angular">Angular</a></li>
-        <li class="nav_item"><a href="/#react">React</a></li>
-        <li class="nav_item"><a href="/#webpack">Webpack</a></li>
-        <li class="nav_item"><a href="/#database">Database</a></li>
-      </ul>
-    </nav>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>PWA in Angular</title>
+		<meta
+			name="description"
+			content="angular pwa progressive web application deployment add to screen" />
+		<meta name="author" content="Jennifer" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+			rel="stylesheet" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+		<link rel="icon" href="/assets/images/favicon.ico" />
+		<link rel="stylesheet" href="assets/css/normalize.css" />
+		<link rel="stylesheet" href="assets/css/index.css" />
+	</head>
+	<body>
+		<!--  for not index.html -->
+		<nav class="nav collapsible">
+			<span
+				><a href="/#angular" class="white">Jennifer - Full Stack Developer</a>
+			</span>
+			<span class="nav_toggler" style="outline: none !important"
+				><i class="fa fa-list white icon-bigger"></i
+			></span>
+			<ul class="nav_list collapsible_content">
+				<li>
+					<ul class="nav_social" role="nav_social">
+						<li>
+							<a href="https://github.com/cxxyao2" target="_blank"
+								><i class="fa fa-github white icon-biggest"></i
+							></a>
+						</li>
+						<li>
+							<a href="https://twitter.com/jenniferyao1996" target="_blank"
+								><i class="fa fa-twitter white icon-biggest"></i
+							></a>
+						</li>
+						<li>
+							<a href="mailto:jenniferyao1996@qq.com" target="_blank"
+								><i class="fa fa-envelope white icon-biggest"></i
+							></a>
+						</li>
+					</ul>
+				</li>
+				<li class="nav_item"><a href="/#angular">Angular</a></li>
+				<li class="nav_item"><a href="/#react">React</a></li>
+				<li class="nav_item"><a href="/#webpack">Webpack</a></li>
+				<li class="nav_item"><a href="/#database">Database</a></li>
+			</ul>
+		</nav>
 
-    <!--  for not index.html -->
-    <aside class="sidebar">
-      <div class="sidebar_cover"></div>
-      <div class="sidebar_main">
-        <a href="#">
-          <img class="sidebar_logo" alt="Jennifer" src="assets/tree1.jpg" />
-        </a>
-        <h3>Jennifer</h3>
-        <span>Full Stack Developer</span>
-        <hr />
-        <p class="sidebar_description">
-          I am passionate about Front-end frameworks and databases.
-        </p>
-        <hr class="sidebar_divider" />
-        <p class="sidebar_tags">
-          <span class="sidebar_tag"
-            ><a href="/#angular"
-              ><img
-                src="assets/angular-icon.svg"
-                class="sidebar_icon"
-              />&nbsp;Angular</a
-            ></span
-          >
-          <span class="sidebar_tag"
-            ><a href="/#react" alt="react blogs"
-              ><img src="assets/react.svg" class="sidebar_icon" />&nbsp;React</a
-            ></span
-          >
-          <span class="sidebar_tag"
-            ><a href="/#webpack"
-              ><img
-                src="assets/webpack_logo.svg"
-                class="sidebar_icon"
-              />&nbsp;Webpack</a
-            ></span
-          >
-          <span class="sidebar_tag"
-            ><a href="/#database"
-              ><img
-                src="assets/mysql.png"
-                class="sidebar_icon"
-              />&nbsp;Database</a
-            ></span
-          >
-        </p>
-        <hr class="sidebar_divider" />
-        <div>
-          <ul class="navigation" role="navigation-social">
-            <li class="navigation_item">
-              <a href="https://github.com/cxxyao2" target="_blank"
-                ><i class="fa fa-github icon-bigger"></i
-              ></a>
-            </li>
-            <li class="navigation_item">
-              <a href="https://twitter.com/jenniferyao1996" target="_blank"
-                ><i class="fa fa-twitter icon-bigger"></i
-              ></a>
-            </li>
-            <li class="navigation_item">
-              <a href="mailto:jenniferyao1996@qq.com" target="_blank"
-                ><i class="fa fa-envelope icon-bigger"></i
-              ></a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </aside>
+		<!--  for not index.html -->
+		<aside class="sidebar">
+			<div class="sidebar_cover"></div>
+			<div class="sidebar_main">
+				<a href="#">
+					<img class="sidebar_logo" alt="Jennifer" src="assets/tree1.jpg" />
+				</a>
+				<h3>Jennifer</h3>
+				<span>Full Stack Developer</span>
+				<hr />
+				<p class="sidebar_description">
+					A liftlong learner. Keep learning, keep evoving in IT industry.
+				</p>
+				<hr class="sidebar_divider" />
+				<p class="sidebar_tags">
+					<span class="sidebar_tag"
+						><a href="/#angular"
+							><img
+								src="assets/angular-icon.svg"
+								class="sidebar_icon" />&nbsp;Angular</a
+						></span
+					>
+					<span class="sidebar_tag"
+						><a href="/#react" alt="react blogs"
+							><img src="assets/react.svg" class="sidebar_icon" />&nbsp;React</a
+						></span
+					>
+					<span class="sidebar_tag"
+						><a href="/#webpack"
+							><img
+								src="assets/webpack_logo.svg"
+								class="sidebar_icon" />&nbsp;Webpack</a
+						></span
+					>
+					<span class="sidebar_tag"
+						><a href="/#database"
+							><img src="assets/mysql.png" class="sidebar_icon" />Backend</a
+						></span
+					>
+				</p>
+				<hr class="sidebar_divider" />
+				<div>
+					<ul class="navigation" role="navigation-social">
+						<li class="navigation_item">
+							<a href="https://github.com/cxxyao2" target="_blank"
+								><i class="fa fa-github icon-bigger"></i
+							></a>
+						</li>
+						<li class="navigation_item">
+							<a href="https://twitter.com/jenniferyao1996" target="_blank"
+								><i class="fa fa-twitter icon-bigger"></i
+							></a>
+						</li>
+						<li class="navigation_item">
+							<a href="mailto:jenniferyao1996@qq.com" target="_blank"
+								><i class="fa fa-envelope icon-bigger"></i
+							></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</aside>
 
-    <main class="content_wrapper">
-      <div class="content">
-        <article class="post">
-          <header>
-            <span class="post_category"
-              ><label class="date">2021-5-1</label> Angular</span
-            >
-            <h2>PWA( Progressive Web App) in Angular</h2>
-          </header>
-          <section class="post_body">
-            <p>
-              Running an angular web app as a native app in mobile phone is
-              cool! In this blog, I will introduce how to achieve this step by
-              step.
-            </p>
-            <ul>
-              <li>Create an angular project using angular-cli</li>
-              <li>
-                Add a service work to this project
-                <pre>ng add @angular/pwa --project *project-name*</pre>
-              </li>
-              <li>
-                Install http-server package <strong>globally</strong> for
-                testing the PWA app in local computer
-                <pre>npm i -g http-serve</pre>
-              </li>
-              <li>
-                Build PWA app
-                <pre>ng build --prod</pre>
-              </li>
-              <li>
-                Test PWA app
-                <pre>http-server -p 8080 -c-1 dist/&lt;project-name&gt;</pre>
-              </li>
-              <li>
-                Add <code>Add to Home Screen</code> button in template file.
-                <pre>
+		<main class="content_wrapper">
+			<div class="content">
+				<article class="post">
+					<header>
+						<span class="post_category"
+							><label class="date">2021-5-1</label> Angular</span
+						>
+						<h2>PWA( Progressive Web App) in Angular</h2>
+					</header>
+					<section class="post_body">
+						<p>
+							Running an angular web app as a native app in mobile phone is
+							cool! In this blog, I will introduce how to achieve this step by
+							step.
+						</p>
+						<ul>
+							<li>Create an angular project using angular-cli</li>
+							<li>
+								Add a service work to this project
+								<pre>ng add @angular/pwa --project *project-name*</pre>
+							</li>
+							<li>
+								Install http-server package <strong>globally</strong> for
+								testing the PWA app in local computer
+								<pre>npm i -g http-serve</pre>
+							</li>
+							<li>
+								Build PWA app
+								<pre>ng build --prod</pre>
+							</li>
+							<li>
+								Test PWA app
+								<pre>http-server -p 8080 -c-1 dist/&lt;project-name&gt;</pre>
+							</li>
+							<li>
+								Add <code>Add to Home Screen</code> button in template file.
+								<pre>
 // app.component.html
-  
+
 &lt;button *ngIf="showButton" (click)="addToHomeScreen()"&gt;
     add to home screen
-&lt;/button&gt; 
+&lt;/button&gt;
 </pre
-                >
+								>
 
-                Add listener <code>window:beforeinstallprompt</code> in
-                component.ts
-                <pre>
-// app.component.ts 
+								Add listener <code>window:beforeinstallprompt</code> in
+								component.ts
+								<pre>
+// app.component.ts
 
 import { Component, HostListener } from '@angular/core';
 
@@ -231,62 +223,61 @@ export class AppComponent implements OnInit {
   }
 }
             </pre
-                >
-                <p>Notify user if there is a newer version in server</p>
-                <img
-                  src="assets/pwa/version_change.png"
-                  alt="pwa version change alert"
-                />
-              </li>
-              <li>
-                Deploy this angular app on a cloud platform. I deployed my first
-                PWA app on github.
-              </li>
-              <li>
-                Visit the PWA website through the browser in the mobile phone.
-                Add the app to the mobile screen. Attention: Not all mobiles
-                support PWA. If your PWA app icon does not show on the mobile
-                screen, you should try to install it on another mobile.
-                <img src="assets/pwa/pwa1.png" alt="deploy pwa" />
-                <img src="assets/pwa/pwa2.png" alt="add pwa to mobile screen" />
-              </li>
-              <li>
-                Source code is hosted on github
-                <a href="https://github.com/cxxyao2/ng-pwa" alt="source code"
-                  >ng-pwa</a
-                >
-              </li>
-            </ul>
-          </section>
-        </article>
-        <section class="read-more">
-          <div class="read-more_item">
-            <span class="read-more-item-dim">&lt;&lt;previous article</span>
-            <h3>
-              <a href="angular_crud_and_authentication_firebase.html"
-                >CRUD and Authentication in Firebase</a
-              >
-            </h3>
-          </div>
-          <div class="read-more_item">
-            <span class="read-more-item-dim">next article&gt;&gt;</span>
-            <h3><a href="angular_rxjs.html">RxJS</a></h3>
-          </div>
-        </section>
+								>
+								<p>Notify user if there is a newer version in server</p>
+								<img
+									src="assets/pwa/version_change.png"
+									alt="pwa version change alert" />
+							</li>
+							<li>
+								Deploy this angular app on a cloud platform. I deployed my first
+								PWA app on github.
+							</li>
+							<li>
+								Visit the PWA website through the browser in the mobile phone.
+								Add the app to the mobile screen. Attention: Not all mobiles
+								support PWA. If your PWA app icon does not show on the mobile
+								screen, you should try to install it on another mobile.
+								<img src="assets/pwa/pwa1.png" alt="deploy pwa" />
+								<img src="assets/pwa/pwa2.png" alt="add pwa to mobile screen" />
+							</li>
+							<li>
+								Source code is hosted on github
+								<a href="https://github.com/cxxyao2/ng-pwa" alt="source code"
+									>ng-pwa</a
+								>
+							</li>
+						</ul>
+					</section>
+				</article>
+				<section class="read-more">
+					<div class="read-more_item">
+						<span class="read-more-item-dim">&lt;&lt;previous article</span>
+						<h3>
+							<a href="angular_crud_and_authentication_firebase.html"
+								>CRUD and Authentication in Firebase</a
+							>
+						</h3>
+					</div>
+					<div class="read-more_item">
+						<span class="read-more-item-dim">next article&gt;&gt;</span>
+						<h3><a href="angular_rxjs.html">RxJS</a></h3>
+					</div>
+				</section>
 
-        <section class="footer">
-          <span class="footer__copyright"
-            >2021-5-31 Jennifer. All rights reserved.</span
-          >
-          <span class="footer__copyright"
-            >Contact Email: Jenniferyao1996#hotmail.com</span
-          >
-        </section>
-      </div>
-      <span id="backToTop">
-        <i class="fa fa-arrow-up"></i>
-      </span>
-    </main>
-    <script src="main.js"></script>
-  </body>
+				<section class="footer">
+					<span class="footer__copyright"
+						>2021-5-31 Jennifer. All rights reserved.</span
+					>
+					<span class="footer__copyright"
+						>Contact Email: Jenniferyao1996#hotmail.com</span
+					>
+				</section>
+			</div>
+			<span id="backToTop">
+				<i class="fa fa-arrow-up"></i>
+			</span>
+		</main>
+		<script src="main.js"></script>
+	</body>
 </html>

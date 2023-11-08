@@ -66,7 +66,7 @@
         <span>Full Stack Developer</span>
         <hr />
         <p class="sidebar_description">
-          I am passionate about Front-end frameworks and databases.
+         A liftlong learner. Keep learning, keep evoving in IT industry.
         </p>
         <hr class="sidebar_divider" />
         <p class="sidebar_tags">
@@ -96,7 +96,7 @@
               ><img
                 src="assets/mysql.png"
                 class="sidebar_icon"
-              />&nbsp;Database</a
+              />Backend</a
             ></span
           >
         </p>
@@ -145,11 +145,11 @@ export const fetchTopics = createAsyncThunk('topics/fetching',async()=>{
   return response.data
 })
                   </pre>
-                  Second, 
+                  Second,
                   <pre>
 interface TopicsState{
   status:'idle' | 'loading' | 'succeeded' |'failed'
-  error: string | null |undefined 
+  error: string | null |undefined
   data: Topic[]
 }
 
@@ -161,7 +161,7 @@ const initialState: TopicsState = {
 
 export const Topics = createSlice({
   name:'Topics',
-  initialState, 
+  initialState,
   reducers:{...},
   extraReducers: (builder)=&gt; {
     builder.addCase(fetchTopics.pending, (state:TopicsState) =&gt;{
@@ -177,7 +177,7 @@ export const Topics = createSlice({
               </li>
               <li>
                 Why should use reselect?
-                <p>In the below example, I get a status property in two ways: 
+                <p>In the below example, I get a status property in two ways:
                 StatusSelector will be called when any
                 change happens in root state. On contrary, memoizedStatusSelector is only
                 called when the books entity's status changes.
@@ -185,10 +185,10 @@ export const Topics = createSlice({
                 <pre>
 import {createSelector} fro '@reduxjs/tookit'
 ...
-export const statusSelector = (state:RootState)=>state.books.status 
+export const statusSelector = (state:RootState)=>state.books.status
 export const memoizedStatusSelector = createSelector(
-  (state:RootState)=>state.books.status, 
-  (status)=>status 
+  (state:RootState)=>state.books.status,
+  (status)=>status
 )
 
                 </pre>
@@ -206,7 +206,7 @@ npx create-react-app my-react-project  --template cra-template-pwa-typescript
                     </pre>
                   </li>
                     <li><span style="color:red;">Attention</span> to downsides of PWA: Updates will not be reflected on apps immediately. Users need click the fresh button to update apps when notification appears.</li>
-            
+
                 </ul>
               </li>
             </ol>

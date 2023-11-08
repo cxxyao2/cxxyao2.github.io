@@ -68,7 +68,7 @@
         <span>Full Stack Developer</span>
         <hr />
         <p class="sidebar_description">
-          I am passionate about Front-end frameworks and databases.
+         A liftlong learner. Keep learning, keep evoving in IT industry.
         </p>
         <hr class="sidebar_divider" />
         <p class="sidebar_tags">
@@ -94,7 +94,7 @@
             ><a  href="/#database" ><img
               src="assets/mysql.png"
               class="sidebar_icon"
-            />&nbsp;Database</a></span
+            />Backend</a></span
           >
         </p>
         <hr class="sidebar_divider" />
@@ -138,7 +138,7 @@
               lose all the states of the page, while routeLink will introduce to
               navigate to other components in the same page.
               <hr class="divider"/>
-              Internationalization (i18n) is the process of designing and preparing your app to be 
+              Internationalization (i18n) is the process of designing and preparing your app to be
               usable in different locales around the world. &nbsp;Localization is the process of building versions
                of your app for different locales, including extracting text for translation into different languages,
                 and formatting data for particular locales.
@@ -156,7 +156,7 @@
               </li>
               <li>Configure app-routing.module.ts as normal.&nbsp;
                   <img src="assets/ngi18/routing1.png" alt="routing image" />
-                  Configure navigation bar. For navigating between components, configuration like ①. For changing to  different locale, e.g. 
+                  Configure navigation bar. For navigating between components, configuration like ①. For changing to  different locale, e.g.
                   from /en/index.html to /fr/index.html, configure like ②.
                   <img src="assets/ngi18/routing2.png" alt="routing image" />
                   <img src="assets/ngi18/routing3.jpeg" alt="routing image" />
@@ -167,7 +167,7 @@
               <li>Mark the static text messages in your component templates for
                   translation using the i18n attribute, e.g.
                   <code>&lt;h1 i18n&gt;Welcome&lt;/h1 i18n&gt;</code>
-                
+
               </li>
               <li>
                   Extract the source language file messages.xls.&nbsp;I changed
@@ -179,7 +179,7 @@
                   German. Translate each translation file.&nbsp;( I skip the
                   details about translation.)
                   <img src="assets/ngi18/translate1.png" alt="language files" />
-                
+
               </li>
               <li>Define locales in the build configuration.&nbsp;Configure
                   angular.json.<br /><strong>sourceLocale:</strong> The locale
@@ -198,25 +198,25 @@
                     src="assets/ngi18/json2.png"
                     alt="locale configuration"
                   />
-                
+
                  Specify build configuration for each locale.&nbsp;
                   <img src="assets/ngi18/json3.png" alt="build configuration"
                   />
-                
-                
+
+
                   Apply specific build options for just one locale.
                   <br /><code>ng serve --configuration=fr</code> <br />
                   or <br /><code>ng build --configuration=production,fr</code
                   >
-                
+
               </li>
               <li>
-                
+
                   Pass this configuration to the ng serve or ng build commands.
                   Generate app versions for all locales.<br />
                   <code>ng build --prod --localize </code>
                   <img src="assets/ngi18/build1.png" alt="angular.json" />
-                
+
               </li>
               <li>
               Configure firebase.json. This step needs some trick. We configure hosting -> rewrites -> source and destination  for every locale.
@@ -235,7 +235,7 @@ firebase init.  (Please answer "N" to all questions)
 firebase deploy </pre>
               </li>
             </ol>
-            
+
               Now, we could admire the result with a cup of coffer<i class="fa fa-coffee icon-bigger"></i>.&nbsp; <a href="https://angulari18a.web.app/fr/home">Here!</a>
               Deployment is more easy than you think, non?
               <img   src="assets/ngi18/i181.png" alt="firebase screenshot" />
@@ -243,9 +243,9 @@ firebase deploy </pre>
               <img   src="assets/ngi18/i183.png" alt="firebase screenshot" />
               <img   src="assets/ngi18/i184.png" alt="firebase screenshot" />
               <img   src="assets/ngi18/i185.png" alt="firebase screenshot" />
-            
+
            <p><i class="fa fa-arrow-right"></i>source code hosted on github
-          <a href="https://github.com/cxxyao2/ngi18" 
+          <a href="https://github.com/cxxyao2/ngi18"
             >routed localized angular</a
           ></p>
           <p><strong>Extension:&nbsp;</strong>
@@ -286,7 +286,7 @@ router.get("/", async (req, res) => {
 });</pre>
            </li>
           </ol>
-          
+
           </section>
         </article>
         <section class="read-more">
@@ -297,7 +297,7 @@ router.get("/", async (req, res) => {
           <div class="read-more_item">
             <span class="read-more-item-dim">next article&gt;&gt;</span>
             <h3><a href="angular_server_side_render_deploy.html">Deploy Server Side Rendering with Angular Universal and Firebase Functions </a></h3>
-         
+
           </div>
         </section>
 

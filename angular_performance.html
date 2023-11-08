@@ -69,7 +69,7 @@
         <span>Full Stack Developer</span>
         <hr />
         <p class="sidebar_description">
-          I am passionate about Front-end frameworks and databases.
+         A liftlong learner. Keep learning, keep evoving in IT industry.
         </p>
         <hr class="sidebar_divider" />
         <p class="sidebar_tags">
@@ -99,7 +99,7 @@
               ><img
                 src="assets/mysql.png"
                 class="sidebar_icon"
-              />&nbsp;Database</a
+              />Backend</a
             ></span
           >
         </p>
@@ -136,11 +136,11 @@
             <h2>How to Improve Front-end Performance</h2>
           </header>
           <section class="post_body">
-            <div class="alert is-helpful">In this blog , I focus on 
-               "angular performance". No matter what Web framework we use, 
+            <div class="alert is-helpful">In this blog , I focus on
+               "angular performance". No matter what Web framework we use,
               the performance problems we face and the solutions we offer are almost the same.</div>
             <p>
-              Speed and stability are required by all 
+              Speed and stability are required by all
               apps and websites.&nbsp; For delivering excellent web experiences for large
               audiences,&nbsp;we should try to :
               </ul>
@@ -165,7 +165,7 @@
               </li>
               <li>*ngFor + TrackBy</li>
               <li>Unsubscribe from Observables</li>
-               <li class="collapsible">Optimize the size of images on your website.Offer responsive images. 
+               <li class="collapsible">Optimize the size of images on your website.Offer responsive images.
                  <div >
                   <pre>
 &lt;img sizes="(min-width: 1200px) 730w,
@@ -188,7 +188,7 @@
              /img/blog/responsive-images-sm@2x.png 350w 2x"
      src="/img/blog/reponsive-images.png"
      alt="responsive images"&gt;
-                 </pre> 
+                 </pre>
 
                 <pre>
 &lt;picture&gt;
@@ -206,13 +206,13 @@
           </div>
              <h3>2, Reduce the rendering time </h3>
              <div class="alert is-helpful">It's commonly accepted that 60 frames per second is the rate at which
-                animations will appear smooth. For a rate of 60 frames per second, 
+                animations will appear smooth. For a rate of 60 frames per second,
                 the browser has 16.7 milliseconds to execute scripts,
                 recalculate styles and layout if needed, and repaint the area being updated.
                 <div class="divider_transparent"></div>
                 <span class="fw-600">Repaint</span> effects the visibility of an element but doe
                 s not affects layout. &nbsp;
-                <span class="fw-600">Reflow</span> means re-calculating the positions and geometries of elements in  
+                <span class="fw-600">Reflow</span> means re-calculating the positions and geometries of elements in
                   the document, for the purpose of re-rendering part or all of the document.</div>
              <ul>
               <li>preloading modules</li>
@@ -231,7 +231,7 @@
                     <li>change font-size</li>
                     <li>use table layout</li>
                     <li>activate CSS pseudo-classes,e.g. :hover</li>
-                    <li>query some properties or call some methods. 
+                    <li>query some properties or call some methods.
                       <pre>
 → clientWidth、clientHeight、clientTop、clientLeft
 → offsetWidth、offsetHeight、offsetTop、offsetLeft
@@ -261,15 +261,15 @@
             </ol>
                </li>
                <li > Eliminate render-blocking resources
-                <div class="alert is-helpful">HTML markup is transformed into a Document Object Model (DOM); CSS markup is transformed into a CSS Object Model (CSSOM). 
+                <div class="alert is-helpful">HTML markup is transformed into a Document Object Model (DOM); CSS markup is transformed into a CSS Object Model (CSSOM).
                   DOM and CSSOM are independent data structures;the CSSOM and DOM trees are combined into a render tree </div>
-                 JavaScript code block all constructing and rendering,&nbsp;CSS block a part of them <ul> 
+                 JavaScript code block all constructing and rendering,&nbsp;CSS block a part of them <ul>
                     <li>Javascript block DOM and CSSOM constructing,&nbsp;then
-                       block render-tree constructing and block download of static files, e.g. images. 
-                       We should put the script tag just before body , if not, put them in head portion with  "defer" or "async" attribute 
+                       block render-tree constructing and block download of static files, e.g. images.
+                       We should put the script tag just before body , if not, put them in head portion with  "defer" or "async" attribute
                       <pre>
 // a .html file
-//  async and defer attributes should put in head portion of the page. 
+//  async and defer attributes should put in head portion of the page.
 //  they are useless if you put the script in the body footer.
 
 // When a page loads a script with defer,
@@ -279,23 +279,23 @@
 // The script is fetched asynchronously, and when it’s ready the HTML parsing is paused to execute the script,
 // then it’s resumed.
 
-&lt;head&gt; 
+&lt;head&gt;
 <!-- async attribute -->
 
   &lt;script defer src="some.js"&gt;&lt;/script&gt;
   &lt;script async src="some.js"&gt;&lt;/script&gt;
-  &lt;/head&gt; 
+  &lt;/head&gt;
 &lt;body&gt;
-  ... 
-  ... 
+  ...
+  ...
   &lt;script src="some.js"&gt;&lt;/script&gt;
 &lt;/body&gt;
-      </pre> 
+      </pre>
                     </li>
-                    <li>CSS files block neither  HTML files parsing or DOM constructing. 
-                      They block CSSOM constructing, then block the render-tree constructing. 
+                    <li>CSS files block neither  HTML files parsing or DOM constructing.
+                      They block CSSOM constructing, then block the render-tree constructing.
                       We can put CSS link in head. <pre>
- // some.html 
+ // some.html
 &lt;html>
    &lt;head&gt;
    &lt;link
@@ -306,18 +306,18 @@
    &lt;body&gt;
 
    &lt;/body&gt;
- &lt;/html&gt;                       
+ &lt;/html&gt;
                       </pre> </li>
                   <li>CSS files don't block others files executing. They block Javascript files executing.</li>
                   </ul>
                </li>
              </ul>
-             
-            
+
+
             <h3>Conclusion:</h3>
             <ul>
               <li>reduce network traffic</li>
-              <li>reduce rendering time</li>              
+              <li>reduce rendering time</li>
             </ul>
             Reference: <a href="https://flaviocopes.com/javascript-async-defer/#async-and-defer" alt="async defer" target="_blank" rel="noopener noreferrer">https://flaviocopes.com/javascript-async-defer/#async-and-defer</a>
           </section>

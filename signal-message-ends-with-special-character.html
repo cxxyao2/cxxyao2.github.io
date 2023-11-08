@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Front-end Security</title>
+		<title>SignalR in Postman</title>
 		<meta name="description" content="security backend" />
 		<meta name="author" content="Jennifer" />
 		<link
@@ -64,7 +64,7 @@
 				<span>Full Stack Developer</span>
 				<hr />
 				<p class="sidebar_description">
-					A liftlong learner. Keep learning, keep evoving in IT industry.
+					Lifelong learner. Learn and share the knowledge.
 				</p>
 				<hr class="sidebar_divider" />
 				<p class="sidebar_tags">
@@ -121,17 +121,56 @@
 				<article class="post">
 					<header>
 						<span class="post_category"
-							><label class="date">2021-5-1</label> Angular</span
+							><label class="date">2023-11-01</label>C#</span
 						>
-						<h2>Improve Backend Security</h2>
+						<h2>Test SignalR in Postman</h2>
 					</header>
 					<section class="post_body">
 						<ol>
-							<li>SQL Injection Attack</li>
-							<li>DDOS Attack</li>
-							<li>...</li>
+							I use Microsfot.AspNetCore.SignalR.Client 7.0.7 and .NET 7 to
+							implement a Real-time Chat App. I want to test the SignalR in
+							Postman. I found a good article
+							<a
+								href="https://wadehuang36.medium.com/connect-signalr-apis-with-postman-dce2b0f59c2a"
+								><i
+									class="fa fa-hand-o-right icon-biggest"
+									aria-hidden="true"></i
+								>here</a
+							>. I followed the steps and it worked as expected.
 						</ol>
-						<p>coming soon...</p>
+						<hr />
+						<ol>
+							<li>
+								Postman supports WebSocket protocol. You can use Postman to test
+								WebSocket APIs.
+							</li>
+
+							<li>
+								The below image show how to connect to a SignalR API using
+								Postman. Click 'new' button, then select 'WebSock' in the pop-up
+								window.
+								<img src="assets/signalr/postman1.png" alt="signalr-postman" />
+							</li>
+							<li>
+								This below message is telling SignalR server which message
+								format for the communication and every message needs to have a
+								<b>0x1E/U+001E</b> character at the end of the message which is
+								unseeable character and hard to type.
+								<pre>
+{"protocol":"json","version":1}
+								</pre
+								>
+								If Connection is successful, you will get a response from server
+								like this in the red box.:
+								<img src="assets/signalr/postman2.png" alt="signalr-postman" />
+							</li>
+						</ol>
+
+						<hr />
+						<p>
+							In conclusion: The message sent from client to SignalR server
+							should end with an unseeable special character.
+						</p>
 					</section>
 				</article>
 				<section class="read-more">

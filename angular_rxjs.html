@@ -69,7 +69,7 @@
         <span>Full Stack Developer</span>
         <hr />
         <p class="sidebar_description">
-          I am passionate about Front-end frameworks and databases.
+         A liftlong learner. Keep learning, keep evoving in IT industry.
         </p>
         <hr class="sidebar_divider" />
         <p class="sidebar_tags">
@@ -99,7 +99,7 @@
               ><img
                 src="assets/mysql.png"
                 class="sidebar_icon"
-              />&nbsp;Database</a
+              />Backend</a
             ></span
           >
         </p>
@@ -159,7 +159,7 @@ sub.next(2);
 sub.subscribe(console.log); // output => 1,2
 sub.next(3);
 sub.next(4);
-sub.subscribe(console.log); // output => 2,3,4                        
+sub.subscribe(console.log); // output => 2,3,4
                       </pre>
                     </li>
                 </ul>
@@ -168,7 +168,7 @@ sub.subscribe(console.log); // output => 2,3,4
                 Maps
                 <ol>
                   <li>map</li>
-                  <li>SwitchMap 
+                  <li>SwitchMap
                     <ul>
                       <li>It is a flattening operator. It maps an Observable to a new Observable and emit values. </li>
                       <li>It can cancel in-flight network requests</li>
@@ -186,7 +186,7 @@ sub.subscribe(console.log); // output => 2,3,4
                 filter(input => input !== ""),
                 switchMap(data => this.rxjsSearchableInputService.searchUser(data))
             )
-}                     
+}
                     </pre>
                   </li>
                   <li>differences between SwitchMap,mergeMap,ConcatMap,exhaustMap
@@ -228,7 +228,7 @@ const subscribe = example.subscribe(val => console.log(val)) ;
 // output: Hello World
                     </pre>
                   </li>
-           
+
                 </ol>
               </li>
               <li>merge
@@ -236,23 +236,23 @@ const subscribe = example.subscribe(val => console.log(val)) ;
                 <pre>
 const first = interval(2500) ;
 const second= interval(2500);
-const example = merge( 
+const example = merge(
 first.pipe( mapTo(‘first’),
 second.pipe( mapTo(‘second’)
 );
 // output:  second, first
-const subscribe = example.subscribe(example); ..                  
+const subscribe = example.subscribe(example); ..
                 </pre>
               </li>
               <li>skip, timer, interval</li>
               <li>shareReply
                 <div>share and replay values for later subscribers</div>
                 <pre>
-const route = new Subject&lt;string&gt;();           
+const route = new Subject&lt;string&gt;();
 const lastUrl = route.pipe(shareReplay(1));
 
-// requires initial subscription 
-const initialSubscriber = lastUrl.subscribe(console.log); 
+// requires initial subscription
+const initialSubscriber = lastUrl.subscribe(console.log);
 route.next('my path');
 
 const lastSubscriber = lastUrl.subscribe(console.log); // output => my path
@@ -316,7 +316,7 @@ export class NotificationService {
   }
 }
 
-                </pre> 
+                </pre>
               <pre>
 // notification.component.ts
 import { Component, OnInit } from '@angular/core';
@@ -358,10 +358,10 @@ export class NotificationComponent implements OnInit {
   getNotifications() {
     return this.notService.users.pipe(skip(1));
   }
-}                
+}
               </pre>
               <pre>
-// notification.component.html     
+// notification.component.html
 
 &lt;div class="container" style="margin-top: 30px; width: 40%"&gt;
   &lt;div class="row justify-content-md-center" *ngIf="showNotification$ | async"&gt;
@@ -393,9 +393,9 @@ export class NotificationComponent implements OnInit {
 &lt;/div&gt;
 
               </pre>
-              
+
               </li>
-            
+
               <li>source code is hosted on github&nbsp;<a href="https://github.com/cxxyao2/rxjs/tree/master/src/app/notification" alt="RxJS notification">RxJS notification</a></li>
             </ul>
           </section>

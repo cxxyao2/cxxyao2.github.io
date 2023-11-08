@@ -69,7 +69,7 @@
         <span>Full Stack Developer</span>
         <hr />
         <p class="sidebar_description">
-          I am passionate about Front-end frameworks and databases.
+         A liftlong learner. Keep learning, keep evoving in IT industry.
         </p>
         <hr class="sidebar_divider" />
         <p class="sidebar_tags">
@@ -99,7 +99,7 @@
               ><img
                 src="assets/mysql.png"
                 class="sidebar_icon"
-              />&nbsp;Database</a
+              />Backend</a
             ></span
           >
         </p>
@@ -176,7 +176,7 @@
               <div style="position:relative;">
                 <hr class="divider" id="divider_hooks"/>
               </div>
-            
+
               <ol>
               <li class="collapsible">
                 ngOnChanges &nbsp;<i
@@ -238,7 +238,7 @@ ngDoCheck() {
     this.changeLog.push(`DoCheck: Hero name changed to "${this.hero.name}" from "${this.oldHeroName}"`);
     this.oldHeroName = this.hero.name;
   }
-  ... 
+  ...
 }
                   </pre>
                 </ul>
@@ -311,7 +311,7 @@ ngDoCheck() {
 template: `
   &lt;div&gt;child view begins&lt;/div&gt;
     &lt;app-child-view&gt;&lt;/app-child-view&gt;
-  &lt;div&gt;child view ends&lt;/div&gt;`                      
+  &lt;div&gt;child view ends&lt;/div&gt;`
                     </pre>
                   </li>
                   <li>
@@ -369,24 +369,24 @@ template: `
                 Reference: <a href="https://limeii.github.io/2019/06/angular-unidirectional-data-flow/" target="_blank" rel="noopener noreferrer">https://limeii.github.io/2019/06/angular-unidirectional-data-flow/</a>
               </li>
               </ul> </ol>
-             
+
               <h3>change detection strategy</h3>
                 <div class="alert is-helpful"> Component's data change is generally caused by :
-  
+
                     DOM event: click、submit、mouse down……
                     <hr class="divider_transparent" />
                     XHR：get data from back-end server
                     <hr class="divider_transparent" />
                     Timers：setTimeout()、setInterval()
-                </div> 
+                </div>
                 <ul >
-                <li>by default, <code>changeDetection: ChangeDetectionStrategy.Default </code>. For reducing change detection of itself and its children, 
+                <li>by default, <code>changeDetection: ChangeDetectionStrategy.Default </code>. For reducing change detection of itself and its children,
 <pre>
 @Component({
     selector: ...,
     template: ...,
     changeDetection: ChangeDetectionStrategy.OnPush
-})                  
+})
                 </pre>
                 </li>
                 <li>Even if <code> ChangeDetectionStrategy.OnPush</code> is set , in the following cases the component's change detection will be triggered

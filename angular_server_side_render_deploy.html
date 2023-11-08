@@ -68,7 +68,7 @@
         <span>Full Stack Developer</span>
         <hr />
         <p class="sidebar_description">
-          I am passionate about Front-end frameworks and databases.
+         A liftlong learner. Keep learning, keep evoving in IT industry.
         </p>
         <hr class="sidebar_divider" />
         <p class="sidebar_tags">
@@ -98,7 +98,7 @@
               ><img
                 src="assets/mysql.png"
                 class="sidebar_icon"
-              />&nbsp;Database</a
+              />Backend</a
             ></span
           >
         </p>
@@ -209,10 +209,10 @@ export class AppShellNoRenderDirective implements OnInit {
 
     }
 
-}                    
+}
                  </pre>
                  <pre>
-// render  directive 
+// render  directive
  ngOnInit() {
         if (isPlatformServer(this.platformId)) {
             this.viewContainer.createEmbeddedView(this.templateRef);
@@ -221,15 +221,15 @@ export class AppShellNoRenderDirective implements OnInit {
             this.viewContainer.clear();
         }
 
-    }               
+    }
                  </pre>
                  <pre>
-// directive in template        
+// directive in template
 &lt;div class="spinner-container" *appShellNoRender&gt;
     &lt;div *ngFor="let item of xx"&gt;
       &lt;h1&gt;{{ item }}&lt;/h1&gt;
     &lt;/div&gt;
-  &lt;/div&gt;      
+  &lt;/div&gt;
                  </pre>
                </li>
                <li>Add resolver to preload data for better user experience. Avoid duplicate fetching data using makeStateKey ,TransferState and PLATFORM_ID
@@ -286,27 +286,27 @@ $npm run dev:ssr
                </li>
                 <li>If test result is ok, build the application
                  <pre>
-$npm run build:ssr                  
+$npm run build:ssr
                  </pre> </li>
                <li>Angular Universal allows you to prerender the pages of your application. Providing additional routes using a file
                  <pre>
-$ng run [my-app-name]:prerender --routes-file routes.txt                  
+$ng run [my-app-name]:prerender --routes-file routes.txt
                  </pre>
                  <img src="assets/ng-server-side-render/p3.png" alt="prerender command line" />
                  <img src="assets/ng-server-side-render/p4.png" alt="prerender folder" />
                </li>
-               <li>Modify server.ts under the root folder where tsconfig.json file is located. Change <code>dist/my-app-name/browser</code>to<code>dist/functions/browser</code> and add websiteFileLocation, because in production environment there is highly  possibly no "dist/functions/browser" folder. 
+               <li>Modify server.ts under the root folder where tsconfig.json file is located. Change <code>dist/my-app-name/browser</code>to<code>dist/functions/browser</code> and add websiteFileLocation, because in production environment there is highly  possibly no "dist/functions/browser" folder.
               <img src="assets/ng-server-side-render/p5.png" alt="server.ts" />
               </li>
                <li> Initialize the app for deployment on firebase.&nbsp;Choose ●Functions：Configure and deploy Cloud Functions and  ●
 Hosting: Configure and deploy Firebase Hosting sites
                  <pre>
-$firebase init                    
+$firebase init
                  </pre>
                   <img src="assets/ng-server-side-render/p6.png" alt="firebase init" />
                    <img src="assets/ng-server-side-render/p7.png" alt="firebase init" />
                </li>
-               <li>Copy dependencies in src/package.json  to dist/functions/package.json. Under dist/functions folder, run 
+               <li>Copy dependencies in src/package.json  to dist/functions/package.json. Under dist/functions folder, run
                  <code>$npm i</code></li>
                <li>Modify index.js under dist/functions. Attention to function name of exports object, we will use the function name in dist/functions/firebase.json
                   <img src="assets/ng-server-side-render/p8.png" alt="firebase exports" />
@@ -334,7 +334,7 @@ $firebase init
               <li>My deployment is:<a href="https://ngfirebase-478e1.web.app/" alt="deployment website">https://ngfirebase-478e1.web.app/</a>
                <img src="assets/ng-server-side-render/p15.png" alt="ssr " />
               </li>
-             </ol>  
+             </ol>
             <h3>Reference to:</h3>
             <ul>
               <li>Video from Youtube Channel Codeible:&nbsp;&nbsp;<a href="https://www.youtube.com/watch?v=k7pLxaKkHYs">https://www.youtube.com/watch?v=k7pLxaKkHYs</a></li>
