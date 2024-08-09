@@ -1,3 +1,3 @@
 # personal technical homepage 
-- website: https://cxxyao2.github.io
+- [Jennifer Personal Website](https://cxxyao2.github.io/Personal-Website/)
 - focus on angular, react, c#, database, Typescript
