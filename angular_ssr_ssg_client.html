@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>SSR,SSG and Client-side Rendering in Angular&nbsp;19</title>
+	<meta name="description" content="unsubscribe HTTP RxJS  Angular " />
+	<meta name="author" content="Jennifer" />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link rel="icon" href="/assets/images/favicon.ico" />
+	<link rel="stylesheet" href="assets/css/normalize.css" />
+	<link rel="stylesheet" href="assets/css/index.css" />
+</head>
+
+<body>
+	<!--  for not index.html -->
+	<nav class="nav collapsible">
+		<span><a href="/#angular" class="white">Jennifer - Full Stack Developer</a>
+		</span>
+		<span class="nav_toggler" style="outline: none !important"><i class="fa fa-list white icon-bigger"></i></span>
+		<ul class="nav_list collapsible_content">
+			<li>
+				<ul class="nav_social" role="nav_social">
+					<li>
+						<a href="https://github.com/cxxyao2" target="_blank"><i
+								class="fa fa-github white icon-biggest"></i></a>
+					</li>
+					<li>
+						<a href="https://twitter.com/jenniferyao1996" target="_blank"><i
+								class="fa fa-twitter white icon-biggest"></i></a>
+					</li>
+					<li>
+						<a href="mailto:jenniferyao1996@qq.com" target="_blank"><i
+								class="fa fa-envelope white icon-biggest"></i></a>
+					</li>
+				</ul>
+			</li>
+			<li class="nav_item"><a href="/#angular">Angular</a></li>
+			<li class="nav_item"><a href="/#react">React</a></li>
+			<li class="nav_item"><a href="/#webpack">Webpack</a></li>
+			<li class="nav_item"><a href="/#database">Database</a></li>
+		</ul>
+	</nav>
+
+	<!--  for not index.html -->
+	<aside class="sidebar">
+		<div class="sidebar_cover"></div>
+		<div class="sidebar_main">
+			<a href="#">
+				<img class="sidebar_logo" alt="Jennifer" src="assets/tree1.jpg" />
+			</a>
+			<h3>Jennifer</h3>
+			<span>Full Stack Developer</span>
+			<hr />
+			<p class="sidebar_description">
+				A liftlong learner. Keep learning, keep evoving in IT industry.
+			</p>
+			<hr class="sidebar_divider" />
+			<p class="sidebar_tags">
+				<span class="sidebar_tag"><a href="/#angular"><img src="assets/angular-icon.svg"
+							class="sidebar_icon" />&nbsp;Angular</a></span>
+				<span class="sidebar_tag"><a href="/#react" alt="react blogs"><img src="assets/react.svg"
+							class="sidebar_icon" />&nbsp;React</a></span>
+				<span class="sidebar_tag"><a href="/#webpack"><img src="assets/webpack_logo.svg"
+							class="sidebar_icon" />&nbsp;Webpack</a></span>
+				<span class="sidebar_tag"><a href="/#database"><img src="assets/mysql.png"
+							class="sidebar_icon" />Backend</a></span>
+			</p>
+			<hr class="sidebar_divider" />
+			<div>
+				<ul class="navigation" role="navigation-social">
+					<li class="navigation_item">
+						<a href="https://github.com/cxxyao2" target="_blank"><i
+								class="fa fa-github icon-bigger"></i></a>
+					</li>
+					<li class="navigation_item">
+						<a href="https://twitter.com/jenniferyao1996" target="_blank"><i
+								class="fa fa-twitter icon-bigger"></i></a>
+					</li>
+					<li class="navigation_item">
+						<a href="mailto:jenniferyao1996@qq.com" target="_blank"><i
+								class="fa fa-envelope icon-bigger"></i></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</aside>
+
+	<main class="content_wrapper">
+		<div class="content">
+			<article class="post">
+				<header>
+					<span class="post_category"><label class="date">2025-02-08</label> Angular</span>
+					<h2>SSR, SSG and Client-side Rendering in Angular&nbsp;19</h2>
+				</header>
+				<section class="post_body">
+					<p>
+						For a long time, Next.js has been a leader in Server-Side Rendering (SSR) and Static Site
+						Generation (SSG). However, with Angular 19, the framework has introduced a cleaner, more
+						efficient way to configure SSR, SSG, and Client-Side Rendering (CSR).
+
+						In this post, I'll break down why SSR is needed, how Angular 19 implements different rendering
+						strategies, and the key performance benefits these approaches bring.
+					</p>
+					<div>
+						<h3>Key Concept: Hydration</h3>
+						<p>
+
+							Hydration is the process that restores the SSR-rendered application on the client side. This
+							includes:
+						<ul>
+							<li>Reusing server-rendered DOM structures.</li>
+							<li>Persisting the application state.</li>
+							<li>Transferring application data that was already retrieved by the server.</li>
+							<li>Ensuring a smooth transition from server-side to client-side interactivity.</li>
+						</ul>
+						Hydration plays a crucial role in bridging the gap between server-rendered content and
+						dynamic client-side behavior.
+						</p>
+						<h3>Why Use Server-Side Rendering (SSR)?</h3>
+						<p>
+							SSR comes with several advantages that significantly improve the performance, user
+							experience, and SEO of web applications.
+							Key Benefits of SSR:
+						<ol>
+							<li>SEO-Friendly
+								<ul>
+									<li>Many search engine crawlers (such as Google's or Bing's) struggle to properly
+										index JavaScript-heavy websites.</li>
+									<li>SSR ensures that the fully rendered page is available for indexing, leading to
+										better search rankings.</li>
+								</ul>
+							</li>
+							<li>Improved Web Core Metrics
+								<ul>
+									<li>SSR and SSG (build-time pre-rendering) help optimize several Web Core Vitals,
+										including
+										<ol>
+											<li>Reduced Time to First Byte (TTFB) → Faster initial response from the
+												server.</li>
+											<li>Better LCP (Largest Contentful Paint) → Faster rendering of the main
+												content.</li>
+											<li>Lower CLS (Cumulative Layout Shift) → Avoids unexpected layout shifts.
+											</li>
+											<li>Optimized FID (First Input Delay) → Ensures faster interactivity.</li>
+										</ol>
+									</li>
+								</ul>
+							</li>
+						</ol>
+						</p>
+					</div>
+
+					<div class="alert is-important">
+						How to Set Up SSR & SSG in Angular 19?
+						<pre>
+npm install -g @angular/cli
+ng v 
+ng new your-app-name --ssr --server-routing
+						</pre>
+					</div>
+					<div>
+						<p>When to Use SSR, SSG, or CSR?Different web pages have different requirements. Angular 19
+							provides flexible options to choose between SSG, SSR, and CSR based on the use case.</p>
+						<h3> Scenario 1: Static Site Generation (SSG)</h3>
+						<ul>
+							<li>Best suited for Static pages:
+								Company pages, blogs, landing pages (hero loading pages).</li>
+							<li>
+								How it works:
+								<ul>
+									<li>Pages are pre-rendered at build time.</li>
+									<li>Users receive a fully generated HTML file directly from the server.</li>
+									<li>Faster initial load, lower resource usage.</li>
+								</ul>
+							</li>
+							<li>Steps:
+								<ul>
+									<li>Configure render mode settings for routes in app.routes.server.ts
+										<img src="assets/ssr_ssg_client/ssg/scene0.png" alt="ssg-route" />
+									</li>
+									<li>Build the project:
+										<pre>
+ng build									</pre>
+										<p>
+											you can see the prerendered pages in the dist folder. I only prerendered 3
+											products
+											<img src="assets/ssr_ssg_client/ssg/scene1.png" alt="ssg-build" />
+										</p>
+									</li>
+									<li>Run the prerendered pages with client-side fallback, if product page(id=4) is
+										not prerendered,You can observe the fetching process.
+										<img src="assets/ssr_ssg_client/ssg/screen1-a.png" alt="ssg-run1" />
+										<img src="assets/ssr_ssg_client/ssg/scene2.png" alt="ssg-run2" />
+									</li>
+								</ul>
+							</li>
+						</ul>
+						<h3>Scenario 2: Server-Side Rendering (SSR)</h3>
+						<ul>
+							<li><b>Best suited for</b>:Login pages, security-sensitive content.</li>
+							<li>
+								<b>How it works</b>:
+								The page is dynamically generated for each request.
+								Data is fetched on the server before rendering.
+								The final HTML is delivered to the client with initial content already populated.
+							</li>
+							<li><b>Catching:</b> HttpClient cached outgoing network requests when running on the server.
+								This information
+								is serialized and transferred to the browser as part of the initial HTML sent from the
+								server. In the browser, HttpClient checks whether it has data in the cache and if so,
+								reuses it instead of making a new HTTP request during initial application rendering.
+								<p>
+
+									So, if you click 'refresh'button on browser, you can see no fetching process on
+									'network' tab for the
+									same httpRequest, since the data is already cached.
+								</p>
+
+							</li>
+							<li><b>Steps:</b>
+								<ul>
+									<li>Configure the render mode for specific routes in routing.ts.
+										<img src="assets/ssr_ssg_client/ssr/scene0.png" alt="ssr-route" />
+									</li>
+									<li> Run the project with SSR, only the first time you can see fetching process.
+										Then if you click 'refresh' button on browser, you can see no more fetching
+										process for the same page.
+										<img src="assets/ssr_ssg_client/ssr/scene1.png" alt="ssr-run1" />
+										<img src="assets/ssr_ssg_client/ssr/scene2.png" alt="ssr-run2" />
+										You can see visulalized hydration process via Angular DEV tools in browser.
+										<img src="assets/ssr_ssg_client/ssr/screen3-angulartool.png" alt="ssr-run3" />
+
+										You can also Check logs for hydration performance in control.
+										<img src="assets/ssr_ssg_client/ssr/screen4-control.png" alt="ssr-run4" />
+									</li>
+								</ul>
+								<h3> Scenario 3: Client-Side Rendering (CSR)</h3>
+								<ul>
+									<li>
+										<b>Best suited for:</b>
+										Dashboards, user-specific content, dynamic interactions.
+									</li>
+									<li>
+										<b>How it works:</b>
+										Every time the page is refreshed, data is fetched from the API.
+										The page is rendered dynamically on the client-side.
+										This approach is best when frequent user interactions are required.
+									</li>
+									<li>
+										<b>Steps:</b>
+										<ul>
+											<li>Configure the render mode for specific routes in routing.ts.
+												<img src="assets/ssr_ssg_client/client/screen0.png"
+													alt="client-route" />
+											</li>
+											<li>Run the project with CSR, you cannot see any hydration process via
+												Angualar
+												Dev tools.
+
+												<img src="assets/ssr_ssg_client/client/screen1.png" alt="client-run1" />
+											</li>
+											<li>Every time you click 'refresh' button, you can see the new fetching
+												processes on 'network' tab
+												<img src="assets/ssr_ssg_client/client/screen2.png" alt="client-run2" />
+											</li>
+										</ul>
+
+								</ul>
+								<h3>Scenario 4: Angular Incremental Hydration &#40;&#x40;defer&#41;</h3>
+								<ul>
+									<li>
+										<b>Best suited for:</b>
+										Progressive web apps, optimized hydration, improving initial page load
+										performance.
+									</li>
+									<li>
+										<b>How it works:</b>
+										&#x40;defer allows parts of the page to be hydrated only when needed.
+										Reduces initial JavaScript execution time, making the page load faster.
+									</li>
+									<li><b>Types of Incremental Hydration:</b>
+										<ol>
+											<li>Hydration on Idle (&#x40;defer (on idle))
+												<ul>
+													<li>Hydrates components when the browser is idle.</li>
+													<li>Suitable for non-critical UI elements.</li>
+												</ul>
+												<img src="assets/ssr_ssg_client/incre1.png" alt="incremental-idle" />
+											</li>
+
+
+											<li>Hydration on Viewport (&#x40;defer (on viewport))
+												<ul>
+													<li>Hydrates components only when they appear in the viewport.</li>
+													<li>Useful for below-the-fold content (e.g., FAQ sections,
+														additional product
+														details).</li>
+												</ul>
+											</li>
+											etc.
+										</ol>
+
+									<li>Benefits of Incremental Hydration:
+										<ul>
+											<li>Lowers initial JavaScript execution time.</li>
+											<li>Reduces bundle size (because &#x40;defer creates separate bundles).</li>
+											<li>Speeds up initial page loading.</li>
+											<li>Improves user experience by prioritizing only visible content.</li>
+										</ul>
+									</li>
+								</ul>
+					</div>
+					<div>
+						<h3>Summary & Key Takeaways</h3>
+						<p>
+							Why Angular 19’s SSR, SSG, and Incremental Hydration Matter?
+						<ul>
+							<li>
+								Improves web performance (faster load times, reduced TTFB).
+							</li>
+							<li>
+								Enhances user experience (better interactivity, reduced layout shifts).
+							</li>
+							<li>
+								Boosts SEO (ensuring proper indexing by search engines).
+							</li>
+							<li>
+								Reduces initial bundle size (incremental hydration optimizations).
+							</li>
+							<li>
+								Simplifies developer experience (cleaner setup, better debugging tools).
+							</li>
+						</ul>
+						</p>
+						<p>
+							Angular 19's SSR, SSG, and &#x40;defer hydration strategies bring Next.js-like efficiency
+							while maintaining Angular's powerful ecosystem.
+						</p>
+
+						<p>
+							Want to optimize your Angular app further? Start experimenting with SSR, SSG, CSR, and
+							Incremental Hydration today!
+
+						</p>
+					</div>
+
+				</section>
+
+			</article>
+			<section class="read-more">
+				<div class="read-more_item">
+					<span class="read-more-item-dim">next article&gt;&gt;</span>
+					<h3>
+						<a href="angular_crud_and_authentication_firebase.html">CRUD and Authentication in Firebase</a>
+					</h3>
+				</div>
+			</section>
+
+			<section class="footer">
+				<span class="footer__copyright">2021-5-31 Jennifer. All rights reserved.</span>
+				<span class="footer__copyright">Contact Email: Jenniferyao1996#hotmail.com</span>
+			</section>
+		</div>
+		<span id="backToTop">
+			<i class="fa fa-arrow-up"></i>
+		</span>
+	</main>
+	<script src="main.js"></script>
+</body>
+
+</html>
