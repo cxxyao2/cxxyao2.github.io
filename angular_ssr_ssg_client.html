@@ -224,11 +224,14 @@ ng build									</pre>
 							<li><b>Steps:</b>
 								<ul>
 									<li>Configure the render mode for specific routes in routing.ts.
-										<img src="assets/ssr_ssg_client/ssr/scene0.png" alt="ssr-route" />
+										<img src="assets/ssr_ssg_client/ssr/scene0a.png" alt="ssr-route" />
 									</li>
 									<li> Run the project with SSR, only the first time you can see fetching process.
 										Then if you click 'refresh' button on browser, you can see no more fetching
-										process for the same page.
+										process for the same page. ( You can check the source of the page. The page
+										is totally rendered on server side. The browser only needs to hydrate the page
+										)
+										<img src="assets/ssr_ssg_client/ssr/sceneob.png" alt="ssr-route" />
 										<img src="assets/ssr_ssg_client/ssr/scene1.png" alt="ssr-run1" />
 										<img src="assets/ssr_ssg_client/ssr/scene2.png" alt="ssr-run2" />
 										You can see visulalized hydration process via Angular DEV tools in browser.
