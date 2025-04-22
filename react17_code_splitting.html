@@ -5,8 +5,8 @@
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Front-end Security</title>
-	<meta name="description" content="security backend" />
+	<title>SSR,SSG and Client-side Rendering in Angular&nbsp;19</title>
+	<meta name="description" content="unsubscribe HTTP RxJS  Angular " />
 	<meta name="author" content="Jennifer" />
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -93,30 +93,66 @@
 		<div class="content">
 			<article class="post">
 				<header>
-					<span class="post_category"><label class="date">2021-5-1</label> Angular</span>
-					<h2>Improve Backend Security</h2>
+					<span class="post_category"><label class="date">2022-02-08</label> React</span>
+					<h2>React 17 code splitting</h2>
 				</header>
 				<section class="post_body">
 					<ol>
-						<li>SQL Injection Attack</li>
-						<li>DDOS Attack</li>
-						<li>...</li>
+						<li>dynamic import
+							<pre><code>const SomeComponent = React.lazy(() => import('./SomeComponent'));
+							</li>
+							<li>lazy load+ suspend
+								<pre><code>
+Before: import Login from "Pages/Login.js"; 
+After: import React,{lazy, Suspense} from 'react'; 
+							
+const Service = lazy(() => import("module/Service")); 
+const Hero = lazy(() => import("module/Hero")); 
+
+const Home = () => { return (
+&lt;div&gt;
+  &lt;Suspense fallback={&lt;div&gt;Page is loading...&lt;/div&gt;}&gt;
+	&lt;section&gt;
+	  &lt;Service /&gt;
+	  &lt;Hero /&gt;
+	&lt;/section&gt;
+  &lt;/Suspense&gt;
+&lt;/div&gt;
+								</code></pre>
+						</li>
+						<li>react-router
+							react-router-dom supports route-level code splitting:
+							<pre><code>
+import { BrowserRouter as Router, Route, Switch } from
+'react-router-dom'; 
+const Home = lazy(() => import('./routes/Home'));
+const Shop = lazy(() => import('./routes/Shop')); 
+
+const App = () => {
+return (
+&lt;Router&gt;
+  &lt;Suspense fallback={&lt;div&gt;Page is Loading...&lt;/div&gt;}&gt;
+    &lt;Switch&gt;
+      &lt;Route exact path="/" component="{Home}" /&gt;
+      &lt;Route path="/shop" component="{Shop}" /&gt;
+    &lt;/Switch&gt;
+  &lt;/Suspense&gt;
+&lt;/Router&gt;
+) }; </code></pre>
+						</li>
 					</ol>
-					<p>coming soon...</p>
+
 				</section>
+
 			</article>
 			<section class="read-more">
 				<div class="read-more_item">
 					<span class="read-more-item-dim">&lt;&lt;previous article</span>
-					<h3>
-						<a href="front_end_security.html">Front-end Security</a>
-					</h3>
+					<h3><a href="index.html"> Table of Contents</a></h3>
 				</div>
 				<div class="read-more_item">
 					<span class="read-more-item-dim">next article&gt;&gt;</span>
-					<h3>
-						<a href="index.html"> Table of Contents</a>
-					</h3>
+					<h3><a href="angular_unsubscribe.html">When and How to Unsubscribe</a></h3>
 				</div>
 			</section>
 

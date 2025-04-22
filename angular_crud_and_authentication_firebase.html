@@ -1,181 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>CRUD and Authentication</title>
-		<meta name="description" content="CRUD Authentication firebase angular " />
-		<meta name="author" content="Jennifer" />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-			rel="stylesheet" />
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-		<link rel="icon" href="/assets/images/favicon.ico" />
-		<link rel="stylesheet" href="assets/css/normalize.css" />
-		<link rel="stylesheet" href="assets/css/index.css" />
-	</head>
-	<body>
-		<!--  for not index.html -->
-		<nav class="nav collapsible">
-			<span
-				><a href="/#angular" class="white">Jennifer - Full Stack Developer</a>
-			</span>
-			<span class="nav_toggler" style="outline: none !important"
-				><i class="fa fa-list white icon-bigger"></i
-			></span>
-			<ul class="nav_list collapsible_content">
-				<li>
-					<ul class="nav_social" role="nav_social">
-						<li>
-							<a href="https://github.com/cxxyao2" target="_blank"
-								><i class="fa fa-github white icon-biggest"></i
-							></a>
-						</li>
-						<li>
-							<a href="https://twitter.com/jenniferyao1996" target="_blank"
-								><i class="fa fa-twitter white icon-biggest"></i
-							></a>
-						</li>
-						<li>
-							<a href="mailto:jenniferyao1996@qq.com" target="_blank"
-								><i class="fa fa-envelope white icon-biggest"></i
-							></a>
-						</li>
-					</ul>
-				</li>
-				<li class="nav_item"><a href="/#angular">Angular</a></li>
-				<li class="nav_item"><a href="/#react">React</a></li>
-				<li class="nav_item"><a href="/#webpack">Webpack</a></li>
-				<li class="nav_item"><a href="/#database">Database</a></li>
-			</ul>
-		</nav>
 
-		<!--  for not index.html -->
-		<aside class="sidebar">
-			<div class="sidebar_cover"></div>
-			<div class="sidebar_main">
-				<a href="#">
-					<img class="sidebar_logo" alt="Jennifer" src="assets/tree1.jpg" />
-				</a>
-				<h3>Jennifer</h3>
-				<span>Full Stack Developer</span>
-				<hr />
-				<p class="sidebar_description">
-					A liftlong learner. Keep learning, keep evoving in IT industry.
-				</p>
-				<hr class="sidebar_divider" />
-				<p class="sidebar_tags">
-					<span class="sidebar_tag"
-						><a href="/#angular"
-							><img
-								src="assets/angular-icon.svg"
-								class="sidebar_icon" />&nbsp;Angular</a
-						></span
-					>
-					<span class="sidebar_tag"
-						><a href="/#react" alt="react blogs"
-							><img src="assets/react.svg" class="sidebar_icon" />&nbsp;React</a
-						></span
-					>
-					<span class="sidebar_tag"
-						><a href="/#webpack"
-							><img
-								src="assets/webpack_logo.svg"
-								class="sidebar_icon" />&nbsp;Webpack</a
-						></span
-					>
-					<span class="sidebar_tag"
-						><a href="/#database"
-							><img src="assets/mysql.png" class="sidebar_icon" />Backend</a
-						></span
-					>
-				</p>
-				<hr class="sidebar_divider" />
-				<div>
-					<ul class="navigation" role="navigation-social">
-						<li class="navigation_item">
-							<a href="https://github.com/cxxyao2" target="_blank"
-								><i class="fa fa-github icon-bigger"></i
-							></a>
-						</li>
-						<li class="navigation_item">
-							<a href="https://twitter.com/jenniferyao1996" target="_blank"
-								><i class="fa fa-twitter icon-bigger"></i
-							></a>
-						</li>
-						<li class="navigation_item">
-							<a href="mailto:jenniferyao1996@qq.com" target="_blank"
-								><i class="fa fa-envelope icon-bigger"></i
-							></a>
-						</li>
-					</ul>
-				</div>
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>CRUD and Authentication</title>
+	<meta name="description" content="CRUD Authentication firebase angular " />
+	<meta name="author" content="Jennifer" />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link rel="icon" href="/assets/images/favicon.ico" />
+	<link rel="stylesheet" href="assets/css/normalize.css" />
+	<link rel="stylesheet" href="assets/css/index.css" />
+</head>
+
+<body>
+	<!--  for not index.html -->
+	<nav class="nav collapsible">
+		<span><a href="/#angular" class="white">Jennifer - Full Stack Developer</a>
+		</span>
+		<span class="nav_toggler" style="outline: none !important"><i class="fa fa-list white icon-bigger"></i></span>
+		<ul class="nav_list collapsible_content">
+			<li>
+				<ul class="nav_social" role="nav_social">
+					<li>
+						<a href="https://github.com/cxxyao2" target="_blank"><i
+								class="fa fa-github white icon-biggest"></i></a>
+					</li>
+					<li>
+						<a href="https://twitter.com/jenniferyao1996" target="_blank"><i
+								class="fa fa-twitter white icon-biggest"></i></a>
+					</li>
+					<li>
+						<a href="mailto:jenniferyao1996#hotmail.com" target="_blank"><i
+								class="fa fa-envelope white icon-biggest"></i></a>
+					</li>
+				</ul>
+			</li>
+			<li class="nav_item"><a href="/#angular">Angular</a></li>
+			<li class="nav_item"><a href="/#react">React</a></li>
+			<li class="nav_item"><a href="/#webpack">Webpack</a></li>
+			<li class="nav_item"><a href="/#database">Database</a></li>
+		</ul>
+	</nav>
+
+	<!--  for not index.html -->
+	<aside class="sidebar">
+		<div class="sidebar_cover"></div>
+		<div class="sidebar_main">
+			<a href="#">
+				<img class="sidebar_logo" alt="Jennifer" src="assets/tree1.jpg" />
+			</a>
+			<h3>Jennifer</h3>
+			<span>Full Stack Developer</span>
+			<hr />
+			<p class="sidebar_description">
+				A liftlong learner. Keep learning, keep evoving in IT industry.
+			</p>
+			<hr class="sidebar_divider" />
+			<p class="sidebar_tags">
+				<span class="sidebar_tag"><a href="/#angular"><img src="assets/angular-icon.svg"
+							class="sidebar_icon" />&nbsp;Angular</a></span>
+				<span class="sidebar_tag"><a href="/#react" alt="react blogs"><img src="assets/react.svg"
+							class="sidebar_icon" />&nbsp;React</a></span>
+				<span class="sidebar_tag"><a href="/#webpack"><img src="assets/webpack_logo.svg"
+							class="sidebar_icon" />&nbsp;Webpack</a></span>
+				<span class="sidebar_tag"><a href="/#database"><img src="assets/mysql.png"
+							class="sidebar_icon" />Backend</a></span>
+			</p>
+			<hr class="sidebar_divider" />
+			<div>
+				<ul class="navigation" role="navigation-social">
+					<li class="navigation_item">
+						<a href="https://github.com/cxxyao2" target="_blank"><i
+								class="fa fa-github icon-bigger"></i></a>
+					</li>
+					<li class="navigation_item">
+						<a href="https://twitter.com/jenniferyao1996" target="_blank"><i
+								class="fa fa-twitter icon-bigger"></i></a>
+					</li>
+					<li class="navigation_item">
+						<a href="mailto:jenniferyao1996#hotmail.com" target="_blank"><i
+								class="fa fa-envelope icon-bigger"></i></a>
+					</li>
+				</ul>
 			</div>
-		</aside>
+		</div>
+	</aside>
 
-		<main class="content_wrapper">
-			<div class="content">
-				<article class="post">
-					<header>
-						<span class="post_category"
-							><label class="date">2021-5-1</label> Angular</span
-						>
-						<h2>CRUD and Authentication with Firebase</h2>
-					</header>
-					<section class="post_body">
-						<p>
-							In this post, I will introduce the CRUD operations and
-							authentication in firebase. For serverless applications, firebase
-							is a ideal platform.
-						</p>
-						<h3>CRUD in Firebase</h3>
-						<div class="alert is-helpful">
-							Whether it is a nosql database or not, a so-called database should
-							support the CRUD operations. CRUD means create, read, update,
-							delete. In my opinion, collection ≈ table, document ≈ row or
-							record.
-						</div>
-						<ul>
-							<li>
-								Create an developer account on
-								<a
-									href="https://console.firebase.google.com"
-									alt="developer firebase"
-									target="_blank"
-									rel="noopener noreferrer"
-									>firebase developer console</a
-								>
-							</li>
-							<li>
-								Add a project on this website. Copy the config object including
-								apiKey. Add it to environment.js and environment.prod.js located
-								in /src/environments/ .
-								<img
-									src="assets/firebase/add_project.png"
-									alt="add a project in firebase" />
-								<img src="assets/firebase/apikey.png" alt="note keys" />
-							</li>
-							<li>
-								Create a firestore database. Create collections and add
-								documents to collections.
-								<img src="assets/firebase/cloud_firestore.png" />
-							</li>
-							<li>
-								install necessary packages in angular project.
-								<pre>
+	<main class="content_wrapper">
+		<div class="content">
+			<article class="post">
+				<header>
+					<span class="post_category"><label class="date">2021-5-1</label> Angular</span>
+					<h2>CRUD and Authentication with Firebase</h2>
+				</header>
+				<section class="post_body">
+					<p>
+						In this post, I will introduce the CRUD operations and
+						authentication in firebase. For serverless applications, firebase
+						is a ideal platform.
+					</p>
+					<h3>CRUD in Firebase</h3>
+					<div class="alert is-helpful">
+						Whether it is a nosql database or not, a so-called database should
+						support the CRUD operations. CRUD means create, read, update,
+						delete. In my opinion, collection ≈ table, document ≈ row or
+						record.
+					</div>
+					<ul>
+						<li>
+							Create an developer account on
+							<a href="https://console.firebase.google.com" alt="developer firebase" target="_blank"
+								rel="noopener noreferrer">firebase developer console</a>
+						</li>
+						<li>
+							Add a project on this website. Copy the config object including
+							apiKey. Add it to environment.js and environment.prod.js located
+							in /src/environments/ .
+							<img src="assets/firebase/add_project.png" alt="add a project in firebase" />
+							<img src="assets/firebase/apikey.png" alt="note keys" />
+						</li>
+						<li>
+							Create a firestore database. Create collections and add
+							documents to collections.
+							<img src="assets/firebase/cloud_firestore.png" />
+						</li>
+						<li>
+							install necessary packages in angular project.
+							<pre>
 npm i @angular/fire firebase --save
-              </pre
-								>
-								<img
-									src="assets/firebase/npm_install.png"
-									alt="install firebase packages" />
-							</li>
-							<li>
-								configure Firebase in app.module.ts
-								<pre>
+              </pre>
+							<img src="assets/firebase/npm_install.png" alt="install firebase packages" />
+						</li>
+						<li>
+							configure Firebase in app.module.ts
+							<pre>
 // app.module.ts
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
@@ -198,10 +159,10 @@ import { environment } from '../environments/environment';
 }
 export class AppModule {...}
                 </pre>
-							</li>
-							<li>
-								Create a firebase service in angular.
-								<pre>
+						</li>
+						<li>
+							Create a firebase service in angular.
+							<pre>
 // employ.ts
 
 export default interface Employee {
@@ -211,9 +172,8 @@ export default interface Employee {
   id?: string;
 }
 
-              </pre
-								>
-								<pre>
+              </pre>
+							<pre>
 // firebase.service.ts
 
 import { Injectable } from '@angular/core';
@@ -265,43 +225,34 @@ export class FirebaseService {
   }
 }
 
-              </pre
-								>
-							</li>
-						</ul>
-						<hr class="divider" />
-						<h3>Authentication in Firebase</h3>
-						<div class="alert is-helpful">
-							Firebase supports almost all the popular sign-in methods,
-							including email-password , google, twitter, etc. It follows the
-							same logic when using the third-party authentication.
-						</div>
-						<ul>
-							<li>
-								For using a third-party authentication in firebase, we should
-								have already a developer account in the third-party platform and
-								project keys. I take twitter as an example. On
-								<a
-									href="https://developer.twitter.com/en/apps"
-									alt="twitter developer"
-									target="_blank"
-									rel="noopener noreferrer"
-									>Twitter Developer Console</a
-								>, we get apiKey, api secrete key, bearer tokens, etc.
-								<img
-									src="assets/firebase/twitter.png"
-									alt="twitter developer" />
-							</li>
-							<li>
-								Enable twitter authentication in
-								<code>sign-in method</code> tab.
-								<img
-									src="assets/firebase/authentication.png"
-									alt="sign-in methods" />
-							</li>
-							<li>
-								Create an authentication service in angular.
-								<pre>
+              </pre>
+						</li>
+					</ul>
+					<hr class="divider" />
+					<h3>Authentication in Firebase</h3>
+					<div class="alert is-helpful">
+						Firebase supports almost all the popular sign-in methods,
+						including email-password , google, twitter, etc. It follows the
+						same logic when using the third-party authentication.
+					</div>
+					<ul>
+						<li>
+							For using a third-party authentication in firebase, we should
+							have already a developer account in the third-party platform and
+							project keys. I take twitter as an example. On
+							<a href="https://developer.twitter.com/en/apps" alt="twitter developer" target="_blank"
+								rel="noopener noreferrer">Twitter Developer Console</a>, we get apiKey, api secrete key,
+							bearer tokens, etc.
+							<img src="assets/firebase/twitter.png" alt="twitter developer" />
+						</li>
+						<li>
+							Enable twitter authentication in
+							<code>sign-in method</code> tab.
+							<img src="assets/firebase/authentication.png" alt="sign-in methods" />
+						</li>
+						<li>
+							Create an authentication service in angular.
+							<pre>
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -354,14 +305,13 @@ export class FirebaseAuthService {
     return this.afAuth.signInWithPopup(provider);
   }
 }
-              </pre
-								>
-							</li>
-							<li>
-								Config read and write rules in firebase console
-								<img src="assets/firebase/dabase_rules.png" alt="CRUD rules" />
-								Add criteria in Angular as needed
-								<pre>
+              </pre>
+						</li>
+						<li>
+							Config read and write rules in firebase console
+							<img src="assets/firebase/dabase_rules.png" alt="CRUD rules" />
+							Add criteria in Angular as needed
+							<pre>
 //  Firebase.service.ts
  return this.fireService
       .collection('City', (ref) => ref.where('uid', '==', user.uid))
@@ -379,41 +329,34 @@ export class FirebaseAuthService {
       );
   }
                 </pre>
-							</li>
-						</ul>
-					</section>
-				</article>
-				<section class="read-more">
-					<div class="read-more_item">
-						<span class="read-more-item-dim">&lt;&lt;previous article</span>
-						<h3>
-							<a
-								href="angular-debug-in-vscode-chrome.html"
-								target="_blank"
-								rel="noopener noreferrer"
-								>Debug Angular in VSCode and Chrome</a
-							>
-						</h3>
-					</div>
-					<div class="read-more_item">
-						<span class="read-more-item-dim">next article&gt;&gt;</span>
-						<h3><a href="angular_pwa.html">PWA in Angular</a></h3>
-					</div>
+						</li>
+					</ul>
 				</section>
+			</article>
+			<section class="read-more">
+				<div class="read-more_item">
+					<span class="read-more-item-dim">&lt;&lt;previous article</span>
+					<h3>
+						<a href="angular-debug-in-vscode-chrome.html" target="_blank" rel="noopener noreferrer">Debug
+							Angular in VSCode and Chrome</a>
+					</h3>
+				</div>
+				<div class="read-more_item">
+					<span class="read-more-item-dim">next article&gt;&gt;</span>
+					<h3><a href="angular_pwa.html">PWA in Angular</a></h3>
+				</div>
+			</section>
 
-				<section class="footer">
-					<span class="footer__copyright"
-						>2021-5-31 Jennifer. All rights reserved.</span
-					>
-					<span class="footer__copyright"
-						>Contact Email: Jenniferyao1996#hotmail.com</span
-					>
-				</section>
-			</div>
-			<span id="backToTop">
-				<i class="fa fa-arrow-up"></i>
-			</span>
-		</main>
-		<script src="main.js"></script>
-	</body>
+			<section class="footer">
+				<span class="footer__copyright">2021-5-31 Jennifer. All rights reserved.</span>
+				<span class="footer__copyright">Contact Email: Jenniferyao1996#hotmail.com</span>
+			</section>
+		</div>
+		<span id="backToTop">
+			<i class="fa fa-arrow-up"></i>
+		</span>
+	</main>
+	<script src="main.js"></script>
+</body>
+
 </html>

@@ -1,236 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Angular Lifecycle events</title>
-    <meta
-      name="description"
-      content="Angular lifecycle event and change detection. unidirectional data flow."
-    />
-    <meta name="author" content="Jennifer" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link rel="icon" href="/assets/images/favicon.ico" />
-    <link rel="stylesheet" href="assets/css/normalize.css" />
-    <link rel="stylesheet" href="assets/css/index.css" />
-  </head>
-  <body>
-    <!--  for not index.html -->
-    <nav class="nav collapsible">
-      <span
-        ><a href="/#angular" class="white">Jennifer - Full Stack Developer</a>
-      </span>
-      <span class="nav_toggler" style="outline: none !important"
-        ><i class="fa fa-list white icon-bigger"></i
-      ></span>
-      <ul class="nav_list collapsible_content">
-        <li>
-          <ul class="nav_social" role="nav_social">
-            <li>
-              <a href="https://github.com/cxxyao2" target="_blank" rel="noopener noreferrer"
-                ><i class="fa fa-github white icon-biggest"></i
-              ></a>
-            </li>
-            <li>
-              <a href="https://twitter.com/jenniferyao1996" target="_blank" rel="noopener noreferrer"
-                ><i class="fa fa-twitter white icon-biggest"></i
-              ></a>
-            </li>
-            <li>
-              <a href="mailto:jenniferyao1996@qq.com" target="_blank" rel="noopener noreferrer"
-                ><i class="fa fa-envelope white icon-biggest"></i
-              ></a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav_item"><a href="/#angular">Angular</a></li>
-        <li class="nav_item"><a href="/#react">React</a></li>
-        <li class="nav_item"><a href="/#webpack">Webpack</a></li>
-        <li class="nav_item"><a href="/#database">Database</a></li>
-      </ul>
-    </nav>
 
-    <!--  for not index.html -->
-    <aside class="sidebar">
-      <div class="sidebar_cover"></div>
-      <div class="sidebar_main">
-        <a href="#">
-          <img class="sidebar_logo" alt="Jennifer" src="assets/tree1.jpg" />
-        </a>
-        <h3>Jennifer</h3>
-        <span>Full Stack Developer</span>
-        <hr />
-        <p class="sidebar_description">
-         A liftlong learner. Keep learning, keep evoving in IT industry.
-        </p>
-        <hr class="sidebar_divider" />
-        <p class="sidebar_tags">
-          <span class="sidebar_tag"
-            ><a href="/#angular"
-              ><img
-                src="assets/angular-icon.svg"
-                class="sidebar_icon"
-              />&nbsp;Angular</a
-            ></span
-          >
-          <span class="sidebar_tag"
-            ><a href="/#react" alt="react blogs"
-              ><img src="assets/react.svg" class="sidebar_icon" />&nbsp;React</a
-            ></span
-          >
-          <span class="sidebar_tag"
-            ><a href="/#webpack"
-              ><img
-                src="assets/webpack_logo.svg"
-                class="sidebar_icon"
-              />&nbsp;Webpack</a
-            ></span
-          >
-          <span class="sidebar_tag"
-            ><a href="/#database"
-              ><img
-                src="assets/mysql.png"
-                class="sidebar_icon"
-              />Backend</a
-            ></span
-          >
-        </p>
-        <hr class="sidebar_divider" />
-        <div>
-          <ul class="navigation" role="navigation-social">
-            <li class="navigation_item">
-              <a href="https://github.com/cxxyao2" target="_blank"
-                ><i class="fa fa-github icon-bigger"></i
-              ></a>
-            </li>
-            <li class="navigation_item">
-              <a href="https://twitter.com/jenniferyao1996" target="_blank"
-                ><i class="fa fa-twitter icon-bigger"></i
-              ></a>
-            </li>
-            <li class="navigation_item">
-              <a href="mailto:jenniferyao1996@qq.com" target="_blank"
-                ><i class="fa fa-envelope icon-bigger"></i
-              ></a>
-            </li>
-          </ul>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Angular Lifecycle events</title>
+  <meta name="description" content="Angular lifecycle event and change detection. unidirectional data flow." />
+  <meta name="author" content="Jennifer" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="icon" href="/assets/images/favicon.ico" />
+  <link rel="stylesheet" href="assets/css/normalize.css" />
+  <link rel="stylesheet" href="assets/css/index.css" />
+</head>
+
+<body>
+  <!--  for not index.html -->
+  <nav class="nav collapsible">
+    <span><a href="/#angular" class="white">Jennifer - Full Stack Developer</a>
+    </span>
+    <span class="nav_toggler" style="outline: none !important"><i class="fa fa-list white icon-bigger"></i></span>
+    <ul class="nav_list collapsible_content">
+      <li>
+        <ul class="nav_social" role="nav_social">
+          <li>
+            <a href="https://github.com/cxxyao2" target="_blank" rel="noopener noreferrer"><i
+                class="fa fa-github white icon-biggest"></i></a>
+          </li>
+          <li>
+            <a href="https://twitter.com/jenniferyao1996" target="_blank" rel="noopener noreferrer"><i
+                class="fa fa-twitter white icon-biggest"></i></a>
+          </li>
+          <li>
+            <a href="mailto:jenniferyao1996#hotmail.com" target="_blank" rel="noopener noreferrer"><i
+                class="fa fa-envelope white icon-biggest"></i></a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav_item"><a href="/#angular">Angular</a></li>
+      <li class="nav_item"><a href="/#react">React</a></li>
+      <li class="nav_item"><a href="/#webpack">Webpack</a></li>
+      <li class="nav_item"><a href="/#database">Database</a></li>
+    </ul>
+  </nav>
+
+  <!--  for not index.html -->
+  <aside class="sidebar">
+    <div class="sidebar_cover"></div>
+    <div class="sidebar_main">
+      <a href="#">
+        <img class="sidebar_logo" alt="Jennifer" src="assets/tree1.jpg" />
+      </a>
+      <h3>Jennifer</h3>
+      <span>Full Stack Developer</span>
+      <hr />
+      <p class="sidebar_description">
+        A liftlong learner. Keep learning, keep evoving in IT industry.
+      </p>
+      <hr class="sidebar_divider" />
+      <p class="sidebar_tags">
+        <span class="sidebar_tag"><a href="/#angular"><img src="assets/angular-icon.svg"
+              class="sidebar_icon" />&nbsp;Angular</a></span>
+        <span class="sidebar_tag"><a href="/#react" alt="react blogs"><img src="assets/react.svg"
+              class="sidebar_icon" />&nbsp;React</a></span>
+        <span class="sidebar_tag"><a href="/#webpack"><img src="assets/webpack_logo.svg"
+              class="sidebar_icon" />&nbsp;Webpack</a></span>
+        <span class="sidebar_tag"><a href="/#database"><img src="assets/mysql.png"
+              class="sidebar_icon" />Backend</a></span>
+      </p>
+      <hr class="sidebar_divider" />
+      <div>
+        <ul class="navigation" role="navigation-social">
+          <li class="navigation_item">
+            <a href="https://github.com/cxxyao2" target="_blank"><i class="fa fa-github icon-bigger"></i></a>
+          </li>
+          <li class="navigation_item">
+            <a href="https://twitter.com/jenniferyao1996" target="_blank"><i class="fa fa-twitter icon-bigger"></i></a>
+          </li>
+          <li class="navigation_item">
+            <a href="mailto:jenniferyao1996#hotmail.com" target="_blank"><i class="fa fa-envelope icon-bigger"></i></a>
+          </li>
+        </ul>
       </div>
-    </aside>
+    </div>
+  </aside>
 
-    <main class="content_wrapper">
-      <div class="content">
-        <article class="post">
-          <header>
-            <span class="post_category"
-              ><label class="date">2020-07-01</label> Angular</span
-            >
-            <h2>Review of Lifecycle Hooks and Change Detections</h2>
-          </header>
-          <section class="post_body">
-                <h3>constructor (not a lifecycle hook)</h3>
-                <ul >
-                  <li>
-                    called before any other lifecycle hook. Use it to inject
-                    dependencies.
-                  </li>
-                  <li>
-                    avoid any serious work,e.g. get data from remote server.
-                  </li>
-                  <li>
-                    example 1:&nbsp;<code
-                      >constructor(private service UserService)</code
-                    >
-                    &nbsp; service is private and cannot be used in template
-                    file
-                  </li>
-                  <li>
-                    example 2:&nbsp;<code
-                      >constructor(public service UserService)</code
-                    >
-                    service is public. Its member variables and methods can be
-                    used in template
-                  </li>
-                  <li>
-                    example 3:&nbsp; we can use parameter decorater here.
-                    <hr class="divider_transparent" />
-                    <code
-                      >constructor(&nbsp;@SkipSelf() @Optional() public service
+  <main class="content_wrapper">
+    <div class="content">
+      <article class="post">
+        <header>
+          <span class="post_category"><label class="date">2020-07-01</label> Angular</span>
+          <h2>Review of Lifecycle Hooks and Change Detections</h2>
+        </header>
+        <section class="post_body">
+          <h3>constructor (not a lifecycle hook)</h3>
+          <ul>
+            <li>
+              called before any other lifecycle hook. Use it to inject
+              dependencies.
+            </li>
+            <li>
+              avoid any serious work,e.g. get data from remote server.
+            </li>
+            <li>
+              example 1:&nbsp;<code>constructor(private service UserService)</code>
+              &nbsp; service is private and cannot be used in template
+              file
+            </li>
+            <li>
+              example 2:&nbsp;<code>constructor(public service UserService)</code>
+              service is public. Its member variables and methods can be
+              used in template
+            </li>
+            <li>
+              example 3:&nbsp; we can use parameter decorater here.
+              <hr class="divider_transparent" />
+              <code>constructor(&nbsp;@SkipSelf() @Optional() public service
                       UserService,
                       <hr class="divider_transparent" />
                       @Self() public productService ProductService,
                       <hr class="divider_transparent" />
-                      @Host() @Optional() themeService ThemeService)</code
-                    >&nbsp;
-                  </li>
-                  etc.
-                </ul>
-              <div style="position:relative;">
-                <hr class="divider" id="divider_hooks"/>
-              </div>
+                      @Host() @Optional() themeService ThemeService)</code>&nbsp;
+            </li>
+            etc.
+          </ul>
+          <div style="position:relative;">
+            <hr class="divider" id="divider_hooks" />
+          </div>
 
-              <ol>
-              <li class="collapsible">
-                ngOnChanges &nbsp;<i
-                  class="fa fa-arrow-down gray icon-bigger"
-                ></i>
-                <ul class="collapsible_content">
-                  <li>
-                    onChanges is a lifecycle hook that is called when any
-                    data-bound property of a directive changes
-                  </li>
-                  <li>
-                    e.g &lt;child-component
-                    [childName]="childName-in-parent-component" &gt; &nbsp;
-                    &lt;/child-component &gt; &nbsp;childName is a @Input(), a
-                    data-bound property.
-                  </li>
-                </ul>
-              </li>
+          <ol>
+            <li class="collapsible">
+              ngOnChanges &nbsp;<i class="fa fa-arrow-down gray icon-bigger"></i>
+              <ul class="collapsible_content">
+                <li>
+                  onChanges is a lifecycle hook that is called when any
+                  data-bound property of a directive changes
+                </li>
+                <li>
+                  e.g &lt;child-component
+                  [childName]="childName-in-parent-component" &gt; &nbsp;
+                  &lt;/child-component &gt; &nbsp;childName is a @Input(), a
+                  data-bound property.
+                </li>
+              </ul>
+            </li>
 
-              <li class="collapsible">
-                ngOnInit &nbsp;<i class="fa fa-arrow-down gray icon-bigger"></i>
-                <ul class="collapsible_content">
-                  <li>
-                    Called after the constructor, initializing input properties
-                  </li>
-                  <li>called once, after the first ngOnChanges()</li>
-                  <li>
-                    when there are no template-bound inputs, ngOnChanges will
-                    not be called. But ngOnInit() will still be called.
-                  </li>
-                </ul>
-              </li>
+            <li class="collapsible">
+              ngOnInit &nbsp;<i class="fa fa-arrow-down gray icon-bigger"></i>
+              <ul class="collapsible_content">
+                <li>
+                  Called after the constructor, initializing input properties
+                </li>
+                <li>called once, after the first ngOnChanges()</li>
+                <li>
+                  when there are no template-bound inputs, ngOnChanges will
+                  not be called. But ngOnInit() will still be called.
+                </li>
+              </ul>
+            </li>
 
-              <li class="collapsible">
-                ngDoCheck &nbsp;<i
-                  class="fa fa-arrow-down gray icon-bigger"
-                ></i>
-                <ul class="collapsible_content">
-                  <li>called immediately after ngOnInit() on the first run</li>
-                  <li>
-                    called immediately after ngOnChanges() on every change
-                    detection run
-                  </li>
-                  <li>
-                    Called every time that the input properties of a component
-                    or a directive are checked. Use it to extend change
-                    detection by performing a custom check.
-                  </li>
-                  <li>
-                    To monitor changes that occur where ngOnChanges() won't
-                    catch them, you can implement your own change check, as
-                    shown in the DoCheck example.
-                  </li>
-                  <pre>
+            <li class="collapsible">
+              ngDoCheck &nbsp;<i class="fa fa-arrow-down gray icon-bigger"></i>
+              <ul class="collapsible_content">
+                <li>called immediately after ngOnInit() on the first run</li>
+                <li>
+                  called immediately after ngOnChanges() on every change
+                  detection run
+                </li>
+                <li>
+                  Called every time that the input properties of a component
+                  or a directive are checked. Use it to extend change
+                  detection by performing a custom check.
+                </li>
+                <li>
+                  To monitor changes that occur where ngOnChanges() won't
+                  catch them, you can implement your own change check, as
+                  shown in the DoCheck example.
+                </li>
+                <pre>
 ngDoCheck() {
 
   if (this.hero.name !== this.oldHeroName) {
@@ -241,158 +189,149 @@ ngDoCheck() {
   ...
 }
                   </pre>
-                </ul>
-              </li>
+              </ul>
+            </li>
 
-              <li class="collapsible">
-                ngAfterContentInit &nbsp;<i
-                  class="fa fa-arrow-down gray icon-bigger"
-                ></i>
-                <ul class="collapsible_content">
-                  <li>
-                    external content in a template
-                    <ul>
-                      <li>
-                        HTML between component element tags, e.g.&nbsp;<code
-                          >&lt;child-component&gt;&lt;span&gt;lorem
-                          content&lt;/span&gt;&lt;/child-component&gt;</code
-                        >
-                      </li>
-                      <li>
-                        ng-content tags in the component's template,
-                        e.g.&nbsp;<code
-                          >&lt;child-component&gt;&lt;ng-content&gt;&lt;/ng-content&gt;&lt;/child-component&gt;</code
-                        >
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    Angular calls AfterContentInit() and AfterContentChecked()
-                    hooks after Angular projects external content into the
-                    component.
-                  </li>
-                  <li>
-                    the external content can be reached using the property
-                    decorated with @ContentChild() or @ContentChildren()
-                  </li>
-                </ul>
-              </li>
+            <li class="collapsible">
+              ngAfterContentInit &nbsp;<i class="fa fa-arrow-down gray icon-bigger"></i>
+              <ul class="collapsible_content">
+                <li>
+                  external content in a template
+                  <ul>
+                    <li>
+                      HTML between component element tags, e.g.&nbsp;<code>&lt;child-component&gt;&lt;span&gt;lorem
+                          content&lt;/span&gt;&lt;/child-component&gt;</code>
+                    </li>
+                    <li>
+                      ng-content tags in the component's template,
+                      e.g.&nbsp;<code>&lt;child-component&gt;&lt;ng-content&gt;&lt;/ng-content&gt;&lt;/child-component&gt;</code>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Angular calls AfterContentInit() and AfterContentChecked()
+                  hooks after Angular projects external content into the
+                  component.
+                </li>
+                <li>
+                  the external content can be reached using the property
+                  decorated with @ContentChild() or @ContentChildren()
+                </li>
+              </ul>
+            </li>
 
-              <li class="collapsible">
-                ngAfterContentChecked &nbsp;<i
-                  class="fa fa-arrow-down gray icon-bigger"
-                ></i>
-               <ul><li>A lifecycle hook that is called after the default change detector has completed checking all content of a directive.</li></ul>
-              </li>
+            <li class="collapsible">
+              ngAfterContentChecked &nbsp;<i class="fa fa-arrow-down gray icon-bigger"></i>
+              <ul>
+                <li>A lifecycle hook that is called after the default change detector has completed checking all content
+                  of a directive.</li>
+              </ul>
+            </li>
 
-              <li class="collapsible">
-                ngAfterViewInit &nbsp;<i
-                  class="fa fa-arrow-down gray icon-bigger"
-                ></i>
-                <ul class="collapsible_content">
-                  <li>
-                    <strong>unidirectional data flow</strong>&nbsp;:&nbsp;A data
-                    flow model where the component tree is always checked for
-                    changes in one direction (parent to child), which prevents
-                    cycles in the change detection graph.
-                  </li>
-                  <li>
-                    we should not try to change parent in child component's
-                    afterView hooks
-                  </li>
-                  <li>
-                    Angular calls AfterViewInit() and AfterViewChecked() hooks
-                    after it creates a component's child views.
-                  </li>
-                  <li>
-                    A parent component displays its child view within its
-                    template,&nbsp;e.g.
-                    <pre>
+            <li class="collapsible">
+              ngAfterViewInit &nbsp;<i class="fa fa-arrow-down gray icon-bigger"></i>
+              <ul class="collapsible_content">
+                <li>
+                  <strong>unidirectional data flow</strong>&nbsp;:&nbsp;A data
+                  flow model where the component tree is always checked for
+                  changes in one direction (parent to child), which prevents
+                  cycles in the change detection graph.
+                </li>
+                <li>
+                  we should not try to change parent in child component's
+                  afterView hooks
+                </li>
+                <li>
+                  Angular calls AfterViewInit() and AfterViewChecked() hooks
+                  after it creates a component's child views.
+                </li>
+                <li>
+                  A parent component displays its child view within its
+                  template,&nbsp;e.g.
+                  <pre>
 template: `
   &lt;div&gt;child view begins&lt;/div&gt;
     &lt;app-child-view&gt;&lt;/app-child-view&gt;
   &lt;div&gt;child view ends&lt;/div&gt;`
                     </pre>
-                  </li>
-                  <li>
-                    the child view can be reached using the property decorated
-                    with @ViewChild() or @ViewChildren()
-                  </li>
-                </ul>
-              </li>
+                </li>
+                <li>
+                  the child view can be reached using the property decorated
+                  with @ViewChild() or @ViewChildren()
+                </li>
+              </ul>
+            </li>
 
-              <li class="collapsible">
-                ngAfterViewChecked &nbsp;<i
-                  class="fa fa-arrow-down gray icon-bigger"
-                ></i>
-                <ul class="collapsible_content">
-                  <li>
-                    Respond after Angular checks the component's views and child
-                    views, or the view that contains the directive
-                  </li>
-                  <li>
-                    Called after the ngAfterViewInit() and every subsequent
-                    ngAfterContentChecked()
-                  </li>
-                </ul>
-              </li>
+            <li class="collapsible">
+              ngAfterViewChecked &nbsp;<i class="fa fa-arrow-down gray icon-bigger"></i>
+              <ul class="collapsible_content">
+                <li>
+                  Respond after Angular checks the component's views and child
+                  views, or the view that contains the directive
+                </li>
+                <li>
+                  Called after the ngAfterViewInit() and every subsequent
+                  ngAfterContentChecked()
+                </li>
+              </ul>
+            </li>
 
-              <li class="collapsible">
-                ngOnDestroy &nbsp;<i
-                  class="fa fa-arrow-down gray icon-bigger"
-                ></i>
-                <ul class="collapsible_content">
-                  <li>
-                    Cleanup just before Angular destroys the directive or
-                    component.
-                  </li>
-                  <li>
-                    Unsubscribe Observables and detach event handlers to avoid
-                    memory leaks
-                  </li>
-                </ul>
-              </li>
-              <li >
-                before rendering-- rendering --after rendering
-                </i>
-<ul >
-  <li> update child component's input binding, then call child component's OnInit、DoCheck、OnChanges . If child component's template includes ng-content，
-    call ngAfterContentInit and ngAfterContentChecked。
-</li>
-  <li>Angular continues to render  parent component </li>
-  <li>trigger child component's change detection。</li>
-  <li>trigger child component's AfterViewInit and  theAfterViewChecked。</li>
-        <img
-                  src="assets/nghooks/rendering.png"
-                  alt="angular render hooks"
-                />
-                Reference: <a href="https://limeii.github.io/2019/06/angular-unidirectional-data-flow/" target="_blank" rel="noopener noreferrer">https://limeii.github.io/2019/06/angular-unidirectional-data-flow/</a>
-              </li>
-              </ul> </ol>
+            <li class="collapsible">
+              ngOnDestroy &nbsp;<i class="fa fa-arrow-down gray icon-bigger"></i>
+              <ul class="collapsible_content">
+                <li>
+                  Cleanup just before Angular destroys the directive or
+                  component.
+                </li>
+                <li>
+                  Unsubscribe Observables and detach event handlers to avoid
+                  memory leaks
+                </li>
+              </ul>
+            </li>
+            <li>
+              before rendering-- rendering --after rendering
+              </i>
+              <ul>
+                <li> update child component's input binding, then call child component's OnInit、DoCheck、OnChanges . If
+                  child component's template includes ng-content，
+                  call ngAfterContentInit and ngAfterContentChecked。
+                </li>
+                <li>Angular continues to render parent component </li>
+                <li>trigger child component's change detection。</li>
+                <li>trigger child component's AfterViewInit and theAfterViewChecked。</li>
+                <img src="assets/nghooks/rendering.png" alt="angular render hooks" />
+                Reference: <a href="https://limeii.github.io/2019/06/angular-unidirectional-data-flow/" target="_blank"
+                  rel="noopener noreferrer">https://limeii.github.io/2019/06/angular-unidirectional-data-flow/</a>
+            </li>
+            </ul>
+          </ol>
 
-              <h3>change detection strategy</h3>
-                <div class="alert is-helpful"> Component's data change is generally caused by :
+          <h3>change detection strategy</h3>
+          <div class="alert is-helpful"> Component's data change is generally caused by :
 
-                    DOM event: click、submit、mouse down……
-                    <hr class="divider_transparent" />
-                    XHR：get data from back-end server
-                    <hr class="divider_transparent" />
-                    Timers：setTimeout()、setInterval()
-                </div>
-                <ul >
-                <li>by default, <code>changeDetection: ChangeDetectionStrategy.Default </code>. For reducing change detection of itself and its children,
-<pre>
+            DOM event: click、submit、mouse down……
+            <hr class="divider_transparent" />
+            XHR：get data from back-end server
+            <hr class="divider_transparent" />
+            Timers：setTimeout()、setInterval()
+          </div>
+          <ul>
+            <li>by default, <code>changeDetection: ChangeDetectionStrategy.Default </code>. For reducing change
+              detection of itself and its children,
+              <pre>
 @Component({
     selector: ...,
     template: ...,
     changeDetection: ChangeDetectionStrategy.OnPush
 })
                 </pre>
-                </li>
-                <li>Even if <code> ChangeDetectionStrategy.OnPush</code> is set , in the following cases the component's change detection will be triggered
-                  <ul>
-<li>component's @Input() refer to an object. The reference of an object changes, e.g.
-  <pre>
+            </li>
+            <li>Even if <code> ChangeDetectionStrategy.OnPush</code> is set , in the following cases the component's
+              change detection will be triggered
+              <ul>
+                <li>component's @Input() refer to an object. The reference of an object changes, e.g.
+                  <pre>
 // template file:
 &lt;componentA [address]="user.address"&gt;&lt;/componentA&gt;
 
@@ -409,48 +348,45 @@ changeReference() {
   this.user.address = "Waterloo University, Canada";
 }
  </pre>
-</li>
-
-<li>component's DOM event or component's children's DOM event，e.g. click、submit、mouse down。</li>
-
-<li>subscribe an Observable  and use  Async pipe。e.g.&nbsp;<code>{{ user$ | async}}</code></li>
-
-<li>call the following methods to trigger change detection：
-  <ol>
-    <li>ChangeDetectorRef.detectChanges</li>
-    <li>ChangeDetectorRef.markForCheck()</li>
-    <li>ApplicationRef.tick()</li>
-  </ol>
-  </li>
-                  </ul>
                 </li>
-                </ul>
-          </section>
-        </article>
-        <section class="read-more">
-          <div class="read-more_item">
-            <span class="read-more-item-dim">&lt;&lt;previous article</span>
-            <h3><a href="index.html"> Table of Contents</a></h3>
-          </div>
-          <div class="read-more_item">
-            <span class="read-more-item-dim">next article&gt;&gt;</span>
-            <h3><a href="angular_unsubscribe.html">When and How to Unsubscribe</a></h3>
-          </div>
-        </section>
 
-        <section class="footer">
-          <span class="footer__copyright"
-            >2021-5-31 Jennifer. All rights reserved.</span
-          >
-          <span class="footer__copyright"
-            >Contact Email: Jenniferyao1996#hotmail.com</span
-          >
+                <li>component's DOM event or component's children's DOM event，e.g. click、submit、mouse down。</li>
+
+                <li>subscribe an Observable and use Async pipe。e.g.&nbsp;<code>{{ user$ | async}}</code></li>
+
+                <li>call the following methods to trigger change detection：
+                  <ol>
+                    <li>ChangeDetectorRef.detectChanges</li>
+                    <li>ChangeDetectorRef.markForCheck()</li>
+                    <li>ApplicationRef.tick()</li>
+                  </ol>
+                </li>
+              </ul>
+            </li>
+          </ul>
         </section>
-      </div>
-      <span id="backToTop">
-        <i class="fa fa-arrow-up"></i>
-      </span>
-    </main>
-    <script src="main.js"></script>
-  </body>
+      </article>
+      <section class="read-more">
+        <div class="read-more_item">
+          <span class="read-more-item-dim">&lt;&lt;previous article</span>
+          <h3><a href="index.html"> Table of Contents</a></h3>
+        </div>
+        <div class="read-more_item">
+          <span class="read-more-item-dim">next article&gt;&gt;</span>
+          <h3><a href="angular_unsubscribe.html">When and How to Unsubscribe</a></h3>
+        </div>
+      </section>
+
+      <section class="footer">
+        <span class="footer__copyright">2021-5-31 Jennifer. All rights reserved.</span>
+        <span class="footer__copyright">Contact Email: Jenniferyao1996#hotmail.com</span>
+      </section>
+    </div>
+    <span id="backToTop">
+      <i class="fa fa-arrow-up"></i>
+    </span>
+  </main>
+  <script src="main.js"></script>
+</body>
+
 </html>

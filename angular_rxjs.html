@@ -1,158 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RxJS in Angular</title>
-    <meta
-      name="description"
-      content="Rxjs Hot Cool Observable Single Multiple broadcasting Angular "
-    />
-    <meta name="author" content="Jennifer" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link rel="icon" href="/assets/images/favicon.ico" />
-    <link rel="stylesheet" href="assets/css/normalize.css" />
-    <link rel="stylesheet" href="assets/css/index.css" />
-  </head>
-  <body>
-    <!--  for not index.html -->
-    <nav class="nav collapsible">
-      <span
-        ><a href="/#angular" class="white">Jennifer - Full Stack Developer</a>
-      </span>
-      <span class="nav_toggler" style="outline: none !important"
-        ><i class="fa fa-list white icon-bigger"></i
-      ></span>
-      <ul class="nav_list collapsible_content">
-        <li>
-          <ul class="nav_social" role="nav_social">
-            <li>
-              <a href="https://github.com/cxxyao2" target="_blank"
-                ><i class="fa fa-github white icon-biggest"></i
-              ></a>
-            </li>
-            <li>
-              <a href="https://twitter.com/jenniferyao1996" target="_blank"
-                ><i class="fa fa-twitter white icon-biggest"></i
-              ></a>
-            </li>
-            <li>
-              <a href="mailto:jenniferyao1996@qq.com" target="_blank"
-                ><i class="fa fa-envelope white icon-biggest"></i
-              ></a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav_item"><a href="/#angular">Angular</a></li>
-        <li class="nav_item"><a href="/#react">React</a></li>
-        <li class="nav_item"><a href="/#webpack">Webpack</a></li>
-        <li class="nav_item"><a href="/#database">Database</a></li>
-      </ul>
-    </nav>
 
-    <!--  for not index.html -->
-    <aside class="sidebar">
-      <div class="sidebar_cover"></div>
-      <div class="sidebar_main">
-        <a href="#">
-          <img class="sidebar_logo" alt="Jennifer" src="assets/tree1.jpg" />
-        </a>
-        <h3>Jennifer</h3>
-        <span>Full Stack Developer</span>
-        <hr />
-        <p class="sidebar_description">
-         A liftlong learner. Keep learning, keep evoving in IT industry.
-        </p>
-        <hr class="sidebar_divider" />
-        <p class="sidebar_tags">
-          <span class="sidebar_tag"
-            ><a href="/#angular"
-              ><img
-                src="assets/angular-icon.svg"
-                class="sidebar_icon"
-              />&nbsp;Angular</a
-            ></span
-          >
-          <span class="sidebar_tag"
-            ><a href="/#react" alt="react blogs"
-              ><img src="assets/react.svg" class="sidebar_icon" />&nbsp;React</a
-            ></span
-          >
-          <span class="sidebar_tag"
-            ><a href="/#webpack"
-              ><img
-                src="assets/webpack_logo.svg"
-                class="sidebar_icon"
-              />&nbsp;Webpack</a
-            ></span
-          >
-          <span class="sidebar_tag"
-            ><a href="/#database"
-              ><img
-                src="assets/mysql.png"
-                class="sidebar_icon"
-              />Backend</a
-            ></span
-          >
-        </p>
-        <hr class="sidebar_divider" />
-        <div>
-          <ul class="navigation" role="navigation-social">
-            <li class="navigation_item">
-              <a href="https://github.com/cxxyao2" target="_blank"
-                ><i class="fa fa-github icon-bigger"></i
-              ></a>
-            </li>
-            <li class="navigation_item">
-              <a href="https://twitter.com/jenniferyao1996" target="_blank"
-                ><i class="fa fa-twitter icon-bigger"></i
-              ></a>
-            </li>
-            <li class="navigation_item">
-              <a href="mailto:jenniferyao1996@qq.com" target="_blank"
-                ><i class="fa fa-envelope icon-bigger"></i
-              ></a>
-            </li>
-          </ul>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RxJS in Angular</title>
+  <meta name="description" content="Rxjs Hot Cool Observable Single Multiple broadcasting Angular " />
+  <meta name="author" content="Jennifer" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="icon" href="/assets/images/favicon.ico" />
+  <link rel="stylesheet" href="assets/css/normalize.css" />
+  <link rel="stylesheet" href="assets/css/index.css" />
+</head>
+
+<body>
+  <!--  for not index.html -->
+  <nav class="nav collapsible">
+    <span><a href="/#angular" class="white">Jennifer - Full Stack Developer</a>
+    </span>
+    <span class="nav_toggler" style="outline: none !important"><i class="fa fa-list white icon-bigger"></i></span>
+    <ul class="nav_list collapsible_content">
+      <li>
+        <ul class="nav_social" role="nav_social">
+          <li>
+            <a href="https://github.com/cxxyao2" target="_blank"><i class="fa fa-github white icon-biggest"></i></a>
+          </li>
+          <li>
+            <a href="https://twitter.com/jenniferyao1996" target="_blank"><i
+                class="fa fa-twitter white icon-biggest"></i></a>
+          </li>
+          <li>
+            <a href="mailto:jenniferyao1996#hotmail.com" target="_blank"><i
+                class="fa fa-envelope white icon-biggest"></i></a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav_item"><a href="/#angular">Angular</a></li>
+      <li class="nav_item"><a href="/#react">React</a></li>
+      <li class="nav_item"><a href="/#webpack">Webpack</a></li>
+      <li class="nav_item"><a href="/#database">Database</a></li>
+    </ul>
+  </nav>
+
+  <!--  for not index.html -->
+  <aside class="sidebar">
+    <div class="sidebar_cover"></div>
+    <div class="sidebar_main">
+      <a href="#">
+        <img class="sidebar_logo" alt="Jennifer" src="assets/tree1.jpg" />
+      </a>
+      <h3>Jennifer</h3>
+      <span>Full Stack Developer</span>
+      <hr />
+      <p class="sidebar_description">
+        A liftlong learner. Keep learning, keep evoving in IT industry.
+      </p>
+      <hr class="sidebar_divider" />
+      <p class="sidebar_tags">
+        <span class="sidebar_tag"><a href="/#angular"><img src="assets/angular-icon.svg"
+              class="sidebar_icon" />&nbsp;Angular</a></span>
+        <span class="sidebar_tag"><a href="/#react" alt="react blogs"><img src="assets/react.svg"
+              class="sidebar_icon" />&nbsp;React</a></span>
+        <span class="sidebar_tag"><a href="/#webpack"><img src="assets/webpack_logo.svg"
+              class="sidebar_icon" />&nbsp;Webpack</a></span>
+        <span class="sidebar_tag"><a href="/#database"><img src="assets/mysql.png"
+              class="sidebar_icon" />Backend</a></span>
+      </p>
+      <hr class="sidebar_divider" />
+      <div>
+        <ul class="navigation" role="navigation-social">
+          <li class="navigation_item">
+            <a href="https://github.com/cxxyao2" target="_blank"><i class="fa fa-github icon-bigger"></i></a>
+          </li>
+          <li class="navigation_item">
+            <a href="https://twitter.com/jenniferyao1996" target="_blank"><i class="fa fa-twitter icon-bigger"></i></a>
+          </li>
+          <li class="navigation_item">
+            <a href="mailto:jenniferyao1996#hotmail.com" target="_blank"><i class="fa fa-envelope icon-bigger"></i></a>
+          </li>
+        </ul>
       </div>
-    </aside>
+    </div>
+  </aside>
 
-    <main class="content_wrapper">
-      <div class="content">
-        <article class="post">
-          <header>
-            <span class="post_category"
-              ><label class="date">2021-5-1</label> Angular</span
-            >
-            <h2>Most Commonly Used RxJS Operators</h2>
-          </header>
-          <section class="post_body">
-            <ul>
-              <li class="collapsible">
-                Cold Observable vs Hot Observable
-                <ul >
-                  <li>cold: &nbsp;of, from</li>
-                  <li>hot: &nbsp;subject, publish, connect, refCount, publicReplay</li>
-                </ul>
-              </li>
-              <li class="collapsible">
-                Four Subjects
-                <ul >
-                  <li>Subject</li>
-                  <li>BehaviorSubject</li>
-                  <li>AsyncSubject</li>
-                  <li>ReplaySubject
-                    <div class="alert is-helpful">Replays or emit old values to new subscribers</div>
-                      <pre>
+  <main class="content_wrapper">
+    <div class="content">
+      <article class="post">
+        <header>
+          <span class="post_category"><label class="date">2021-5-1</label> Angular</span>
+          <h2>Most Commonly Used RxJS Operators</h2>
+        </header>
+        <section class="post_body">
+          <ul>
+            <li class="collapsible">
+              Cold Observable vs Hot Observable
+              <ul>
+                <li>cold: &nbsp;of, from</li>
+                <li>hot: &nbsp;subject, publish, connect, refCount, publicReplay</li>
+              </ul>
+            </li>
+            <li class="collapsible">
+              Four Subjects
+              <ul>
+                <li>Subject</li>
+                <li>BehaviorSubject</li>
+                <li>AsyncSubject</li>
+                <li>ReplaySubject
+                  <div class="alert is-helpful">Replays or emit old values to new subscribers</div>
+                  <pre>
 const sub = new ReplaySubject(3); // "3" means emits 3 old value to new subscribers
 sub.next(1);
 sub.next(2);
@@ -161,21 +118,22 @@ sub.next(3);
 sub.next(4);
 sub.subscribe(console.log); // output => 2,3,4
                       </pre>
+                </li>
+              </ul>
+            </li>
+            <li>
+              Maps
+              <ol>
+                <li>map</li>
+                <li>SwitchMap
+                  <ul>
+                    <li>It is a flattening operator. It maps an Observable to a new Observable and emit values. </li>
+                    <li>It can cancel in-flight network requests</li>
+                    <li>It allows only one active inner subscription</li>
+                    <li>It only map the most recent value at a time to reduce unnecessary output( and network traffic).
                     </li>
-                </ul>
-              </li>
-              <li>
-                Maps
-                <ol>
-                  <li>map</li>
-                  <li>SwitchMap
-                    <ul>
-                      <li>It is a flattening operator. It maps an Observable to a new Observable and emit values. </li>
-                      <li>It can cancel in-flight network requests</li>
-                      <li>It allows only one active inner subscription</li>
-                      <li>It only map the most recent value at a time to reduce unnecessary output( and network traffic).</li>
-                    </ul>
-                    <pre>
+                  </ul>
+                  <pre>
   // someComponent.ts
   ngOnInit() {
         this.validSearch$ = this.onSearchUser$
@@ -188,27 +146,28 @@ sub.subscribe(console.log); // output => 2,3,4
             )
 }
                     </pre>
-                  </li>
-                  <li>differences between SwitchMap,mergeMap,ConcatMap,exhaustMap
-                    <ul>
-                      <li>SwitchMap
-                        <p>It  maps the most recent value  to a new Observable.</p>
-                        <p>output of the following code:&nbsp;0 0 1 2 3 4 </p>
-                      </li>
-                      <li>MergeMap( FlatMap )
-                        <p>If every request needs to complete, it is the correct options.It assure every observable to emit values and complete.<It allows multiple active inner subscriptions/p>
-                        <p>output of the following code:&nbsp;01021 03201 43120 42313 42434 </p>
-                      </li>
-                      <li>ConcatMap
-                        <p>use it if the order of emission and subscription of inner observables is important</p>
-                        <p>output of the following code:&nbsp;01234 01234 01234 01234 01234</p>
-                      </li>
-                      <li>exhaustMap
-                        <p>Map to inner observable, ignore other values until that observable completes.</p>
-                        <p>output of the following code:&nbsp;01234</p>
-                      </li>
-                      </li>
-                      <pre>
+                </li>
+                <li>differences between SwitchMap,mergeMap,ConcatMap,exhaustMap
+                  <ul>
+                    <li>SwitchMap
+                      <p>It maps the most recent value to a new Observable.</p>
+                      <p>output of the following code:&nbsp;0 0 1 2 3 4 </p>
+                    </li>
+                    <li>MergeMap( FlatMap )
+                      <p>If every request needs to complete, it is the correct options.It assure every observable to
+                        emit values and complete.<It allows multiple active inner subscriptions/p>
+                          <p>output of the following code:&nbsp;01021 03201 43120 42313 42434 </p>
+                    </li>
+                    <li>ConcatMap
+                      <p>use it if the order of emission and subscription of inner observables is important</p>
+                      <p>output of the following code:&nbsp;01234 01234 01234 01234 01234</p>
+                    </li>
+                    <li>exhaustMap
+                      <p>Map to inner observable, ignore other values until that observable completes.</p>
+                      <p>output of the following code:&nbsp;01234</p>
+                    </li>
+                </li>
+                <pre>
   const sourceInterval = interval(1000);
   const delayedInterval = sourceInterval.pipe(delay(10), take(4));
   const exhaustSub = merge(
@@ -217,23 +176,23 @@ sub.subscribe(console.log); // output => 2,3,4
     .pipe(PLace_Name_Of_Map_Here((_) => sourceInterval.pipe(take(5))))
     .subscribe((val) => console.log(val));
                       </pre>
-                    </ul>
-                  </li>
-                  <li>mapTo
-                   <p>map everyting to a constant value</p>
-                    <pre>
+          </ul>
+          </li>
+          <li>mapTo
+            <p>map everyting to a constant value</p>
+            <pre>
 const source = interval(2000);
 const example = source.pipe(mapTo(‘Hello World’));
 const subscribe = example.subscribe(val => console.log(val)) ;
 // output: Hello World
                     </pre>
-                  </li>
+          </li>
 
-                </ol>
-              </li>
-              <li>merge
-                <p> turn multiple observables into a single observable</p>
-                <pre>
+          </ol>
+          </li>
+          <li>merge
+            <p> turn multiple observables into a single observable</p>
+            <pre>
 const first = interval(2500) ;
 const second= interval(2500);
 const example = merge(
@@ -243,11 +202,11 @@ second.pipe( mapTo(‘second’)
 // output:  second, first
 const subscribe = example.subscribe(example); ..
                 </pre>
-              </li>
-              <li>skip, timer, interval</li>
-              <li>shareReply
-                <div>share and replay values for later subscribers</div>
-                <pre>
+          </li>
+          <li>skip, timer, interval</li>
+          <li>shareReply
+            <div>share and replay values for later subscribers</div>
+            <pre>
 const route = new Subject&lt;string&gt;();
 const lastUrl = route.pipe(shareReplay(1));
 
@@ -257,20 +216,21 @@ route.next('my path');
 
 const lastSubscriber = lastUrl.subscribe(console.log); // output => my path
                 </pre>
-              </li>
-              <li>debounce</li>
-              <li>fromEvent</li>
-            </ul>
-            <h3>An example about how to use RxJS operators</h3>
-            <ul>
-              <li>main features:<ol>
+          </li>
+          <li>debounce</li>
+          <li>fromEvent</li>
+          </ul>
+          <h3>An example about how to use RxJS operators</h3>
+          <ul>
+            <li>main features:<ol>
                 <li>every 10 seconds</li>
                 <li>get 30 new users from github server</li>
                 <li>show a notification on the screen</li>
                 <li>if user clicks "refresh" button, refresh user list ; if not, go to next cycle </li>
-              </ol></li>
-              <li>source code
-                <pre>
+              </ol>
+            </li>
+            <li>source code
+              <pre>
 // notification.service.ts
 
 import { HttpClient } from '@angular/common/http';
@@ -394,40 +354,37 @@ export class NotificationComponent implements OnInit {
 
               </pre>
 
-              </li>
+            </li>
 
-              <li>source code is hosted on github&nbsp;<a href="https://github.com/cxxyao2/rxjs/tree/master/src/app/notification" alt="RxJS notification">RxJS notification</a></li>
-            </ul>
-          </section>
-        </article>
-        <section class="read-more">
-          <div class="read-more_item">
-            <span class="read-more-item-dim">&lt;&lt;previous article</span>
-            <h3>
-              <a href="angular_crud_and_authentication_firebase.html"
-                >CRUD and Authentication in Firebase</a
-              >
-            </h3>
-          </div>
-          <div class="read-more_item">
-            <span class="read-more-item-dim">next article&gt;&gt;</span>
-            <h3><a href="angular_performance.html">Improve Angular Performance</a></h3>
-          </div>
+            <li>source code is hosted on github&nbsp;<a
+                href="https://github.com/cxxyao2/rxjs/tree/master/src/app/notification" alt="RxJS notification">RxJS
+                notification</a></li>
+          </ul>
         </section>
+      </article>
+      <section class="read-more">
+        <div class="read-more_item">
+          <span class="read-more-item-dim">&lt;&lt;previous article</span>
+          <h3>
+            <a href="angular_crud_and_authentication_firebase.html">CRUD and Authentication in Firebase</a>
+          </h3>
+        </div>
+        <div class="read-more_item">
+          <span class="read-more-item-dim">next article&gt;&gt;</span>
+          <h3><a href="angular_performance.html">Improve Angular Performance</a></h3>
+        </div>
+      </section>
 
-        <section class="footer">
-          <span class="footer__copyright"
-            >2021-5-31 Jennifer. All rights reserved.</span
-          >
-          <span class="footer__copyright"
-            >Contact Email: Jenniferyao1996#hotmail.com</span
-          >
-        </section>
-      </div>
-      <span id="backToTop">
-        <i class="fa fa-arrow-up"></i>
-      </span>
-    </main>
-    <script src="main.js"></script>
-  </body>
+      <section class="footer">
+        <span class="footer__copyright">2021-5-31 Jennifer. All rights reserved.</span>
+        <span class="footer__copyright">Contact Email: Jenniferyao1996#hotmail.com</span>
+      </section>
+    </div>
+    <span id="backToTop">
+      <i class="fa fa-arrow-up"></i>
+    </span>
+  </main>
+  <script src="main.js"></script>
+</body>
+
 </html>

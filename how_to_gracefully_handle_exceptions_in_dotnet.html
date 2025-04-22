@@ -1,148 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Handle Exceptions</title>
-		<meta name="description" content="security backend" />
-		<meta name="author" content="Jennifer" />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-			rel="stylesheet" />
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-		<link rel="icon" href="/assets/images/favicon.ico" />
-		<link rel="stylesheet" href="assets/css/normalize.css" />
-		<link rel="stylesheet" href="assets/css/index.css" />
-	</head>
-	<body>
-		<!--  for not index.html -->
-		<nav class="nav collapsible">
-			<span
-				><a href="/#angular" class="white">Jennifer - Full Stack Developer</a>
-			</span>
-			<span class="nav_toggler" style="outline: none !important"
-				><i class="fa fa-list white icon-bigger"></i
-			></span>
-			<ul class="nav_list collapsible_content">
-				<li>
-					<ul class="nav_social" role="nav_social">
-						<li>
-							<a href="https://github.com/cxxyao2" target="_blank"
-								><i class="fa fa-github white icon-biggest"></i
-							></a>
-						</li>
-						<li>
-							<a href="https://twitter.com/jenniferyao1996" target="_blank"
-								><i class="fa fa-twitter white icon-biggest"></i
-							></a>
-						</li>
-						<li>
-							<a href="mailto:jenniferyao1996@qq.com" target="_blank"
-								><i class="fa fa-envelope white icon-biggest"></i
-							></a>
-						</li>
-					</ul>
-				</li>
-				<li class="nav_item"><a href="/#angular">Angular</a></li>
-				<li class="nav_item"><a href="/#react">React</a></li>
-				<li class="nav_item"><a href="/#webpack">Webpack</a></li>
-				<li class="nav_item"><a href="/#database">Database</a></li>
-			</ul>
-		</nav>
 
-		<!--  for not index.html -->
-		<aside class="sidebar">
-			<div class="sidebar_cover"></div>
-			<div class="sidebar_main">
-				<a href="#">
-					<img class="sidebar_logo" alt="Jennifer" src="assets/tree1.jpg" />
-				</a>
-				<h3>Jennifer</h3>
-				<span>Full Stack Developer</span>
-				<hr />
-				<p class="sidebar_description">
-					Lifelong learner. Learn and share the knowledge..
-				</p>
-				<hr class="sidebar_divider" />
-				<p class="sidebar_tags">
-					<span class="sidebar_tag"
-						><a href="/#angular"
-							><img
-								src="assets/angular-icon.svg"
-								class="sidebar_icon" />&nbsp;Angular</a
-						></span
-					>
-					<span class="sidebar_tag"
-						><a href="/#react" alt="react blogs"
-							><img src="assets/react.svg" class="sidebar_icon" />&nbsp;React</a
-						></span
-					>
-					<span class="sidebar_tag"
-						><a href="/#webpack"
-							><img
-								src="assets/webpack_logo.svg"
-								class="sidebar_icon" />&nbsp;Webpack</a
-						></span
-					>
-					<span class="sidebar_tag"
-						><a href="/#database"
-							><img
-								src="assets/mysql.png"
-								class="sidebar_icon" />Backend</a
-						></span
-					>
-				</p>
-				<hr class="sidebar_divider" />
-				<div>
-					<ul class="navigation" role="navigation-social">
-						<li class="navigation_item">
-							<a href="https://github.com/cxxyao2" target="_blank"
-								><i class="fa fa-github icon-bigger"></i
-							></a>
-						</li>
-						<li class="navigation_item">
-							<a href="https://twitter.com/jenniferyao1996" target="_blank"
-								><i class="fa fa-twitter icon-bigger"></i
-							></a>
-						</li>
-						<li class="navigation_item">
-							<a href="mailto:jenniferyao1996@qq.com" target="_blank"
-								><i class="fa fa-envelope icon-bigger"></i
-							></a>
-						</li>
-					</ul>
-				</div>
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Handle Exceptions</title>
+	<meta name="description" content="security backend" />
+	<meta name="author" content="Jennifer" />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link rel="icon" href="/assets/images/favicon.ico" />
+	<link rel="stylesheet" href="assets/css/normalize.css" />
+	<link rel="stylesheet" href="assets/css/index.css" />
+</head>
+
+<body>
+	<!--  for not index.html -->
+	<nav class="nav collapsible">
+		<span><a href="/#angular" class="white">Jennifer - Full Stack Developer</a>
+		</span>
+		<span class="nav_toggler" style="outline: none !important"><i class="fa fa-list white icon-bigger"></i></span>
+		<ul class="nav_list collapsible_content">
+			<li>
+				<ul class="nav_social" role="nav_social">
+					<li>
+						<a href="https://github.com/cxxyao2" target="_blank"><i
+								class="fa fa-github white icon-biggest"></i></a>
+					</li>
+					<li>
+						<a href="https://twitter.com/jenniferyao1996" target="_blank"><i
+								class="fa fa-twitter white icon-biggest"></i></a>
+					</li>
+					<li>
+						<a href="mailto:jenniferyao1996#hotmail.com" target="_blank"><i
+								class="fa fa-envelope white icon-biggest"></i></a>
+					</li>
+				</ul>
+			</li>
+			<li class="nav_item"><a href="/#angular">Angular</a></li>
+			<li class="nav_item"><a href="/#react">React</a></li>
+			<li class="nav_item"><a href="/#webpack">Webpack</a></li>
+			<li class="nav_item"><a href="/#database">Database</a></li>
+		</ul>
+	</nav>
+
+	<!--  for not index.html -->
+	<aside class="sidebar">
+		<div class="sidebar_cover"></div>
+		<div class="sidebar_main">
+			<a href="#">
+				<img class="sidebar_logo" alt="Jennifer" src="assets/tree1.jpg" />
+			</a>
+			<h3>Jennifer</h3>
+			<span>Full Stack Developer</span>
+			<hr />
+			<p class="sidebar_description">
+				Lifelong learner. Learn and share the knowledge..
+			</p>
+			<hr class="sidebar_divider" />
+			<p class="sidebar_tags">
+				<span class="sidebar_tag"><a href="/#angular"><img src="assets/angular-icon.svg"
+							class="sidebar_icon" />&nbsp;Angular</a></span>
+				<span class="sidebar_tag"><a href="/#react" alt="react blogs"><img src="assets/react.svg"
+							class="sidebar_icon" />&nbsp;React</a></span>
+				<span class="sidebar_tag"><a href="/#webpack"><img src="assets/webpack_logo.svg"
+							class="sidebar_icon" />&nbsp;Webpack</a></span>
+				<span class="sidebar_tag"><a href="/#database"><img src="assets/mysql.png"
+							class="sidebar_icon" />Backend</a></span>
+			</p>
+			<hr class="sidebar_divider" />
+			<div>
+				<ul class="navigation" role="navigation-social">
+					<li class="navigation_item">
+						<a href="https://github.com/cxxyao2" target="_blank"><i
+								class="fa fa-github icon-bigger"></i></a>
+					</li>
+					<li class="navigation_item">
+						<a href="https://twitter.com/jenniferyao1996" target="_blank"><i
+								class="fa fa-twitter icon-bigger"></i></a>
+					</li>
+					<li class="navigation_item">
+						<a href="mailto:jenniferyao1996#hotmail.com" target="_blank"><i
+								class="fa fa-envelope icon-bigger"></i></a>
+					</li>
+				</ul>
 			</div>
-		</aside>
+		</div>
+	</aside>
 
-		<main class="content_wrapper">
-			<div class="content">
-				<article class="post">
-					<header>
-						<span class="post_category"
-							><label class="date">2023-11-01</label>C#</span
-						>
-						<h2>Handel Exceptions</h2>
-					</header>
-					<section class="post_body">
-						<ol>
-							Handling exceptions is crucial for developing a robust and secure
-							application, I will talk about how to handle exceptions in .NET.:
-							<li>Custom exceptions</li>
-							<li>Framework-related exceptions</li>
-							<li>Unhandle errors</li>
-						</ol>
-						<hr />
-						<ol>
-							<b>Custom Exceptions</b>
-							I developered an class named AppException which inherits from
-							Exception to throw some custom exceptions:
-							<li>
-								This is the custom exception class:
-								<pre>
+	<main class="content_wrapper">
+		<div class="content">
+			<article class="post">
+				<header>
+					<span class="post_category"><label class="date">2023-11-01</label>C#</span>
+					<h2>Handel Exceptions</h2>
+				</header>
+				<section class="post_body">
+					<ol>
+						Handling exceptions is crucial for developing a robust and secure
+						application, I will talk about how to handle exceptions in .NET.:
+						<li>Custom exceptions</li>
+						<li>Framework-related exceptions</li>
+						<li>Unhandle errors</li>
+					</ol>
+					<hr />
+					<ol>
+						<b>Custom Exceptions</b>
+						I developered an class named AppException which inherits from
+						Exception to throw some custom exceptions:
+						<li>
+							This is the custom exception class:
+							<pre>
 public class AppException : Exception
 {
     public AppException() : base() { }
@@ -154,22 +123,21 @@ public class AppException : Exception
     {
     }
 }
-								</pre
-								>
-							</li>
-							<li>
-								Use case 1 : throw custom exceptions in repository( or service)
-								<pre>
+								</pre>
+						</li>
+						<li>
+							Use case 1 : throw custom exceptions in repository( or service)
+							<pre>
 bool emailExists = await _context.Users.AnyAsync(x => x.Email == model.Email);
 if (emailExists)
     throw new AppException("User with the email '" + model.Email + "' already exists");
-								</pre
-								>
-								    <img   src="assets/dotnet/ef-error-0.png" alt="dotnet error0" /> </li>
-							</li>
-							<li>
-								Use case 2: use the excetpion in the middleware
-								<pre>
+								</pre>
+							<img src="assets/dotnet/ef-error-0.png" alt="dotnet error0" />
+						</li>
+						</li>
+						<li>
+							Use case 2: use the excetpion in the middleware
+							<pre>
 // Excerpt from ErrorHandlerMiddleware.cs
 public async Task Invoke(HttpContext context)
     {
@@ -203,22 +171,21 @@ public async Task Invoke(HttpContext context)
             await response.WriteAsync(result);
         }
     }
-								</pre
-								>
-		<p> In Program.cs file, use this middleware class
-<pre>
+								</pre>
+							<p> In Program.cs file, use this middleware class
+							<pre>
 // global error handler
 app.UseMiddleware<ErrorHandlerMiddleware>();
 </pre>
-		</p>
+							</p>
 
-							</li>
-						</ol>
-						<hr />
-						<ol>
-							<b>Framework-related Errors</b>
-							<li>Applying data annotations to the model
-								<pre>
+						</li>
+					</ol>
+					<hr />
+					<ol>
+						<b>Framework-related Errors</b>
+						<li>Applying data annotations to the model
+							<pre>
  public class UserUpdateDto
     {
         public int UserId { get; set; }
@@ -252,56 +219,58 @@ public async Task<IActionResult> Update(UserUpdateDto user)
    return Ok(new { message = $"User {user.UserId} updated" });
   }
 								</pre>
-<p>Framwork will throw the appropriate exceptions according to the added annotations </p>
-    <img   src="assets/dotnet/ef-error-1.png" alt="dotnet error1" /> </li>
-							</li>
-						</ol>
-						<hr />
-						<ol>
-							<b>Unhandle Errors</b>
-							<br>
-								I met an error like this: <span>Entity Framework - "An error occurred while updating the entries. See the inner exception for details."</span>
-								<br/>
-								I checked out in Output window of Visual Studio Editor and found the detailed inner exception: "System.InValidCastExcetpion: Cannot write DateTime with Kind=Local to  PostgreSQL type 'timestamp with time zone', only UTC is supported."
-								<br/>
-<b>Solution:</b> I changed "Datetime.Now' to 'Datetime.UTCNow' in the code. Issue is resolved.
-								    <img   src="assets/dotnet/ef-error-2.png" alt="dotnet error2" />
-  <img   src="assets/dotnet/ef-error-2-solution.png" alt="dotnet error2 solution" />
-									</li>
-							</li>
-						</ol>
-						<hr />
-						<p>When facing challenges, remain calm and turn to Google for solutions. Remember that you're not alone on your development journey, and there's always a path forward. Happy coding!</p>
-					</section>
-				</article>
-				<section class="read-more">
-					<div class="read-more_item">
-						<span class="read-more-item-dim">&lt;&lt;previous article</span>
-						<h3>
-							<a href="front_end_security.html">Front-end Security</a>
-						</h3>
-					</div>
-					<div class="read-more_item">
-						<span class="read-more-item-dim">next article&gt;&gt;</span>
-						<h3>
-							<a href="index.html"> Table of Contents</a>
-						</h3>
-					</div>
+							<p>Framwork will throw the appropriate exceptions according to the added annotations </p>
+							<img src="assets/dotnet/ef-error-1.png" alt="dotnet error1" />
+						</li>
+						</li>
+					</ol>
+					<hr />
+					<ol>
+						<b>Unhandle Errors</b>
+						<br>
+						I met an error like this: <span>Entity Framework - "An error occurred while updating the
+							entries. See the inner exception for details."</span>
+						<br />
+						I checked out in Output window of Visual Studio Editor and found the detailed inner exception:
+						"System.InValidCastExcetpion: Cannot write DateTime with Kind=Local to PostgreSQL type
+						'timestamp with time zone', only UTC is supported."
+						<br />
+						<b>Solution:</b> I changed "Datetime.Now' to 'Datetime.UTCNow' in the code. Issue is resolved.
+						<img src="assets/dotnet/ef-error-2.png" alt="dotnet error2" />
+						<img src="assets/dotnet/ef-error-2-solution.png" alt="dotnet error2 solution" />
+						</li>
+						</li>
+					</ol>
+					<hr />
+					<p>When facing challenges, remain calm and turn to Google for solutions. Remember that you're not
+						alone on your development journey, and there's always a path forward. Happy coding!</p>
 				</section>
+			</article>
+			<section class="read-more">
+				<div class="read-more_item">
+					<span class="read-more-item-dim">&lt;&lt;previous article</span>
+					<h3>
+						<a href="front_end_security.html">Front-end Security</a>
+					</h3>
+				</div>
+				<div class="read-more_item">
+					<span class="read-more-item-dim">next article&gt;&gt;</span>
+					<h3>
+						<a href="index.html"> Table of Contents</a>
+					</h3>
+				</div>
+			</section>
 
-				<section class="footer">
-					<span class="footer__copyright"
-						>2021-5-31 Jennifer. All rights reserved.</span
-					>
-					<span class="footer__copyright"
-						>Contact Email: Jenniferyao1996#hotmail.com</span
-					>
-				</section>
-			</div>
-			<span id="backToTop">
-				<i class="fa fa-arrow-up"></i>
-			</span>
-		</main>
-		<script src="main.js"></script>
-	</body>
+			<section class="footer">
+				<span class="footer__copyright">2021-5-31 Jennifer. All rights reserved.</span>
+				<span class="footer__copyright">Contact Email: Jenniferyao1996#hotmail.com</span>
+			</section>
+		</div>
+		<span id="backToTop">
+			<i class="fa fa-arrow-up"></i>
+		</span>
+	</main>
+	<script src="main.js"></script>
+</body>
+
 </html>

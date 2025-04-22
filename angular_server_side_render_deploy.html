@@ -1,160 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Deploy Server Side Rendering with Angular Universal and Firebase Functions
-    </title>
-    <meta name="description" content="unsubscribe HTTP RxJS  Angular " />
-    <meta name="author" content="Jennifer" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link rel="icon" href="/assets/images/favicon.ico" />
-    <link rel="stylesheet" href="assets/css/normalize.css" />
-    <link rel="stylesheet" href="assets/css/index.css" />
-  </head>
-  <body>
-    <!--  for not index.html -->
-    <nav class="nav collapsible">
-      <span
-        ><a href="/#angular" class="white">Jennifer - Full Stack Developer</a>
-      </span>
-      <span class="nav_toggler" style="outline: none !important"
-        ><i class="fa fa-list white icon-bigger"></i
-      ></span>
-      <ul class="nav_list collapsible_content">
-        <li>
-          <ul class="nav_social" role="nav_social">
-            <li>
-              <a href="https://github.com/cxxyao2" target="_blank"
-                ><i class="fa fa-github white icon-biggest"></i
-              ></a>
-            </li>
-            <li>
-              <a href="https://twitter.com/jenniferyao1996" target="_blank"
-                ><i class="fa fa-twitter white icon-biggest"></i
-              ></a>
-            </li>
-            <li>
-              <a href="mailto:jenniferyao1996@qq.com" target="_blank"
-                ><i class="fa fa-envelope white icon-biggest"></i
-              ></a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav_item"><a href="/#angular">Angular</a></li>
-        <li class="nav_item"><a href="/#react">React</a></li>
-        <li class="nav_item"><a href="/#webpack">Webpack</a></li>
-        <li class="nav_item"><a href="/#database">Database</a></li>
-      </ul>
-    </nav>
 
-    <!--  for not index.html -->
-    <aside class="sidebar">
-      <div class="sidebar_cover"></div>
-      <div class="sidebar_main">
-        <a href="#">
-          <img class="sidebar_logo" alt="Jennifer" src="assets/tree1.jpg" />
-        </a>
-        <h3>Jennifer</h3>
-        <span>Full Stack Developer</span>
-        <hr />
-        <p class="sidebar_description">
-         A liftlong learner. Keep learning, keep evoving in IT industry.
-        </p>
-        <hr class="sidebar_divider" />
-        <p class="sidebar_tags">
-          <span class="sidebar_tag"
-            ><a href="/#angular"
-              ><img
-                src="assets/angular-icon.svg"
-                class="sidebar_icon"
-              />&nbsp;Angular</a
-            ></span
-          >
-          <span class="sidebar_tag"
-            ><a href="/#react" alt="react blogs"
-              ><img src="assets/react.svg" class="sidebar_icon" />&nbsp;React</a
-            ></span
-          >
-          <span class="sidebar_tag"
-            ><a href="/#webpack"
-              ><img
-                src="assets/webpack_logo.svg"
-                class="sidebar_icon"
-              />&nbsp;Webpack</a
-            ></span
-          >
-          <span class="sidebar_tag"
-            ><a href="/#database"
-              ><img
-                src="assets/mysql.png"
-                class="sidebar_icon"
-              />Backend</a
-            ></span
-          >
-        </p>
-        <hr class="sidebar_divider" />
-        <div>
-          <ul class="navigation" role="navigation-social">
-            <li class="navigation_item">
-              <a href="https://github.com/cxxyao2" target="_blank"
-                ><i class="fa fa-github icon-bigger"></i
-              ></a>
-            </li>
-            <li class="navigation_item">
-              <a href="https://twitter.com/jenniferyao1996" target="_blank"
-                ><i class="fa fa-twitter icon-bigger"></i
-              ></a>
-            </li>
-            <li class="navigation_item">
-              <a href="mailto:jenniferyao1996@qq.com" target="_blank"
-                ><i class="fa fa-envelope icon-bigger"></i
-              ></a>
-            </li>
-          </ul>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    Deploy Server Side Rendering with Angular Universal and Firebase Functions
+  </title>
+  <meta name="description" content="unsubscribe HTTP RxJS  Angular " />
+  <meta name="author" content="Jennifer" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="icon" href="/assets/images/favicon.ico" />
+  <link rel="stylesheet" href="assets/css/normalize.css" />
+  <link rel="stylesheet" href="assets/css/index.css" />
+</head>
+
+<body>
+  <!--  for not index.html -->
+  <nav class="nav collapsible">
+    <span><a href="/#angular" class="white">Jennifer - Full Stack Developer</a>
+    </span>
+    <span class="nav_toggler" style="outline: none !important"><i class="fa fa-list white icon-bigger"></i></span>
+    <ul class="nav_list collapsible_content">
+      <li>
+        <ul class="nav_social" role="nav_social">
+          <li>
+            <a href="https://github.com/cxxyao2" target="_blank"><i class="fa fa-github white icon-biggest"></i></a>
+          </li>
+          <li>
+            <a href="https://twitter.com/jenniferyao1996" target="_blank"><i
+                class="fa fa-twitter white icon-biggest"></i></a>
+          </li>
+          <li>
+            <a href="mailto:jenniferyao1996#hotmail.com" target="_blank"><i
+                class="fa fa-envelope white icon-biggest"></i></a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav_item"><a href="/#angular">Angular</a></li>
+      <li class="nav_item"><a href="/#react">React</a></li>
+      <li class="nav_item"><a href="/#webpack">Webpack</a></li>
+      <li class="nav_item"><a href="/#database">Database</a></li>
+    </ul>
+  </nav>
+
+  <!--  for not index.html -->
+  <aside class="sidebar">
+    <div class="sidebar_cover"></div>
+    <div class="sidebar_main">
+      <a href="#">
+        <img class="sidebar_logo" alt="Jennifer" src="assets/tree1.jpg" />
+      </a>
+      <h3>Jennifer</h3>
+      <span>Full Stack Developer</span>
+      <hr />
+      <p class="sidebar_description">
+        A liftlong learner. Keep learning, keep evoving in IT industry.
+      </p>
+      <hr class="sidebar_divider" />
+      <p class="sidebar_tags">
+        <span class="sidebar_tag"><a href="/#angular"><img src="assets/angular-icon.svg"
+              class="sidebar_icon" />&nbsp;Angular</a></span>
+        <span class="sidebar_tag"><a href="/#react" alt="react blogs"><img src="assets/react.svg"
+              class="sidebar_icon" />&nbsp;React</a></span>
+        <span class="sidebar_tag"><a href="/#webpack"><img src="assets/webpack_logo.svg"
+              class="sidebar_icon" />&nbsp;Webpack</a></span>
+        <span class="sidebar_tag"><a href="/#database"><img src="assets/mysql.png"
+              class="sidebar_icon" />Backend</a></span>
+      </p>
+      <hr class="sidebar_divider" />
+      <div>
+        <ul class="navigation" role="navigation-social">
+          <li class="navigation_item">
+            <a href="https://github.com/cxxyao2" target="_blank"><i class="fa fa-github icon-bigger"></i></a>
+          </li>
+          <li class="navigation_item">
+            <a href="https://twitter.com/jenniferyao1996" target="_blank"><i class="fa fa-twitter icon-bigger"></i></a>
+          </li>
+          <li class="navigation_item">
+            <a href="mailto:jenniferyao1996#hotmail.com" target="_blank"><i class="fa fa-envelope icon-bigger"></i></a>
+          </li>
+        </ul>
       </div>
-    </aside>
+    </div>
+  </aside>
 
-    <main class="content_wrapper">
-      <div class="content">
-        <article class="post">
-          <header>
-            <span class="post_category"
-              ><label class="date">2021-7-1</label> Angular</span
-            >
-            <h2>
-              Deploy Server Side Rendering with Angular Universal and Firebase
-              Functions
-            </h2>
-          </header>
-          <section class="post_body">
-            <div class="alert is-helpful">
-              (&nbsp;Extract from angular official document&nbsp;)&nbsp;Angular Universal is a technology that renders Angular applications on the server.Why use server-side rendering?
-              <ul class="no-indent">
-                <li class="small-indent">Facilitate web crawler(SEO)</li>
-                <li  class="small-indent">Improve performance on mobile and low-powered devices</li>
-                <li  class="small-indent">Show the first page quickly</li>
-              </ul>
-            </div>
-            <p>In this blog, i will share my notes about how to prepare an application for server-side rendering and deploy the ssr app to Firebase using Firebase Projects and Functions step by step.</p>
-             <ol class="no-indent">
-               <li>Install package
-                 <pre>
+  <main class="content_wrapper">
+    <div class="content">
+      <article class="post">
+        <header>
+          <span class="post_category"><label class="date">2021-7-1</label> Angular</span>
+          <h2>
+            Deploy Server Side Rendering with Angular Universal and Firebase
+            Functions
+          </h2>
+        </header>
+        <section class="post_body">
+          <div class="alert is-helpful">
+            (&nbsp;Extract from angular official document&nbsp;)&nbsp;Angular Universal is a technology that renders
+            Angular applications on the server.Why use server-side rendering?
+            <ul class="no-indent">
+              <li class="small-indent">Facilitate web crawler(SEO)</li>
+              <li class="small-indent">Improve performance on mobile and low-powered devices</li>
+              <li class="small-indent">Show the first page quickly</li>
+            </ul>
+          </div>
+          <p>In this blog, i will share my notes about how to prepare an application for server-side rendering and
+            deploy the ssr app to Firebase using Firebase Projects and Functions step by step.</p>
+          <ol class="no-indent">
+            <li>Install package
+              <pre>
 $ng add @nguniversal/express-engine
                  </pre>
-               </li>
-               <li>Add information for web crawler in component using Title and Meta
-                 <pre>
+            </li>
+            <li>Add information for web crawler in component using Title and Meta
+              <pre>
   constructor(
         private route: ActivatedRoute,
         private coursesService: CoursesService,
@@ -184,9 +146,9 @@ $ng add @nguniversal/express-engine
 
     }
                  </pre>
-               </li>
-               <li>Add directive to control whether render or not some elements. The follow is extract of code.
-                 <pre>
+            </li>
+            <li>Add directive to control whether render or not some elements. The follow is extract of code.
+              <pre>
 // no render directive
 @Directive({
     selector: "[appShellNoRender]"
@@ -211,7 +173,7 @@ export class AppShellNoRenderDirective implements OnInit {
 
 }
                  </pre>
-                 <pre>
+              <pre>
 // render  directive
  ngOnInit() {
         if (isPlatformServer(this.platformId)) {
@@ -223,7 +185,7 @@ export class AppShellNoRenderDirective implements OnInit {
 
     }
                  </pre>
-                 <pre>
+              <pre>
 // directive in template
 &lt;div class="spinner-container" *appShellNoRender&gt;
     &lt;div *ngFor="let item of xx"&gt;
@@ -231,9 +193,10 @@ export class AppShellNoRenderDirective implements OnInit {
     &lt;/div&gt;
   &lt;/div&gt;
                  </pre>
-               </li>
-               <li>Add resolver to preload data for better user experience. Avoid duplicate fetching data using makeStateKey ,TransferState and PLATFORM_ID
-                 <pre>
+            </li>
+            <li>Add resolver to preload data for better user experience. Avoid duplicate fetching data using
+              makeStateKey ,TransferState and PLATFORM_ID
+              <pre>
 @Injectable()
 export class CourseResolver implements Resolve<Course> {
 
@@ -273,83 +236,104 @@ export class CourseResolver implements Resolve<Course> {
     }
 }
 
-                 </pre> </li>
-               <li>Modify outputPath in angular.json. My project name:&nbsp;angular-universal-course. <br/>Firstly, modify outputPath under architect->build, from <code>"outputPath": "dist/angular-universal-course/browser",</code>
-                to <code>"outputPath": "dist/functions/browser",</code>
-                <img src="assets/ng-server-side-render/p1.png" alt="angular.json" />
-                Secondly, in the same file, modify outputPath under server->options, from <code> "outputPath": "dist/angular-universal-course/server",</code> to <code>"outputPath": "dist/functions/server"</code>
-              <img src="assets/ng-server-side-render/p2.png" alt="angular.json" /> </li>
-              <li>run the following command and then enter localhost:4200 in the browser address bar to test
-                 <pre>
+                 </pre>
+            </li>
+            <li>Modify outputPath in angular.json. My project name:&nbsp;angular-universal-course. <br />Firstly, modify
+              outputPath under architect->build, from
+              <code>"outputPath": "dist/angular-universal-course/browser",</code>
+              to <code>"outputPath": "dist/functions/browser",</code>
+              <img src="assets/ng-server-side-render/p1.png" alt="angular.json" />
+              Secondly, in the same file, modify outputPath under server->options, from
+              <code> "outputPath": "dist/angular-universal-course/server",</code> to
+              <code>"outputPath": "dist/functions/server"</code>
+              <img src="assets/ng-server-side-render/p2.png" alt="angular.json" />
+            </li>
+            <li>run the following command and then enter localhost:4200 in the browser address bar to test
+              <pre>
 $npm run dev:ssr
                  </pre>
-               </li>
-                <li>If test result is ok, build the application
-                 <pre>
+            </li>
+            <li>If test result is ok, build the application
+              <pre>
 $npm run build:ssr
-                 </pre> </li>
-               <li>Angular Universal allows you to prerender the pages of your application. Providing additional routes using a file
-                 <pre>
+                 </pre>
+            </li>
+            <li>Angular Universal allows you to prerender the pages of your application. Providing additional routes
+              using a file
+              <pre>
 $ng run [my-app-name]:prerender --routes-file routes.txt
                  </pre>
-                 <img src="assets/ng-server-side-render/p3.png" alt="prerender command line" />
-                 <img src="assets/ng-server-side-render/p4.png" alt="prerender folder" />
-               </li>
-               <li>Modify server.ts under the root folder where tsconfig.json file is located. Change <code>dist/my-app-name/browser</code>to<code>dist/functions/browser</code> and add websiteFileLocation, because in production environment there is highly  possibly no "dist/functions/browser" folder.
+              <img src="assets/ng-server-side-render/p3.png" alt="prerender command line" />
+              <img src="assets/ng-server-side-render/p4.png" alt="prerender folder" />
+            </li>
+            <li>Modify server.ts under the root folder where tsconfig.json file is located. Change
+              <code>dist/my-app-name/browser</code>to<code>dist/functions/browser</code> and add websiteFileLocation,
+              because in production environment there is highly possibly no "dist/functions/browser" folder.
               <img src="assets/ng-server-side-render/p5.png" alt="server.ts" />
-              </li>
-               <li> Initialize the app for deployment on firebase.&nbsp;Choose ●Functions：Configure and deploy Cloud Functions and  ●
-Hosting: Configure and deploy Firebase Hosting sites
-                 <pre>
+            </li>
+            <li> Initialize the app for deployment on firebase.&nbsp;Choose ●Functions：Configure and deploy Cloud
+              Functions and ●
+              Hosting: Configure and deploy Firebase Hosting sites
+              <pre>
 $firebase init
                  </pre>
-                  <img src="assets/ng-server-side-render/p6.png" alt="firebase init" />
-                   <img src="assets/ng-server-side-render/p7.png" alt="firebase init" />
-               </li>
-               <li>Copy dependencies in src/package.json  to dist/functions/package.json. Under dist/functions folder, run
-                 <code>$npm i</code></li>
-               <li>Modify index.js under dist/functions. Attention to function name of exports object, we will use the function name in dist/functions/firebase.json
-                  <img src="assets/ng-server-side-render/p8.png" alt="firebase exports" />
-                   <img src="assets/ng-server-side-render/p9.png" alt="firebase exports" />
-               </li>
-               <li>Modify dist/functions/firebase.json. Change <code>’destination’: ‘/index.html’</code>to<code>‘function’:’your-function-name-of-exports’ </code>
-               <img src="assets/ng-server-side-render/p10.png" alt="firebase.json 1" />
-               <img src="assets/ng-server-side-render/p11.png" alt="firebase.json 2" /></li>
-              <li>Delete the extra index.html created by firebase. It is located under dist/functions
- <img src="assets/ng-server-side-render/p20.png" alt="extra index.html" />
-              </li>
-              <li>Run emulator to test. Enter localhost:5000 in browser. If pages can display correctly, we can begin to deploy app in remote server(firebase)
-                <img src="assets/ng-server-side-render/p12.png" alt="firebase.json 2" /></li>
-              </li>
-              <li>Deploy the server side render app to firebase
-                <pre>
+              <img src="assets/ng-server-side-render/p6.png" alt="firebase init" />
+              <img src="assets/ng-server-side-render/p7.png" alt="firebase init" />
+            </li>
+            <li>Copy dependencies in src/package.json to dist/functions/package.json. Under dist/functions folder, run
+              <code>$npm i</code>
+            </li>
+            <li>Modify index.js under dist/functions. Attention to function name of exports object, we will use the
+              function name in dist/functions/firebase.json
+              <img src="assets/ng-server-side-render/p8.png" alt="firebase exports" />
+              <img src="assets/ng-server-side-render/p9.png" alt="firebase exports" />
+            </li>
+            <li>Modify dist/functions/firebase.json. Change
+              <code>’destination’: ‘/index.html’</code>to<code>‘function’:’your-function-name-of-exports’ </code>
+              <img src="assets/ng-server-side-render/p10.png" alt="firebase.json 1" />
+              <img src="assets/ng-server-side-render/p11.png" alt="firebase.json 2" />
+            </li>
+            <li>Delete the extra index.html created by firebase. It is located under dist/functions
+              <img src="assets/ng-server-side-render/p20.png" alt="extra index.html" />
+            </li>
+            <li>Run emulator to test. Enter localhost:5000 in browser. If pages can display correctly, we can begin to
+              deploy app in remote server(firebase)
+              <img src="assets/ng-server-side-render/p12.png" alt="firebase.json 2" />
+            </li>
+            </li>
+            <li>Deploy the server side render app to firebase
+              <pre>
   $firebase deploy --only functions,hosting
                 </pre>
-                   <img src="assets/ng-server-side-render/p13.png" alt="firebase.json 1" />
-                  <img src="assets/ng-server-side-render/p14.png" alt="firebase.json 1" />
-              </li>
-              <li>
-                Source code is hosted on Github <a href="https://github.com/cxxyao2/angular-universal-course" style="color:blue">server Side render</a>
-              </li>
-              <li>My deployment is:<a href="https://ngfirebase-478e1.web.app/" alt="deployment website">https://ngfirebase-478e1.web.app/</a>
-               <img src="assets/ng-server-side-render/p15.png" alt="ssr " />
-              </li>
-             </ol>
-            <h3>Reference to:</h3>
-            <ul>
-              <li>Video from Youtube Channel Codeible:&nbsp;&nbsp;<a href="https://www.youtube.com/watch?v=k7pLxaKkHYs">https://www.youtube.com/watch?v=k7pLxaKkHYs</a></li>
-              <li>Tutorial from Angular University:&nbsp;&nbsp;<a href="https://angular-university.io/course/angular-universal-course">https://angular-university.io/course/angular-universal-course</a> </li>
-            </ul>
+              <img src="assets/ng-server-side-render/p13.png" alt="firebase.json 1" />
+              <img src="assets/ng-server-side-render/p14.png" alt="firebase.json 1" />
+            </li>
+            <li>
+              Source code is hosted on Github <a href="https://github.com/cxxyao2/angular-universal-course"
+                style="color:blue">server Side render</a>
+            </li>
+            <li>My deployment is:<a href="https://ngfirebase-478e1.web.app/"
+                alt="deployment website">https://ngfirebase-478e1.web.app/</a>
+              <img src="assets/ng-server-side-render/p15.png" alt="ssr " />
+            </li>
+          </ol>
+          <h3>Reference to:</h3>
+          <ul>
+            <li>Video from Youtube Channel Codeible:&nbsp;&nbsp;<a
+                href="https://www.youtube.com/watch?v=k7pLxaKkHYs">https://www.youtube.com/watch?v=k7pLxaKkHYs</a></li>
+            <li>Tutorial from Angular University:&nbsp;&nbsp;<a
+                href="https://angular-university.io/course/angular-universal-course">https://angular-university.io/course/angular-universal-course</a>
+            </li>
+          </ul>
         </section>
 
 
-         <section class="read-more">
+        <section class="read-more">
           <div class="read-more_item">
             <span class="read-more-item-dim">&lt;&lt;previous article</span>
             <h3>
-              <a href="angular-localized-routed-deployment-to-firebase.html"
-                >Deploy A Routed Localized Angular to Firebase</a
-              >
+              <a href="angular-localized-routed-deployment-to-firebase.html">Deploy A Routed Localized Angular to
+                Firebase</a>
             </h3>
           </div>
           <div class="read-more_item">
@@ -360,18 +344,15 @@ $firebase init
 
 
         <section class="footer">
-          <span class="footer__copyright"
-            >2021-7-1 Jennifer. All rights reserved.</span
-          >
-          <span class="footer__copyright"
-            >Contact Email: Jenniferyao1996#hotmail.com</span
-          >
+          <span class="footer__copyright">2021-7-1 Jennifer. All rights reserved.</span>
+          <span class="footer__copyright">Contact Email: Jenniferyao1996#hotmail.com</span>
         </section>
-      </div>
-      <span id="backToTop">
-        <i class="fa fa-arrow-up"></i>
-      </span>
-    </main>
-    <script src="main.js"></script>
-  </body>
+    </div>
+    <span id="backToTop">
+      <i class="fa fa-arrow-up"></i>
+    </span>
+  </main>
+  <script src="main.js"></script>
+</body>
+
 </html>
