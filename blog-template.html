@@ -5,7 +5,7 @@
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>YAML knowledge</title>
+	<title>SignalR in Postman</title>
 	<meta name="description" content="security backend" />
 	<meta name="author" content="Jennifer" />
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -56,7 +56,7 @@
 			<span>Full Stack Developer</span>
 			<hr />
 			<p class="sidebar_description">
-				A liftlong learner. Keep learning, keep evoving in IT industry.
+				Lifelong learner. Learn and share the knowledge.
 			</p>
 			<hr class="sidebar_divider" />
 			<p class="sidebar_tags">
@@ -93,154 +93,12 @@
 		<div class="content">
 			<article class="post">
 				<header>
-					<span class="post_category"><span class="date">2022-12-12</label> YAML</span>
-						<h2>YAML Syntax</h2>
+					<span class="post_category"><span class="date">2023-11-01</label>C#</span>
+						<h2>Your title</h2>
 				</header>
 				<section class="post_body">
 					<ol>
-						YAML is popular:
-						<li>Configuration files all written in YAML</li>
-						<li>widely used format</li>
-						<li>for different DevOps tools and applications</li>
-						<li>e.g. Docker, Kubernetes,Ansible...</li>
-					</ol>
-					<hr />
-					<ol>
-						YAML is a data serialization language, just like XML and JSON.
-						<li>
-							Serialization language means that applications written with
-							different technologies etc which have different data structures
-							can transfer data to each other using a common agreed-on
-							standard forma. YAML are not Markup language.
-						</li>
-						<li>
-							YAML advantages:
-							<ul>
-								<li>human readable and intuitive</li>
-								<li>
-									Same contents written in different languages:
-									<pre>
- // YAML
- microservice:
-   - app: user-authentication
-     port: 9000
-     version: 1.0
-
-// XML
-&lt;microservices&gt;
-  &lt;microservice&gt;
-    &lt;app&gt;user-authentication&lt;/app&gt;
-    &lt;port&gt;9000&lt;port&gt;
-    &lt;version&gt;1.0&lt;version&gt;
-  &lt;/microservice&gt;
-&lt;/microservices&gt;&lt;&gt;
-
-
-// JSON
-{
-  microservices: [
-    {
-      app: "user-authentication",
-      port: 9000,
-      version: '1.0'
-    }
-  ]
-}
-                      </pre>
-								</li>
-								<li>YAML uses line separation and indentation</li>
-								<li>
-									Syntax of YAML:
-									<ul>
-										<li>key-value pairs</li>
-										<li>objects</li>
-										<li>comments</li>
-										<li>lists</li>
-										<li>booleans</li>
-										<li>multi line strings</li>
-										<li>environment variables</li>
-									</ul>
-								</li>
-								<li>
-									in kubernetes configuration file, we have
-									<pre>
-key-value pairs
-metadata = object
-labels = object
-spec = object
-containers = list of objects
-
-# Minus sign (-) is used to indicate a list item in YAML syntax.
-# It signifies that "microservice" is a list and each item in the list is denoted by a hyphen followed by a space. Each item in the list represents a separate microservice.
-
-
-microservices:
-  - user-authentication
-  - shopping-cart
-
-microservice1s:
-  - app: shopping-cart
-    port: 9000
-    versions: [1.9, 2.0, 2.1]
-
-singleLine: >
-  this is a single line.
-  that should be interpreted into single line.
-
-multipleLine: |
-  this is part of  multiple lines .
-  these are real multiple lines.
-
-# using dollar($) sign before environmental variables
-command:
-  - '/bin/sh'
-  - -ec
-  - >-
-    mysql -h 127.0.0.1 -u root -p$MYSQL_ROOT_PASSWORD -e 'SELECT 1'
-
-# use double curly brackets around the placeholder and this value gets replaced using template generator
-apiVersion: v1
-kind: Pod
-metadata:
-  name: { { .Values.service.name } }
-
-# in one yaml file, you can define multiple components  and
-# you can separate these components using three dishes like ---
----
-apiVersion: v2
-kind: Pod
-
-
-apiVersion: v1
-kind: Pod
-data:
-  mosquitto.conf: |
-    log_dest stdout
-    log_type all
-    log_timestamp true
-metadata:
-  name: nginx
-  labels:
-    app: nginx
-spec:
-  containers:
-  - name: nginx-container
-    image: nginx
-    ports:
-    - containerPort: 80
-    volumeMounts:
-    - name: nginx-vol
-      mountPath: /usr/nginx/html
-  - name: sidebar-container
-    image: some-image/curl
-    command: ["/bin/sh"]
-    args: ["-c", "echo Hello"]
-
-
-                      </pre>
-								</li>
-							</ul>
-						</li>
+						your content
 					</ol>
 				</section>
 			</article>

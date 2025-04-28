@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>SonarQube</title>
+	<meta name="description" content="security backend" />
+	<meta name="author" content="Jennifer" />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link rel="icon" href="/assets/images/favicon.ico" />
+	<link rel="stylesheet" href="assets/css/normalize.css" />
+	<link rel="stylesheet" href="assets/css/index.css" />
+</head>
+
+<body>
+	<!--  for not index.html -->
+	<nav class="nav collapsible">
+		<span><a href="/#angular" class="white">Jennifer - Full Stack Developer</a>
+		</span>
+		<span class="nav_toggler" style="outline: none !important"><i class="fa fa-list white icon-bigger"></i></span>
+		<ul class="nav_list collapsible_content">
+			<li>
+				<ul class="nav_social" role="nav_social">
+					<li>
+						<a href="https://github.com/cxxyao2" target="_blank"><i
+								class="fa fa-github white icon-biggest"></i></a>
+					</li>
+					<li>
+						<a href="https://twitter.com/jenniferyao1996" target="_blank"><i
+								class="fa fa-twitter white icon-biggest"></i></a>
+					</li>
+					<li>
+						<a href="mailto:jenniferyao1996#hotmail.com" target="_blank"><i
+								class="fa fa-envelope white icon-biggest"></i></a>
+					</li>
+				</ul>
+			</li>
+			<li class="nav_item"><a href="/#angular">Angular</a></li>
+			<li class="nav_item"><a href="/#react">React</a></li>
+			<li class="nav_item"><a href="/#webpack">Webpack</a></li>
+			<li class="nav_item"><a href="/#database">Database</a></li>
+		</ul>
+	</nav>
+
+	<!--  for not index.html -->
+	<aside class="sidebar">
+		<div class="sidebar_cover"></div>
+		<div class="sidebar_main">
+			<a href="#">
+				<img class="sidebar_logo" alt="Jennifer" src="assets/tree1.jpg" />
+			</a>
+			<h3>Jennifer</h3>
+			<span>Full Stack Developer</span>
+			<hr />
+			<p class="sidebar_description">
+				Lifelong learner. Learn and share the knowledge.
+			</p>
+			<hr class="sidebar_divider" />
+			<p class="sidebar_tags">
+				<span class="sidebar_tag"><a href="/#angular"><img src="assets/angular-icon.svg"
+							class="sidebar_icon" />&nbsp;Angular</a></span>
+				<span class="sidebar_tag"><a href="/#react" alt="react blogs"><img src="assets/react.svg"
+							class="sidebar_icon" />&nbsp;React</a></span>
+				<span class="sidebar_tag"><a href="/#webpack"><img src="assets/webpack_logo.svg"
+							class="sidebar_icon" />&nbsp;Webpack</a></span>
+				<span class="sidebar_tag"><a href="/#database"><img src="assets/mysql.png"
+							class="sidebar_icon" />Backend</a></span>
+			</p>
+			<hr class="sidebar_divider" />
+			<div>
+				<ul class="navigation" role="navigation-social">
+					<li class="navigation_item">
+						<a href="https://github.com/cxxyao2" target="_blank"><i
+								class="fa fa-github icon-bigger"></i></a>
+					</li>
+					<li class="navigation_item">
+						<a href="https://twitter.com/jenniferyao1996" target="_blank"><i
+								class="fa fa-twitter icon-bigger"></i></a>
+					</li>
+					<li class="navigation_item">
+						<a href="mailto:jenniferyao1996#hotmail.com" target="_blank"><i
+								class="fa fa-envelope icon-bigger"></i></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</aside>
+
+	<main class="content_wrapper">
+		<div class="content">
+			<article class="post">
+				<header>
+					<span class="post_category"><span class="date">2025-04-01</span>C#</span>
+					<h2> Unlock the Power of SonarQube</h2>
+				</header>
+				<section class="post_body">
+					<p>
+						In the fast-paced world of software development, where efficiency and quality are paramount,
+						incorporating SonarQube into your workflow is not just a choice—it's a game-changer. The sooner
+						you
+						start using SonarQube, the better off you'll be. This powerful tool acts as a vigilant guardian
+						for
+						your codebase, helping you establish and maintain excellent coding habits from the get-go.
+					</p>
+					<h3>Why Early Adoption is Key</h3>
+					<p>
+						Think of SonarQube as your personal code mentor. When you start using it early in a project, it
+						immediately begins analyzing your code for a wide range of issues. It catches simple mistakes
+						like
+						inconsistent naming conventions, which, if left unaddressed, can lead to confusion as your
+						codebase
+						grows. It also identifies more complex problems, such as potential security vulnerabilities or
+						code
+						that's difficult to understand and maintain. By flagging these issues right away, SonarQube
+						trains
+						you to write cleaner, more robust code, setting a high standard for your coding practices that
+						will
+						serve you well throughout your development journey.
+					</p>
+
+					<h3>My Journey with SonarQube</h3>
+
+					Now, let me walk you through how I integrated SonarQube into my development process.
+					<ol>
+						<li>Installing the SonarQube extension in my IDE
+							<p>
+								The first step was installing the SonarQube extension in my Integrated Development
+								Environment
+								(IDE). This was a straightforward process, but it's crucial as it provides real-time
+								feedback as you
+								code. With the extension in place, I could see code quality issues highlighted right in
+								my IDE,
+								allowing me to fix them immediately. It's like having a built-in code checker that
+								constantly
+								watches over your shoulder, ensuring that your code meets the expected standards.
+							</p>
+							<img src="assets/sonarqube/sonarqube_extension.png" alt="sonarqube extension" />
+						</li>
+						<li>Installing the SonarQube service on my PC
+							<p>
+								Next, I installed the SonarQube service on my local PC. While this seems simple enough,
+								there's a
+								critical aspect to keep in mind: port availability. SonarQube runs on a specific port,
+								and if that
+								port is already in use by another application, it can cause conflicts and prevent
+								SonarQube from
+								starting properly. Before installation, I made sure to check which ports were occupied
+								on my system.
+								I used simple commands or port monitoring tools to verify that the default SonarQube
+								port was free.
+								This step is often overlooked but is essential for a smooth installation.
+							</p>
+							Download from official site, selecting the right version based on your operating system.
+							<img src="assets/sonarqube/local1.png" alt="sonarqube service" />
+							Extract the files and open configuration file.
+							<img src="assets/sonarqube/local2.png" alt="sonarqube service" />
+							Modify port if port 9000 is occupied.
+							<img src="assets/sonarqube/local3.png" alt="sonarqube service" />
+							Default user name is admin and password is admin. change password
+							at the first login.
+							<img src="assets/sonarqube/local4.png" alt="sonarqube service" />
+							Create a local project if scanning local code.
+							<img src="assets/sonarqube/local5.png" alt="sonarqube service" />
+							Install sonar tool globally.
+							<img src="assets/sonarqube/local6.png" alt="sonarqube service" />
+							Run command on vscode IDE command line to scan code.
+							<img src="assets/sonarqube/local6a.png" alt="sonarqube service" />
+							<img src="assets/sonarqube/local7.png" alt="sonarqube service" />
+							Modify code according to the scan result. ( I skip this step.)
+						</li>
+						<li>Integrating SonarQube into Github actions pipeline
+							<p>
+								The final piece of the puzzle was integrating SonarQube into my development pipeline.
+
+							</p>
+							Add sonarqube to github actions workflow yml file.
+							<img src="assets/sonarqube/online1.png" alt="sonarqube service" />
+							<img src="assets/sonarqube/online2.png" alt="sonarqube service" />
+							<img src="assets/sonarqube/online3.png" alt="sonarqube service" />
+							create your sonarqube account on sonarqube.io or other cloud platform. create token on it.
+							Save the token in github secrets.
+							<img src="assets/sonarqube/online4.png" alt="sonarqube service" />
+							<img src="assets/sonarqube/online5.png" alt="sonarqube service" />
+							<img src="assets/sonarqube/online6.png" alt="sonarqube service" />
+							When encountering any error in github actions, read the log and google it.
+							<div class="alert is-important">
+								Issue: You are currently running analysis through your CI. Make sure to disable this
+								before
+								enabling Automatic Analysis.
+
+							</div>
+							<img src="assets/sonarqube/online7a.png" alt="sonarqube service" />
+							<img src="assets/sonarqube/online7b.png" alt="sonarqube service" />
+							The official documentation is also very helpful.
+							<img src="assets/sonarqube/online7c.png" alt="sonarqube service" />
+							<img src="assets/sonarqube/online8.png" alt="sonarqube service" />
+							<img src="assets/sonarqube/online9.png" alt="sonarqube service" />
+						</li>
+					</ol>
+
+
+					<h3>Lessons Learned and Tips for Success</h3>
+					<div>
+						Throughout this process, I learned an important lesson: no matter what issue you're facing,
+						chances
+						are, you're not the first one to encounter it.
+
+						<p>
+							The internet is a treasure trove of information,
+							and
+							Google is often your best friend. When I faced challenges with SonarQube configuration or
+							encountered errors I didn't understand, a simple Google search usually led me to relevant
+							forums,
+							blog posts, or documentation that provided solutions.
+						</p>
+
+						<p>
+							While AI coding assistants have become an integral part of my daily routine, I've found that
+							they
+							have their limitations. When it comes to complex configuration issues with tools like
+							SonarQube,
+							AI
+							assistants sometimes don't offer comprehensive solutions. In these situations, community
+							forums
+							shine. There, developers from all over the world share their experiences, offer advice, and
+							discuss
+							workarounds. The official documentation, too, is an invaluable resource. It provides
+							detailed,
+							accurate information about every aspect of SonarQube, from installation to advanced
+							configuration,
+							and is a reliable source when you need in-depth knowledge.
+						</p>
+
+						<p>
+
+
+
+							In conclusion, SonarQube is a powerful ally in your quest for high-quality code. By adopting
+							it
+							early and following the right steps for integration, you can elevate your coding standards
+							and
+							streamline your development process. And remember, when problems arise, don't hesitate to
+							explore
+							the wealth of resources available online—you'll almost always find the answers you need.
+
+						</p>
+
+					</div>
+				</section>
+			</article>
+			<section class="read-more">
+				<div class="read-more_item">
+					<span class="read-more-item-dim">&lt;&lt;previous article</span>
+					<h3>
+						<a href="front_end_security.html">Front-end Security</a>
+					</h3>
+				</div>
+				<div class="read-more_item">
+					<span class="read-more-item-dim">next article&gt;&gt;</span>
+					<h3>
+						<a href="index.html"> Table of Contents</a>
+					</h3>
+				</div>
+			</section>
+
+			<section class="footer">
+				<span class="footer__copyright">2021-5-31 Jennifer. All rights reserved.</span>
+				<span class="footer__copyright">Contact Email: Jenniferyao1996#hotmail.com</span>
+			</section>
+		</div>
+		<span id="backToTop">
+			<i class="fa fa-arrow-up"></i>
+		</span>
+	</main>
+	<script src="main.js"></script>
+</body>
+
+</html>
