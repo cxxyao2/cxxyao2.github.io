@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Front-end Security</title>
+	<meta name="description" content="security backend" />
+	<meta name="author" content="Jennifer" />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link rel="icon" href="/assets/images/favicon.ico" />
+	<link rel="stylesheet" href="assets/css/normalize.css" />
+	<link rel="stylesheet" href="assets/css/index.css" />
+</head>
+
+<body>
+	<!--  for not index.html -->
+	<nav class="nav collapsible">
+		<span><a href="/#angular" class="white">Jennifer - Full Stack Developer</a>
+		</span>
+		<span class="nav_toggler" style="outline: none !important"><i class="fa fa-list white icon-bigger"></i></span>
+		<ul class="nav_list collapsible_content">
+			<li>
+				<ul class="nav_social" role="nav_social">
+					<li>
+						<a href="https://github.com/cxxyao2" target="_blank"><i
+								class="fa fa-github white icon-biggest"></i></a>
+					</li>
+					<li>
+						<a href="https://twitter.com/jenniferyao1996" target="_blank"><i
+								class="fa fa-twitter white icon-biggest"></i></a>
+					</li>
+					<li>
+						<a href="mailto:jenniferyao1996#hotmail.com" target="_blank"><i
+								class="fa fa-envelope white icon-biggest"></i></a>
+					</li>
+				</ul>
+			</li>
+			<li class="nav_item"><a href="/#angular">Angular</a></li>
+			<li class="nav_item"><a href="/#react">React</a></li>
+			<li class="nav_item"><a href="/#webpack">Webpack</a></li>
+			<li class="nav_item"><a href="/#database">Database</a></li>
+		</ul>
+	</nav>
+
+	<!--  for not index.html -->
+	<aside class="sidebar">
+		<div class="sidebar_cover"></div>
+		<div class="sidebar_main">
+			<a href="#">
+				<img class="sidebar_logo" alt="Jennifer" src="assets/tree1.jpg" />
+			</a>
+			<h3>Jennifer</h3>
+			<span>Full Stack Developer</span>
+			<hr />
+			<p class="sidebar_description">
+				A liftlong learner. Keep learning, keep evoving in IT industry.
+			</p>
+			<hr class="sidebar_divider" />
+			<p class="sidebar_tags">
+				<span class="sidebar_tag"><a href="/#angular"><img src="assets/angular-icon.svg"
+							class="sidebar_icon" />&nbsp;Angular</a></span>
+				<span class="sidebar_tag"><a href="/#react" alt="react blogs"><img src="assets/react.svg"
+							class="sidebar_icon" />&nbsp;React</a></span>
+				<span class="sidebar_tag"><a href="/#webpack"><img src="assets/webpack_logo.svg"
+							class="sidebar_icon" />&nbsp;Webpack</a></span>
+				<span class="sidebar_tag"><a href="/#database"><img src="assets/mysql.png"
+							class="sidebar_icon" />Backend</a></span>
+			</p>
+			<hr class="sidebar_divider" />
+			<div>
+				<ul class="navigation" role="navigation-social">
+					<li class="navigation_item">
+						<a href="https://github.com/cxxyao2" target="_blank"><i
+								class="fa fa-github icon-bigger"></i></a>
+					</li>
+					<li class="navigation_item">
+						<a href="https://twitter.com/jenniferyao1996" target="_blank"><i
+								class="fa fa-twitter icon-bigger"></i></a>
+					</li>
+					<li class="navigation_item">
+						<a href="mailto:jenniferyao1996#hotmail.com" target="_blank"><i
+								class="fa fa-envelope icon-bigger"></i></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</aside>
+
+	<main class="content_wrapper">
+		<div class="content">
+			<article class="post">
+				<header>
+					<span class="post_category"><span class="date">2026-4-4</label> Playwright</span>
+						<h2>Improve Test Stablity(1) - close popup and wait for cleanups</h2>
+				</header>
+				<section class="post_body">
+					<p>Issue
+						You click an openPopup button inside an iframe.
+						A new popup window appears, you input data and click the close button inside the popup.
+						After 20+ repeated cycles, the popup no longer opens.
+						Errors appear: <em> context / Target closed</em>
+
+					</p>
+					<p>
+
+						Problem Description(What is lost context / Target closed?)
+						<br />
+						The issue you’re experiencing — popup windows stop opening after 20+ repeated clicks, and you
+						see "lost context" / "Target closed" errors — is the most typical resource leak / context
+						invalidation issue when automating pages with iframes + popups in Playwright.
+						<br />
+						<br />
+						2. Meaning of the Errors
+						lost context: The browser has destroyed the page / iframe / popup window you were trying to
+						interact with.
+						Target closed: The browser context was recycled, timed out, or exhausted from too many repeated
+						creations without proper cleanup.
+						<br />
+						<br />
+						3. Root Cause Summary
+						The error only appears after 20+ consecutive operations — this is classic resource leakage.
+						The root cause is:Popup window contexts are NOT being fully released/cleaned up by the browser
+						after closing, and cached iframe handles become stale over time.
+
+						Eventually, the browser runs out of available contexts → new popups can no longer open →
+						automation fails.
+					</p>
+
+					<p>Solution
+					<pre>
+
+// Short wait for browser internal async cleanup (Playwright can't detect this)
+// 1. Iframe back to interactive state
+// 2. Popup renderer process destroyed
+// 3. JS event loop idle
+// 4. Prevent context overload
+await expect.poll(() => popupPage.isClosed()).toBe(true);
+
+await page.waitForTimeout(300);
+
+						</pre>
+					Why we need a short wait (300ms) ?
+					<br />
+					<br />
+					Even after we assert popupPage.isClosed() === true,the browser still has background async cleanup
+					work that Playwright cannot detect or wait for automatically.
+					<br />
+					<br />
+					The 300ms wait is NOT for the popup to close,it’s for the browser’s internal async cleanup to
+					finish:
+					<ol>
+						<li>Wait for the iframe to return to an interactive/clickable state</li>
+						<li>Wait for the browser to fully destroy the popup’s renderer process</li>
+						<li>Wait for the JavaScript event loop to become idle</li>
+						<li>Prevent rapid repeated actions from overloading the browser context/li>
+					</ol>
+					<br />
+					<br />
+					These four steps happen asynchronously in the browser background,and Playwright has no visibility
+					into whether they are fully complete.
+					<br />
+					<br />
+					If you immediately click openPopup again before these cleanups finish,the iframe may ignore the
+					click, the new popup will not open,and you will get context lost / target closed errors.
+					This is why after 20+ rapid loops, the failure appears —one small incomplete cleanup is enough to
+					break the whole flow.
+
+					</p>
+				</section>
+			</article>
+			<section class="read-more">
+				<div class="read-more_item">
+					<span class="read-more-item-dim">&lt;&lt;previous article</span>
+					<h3>
+						<a href="front_end_security.html">Front-end Security</a>
+					</h3>
+				</div>
+				<div class="read-more_item">
+					<span class="read-more-item-dim">next article&gt;&gt;</span>
+					<h3>
+						<a href="index.html"> Table of Contents</a>
+					</h3>
+				</div>
+			</section>
+
+			<section class="footer">
+				<span class="footer__copyright">2026-4-4 Jennifer. All rights reserved.</span>
+				<span class="footer__copyright">Contact Email: Jenniferyao1996#hotmail.com</span>
+			</section>
+		</div>
+		<span id="backToTop">
+			<i class="fa fa-arrow-up"></i>
+		</span>
+	</main>
+	<script src="main.js"></script>
+</body>
+
+</html>
