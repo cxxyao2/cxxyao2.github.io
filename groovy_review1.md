@@ -2,6 +2,8 @@ To learn enough **Groovy for Gradle build files quickly**, do not try to master 
 
 ## 1. Learn these Groovy basics first
 
+### DSL domain specific language
+
 ### Variables
 
 ```groovy
