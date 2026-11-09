@@ -328,3 +328,15 @@ f"${value}%08.2f"
 | `"12345.67"` | `"12345.67"` |
 
 如果你说的“**小数前保留5位**”并不是补 `0`，而只是**最多允许5位整数**，那写法会不一样。
+
+DataFrame 列的转换：
+val result = df
+.filter(col("total") > 1000000)
+.select("customer", "total")
+.withColumn("total", col("total").cast("string"))
+
+DataSet
+val result = ds
+.filter(sale => sale.total > 1000000)
+.map(sale => sale.customer)
+.map(customer => customer.toUpperCase)
