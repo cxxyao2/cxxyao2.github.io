@@ -407,3 +407,67 @@ reduceByKey() vs groupByKey()
 Spark 官方文档也明确建议，在按 Key 求和、求平均等聚合场景中，通常优先考虑 reduceByKey 或 aggregateByKey，而不是 groupByKey。
 Spark 4.3.
 4.3.0 引入了 `.mapPartitions()` 方法，允许对每个分区进行自定义处理。
+
+七、实际项目：100 万条销售记录，Scala + Spark + SQL Server
+现在把所有概念整合到一个 ETL（Extract、Transform、Load）项目中。
+以下代码假设 spark 已经创建，Spark 环境中已经配置 SQL Server JDBC 驱动，CSV 文件路径有效。
+
+import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.functions.\_
+
+val spark = SparkSession.builder()
+.appName("SalesAudit")
+.getOrCreate()
+
+// Step 1: Extract - 读取 CSV
+val salesDF = spark.read
+.option("header", "true")
+.schema("""
+id INT,
+customer STRING,
+total DECIMAL(18,2)
+""")
+.csv("sales.csv")
+
+// Step 2: Transform - 筛选大额交易
+val largeSales = salesDF
+.filter(col("total") > 1000000)
+
+// Step 3: Transform - 按客户分组聚合
+val summary = largeSales
+.groupBy("customer")
+.agg(
+sum("total").alias("total_amount"),
+count("\*").alias("transaction_count")
+)
+
+// Step 4: Action - 显示结果
+summary.show()
+
+// Step 5: Action - 写入 SQL Server
+val jdbcUrl =
+"jdbc:sqlserver://localhost:1433;" +
+"databaseName=SalesDB;" +
+"encrypt=true;" +
+"trustServerCertificate=false;"
+
+val jdbcProps = new java.util.Properties()
+jdbcProps.setProperty("user", sys.env("SQL_USER"))
+jdbcProps.setProperty("password", sys.env("SQL_PASSWORD"))
+jdbcProps.setProperty(
+"driver",
+"com.microsoft.sqlserver.jdbc.SQLServerDriver"
+)
+
+summary.write
+.mode("append")
+.jdbc(jdbcUrl, "dbo.SalesAuditSummary", jdbcProps)
+对于生产环境，需要正确配置 SQL Server TLS 证书，提前设计目标表、重复写入处理机制，以及审计批次标识。上例是聚合统计结果，并不是保存全部原始大额交易明细。2. 每一步究竟做了什么？
+| 操作 | 类型 | 主要作用 |
+|---|---|---|
+| spark.read.csv | 数据源读取 | 创建 DataFrame，可能进行必要的元数据读取 |
+| filter | Transformation | 创建筛选计划 |
+| groupBy | 分组操作 | 指定聚合分组 |
+| agg | Transformation | 创建求和、计数计划 |
+| show | Action | 执行计算并显示结果 |
+| write.jdbc | Action | 执行计算并写入数据库 |
