@@ -330,13 +330,80 @@ f"${value}%08.2f"
 如果你说的“**小数前保留5位**”并不是补 `0`，而只是**最多允许5位整数**，那写法会不一样。
 
 DataFrame 列的转换：
+这种 SQL 风格的处理，DataFrame 简洁、容易理解，也方便 Spark 优化。
+
 val result = df
 .filter(col("total") > 1000000)
 .select("customer", "total")
 .withColumn("total", col("total").cast("string"))
 
 DataSet
+Dataset 的强类型 API 就更有吸引力。不过，简单条件过滤仍然可以直接使用 DataFrame，且通常更高效。
 val result = ds
 .filter(sale => sale.total > 1000000)
 .map(sale => sale.customer)
 .map(customer => customer.toUpperCase)
+
+why collect()?
+因为 `DataFrame` 和 `DataSet` 都是懒加载的。下面是Plan
+val df2 = df.filter(...)
+collect() 触发真正执行, 在本地driver上，受到memory限制. 不再是多个executor
+val rows = df2.collect()
+更严重的是，如果你处理 1 亿条数据，原始数据量可能达到 50 GB。这时候把所有记录收集到一台机器，往往就失去了使用 Spark 分布式计算的意义。
+
+如果只需要知道交易总数：
+val totalCount = df.count()
+
+没有必要使用：
+val totalCount = df.collect().length
+第二种方法会把所有记录都传回 Driver，仅仅为了计算数量，效率很差
+
+DataFrame 和 Dataset 的 collect() 有什么区别？
+它们都支持 .collect()，但返回的数组类型不同。
+DataFrame 会返回Array[Row]
+val results = df.collect()
+results.foreach { row =>
+println(row.getAs[String]("customer"))
+}
+
+Dataset 会返回Array[T]
+
+Array[Object]
+case class Sale(
+id: Int,
+customer: String,
+total: Double
+)
+
+import spark.implicits.\_
+
+val ds = Seq(
+Sale(1, "Alice", 1500000),
+Sale(2, "Bob", 500000)
+).toDS()
+val results = ds.collect()
+Array[Sale]
+results.foreach { sale =>
+println(sale.customer)
+println(sale.total)
+}
+
+将结果物化（Materialize）到内存中
+Spark 可能需要从多个远程 Executor 通过网络把数据传回 Driver。
+
+// not Row,
+
+所以 .collect() 的成本不仅是内存，还有网络传输。
+
+Spark 可能需要从多个远程 Executor 通过网络把数据传回 Driver。
+
+所以 .collect() 的成本不仅是内存，还有网络传输。
+
+reduceByKey() vs groupByKey()
+但对于大型数据集，如果只是计算每组总和，一般推荐 reduceByKey。
+
+因为 reduceByKey 可以先在各个分区内进行局部聚合，减少 Shuffle 时需要传输的数据。
+
+Spark 官方文档也明确建议，在按 Key 求和、求平均等聚合场景中，通常优先考虑 reduceByKey 或 aggregateByKey，而不是 groupByKey。
+Spark 4.3.
+4.3.0 引入了 `.mapPartitions()` 方法，允许对每个分区进行自定义处理。
